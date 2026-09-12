@@ -63,6 +63,9 @@ def overpay(row): return None if is_gated(row) else num(row, "overpay_mo")
 def comp(row): return {k: num(row, "c_" + k) for k in S.COMP_KEYS}
 def score(row): return None if is_gated(row) else num(row, "score")
 
+# v6, 14 Sep: the letter grade is no longer rendered anywhere on the page. `grade` and
+# `fit_score` stay in decision.csv and detail.json for continuity with every earlier pass.
+# These helpers are kept so a reader of an old record can still be shown a letter.
 GR_CLASS = lambda g: "g-a" if g.startswith("A") else ("g-b" if g.startswith("B") else "g-c")
 GRADE_TXT = lambda g: g.replace("-", "−")
 GR_COLOUR = lambda g: "--accent" if g.startswith("A") else ("--ink" if g.startswith("B") else "--muted")
@@ -140,6 +143,8 @@ def where_line(o, d):
     return f"{esc(o.get('neighbourhood') or '')}, {esc(o.get('municipality') or '')} · {esc(o.get('style') or '')}, {yr} · {beds} bed, {baths} · {sq}{lot} · {gar}"
 
 # ---------- the score panel: eight .sp rows in weight order (USABILITY-SPEC section 6) ----------
+SCORE_TIP = "Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."
+
 def sp_row(label, value, weight):
     """One .sp row. The bar is the component out of 100; the right-hand figure is the component
     and the weight it carries. Same .sp element and the same amber and red thresholds as v5."""
@@ -171,10 +176,9 @@ def scorepanel(o, d, row):
             if PROVISIONAL else "")
     return f"""<aside class="scorepanel">
             <div class="sp-top">
-              <div class="sp-letter {GR_CLASS(g)}">{GRADE_TXT(g)}</div>
               <div class="sp-num">
-                <span class="big"><b>{"—" if sc is None else f"{sc:.0f}"}</b><i>/ 100</i></span>
-                <em>Score · your weights, heaviest first · grade {GRADE_TXT(g)} on the facts alone</em>
+                <span class="big" title="{esc(SCORE_TIP)}"><b>{"—" if sc is None else f"{sc:.0f}"}</b><i>/ 100</i></span>
+                <em>Score · your weights, heaviest first</em>
               </div>
             </div>
             <div class="sp-parts">
@@ -205,7 +209,7 @@ def rooms_html(o, d):
     sp = "\n".join("              " + room_sp_row(lab, fp.get(k2, 0), mx) for k2, lab, mx in GPARTS[:3])
     h = ['<div class="roomswrap">',
          '          <div class="roomscore">',
-         f'            <div><span class="rh-lab">Room-driven score</span><span class="rs-num"><b>{rs:.0f}</b><i>/ 65</i></span><em>Size, layout and baths are scored from the rooms below — 65 of the grade\'s 100 points. Lot, location and parking are not in this table.</em></div>',
+         f'            <div><span class="rh-lab">Room-driven score</span><span class="rs-num"><b>{rs:.0f}</b><i>/ 65</i></span><em>Size, layout and baths are scored from the rooms below, 65 of the grade\'s 100 points. Lot, location and parking are not in this table.</em></div>',
          '            <div class="sp-parts">', sp, '            </div>',
          '          </div>',
          '          <details class="rooms"><summary>Every room, as entered on MLS</summary>',
@@ -437,7 +441,6 @@ def details_wrap(summary, inner, open_when_showing=False):
 def card(rank, row, o, d, n_ranked):
     slug = o["slug"]; k = short(slug)
     url = URLT.replace("{ID}", o["listing_id"])
-    grade = row["grade"]
     gated = is_gated(row)
     known = known_lines(o)
     def kl(t, b):
@@ -465,8 +468,7 @@ def card(rank, row, o, d, n_ranked):
     return f"""
     <article class="lot" id="sr-lot-{k}" data-slug="{k}"{card_data(o, row, d)}{grey}>
       <div class="rail"><div class="rank">{"—" if gated else rank}</div>
-        <div class="psf"><b>{"—" if gated else f'{num(row,"score"):.0f}'}</b><span>Score</span></div>
-        <div class="grade {GR_CLASS(grade)}">{GRADE_TXT(grade)}</div>
+        <div class="psf" title="{esc(SCORE_TIP)}"><b>{"—" if gated else f'{num(row,"score"):.0f}'}</b><span>Score</span></div>
         <div class="psf">{pay_cell(o, big=True)}<span>Monthly payment</span></div>
         <div class="psf"><b>{band_txt(row)}</b><span>Band</span></div></div>
       <div class="body">
@@ -479,18 +481,22 @@ def card(rank, row, o, d, n_ranked):
           <p class="where">{where_line(o, d)}</p>
           <p class="where why" style="margin-top:5px">{under_address(row, o, n_ranked)}</p>
           <div class="tags">{''.join(stamps_for(row, o, d, url))}</div>
-          </div>
-          {scorepanel(o, d, row)}
-        </div>
-        <dl class="money">
+          <dl class="money">
           <div class="hero"><dt>Monthly payment</dt><dd>{pay_cell(o)}</dd>
             <dd class="paysub" data-paysub="{k}"></dd></div>
           <div><dt>Day-one work</dt><dd>{money(d['day1_p80'])}</dd></div>
           <div><dt>Wish list</dt><dd>{money(d['wish_p80'])}</dd></div>
           <div><dt>{HOLD_DEF}-year cost</dt><dd>{money(num(row, "cost_hold"))}</dd></div>
           <div><dt>Cash on closing day</dt><dd><span class="cashline" data-k="{k}">—</span></dd></div>
-        </dl>
-        <dl class="live-row" data-live="{k}"></dl>
+          </dl>
+          </div>
+          {scorepanel(o, d, row)}
+        </div>
+        <dl class="live-row" data-live="{k}" data-ask="{o['list_price']}"
+            data-peryear="{round(num(row, 'cost_hold_per_year'))}"
+            data-pricescore="{num(row, 'c_price'):.0f}"
+            data-anchorbest="{int(S.CFG['hold']['price_anchor_per_year']['best'])}"
+            data-anchorworst="{int(S.CFG['hold']['price_anchor_per_year']['worst'])}"></dl>
         <p class="take">{take}{d1_txt}</p>
         {sec_reno}
         {sec_rooms}
@@ -521,7 +527,7 @@ for r in ROWS:
                             "verdict": r["verdict"]}
     compare_js[short(slug)] = {
         "name": o["address"].split(",")[0].title(), "ask": o["list_price"],
-        "score": "—" if is_gated(r) else round(num(r, "score"), 1), "grade": GRADE_TXT(r["grade"]),
+        "score": "—" if is_gated(r) else round(num(r, "score"), 1),
         "comp": {k2: round(num(r, "c_" + k2)) for k2 in S.COMP_KEYS},
         "day1": d["day1_p80"], "wish": d["wish_p80"], "hold": round(num(r, "cost_hold")),
         "band": band_txt(r), "dom": dom_days(o), "status": status_of(o),
@@ -555,7 +561,8 @@ def changes_line():
     return f'<p class="changes" id="changes">Since the last build: {inner}</p>'
 
 # ---------- table ----------
-THEAD = ('<th class="n">#</th><th>House</th><th class="scoreth">Score</th><th>Grade</th>'
+tip_s = esc(SCORE_TIP)
+THEAD = (f'<th class="n">#</th><th>House</th><th class="scoreth" title="{tip_s}">Score</th>'
          '<th class="n">Monthly payment</th><th class="n">Day-one</th><th class="n">Condition</th>'
          '<th class="n">Band</th><th class="n">DOM</th><th>Status</th><th>Verdict</th><th class="flag-col">Flags</th>')
 
@@ -586,7 +593,6 @@ def table_rows():
         out.append(f"<tr{cls}{card_data(o, r, d)} data-slug='{short(slug)}'><td class='n'>{cell}</td>"
                    f"<td><a class='tl' href='#sr-lot-{short(slug)}'>{esc(r['address'].split(',')[0].title())}</a></td>"
                    f"<td>{scorecol(r)}</td>"
-                   f"<td class='vd' style='color:var({GR_COLOUR(r['grade'])})'>{GRADE_TXT(r['grade'])}</td>"
                    f"<td class='n'>{pay_cell(o)}</td>"
                    f"<td class='n'>{money(int(r['day1_p80']))}</td>"
                    f"<td class='n'>{num(r,'c_condition'):.0f}</td>"
@@ -608,7 +614,7 @@ def minitable():
                else f'Band {band_txt(r)} · Condition {num(r,"c_condition"):.0f} · Day one {money(int(r["day1_p80"]))}')
         out.append(f'<li{stop}><a href="#sr-lot-{short(slug)}"><span class="mr-rank">{cell}</span>'
                    f'<span class="mr-name">{esc(r["address"].split(",")[0].title())}</span>'
-                   f'<span class="mr-score"><b>{GRADE_TXT(r["grade"])}</b><b>{"—" if sc is None else f"{sc:.0f}"}</b>'
+                   f'<span class="mr-score"><b>{"—" if sc is None else f"{sc:.0f}"}</b>'
                    f'<span class="bar"><i style="width:{(sc or 0):.0f}%; background:var({bar})"></i></span>'
                    f'<em>{esc(r["verdict"])}</em></span>'
                    f'<span class="mr-figs">Monthly payment {pay_cell(o)} · {fig}</span></a></li>')
@@ -675,7 +681,7 @@ def pairs_section():
         bars = "".join(sp_row(COMP_LABEL[k], h["comp"][k], W_JOINT[k]) for k in COMP_ORDER)
         return (f'<button type="button" class="pairpick" data-pair="{p["id"]}" data-pick="{which}">'
                 f'<span class="pp-head"><b>{esc(h["street"])}</b>'
-                f'<em>{money(h["ask"])} · grade {GRADE_TXT(h["grade"])}</em></span>'
+                f'<em>{money(h["ask"])}</em></span>'
                 f'<span class="sp-parts">{bars}</span>'
                 f'<span class="pp-line">{esc(h["line"])}</span></button>')
     cards_html = "".join(
@@ -712,9 +718,7 @@ CALIBRATION = """
 
 GLOSSARY = f"""
     <div class="term"><dt>Score</dt>
-      <dd>The one number this page is sorted on: eight components, each 0 to 100 on an absolute scale, combined with <b>your weights</b>. Higher is better, and it is not a letter grade.</dd></div>
-    <div class="term"><dt>Grade</dt>
-      <dd>The facts letter, unchanged from every earlier version: space, layout, baths, lot, location, parking, out of 100. <b>No price in it.</b> It is shown beside the score, never instead of it.</dd></div>
+      <dd>The one number this page is sorted on: eight components, each 0 to 100 on an absolute scale, combined with <b>your weights</b>. Higher is better. <b>It is not the letter.</b> Change a weight and every score moves.</dd></div>
     <div class="term"><dt>Condition</dt>
       <dd>The share of this house's work that is <b>not</b> expected, cost-weighted, 0 to 100. The dollars behind it are under Renovations. Photographs alone cannot push it past about 77; the rest needs somebody standing in the house.</dd></div>
     <div class="term"><dt>Monthly payment</dt>
@@ -872,7 +876,7 @@ V6JS = r"""
   }
 
   /* ---------- compare ---------- */
-  var CROWS = [["score","Score"],["grade","Grade"]].concat(CFG.order.map(function(k){ return ["c_"+k, CFG.label[k]]; }))
+  var CROWS = [["score","Score"]].concat(CFG.order.map(function(k){ return ["c_"+k, CFG.label[k]]; }))
     .concat([["pay","Monthly payment"],["day1","Day-one work"],["wish","Wish list"],
              ["hold", CFG.hold + "-year cost"],["cash","Cash on closing day"],["band","Band"],
              ["gut","Gut scores"],["dom","Days on market"],["status","Status"],["flags","Flags"],["qs","Ask the agent"]]);
@@ -1171,8 +1175,10 @@ V6JS = r"""
 .tablewrap table.big td.n .pay{font-weight:400}
 .money .hero{grid-column:span 2}
 @media (max-width:520px){ .money .hero{grid-column:span 1} }
-.paysub{display:block; font-family:var(--mono); font-size:10.5px; font-weight:400;
-  color:var(--muted); line-height:1.5; letter-spacing:0; margin-top:3px}
+.money .hero dd{color:var(--ink)}
+.money .hero dd .pay,.money .hero dd .payhero{font-weight:500; color:var(--ink)}
+.money .hero dd.paysub{display:block; font-family:var(--mono); font-size:11px; font-weight:400;
+  color:#1a1a1a; line-height:1.5; letter-spacing:0; margin-top:4px}
 .sp em{line-height:1.15}
 .sp em .spw{display:block; font-family:var(--mono); font-size:8px; letter-spacing:.04em;
   color:var(--muted); text-decoration:none; opacity:.85}
@@ -1182,6 +1188,13 @@ V6JS = r"""
   text-transform:uppercase; color:var(--muted)}
 .renofigs .rf-val{font-size:20px; font-variant-numeric:tabular-nums}
 .renofigs .rf-note{font-size:11px; color:var(--muted)}
+.roomscore{grid-template-columns:minmax(230px,340px) minmax(240px,420px) !important;
+  justify-content:start; align-items:center; gap:12px 34px !important}
+.roomscore .sp-parts{width:100%}
+@media (max-width:700px){ .roomscore{grid-template-columns:1fr !important} }
+.term dt{font-size:12px !important; letter-spacing:.085em !important}
+.live-row dd.livenote{font-family:inherit; font-size:10.5px; font-weight:400; color:var(--muted);
+  letter-spacing:0; line-height:1.35; margin-top:1px}
 .rooms>summary{cursor:pointer; font-family:var(--mono); font-size:10px; letter-spacing:.08em;
   text-transform:uppercase; color:var(--muted); padding:8px 0}
 .stamp.sat.on,.stamp.cmp.on{border-color:var(--accent); color:var(--accent)}
