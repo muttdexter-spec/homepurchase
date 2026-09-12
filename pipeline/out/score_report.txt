@@ -1,0 +1,48 @@
+#  GR  HOUSE                        ASK    DAY-1  $/SF     SPEND      RESALE  REC%      SUNK   RANK  VERDICT
+1  A   3205 Tania Crescent   $1,274,999 $ 42,675   410 $ 184,496 $ 1,386,101   60% $  73,394    1-1  SEE        virtually staged frames
+2  A-  470 Delaney Court     $1,249,900 $ 30,372   500 $ 103,444 $ 1,307,258   55% $  46,086    2-2  SEE FIRST  
+3  B   522 Enfield Road      $  825,000 $ 84,179   520 $ 293,789 $ 1,006,569   62% $ 112,220   3-17  SEE        OIL TANK — buried? uncapped liabil
+4  B-  5174 Ravine Crescent  $1,098,000 $ 29,704   527 $  98,500 $ 1,159,468   62% $  37,032    3-4  SEE        POOL — in-ground, not priced
+5  B-  5180 Bunton Crescent  $1,050,000 $ 29,175   528 $ 121,178 $ 1,130,994   67% $  40,184    5-7  SEE        
+6  B   4831 Columbus Drive   $1,250,000 $ 29,237   535 $ 109,430 $ 1,323,149   67% $  36,281   6-10  SEE FIRST  
+7  C+  1319 Bonnie Court     $  999,900 $ 28,973   537 $ 120,195 $ 1,080,345   67% $  39,750   7-11  SEE        
+8  A-  3212 Pinemeadow Drive $1,299,900 $ 40,844   553 $ 124,693 $ 1,378,248   63% $  46,345   8-12  SEE FIRST  
+9  C   2120 Cavendish Drive  $  969,900 $ 25,020   567 $ 150,569 $ 1,058,359   59% $  62,110    4-9  SEE        
+10 B-  2294 Seton Crescent   $1,194,900 $ 26,212   579 $  76,887 $ 1,241,782   61% $  30,005   5-10  SEE        
+11 A-  3217 Hazelwood Avenue $1,235,000 $ 38,621   594 $ 170,599 $ 1,338,668   61% $  66,931  11-14  SEE FIRST  
+12 C+  3490 Rexway Drive     $1,079,000 $ 34,811   596 $ 119,829 $ 1,151,025   60% $  47,804  12-21  SEE        POOL — in-ground, not priced
+13 C+  2148 Stillmeadow Road $1,098,000 $ 27,816   596 $ 100,659 $ 1,161,414   63% $  37,245  12-15  SEE        
+14 C-  2265 Middlesmoor Cres $1,049,900 $ 28,855   597 $  96,642 $ 1,109,712   62% $  36,830   6-14  SEE        
+15 B   1493 Clinton Court    $1,174,900 $ 30,552   617 $ 107,789 $ 1,242,232   62% $  40,457   8-15  SEE FIRST  
+16 B   1273 Barberry Green   $1,199,000 $ 28,486   620 $ 103,317 $ 1,263,418   62% $  38,899   9-16  SEE FIRST  
+17 B   1177 GRAND Boulevard  $1,299,900 $ 31,581   630 $ 239,034 $ 1,455,001   65% $  83,933  17-24  SEE FIRST  
+18 B-  506 PONDVIEW Place    $1,299,000 $ 28,310   638 $  87,981 $ 1,353,416   62% $  33,565  18-22  SEE        
+19 C+  3469 Caplan Crescent  $  988,800 $ 27,890   649 $ 109,736 $ 1,057,707   63% $  40,829  13-19  SEE        
+20 C-  3202 Centennial Drive $1,059,900 $ 33,411   682 $ 121,498 $ 1,124,753   53% $  56,645  20-30  SEE        POOL — in-ground, not priced
+21 C   5190 Wood Crescent    $1,099,900 $ 26,338   693 $  96,211 $ 1,155,340   58% $  40,771  16-21  SEE        
+22 B   659 Cherrywood Drive  $1,299,999 $ 34,621   704 $  94,871 $ 1,350,906   54% $  43,964  18-23  SEE FIRST  
+23 C+  1379 Christina Court  $1,299,900 $ 29,850   708 $  90,697 $ 1,346,967   52% $  43,630  19-23  SEE        
+24 C   1280 ALDRIDGE Crescen $1,018,800 $ 25,617   730 $ 100,169 $ 1,030,320   33% $  66,791  20-24  SEE        
+25 C+  395 LARK Avenue       $1,249,000 $ 32,084   765 $  87,769 $ 1,205,640   26% $  65,134  23-25  SEE        
+26 C   28 Osborne Crescent   $1,299,000 $ 33,785   771 $ 135,578 $ 1,363,951   48% $  70,627  26-33  SEE        
+27 B-  1228 Pallatine Drive  $1,228,000 $ 33,860   773 $ 109,348 $ 1,282,781   50% $  54,567  25-27  SEE        
+28 C-  493 CROSBY Avenue     $1,149,900 $ 32,422   796 $  96,233 $ 1,069,920   25% $  72,163  28-32  SEE        
+29 C+  1453 Mountain Grove A $1,079,000 $ 31,597   796 $ 143,443 $ 1,004,040   26% $ 106,254  29-35  SEE        
+30 B-  2105 Maplewood Drive  $1,199,000 $ 31,679   798 $ 101,685 $ 1,109,880   26% $  74,821  26-30  SEE        
+31 C-  275 Kent Crescent     $1,179,000 $ 31,297   801 $  92,439 $ 1,087,920   26% $  68,324  27-31  SEE        
+32 C   462 Samford Place     $1,099,000 $ 31,571   820 $ 127,245 $ 1,089,015   29% $  90,243  32-37  SEE        
+33 C   5322 Windermere Drive $  999,900 $ 49,310   826 $ 109,397 $   914,076   23% $  83,780  28-33  STOP       basement moisture confirmed
+34 C   2501 Yarmouth Crescen $1,298,000 $ 33,821   836 $ 183,536 $ 1,258,865   31% $ 126,815  29-34  SEE        
+35 C   2221 Wyandotte Drive  $1,299,999 $ 26,233   860 $  85,766 $ 1,217,785   29% $  60,897  34-35  SEE        
+36 C+  1218 Oxlow Drive      $1,249,999 $ 24,489   888 $  75,259 $ 1,134,045   28% $  54,390  36-36  SEE        
+37 C+  568 Weir Avenue       $1,299,999 $ 40,641   894 $ 147,156 $ 1,184,605   25% $ 110,505  31-37  SEE        TENANTED
+
+SECOND-BATH OPPORTUNITY (the only intervention that can exceed 100%)
+  1177 GRAND Boulevard     spend $16,950 -> value +$16,950 to $21,188
+  493 CROSBY Avenue        spend $16,950 -> value +$16,950 to $21,188
+
+SENSITIVITY OF THE ARV BENCHMARK (currently $720/sf Bur, $790/sf Oak)
+  3205 Tania Crescent      resale $1,386,101  +/-$192,600 if the benchmark is off by $60/sf
+  470 Delaney Court        resale $1,307,258  +/-$153,480 if the benchmark is off by $60/sf
+  522 Enfield Road         resale $1,006,569  +/-$104,880 if the benchmark is off by $60/sf
+  5174 Ravine Crescent     resale $1,159,468  +/-$128,460 if the benchmark is off by $60/sf

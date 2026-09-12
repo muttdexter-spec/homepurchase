@@ -1,0 +1,1290 @@
+<title>Walking the Shortlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#F5F7F9; --card:#FFFFFF; --ink:#15202B; --muted:#5C6B7A;
+    --rule:#DBE2E9; --rule-soft:#EBEFF3;
+    --accent:#2F5D8A; --accent-soft:#E8EFF6;
+    --flag:#A8452C; --flag-soft:#F7EAE6;
+    --clear:#42735A; --clear-soft:#E7F0EA;
+    --shadow:0 1px 2px rgba(21,32,43,.05), 0 8px 24px -16px rgba(21,32,43,.18);
+    --serif:"Newsreader",Georgia,"Times New Roman",serif;
+    --sans:"Karla","Helvetica Neue",Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0F141A; --card:#171E26; --ink:#E2E8EF; --muted:#94A3B3;
+      --rule:#2A333E; --rule-soft:#212932;
+      --accent:#82B2DC; --accent-soft:#1B2A38;
+      --flag:#DC8A6E; --flag-soft:#2E2019;
+      --clear:#7FB596; --clear-soft:#19261E;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0F141A; --card:#171E26; --ink:#E2E8EF; --muted:#94A3B3;
+    --rule:#2A333E; --rule-soft:#212932;
+    --accent:#82B2DC; --accent-soft:#1B2A38;
+    --flag:#DC8A6E; --flag-soft:#2E2019;
+    --clear:#7FB596; --clear-soft:#19261E;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.6);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.55;
+    -webkit-font-smoothing:antialiased; padding:0 20px; margin:0;
+  }
+  .wrap{max-width:940px; margin:0 auto; padding-block:40px 72px;
+        display:flex; flex-direction:column; gap:40px}
+  a{color:var(--accent)}
+
+  .mast{display:flex; flex-direction:column; gap:14px;
+        border-bottom:2px solid var(--ink); padding-bottom:22px}
+  .kicker{font-family:var(--mono); font-size:11px; letter-spacing:.14em;
+          text-transform:uppercase; color:var(--accent); margin:0}
+  .mast h1{font-family:var(--serif); font-weight:500; font-size:clamp(34px,6vw,52px);
+           line-height:1.05; margin:0; letter-spacing:-.015em; text-wrap:balance}
+  .standfirst{margin:0; max-width:62ch; color:var(--muted); font-size:17px}
+  .mast-meta{display:flex; flex-wrap:wrap; gap:8px 20px; font-family:var(--mono);
+             font-size:11.5px; color:var(--muted); letter-spacing:.04em}
+
+  .glossary{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:1px;
+            background:var(--rule); border:1px solid var(--rule); border-radius:3px; overflow:hidden}
+  .term{background:var(--card); padding:16px 18px; display:flex; flex-direction:column; gap:5px}
+  .term dt{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+           text-transform:uppercase; color:var(--accent)}
+  .term dd{margin:0; font-size:14px; line-height:1.45; color:var(--muted)}
+  .term dd b{color:var(--ink); font-weight:700}
+
+  .howto{font-size:15px; color:var(--muted); margin:0; max-width:68ch;
+         border-left:3px solid var(--accent); padding-left:16px}
+  .howto b{color:var(--ink)}
+
+  /* ---------- calculator ---------- */
+  .calc{background:var(--card); border:1px solid var(--rule); border-radius:4px;
+        box-shadow:var(--shadow); overflow:hidden}
+  .calc-head{padding:20px 22px 0; display:flex; flex-direction:column; gap:6px}
+  .calc-head h2{font-family:var(--serif); font-size:26px; font-weight:600; margin:0; letter-spacing:-.01em}
+  .calc-head p{margin:0; color:var(--muted); font-size:14.5px; max-width:66ch}
+  .controls{display:flex; flex-wrap:wrap; gap:18px 26px; padding:18px 22px;
+            border-bottom:1px solid var(--rule-soft); align-items:flex-end}
+  .ctrl{display:flex; flex-direction:column; gap:5px}
+  .ctrl label{font-family:var(--mono); font-size:9.5px; letter-spacing:.09em;
+              text-transform:uppercase; color:var(--muted)}
+  .ctrl input[type=number]{font-family:var(--mono); font-size:16px; width:88px; padding:6px 8px;
+    border:1px solid var(--rule); border-radius:3px; background:var(--paper); color:var(--ink);
+    font-variant-numeric:tabular-nums}
+  .ctrl input:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+  .ftb{flex-direction:row; align-items:center; gap:8px; padding-bottom:7px}
+  .ftb input{width:16px; height:16px; accent-color:var(--accent); cursor:pointer}
+  .ftb label{font-family:var(--sans); font-size:14px; text-transform:none;
+             letter-spacing:0; color:var(--ink); cursor:pointer}
+  #cmhc-note{font-size:13px; color:var(--flag); margin:0; padding:0 22px 14px; display:none}
+  #cmhc-note.on{display:block}
+
+  /* ---------- listings ---------- */
+  .lots{display:flex; flex-direction:column; gap:26px}
+  .lot{background:var(--card); border:1px solid var(--rule); border-radius:4px;
+       box-shadow:var(--shadow); display:grid; grid-template-columns:104px 1fr; overflow:hidden}
+  .rail{border-right:1px solid var(--rule); padding:20px 14px;
+        display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center}
+  .rank{font-family:var(--serif); font-size:38px; line-height:1; color:var(--accent);
+        font-weight:500; font-variant-numeric:tabular-nums}
+  .grade{font-family:var(--mono); font-size:15px; font-weight:500; padding:3px 10px;
+         border-radius:2px; letter-spacing:.02em}
+  .g-a{background:var(--accent-soft); color:var(--accent); border:1px solid var(--accent)}
+  .g-b{background:transparent; color:var(--ink); border:1px solid var(--ink)}
+  .g-c{background:transparent; color:var(--muted); border:1px solid var(--rule)}
+  .psf{display:flex; flex-direction:column; gap:2px; font-family:var(--mono)}
+  .psf b{font-size:16px; font-weight:500; font-variant-numeric:tabular-nums}
+  .psf span{font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); line-height:1.3}
+
+  .body{padding:20px 22px 22px; display:flex; flex-direction:column; gap:16px; min-width:0}
+  .lot-head h2{font-family:var(--serif); font-size:25px; font-weight:600; margin:0 0 3px;
+               letter-spacing:-.01em; line-height:1.2}
+  .lot-head h2 a{text-decoration:none; color:inherit; border-bottom:2px solid var(--accent-soft)}
+  .lot-head h2 a:hover{border-bottom-color:var(--accent)}
+  .where{margin:0; font-size:13.5px; color:var(--muted)}
+  .tags{display:flex; flex-wrap:wrap; gap:7px; margin-top:9px}
+  .stamp{display:inline-flex; align-items:center; font-family:var(--mono);
+         font-size:10px; letter-spacing:.08em; text-transform:uppercase; padding:2px 8px; border-radius:2px}
+  .stamp.seen{background:var(--clear-soft); color:var(--clear)}
+  .stamp.unseen{background:var(--flag-soft); color:var(--flag)}
+  .stamp.link{background:var(--accent-soft); color:var(--accent); text-decoration:none}
+  .stamp.link:hover{background:var(--accent); color:var(--card)}
+
+  .money{display:grid; grid-template-columns:repeat(auto-fit,minmax(112px,1fr));
+         gap:14px 10px; margin:0; padding:14px 0; border-block:1px solid var(--rule-soft)}
+  .money div{display:flex; flex-direction:column; gap:2px; min-width:0}
+  .money dt{font-family:var(--mono); font-size:9.5px; letter-spacing:.08em;
+            text-transform:uppercase; color:var(--muted)}
+  .money dd{margin:0; font-family:var(--mono); font-size:17px; font-weight:500;
+            font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+  .money .hero dd{color:var(--accent)}
+  .money .warn dd{color:var(--flag)}
+
+  .live-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px;
+            background:var(--accent-soft); border-radius:3px; padding:12px 14px}
+  .live-row div{display:flex; flex-direction:column; gap:1px}
+  .live-row dt{font-family:var(--mono); font-size:9px; letter-spacing:.08em;
+               text-transform:uppercase; color:var(--accent)}
+  .live-row dd{margin:0; font-family:var(--mono); font-size:16px; font-weight:500;
+               font-variant-numeric:tabular-nums}
+
+  .take{margin:0; font-size:15.5px; line-height:1.6}
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+  .split section{display:flex; flex-direction:column; gap:9px; min-width:0}
+  .split h3{font-family:var(--mono); font-size:10px; letter-spacing:.11em;
+            text-transform:uppercase; margin:0; font-weight:500}
+  .known h3{color:var(--clear)}
+  .check h3{color:var(--flag)}
+  .known ul{margin:0; padding-left:16px; display:flex; flex-direction:column; gap:6px;
+            font-size:14px; line-height:1.45}
+  .known li::marker{color:var(--clear)}
+  .known .bad{color:var(--flag); font-weight:700}
+  .check ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px}
+  .check li{display:flex; gap:9px; align-items:flex-start; font-size:14px; line-height:1.4}
+  .check input{margin:2px 0 0; width:15px; height:15px; flex:none; accent-color:var(--accent); cursor:pointer}
+  .check label{cursor:pointer}
+  .check input:checked + label{color:var(--muted); text-decoration:line-through}
+  .check input:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+  .ask{margin:0; font-size:14px; line-height:1.5; background:var(--accent-soft);
+       border-radius:3px; padding:11px 14px; color:var(--ink)}
+  .ask span{font-family:var(--mono); font-size:9.5px; letter-spacing:.1em;
+            text-transform:uppercase; color:var(--accent); display:block; margin-bottom:3px}
+
+  /* ---------- room tables ---------- */
+  details.rooms{border-top:1px solid var(--rule-soft); padding-top:14px}
+  details.rooms summary{font-family:var(--mono); font-size:10px; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--accent); cursor:pointer; list-style:none;
+    display:flex; align-items:center; gap:7px}
+  details.rooms summary::-webkit-details-marker{display:none}
+  details.rooms summary::before{content:"▸"; font-size:11px; transition:transform .15s}
+  details.rooms[open] summary::before{transform:rotate(90deg)}
+  details.rooms summary:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+  .roomtab{margin-top:12px; overflow-x:auto}
+  .roomtab table{border-collapse:collapse; width:100%; font-size:13px; min-width:440px}
+  .roomtab th{font-family:var(--mono); font-size:9px; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--muted); font-weight:500; text-align:left; padding:5px 10px 5px 0; border-bottom:1px solid var(--rule)}
+  .roomtab td{padding:5px 10px 5px 0; border-bottom:1px solid var(--rule-soft); vertical-align:top}
+  .roomtab td.dim,.roomtab td.sq{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap}
+  .roomtab td.sq{text-align:right; padding-right:14px}
+  .roomtab .lvl{font-family:var(--mono); font-size:10px; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--accent)}
+  .roomtab .small{color:var(--flag); font-weight:700}
+  .roomtab td.ft{color:var(--muted); font-size:12.5px}
+
+  .money dd .per{font-size:11px; color:var(--muted); font-weight:400; letter-spacing:0}
+
+  /* ---------- cost breakdown ---------- */
+  details.costs{border-top:1px solid var(--rule-soft); padding-top:14px}
+  details.costs summary{font-family:var(--mono); font-size:10px; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--flag); cursor:pointer; list-style:none;
+    display:flex; align-items:center; gap:7px}
+  details.costs summary::-webkit-details-marker{display:none}
+  details.costs summary::before{content:"\25B8"; font-size:11px; transition:transform .15s}
+  details.costs[open] summary::before{transform:rotate(90deg)}
+  details.costs summary:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+  .costbody{margin-top:14px; display:flex; flex-direction:column; gap:18px}
+  .costgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1px;
+    background:var(--rule); border:1px solid var(--rule); border-radius:3px; overflow:hidden}
+  .cb{background:var(--card); padding:14px 15px; display:flex; flex-direction:column; gap:9px; min-width:0}
+  .cb h4{margin:0; font-family:var(--mono); font-size:9.5px; letter-spacing:.1em;
+    text-transform:uppercase; font-weight:500; display:flex; justify-content:space-between;
+    gap:10px; align-items:baseline}
+  .cb h4 b{font-size:14px; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
+  .cb.d1 h4{color:var(--flag)} .cb.d1 h4 b{color:var(--flag)}
+  .cb.wl h4{color:var(--accent)} .cb.wl h4 b{color:var(--accent)}
+  .cb.rs h4{color:var(--clear)} .cb.rs h4 b{color:var(--clear)}
+  .cb table{border-collapse:collapse; width:100%; font-size:12.5px}
+  .cb td{padding:3px 0; border-bottom:1px solid var(--rule-soft); vertical-align:top}
+  .cb tr:last-child td{border-bottom:none}
+  .cb td.amt{font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right;
+    white-space:nowrap; padding-left:8px}
+  .cb td.odds{width:52px; padding-right:8px}
+  .odds i{display:block; font-style:normal; font-family:var(--mono); font-size:9.5px;
+    color:var(--muted); letter-spacing:.03em}
+  .odds u{display:block; text-decoration:none; height:3px; border-radius:2px;
+    background:var(--rule); margin-top:2px; overflow:hidden}
+  .odds u s{display:block; height:100%; text-decoration:none; background:currentColor}
+  .cb.d1 .odds u s{background:var(--flag)} .cb.wl .odds u s{background:var(--accent)}
+  .cb .why{color:var(--muted); font-size:11.5px; display:block; line-height:1.3}
+  .cb .foot{margin:0; font-size:11.5px; color:var(--muted); line-height:1.45}
+
+  .valuebox{border:1px solid var(--rule); border-radius:3px; overflow:hidden}
+  .valuerow{display:grid; grid-template-columns:repeat(auto-fit,minmax(128px,1fr));
+    gap:1px; background:var(--rule); margin:0}
+  .valuerow div{background:var(--card); padding:11px 13px; display:flex; flex-direction:column; gap:2px}
+  .valuerow dt{font-family:var(--mono); font-size:9px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted)}
+  .valuerow dd{margin:0; font-family:var(--mono); font-size:15px; font-weight:500;
+    font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+  .valuerow .neg dd{color:var(--flag)}
+  .valuenote{margin:0; background:var(--card); border-top:1px solid var(--rule);
+    padding:11px 13px; font-size:13px; color:var(--muted); line-height:1.5}
+  .valuenote b{color:var(--ink)}
+
+  .gradebox{display:flex; flex-wrap:wrap; gap:10px 18px; align-items:flex-end;
+    border-top:1px solid var(--rule-soft); padding-top:13px}
+  .gradebox .gl{font-family:var(--mono); font-size:9px; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--muted); flex:none; padding-bottom:2px}
+  .gp{display:flex; flex-direction:column; gap:3px; min-width:56px}
+  .gp em{font-style:normal; font-family:var(--mono); font-size:9px; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--muted)}
+  .gp span{display:block; height:5px; background:var(--rule); border-radius:3px; overflow:hidden}
+  .gp span i{display:block; height:100%; background:var(--accent)}
+  .gp b{font-family:var(--mono); font-size:10.5px; font-weight:500;
+    font-variant-numeric:tabular-nums; color:var(--ink)}
+
+  /* ---------- assumptions ---------- */
+  .assume{display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:1px;
+    background:var(--rule); border:1px solid var(--rule); border-radius:3px; overflow:hidden}
+  .assume section{background:var(--card); padding:16px 18px; display:flex;
+    flex-direction:column; gap:10px; min-width:0}
+  .assume h3{margin:0; font-family:var(--mono); font-size:10px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--accent); font-weight:500}
+  .assume table{border-collapse:collapse; width:100%; font-size:12.5px}
+  .assume th{font-family:var(--mono); font-size:8.5px; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--muted); font-weight:500; text-align:left; padding:0 0 4px; border-bottom:1px solid var(--rule)}
+  .assume th.n,.assume td.n{text-align:right; font-family:var(--mono);
+    font-variant-numeric:tabular-nums; white-space:nowrap; padding-left:8px}
+  .assume td{padding:4px 0; border-bottom:1px solid var(--rule-soft)}
+  .assume tr:last-child td{border-bottom:none}
+  .assume p{margin:0; font-size:12.5px; color:var(--muted); line-height:1.5}
+  .assume p b{color:var(--ink)}
+  .assume .hot{color:var(--flag)}
+
+  .section-head{display:flex; flex-direction:column; gap:6px;
+                border-top:2px solid var(--ink); padding-top:20px}
+  .section-head h2{font-family:var(--serif); font-size:27px; font-weight:600; margin:0; letter-spacing:-.01em}
+  .section-head p{margin:0; color:var(--muted); font-size:14.5px; max-width:64ch}
+  .tablewrap{overflow-x:auto; border:1px solid var(--rule); border-radius:3px; background:var(--card)}
+  table.big{border-collapse:collapse; width:100%; font-size:13px; min-width:660px}
+  table.big th,table.big td{padding:8px 12px; text-align:left;
+    border-bottom:1px solid var(--rule-soft); white-space:nowrap}
+  table.big th{font-family:var(--mono); font-size:9.5px; letter-spacing:.08em; text-transform:uppercase;
+     color:var(--muted); font-weight:500; background:var(--paper); position:sticky; top:0}
+  table.big td.n{font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right}
+  table.big tbody tr:last-child td{border-bottom:none}
+  table.big tr.stop td{color:var(--flag)}
+  table.big tr.live{background:var(--accent-soft)}
+  .vd{font-family:var(--mono); font-size:10px; letter-spacing:.05em}
+
+  .standing{background:var(--card); border:1px solid var(--rule); border-radius:3px; padding:18px 20px}
+  .standing h3{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+               color:var(--accent); margin:0 0 10px; font-weight:500}
+  .standing ol{margin:0; padding-left:20px; display:flex; flex-direction:column; gap:7px;
+               font-size:15px; line-height:1.5}
+  .caveat{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px;
+          border-top:1px solid var(--rule); padding-top:24px}
+  .caveat section h3{font-family:var(--mono); font-size:10px; letter-spacing:.1em;
+                     text-transform:uppercase; color:var(--flag); margin:0 0 8px; font-weight:500}
+  .caveat p{margin:0; font-size:14px; color:var(--muted); line-height:1.5}
+  .colophon{font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.03em;
+            text-align:center; line-height:1.7; margin:0}
+
+  @media (max-width:640px){
+    .lot{grid-template-columns:1fr}
+    .rail{flex-direction:row; justify-content:flex-start; gap:16px;
+          border-right:none; border-bottom:1px solid var(--rule); padding:14px 18px}
+    .rank{font-size:28px}
+    .psf{flex-direction:row; align-items:baseline; gap:6px}
+    .split{grid-template-columns:1fr; gap:18px}
+    .body{padding:18px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <p class="kicker">Halton shortlist · walk-through companion</p>
+    <h1>Walking the Shortlist</h1>
+    <p class="standfirst">Eleven houses, ranked by what they actually cost rather than what they ask.
+      Each one lists what the listing photos already settled, what only a person standing in the room can
+      settle, every room with its real dimensions, and every renovation line with what it costs and how likely it is to be needed. Tick the checks as you go.</p>
+    <div class="mast-meta">
+      <span>11 of 24 scored in detail</span>
+      <span>Ranked by cost per usable sq ft</span>
+      <span>Room data from MLS</span>
+      <span>Every renovation line, costed</span>
+    </div>
+  </header>
+
+  <dl class="glossary">
+    <div class="term"><dt>Day-one cash</dt>
+      <dd>What has to be spent <b>before or at move-in</b>. Safety, insurability, and work that costs twice as much once the furniture is in.</dd></div>
+    <div class="term"><dt>True cost</dt>
+      <dd>Asking price <b>plus day-one cash</b>. Not the asking price plus everything you might ever want to do.</dd></div>
+    <div class="term"><dt>Reserve / month</dt>
+      <dd>The monthly set-aside for the <b>roof, furnace, A/C, water heater and windows</b>. Not a purchase cost, a running one. On the cards it is shown added to property tax.</dd></div>
+    <div class="term"><dt>Wish list</dt>
+      <dd>Kitchen, baths, basement, deck. <b>Your choice, your timing.</b> Deliberately kept out of the ranking.</dd></div>
+  </dl>
+
+  <p class="howto"><b>One rule behind all of this:</b> photos can only ever count against a house,
+    never for it. A kitchen that looks immaculate in forty photos scores exactly the same as a kitchen
+    with no photos at all. So the green column is only ever "no problem found", and the red column is
+    the real agenda for the visit.</p>
+
+  <section class="calc">
+    <div class="calc-head">
+      <h2>What each one actually costs you</h2>
+      <p>Put your own numbers in. Everything below recalculates, including Ontario land transfer tax and
+        the first-time buyer rebate. Payments use the Canadian semi-annual compounding convention.</p>
+    </div>
+    <div class="controls">
+      <div class="ctrl"><label for="dp">Down payment %</label>
+        <input type="number" id="dp" value="20" min="5" max="100" step="1"></div>
+      <div class="ctrl"><label for="rate">Interest rate %</label>
+        <input type="number" id="rate" value="4.25" min="0.5" max="12" step="0.05"></div>
+      <div class="ctrl"><label for="amort">Amortization yrs</label>
+        <input type="number" id="amort" value="25" min="5" max="30" step="1"></div>
+      <div class="ctrl ftb"><input type="checkbox" id="ftb" checked>
+        <label for="ftb">First-time buyers</label></div>
+    </div>
+    <p id="cmhc-note">Under 20% down, mortgage default insurance applies and gets added to the loan.
+      Confirm the premium and the maximum purchase price with your lender.</p>
+    <div class="tablewrap">
+      <table class="big" id="calctab">
+        <thead><tr><th>House</th><th class="n">Ask</th><th class="n">Mortgage</th>
+          <th class="n">Mortgage / mo</th><th class="n">Tax / mo</th><th class="n">Reserve / mo</th>
+          <th class="n">Total / mo</th><th class="n">Land transfer</th><th class="n">Cash on closing day</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="lots" id="lots">
+
+    <article class="lot" data-slug="tania">
+      <div class="rail"><div class="rank">1</div><div class="grade g-a">A</div>
+        <div class="psf"><b>$418</b><span>per usable sq ft</span></div></div>
+      <div class="body">
+        <div class="lot-head">
+          <h2><a href="https://portal.onehome.com/en-CA/property/aotf~1190433071~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5ODcwMTk0IiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">3205 Tania Crescent</a></h2>
+          <p class="where">Headon, Burlington · Two storey · 4 bed, 3 full + 1 half · 2,597 sq ft up, 1,227 finished down · 50 × 100 ft lot · double garage</p>
+          <div class="tags"><span class="stamp seen">Photos reviewed · 43</span><a class="stamp link" href="https://portal.onehome.com/en-CA/property/aotf~1190433071~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5ODcwMTk0IiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">Open listing ↗</a></div>
+        </div>
+        <dl class="money">
+          <div><dt>Ask</dt><dd>$1,274,999</dd></div>
+          <div class="hero"><dt>Day-one cash</dt><dd>$67,223</dd></div>
+          <div><dt>True cost</dt><dd>$1,342,222</dd></div>
+          <div><dt>Taxes + reserve</dt><dd>$750<span class="per">/mo</span></dd></div>
+          <div><dt>Wish list</dt><dd>$163,406</dd></div>
+        </dl>
+        <dl class="live-row" data-live="tania"></dl>
+        <p class="take">The <strong>biggest house in the entire table</strong> at 3,210 usable feet, which is the
+          only reason it leads on cost per foot. It also carries the highest day-one cash of the top five.
+          The room table adds something the photos didn't: <strong>broadloom in every single bedroom, the den
+          and the rec room</strong>. Carpet everywhere you sleep, on a house at this price.</p>
+        <div class="split">
+          <section class="known"><h3>No problem found</h3><ul>
+            <li>Undermount sink and a squared counter edge — the kitchen counter is stone, not laminate</li>
+            <li>Main tub is freestanding, not a 1980s platform garden tub</li>
+            <li>Genuinely large rooms: 292 sq ft kitchen, 316 sq ft primary with fireplace and walk-in</li>
+            <li><span class="bad">Basement ceiling is drop tile</span> — a confirmed defect, not an unknown</li></ul></section>
+          <section class="check"><h3>Check when you're there</h3><ul>
+            <li><input type="checkbox" id="c1a"><label for="c1a">Windows. The listing claims 2025 but not one frame was readable in 43 photos</label></li>
+            <li><input type="checkbox" id="c1b"><label for="c1b">Lift a corner of the bedroom carpet. What's under it?</label></li>
+            <li><input type="checkbox" id="c1c"><label for="c1c">Top of the upper cabinets — is there a soffit?</label></li>
+            <li><input type="checkbox" id="c1d"><label for="c1d">Utility room: photograph the panel, furnace and water heater labels. No mechanical photo exists</label></li>
+            <li><input type="checkbox" id="c1e"><label for="c1e">Basement walls, bottom 18 inches. One wall sits behind an armchair in the photos</label></li></ul></section>
+        </div>
+        <p class="ask"><span>Ask before you go</span>Can you send the invoice for the 2025 windows, and confirm whether every opening was replaced or only some?</p>
+      </div>
+    </article>
+
+    <article class="lot" data-slug="delaney">
+      <div class="rail"><div class="rank">2</div><div class="grade g-a">A−</div>
+        <div class="psf"><b>$501</b><span>per usable sq ft</span></div></div>
+      <div class="body">
+        <div class="lot-head">
+          <h2><a href="https://portal.onehome.com/en-CA/property/aotf~1190446453~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5ODcwMTk0IiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">470 Delaney Court</a></h2>
+          <p class="where">Shoreacres, Burlington · 1986 two storey · 4+1 bed, 2 full + 1 half · 2,144 sq ft up, 828 down · 54 × 100 ft court lot · double garage</p>
+          <div class="tags"><span class="stamp seen">Photos reviewed · 48</span><a class="stamp link" href="https://portal.onehome.com/en-CA/property/aotf~1190446453~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5ODcwMTk0IiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">Open listing ↗</a></div>
+        </div>
+        <dl class="money">
+          <div><dt>Ask</dt><dd>$1,249,900</dd></div>
+          <div class="hero"><dt>Day-one cash</dt><dd>$30,939</dd></div>
+          <div><dt>True cost</dt><dd>$1,280,839</dd></div>
+          <div class="warn"><dt>Taxes + reserve</dt><dd>$796<span class="per">/mo</span></dd></div>
+          <div><dt>Wish list</dt><dd>$103,144</dd></div>
+        </dl>
+        <dl class="live-row" data-live="delaney"></dl>
+        <p class="take">The find of this batch. A 1986 build is <strong>exactly the era that produced the
+          house we walked away from</strong>, and this one shows none of that pattern — its day-one cash fell
+          from $54k to $31k once the photo pass came back clean. The rooms back it up: a
+          <strong>375 sq ft primary</strong>, the largest here, and three secondary bedrooms all comfortably
+          over 125 sq ft, which is unusual.</p>
+        <div class="split">
+          <section class="known"><h3>No problem found</h3><ul>
+            <li>Kitchen soffit removed and slab doors — the cabinet boxes were genuinely replaced</li>
+            <li>Undermount sink, squared stone counter edge</li>
+            <li>Alcove tiled tub, not a platform garden tub</li>
+            <li>Flat painted ceilings, no stipple</li>
+            <li>Basement drywalled, no moisture visible at the baseboard</li></ul></section>
+          <section class="check"><h3>Check when you're there</h3><ul>
+            <li><input type="checkbox" id="c2a"><label for="c2a">Only <b>2 full baths for 5 bedrooms</b> — does that actually work for us?</label></li>
+            <li><input type="checkbox" id="c2b"><label for="c2b">Basement bedroom: is the window big enough to be legal egress?</label></li>
+            <li><input type="checkbox" id="c2c"><label for="c2c">Window frames — vinyl or original 1986 aluminum? Look for fogging between panes</label></li>
+            <li><input type="checkbox" id="c2d"><label for="c2d">Utility room: panel, furnace and water heater labels. No photo in 48</label></li>
+            <li><input type="checkbox" id="c2e"><label for="c2e">The breakfast nook is only 55 sq ft. Where do you actually eat?</label></li>
+            <li><input type="checkbox" id="c2f"><label for="c2f">Taxes are <b>$7,249</b>, the highest here</label></li></ul></section>
+        </div>
+        <p class="ask"><span>Ask before you go</span>How old are the roof, furnace and air conditioner? And is the basement bedroom window compliant for egress?</p>
+      </div>
+    </article>
+
+    <article class="lot" data-slug="ravine">
+      <div class="rail"><div class="rank">3</div><div class="grade g-b">B−</div>
+        <div class="psf"><b>$537</b><span>per usable sq ft</span></div></div>
+      <div class="body">
+        <div class="lot-head">
+          <h2><a href="https://portal.onehome.com/en-CA/property/aotf~1190438772~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5ODcwMTk0IiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">5174 Ravine Crescent</a></h2>
+          <p class="where">Orchard, Burlington · Two storey · 3+1 bed, 2 full + 1 half · 1,861 sq ft up, 560 down · 34 × 80 ft lot · single garage, 2 parking</p>
+          <div class="tags"><span class="stamp unseen">Photos not reviewed yet</span><a class="stamp link" href="https://portal.onehome.com/en-CA/property/aotf~1190438772~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5ODcwMTk0IiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">Open listing ↗</a></div>
+        </div>
+        <dl class="money">
+          <div><dt>Ask</dt><dd>$1,098,000</dd></div>
+          <div class="hero"><dt>Day-one cash</dt><dd>$51,435</dd></div>
+          <div><dt>True cost</dt><dd>$1,149,435</dd></div>
+          <div><dt>Taxes + reserve</dt><dd>$670<span class="per">/mo</span></dd></div>
+          <div><dt>Wish list</dt><dd>$124,884</dd></div>
+        </dl>
+        <dl class="live-row" data-live="ravine"></dl>
+        <p class="take">Scored on listing data only. The day-one figure is high <strong>because nothing has
+          been verified</strong>, not because a defect was found. The MLS lists a <strong>sump pump</strong>,
+          which is the first thing to ask about. Note also that two basement rooms are listed only as
+          "Other" with no name — worth finding out what they actually are.</p>
+        <div class="split">
+          <section class="known"><h3>No problem found</h3><ul>
+            <li>Nothing yet — no photo pass has been run on this one</li>
+            <li>Only 3 bedrooms above grade despite the 3+1 billing; the fourth is in the basement</li>
+            <li>Narrow lot at 34 ft frontage, only 2 parking spots</li></ul></section>
+          <section class="check"><h3>Check when you're there</h3><ul>
+            <li><input type="checkbox" id="c3a"><label for="c3a">Why is there a sump pump? Has water ever come in?</label></li>
+            <li><input type="checkbox" id="c3b"><label for="c3b">What are the two unnamed basement rooms?</label></li>
+            <li><input type="checkbox" id="c3c"><label for="c3c">Kitchen: run a finger under the sink rim. Raised rim means laminate</label></li>
+            <li><input type="checkbox" id="c3d"><label for="c3d">Soffit above the upper cabinets?</label></li>
+            <li><input type="checkbox" id="c3e"><label for="c3e">Basement: bottom 18 inches of every wall. Smell it</label></li>
+            <li><input type="checkbox" id="c3f"><label for="c3f">Panel, furnace, water heater labels</label></li></ul></section>
+        </div>
+        <p class="ask"><span>Ask before you go</span>How old are the roof, furnace and air conditioner, and what is the sump pump there for?</p>
+      </div>
+    </article>
+
+    <article class="lot" data-slug="cavendish">
+      <div class="rail"><div class="rank">4</div><div class="grade g-c">C</div>
+        <div class="psf"><b>$573</b><span>per usable sq ft</span></div></div>
+      <div class="body">
+        <div class="lot-head">
+          <h2><a href="https://portal.onehome.com/en-CA/property/aotf~1190533165~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5ODcwMTk0IiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">2120 Cavendish Drive</a></h2>
+          <p class="where">Brant Hills, Burlington · Raised bungalow · 3+1 bed, 2 full · 1,100 sq ft up, 1,007 down with walk-up · 59 × 116 ft lot · <b>no garage</b></p>
+          <div class="tags"><span class="stamp unseen">Photos not reviewed yet</span><a class="stamp link" href="https://portal.onehome.com/en-CA/property/aotf~1190533165~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5ODcwMTk0IiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">Open listing ↗</a></div>
+        </div>
+        <dl class="money">
+          <div><dt>Ask</dt><dd>$969,900</dd></div>
+          <div class="hero"><dt>Day-one cash</dt><dd>$35,016</dd></div>
+          <div><dt>True cost</dt><dd>$1,004,916</dd></div>
+          <div><dt>Taxes + reserve</dt><dd>$590<span class="per">/mo</span></dd></div>
+          <div><dt>Wish list</dt><dd>$145,021</dd></div>
+        </dl>
+        <dl class="live-row" data-live="cavendish"></dl>
+        <p class="take">The <strong>cheapest ask on the list</strong>. Its heating is listed as
+          <strong>four systems at once</strong> — electric, forced air, gas and a heat pump — with no
+          mechanical photo to explain it. The rooms show the real trade: <strong>two of the three main-floor
+          bedrooms are 87 sq ft</strong>, and the 600 sq ft basement rec room is the largest single room in
+          the whole batch. Most of the living space is downstairs.</p>
+        <div class="split">
+          <section class="known"><h3>No problem found</h3><ul>
+            <li>Nothing yet — no photo pass has been run</li>
+            <li>Walk-up basement, which counts for more than a standard one</li></ul></section>
+          <section class="check"><h3>Check when you're there</h3><ul>
+            <li><input type="checkbox" id="c4a"><label for="c4a"><b>What actually heats this house?</b> Four systems listed is either a well-executed hybrid or a patchwork</label></li>
+            <li><input type="checkbox" id="c4b"><label for="c4b">Stand in an 87 sq ft bedroom with a real bed in mind</label></li>
+            <li><input type="checkbox" id="c4c"><label for="c4c">Basement: half the living space is down there. Ceiling height, light, damp</label></li>
+            <li><input type="checkbox" id="c4d"><label for="c4d">No garage — where does a car actually go in February?</label></li>
+            <li><input type="checkbox" id="c4e"><label for="c4e">Kitchen sink rim, counter edge, soffit</label></li></ul></section>
+        </div>
+        <p class="ask"><span>Ask before you go</span>The MLS lists electric, forced air, gas and a heat pump. What is actually installed, how old is each piece, and is anything on a rental contract?</p>
+      </div>
+    </article>
+
+    <article class="lot" data-slug="clinton">
+      <div class="rail"><div class="rank">5</div><div class="grade g-b">B</div>
+        <div class="psf"><b>$617</b><span>per usable sq ft</span></div></div>
+      <div class="body">
+        <div class="lot-head">
+          <h2><a href="https://portal.onehome.com/en-CA/property/aotf~1190299205~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5NzIzMjkxIiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">1493 Clinton Court</a></h2>
+          <p class="where">Palmer, Burlington · 1973 sidesplit · 4+1 bed, <b>3 full baths</b> · 1,700 sq ft up, 510 down · 54 × 111 ft court lot</p>
+          <div class="tags"><span class="stamp seen">Photos reviewed · 40</span><a class="stamp link" href="https://portal.onehome.com/en-CA/property/aotf~1190299205~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5NzIzMjkxIiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">Open listing ↗</a></div>
+        </div>
+        <dl class="money">
+          <div><dt>Ask</dt><dd>$1,174,900</dd></div>
+          <div class="hero"><dt>Day-one cash</dt><dd>$31,009</dd></div>
+          <div><dt>True cost</dt><dd>$1,205,909</dd></div>
+          <div><dt>Taxes + reserve</dt><dd>$674<span class="per">/mo</span></dd></div>
+          <div><dt>Wish list</dt><dd>$85,400</dd></div>
+        </dl>
+        <dl class="live-row" data-live="clinton"></dl>
+        <p class="take">The <strong>smallest wish list in the top five</strong> at $85k, meaning less of this
+          house is waiting on your money. The room table reveals the actual shape of it: a
+          <strong>main-floor bedroom with its own 3-piece ensuite</strong>, which is an in-law or guest setup
+          and explains the third full bath. Upstairs is less generous — <strong>two of the four bedrooms are
+          92 and 91 sq ft</strong>. Hardwood is called out in every single room.</p>
+        <div class="split">
+          <section class="known"><h3>No problem found</h3><ul>
+            <li>Kitchen uppers run to the ceiling with crown, no soffit</li>
+            <li>Crisp framed doors, squared dark stone counter, 259 sq ft kitchen</li>
+            <li>Flat painted ceilings on a 1973 build</li>
+            <li>Basement fully drywalled, walls and ceiling, no drop tile</li></ul></section>
+          <section class="check"><h3>Check when you're there</h3><ul>
+            <li><input type="checkbox" id="c5a"><label for="c5a"><b>Pull the shower curtain back.</b> One tub is completely hidden in every photo</label></li>
+            <li><input type="checkbox" id="c5b"><label for="c5b">Stand in both 9-by-10 bedrooms. Do they take a real bed and a dresser?</label></li>
+            <li><input type="checkbox" id="c5c"><label for="c5c">Kitchen sink — undermount or a raised rim? Never resolved at full zoom</label></li>
+            <li><input type="checkbox" id="c5d"><label for="c5d">The listing claims a 2022 furnace and 2019 A/C. <b>No mechanical photo exists in 40</b></label></li>
+            <li><input type="checkbox" id="c5e"><label for="c5e">Sidesplits live differently. Walk the half-levels and see how it feels</label></li></ul></section>
+        </div>
+        <p class="ask"><span>Ask before you go</span>Can you send invoices for the 2022 furnace and the 2019 air conditioner? And how old is the roof?</p>
+      </div>
+    </article>
+
+    <article class="lot" data-slug="bunton">
+      <div class="rail"><div class="rank">6</div><div class="grade g-b">B−</div>
+        <div class="psf"><b>$628</b><span>per usable sq ft</span></div></div>
+      <div class="body">
+        <div class="lot-head">
+          <h2><a href="https://portal.onehome.com/en-CA/property/aotf~1190508312~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5ODcwMTk0IiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">5180 Bunton Crescent</a></h2>
+          <p class="where">Orchard, Burlington · 1997 two storey · 3 bed, 2 full + 1 half · 1,738 sq ft · 81 × 48 ft lot · single garage · school 130 m away</p>
+          <div class="tags"><span class="stamp unseen">Photos not reviewed yet</span><a class="stamp link" href="https://portal.onehome.com/en-CA/property/aotf~1190508312~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5ODcwMTk0IiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">Open listing ↗</a></div>
+        </div>
+        <dl class="money">
+          <div><dt>Ask</dt><dd>$1,050,000</dd></div>
+          <div class="hero"><dt>Day-one cash</dt><dd>$40,810</dd></div>
+          <div><dt>True cost</dt><dd>$1,090,810</dd></div>
+          <div><dt>Taxes + reserve</dt><dd>$661<span class="per">/mo</span></dd></div>
+          <div><dt>Wish list</dt><dd>$99,025</dd></div>
+        </dl>
+        <dl class="live-row" data-live="bunton"></dl>
+        <p class="take">At 1997 this is the <strong>youngest structure in the top ten</strong>. The rooms flag
+          two proportions worth standing in: a bedroom that is <strong>18 ft long but only 8.7 ft wide</strong>,
+          and a 27-foot rec room that is <strong>under 10 ft across</strong>. Both are corridor-shaped. The
+          kitchen is 9 ft deep.</p>
+        <div class="split">
+          <section class="known"><h3>No problem found</h3><ul>
+            <li>Nothing yet — no photo pass has been run</li>
+            <li>1997 build means no knob-and-tube, no fuse panel, no asbestos question</li>
+            <li>Two full baths upstairs including a 5-piece</li></ul></section>
+          <section class="check"><h3>Check when you're there</h3><ul>
+            <li><input type="checkbox" id="c6a"><label for="c6a">The 18 × 8.7 bedroom and the 10 ft wide rec room — do they work or just measure?</label></li>
+            <li><input type="checkbox" id="c6b"><label for="c6b">A 1997 kitchen and bath are now 29 years old. Are they original?</label></li>
+            <li><input type="checkbox" id="c6c"><label for="c6c">Windows: 1997 vinyl is at the end of its life. Check for fogging</label></li>
+            <li><input type="checkbox" id="c6d"><label for="c6d">48 ft of depth — stand in the backyard and see if it's enough</label></li>
+            <li><input type="checkbox" id="c6e"><label for="c6e">School is 130 m away. Walk out front at 3pm on a weekday</label></li></ul></section>
+        </div>
+        <p class="ask"><span>Ask before you go</span>How old are the roof, furnace and air conditioner, and has the kitchen or either bathroom been redone since 1997?</p>
+      </div>
+    </article>
+
+    <article class="lot" data-slug="bonnie">
+      <div class="rail"><div class="rank">7</div><div class="grade g-c">C+</div>
+        <div class="psf"><b>$631</b><span>per usable sq ft</span></div></div>
+      <div class="body">
+        <div class="lot-head">
+          <h2><a href="https://portal.onehome.com/en-CA/property/aotf~1190377563~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5NzIzMjkxIiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">1319 Bonnie Court</a></h2>
+          <p class="where">Freeman, Burlington · roughly 1996 · 3 bed, 2 full + 1 half · 1,630 sq ft · <b>23.8 ft frontage</b> · single garage, 2 parking</p>
+          <div class="tags"><span class="stamp seen">Photos reviewed · 49</span><a class="stamp link" href="https://portal.onehome.com/en-CA/property/aotf~1190377563~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5NzIzMjkxIiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">Open listing ↗</a></div>
+        </div>
+        <dl class="money">
+          <div><dt>Ask</dt><dd>$999,900</dd></div>
+          <div class="hero"><dt>Day-one cash</dt><dd>$28,187</dd></div>
+          <div><dt>True cost</dt><dd>$1,028,087</dd></div>
+          <div><dt>Taxes + reserve</dt><dd>$530<span class="per">/mo</span></dd></div>
+          <div><dt>Wish list</dt><dd>$70,646</dd></div>
+        </dl>
+        <dl class="live-row" data-live="bonnie"></dl>
+        <p class="take">The <strong>lowest running cost on the whole list</strong> and the smallest wish list
+          at $71k. But a 23.8 ft frontage is townhouse width, and the photos never established whether it is
+          attached. The rooms show the house is <strong>lopsided</strong>: a 338 sq ft primary bedroom against
+          a <strong>101 sq ft kitchen and an 86 sq ft dining room</strong>. Generous where you sleep, tight
+          where you cook and eat.</p>
+        <div class="split">
+          <section class="known"><h3>No problem found</h3><ul>
+            <li>Flat painted ceilings</li>
+            <li>Basement drywalled, walls and ceiling</li>
+            <li>Floors show no visible defect at full width</li></ul></section>
+          <section class="check"><h3>Check when you're there</h3><ul>
+            <li><input type="checkbox" id="c7a"><label for="c7a"><b>Is it detached, semi, or a townhouse?</b> Walk to the side and look</label></li>
+            <li><input type="checkbox" id="c7b"><label for="c7b">Cook an imaginary dinner in a 9.7 × 10.4 kitchen</label></li>
+            <li><input type="checkbox" id="c7c"><label for="c7c">Kitchen: sink rim, counter edge, door profile. None were resolved</label></li>
+            <li><input type="checkbox" id="c7d"><label for="c7d">The full bath shown has a shower stall only — where is the tub?</label></li>
+            <li><input type="checkbox" id="c7e"><label for="c7e">Nearest school is 1.4 km, the furthest on this list</label></li></ul></section>
+        </div>
+        <p class="ask"><span>Ask before you go</span>Is this freehold detached, a semi, or a townhouse? And is there any condo or common-element fee?</p>
+      </div>
+    </article>
+
+    <article class="lot" data-slug="caplan">
+      <div class="rail"><div class="rank">8</div><div class="grade g-c">C+</div>
+        <div class="psf"><b>$649</b><span>per usable sq ft</span></div></div>
+      <div class="body">
+        <div class="lot-head">
+          <h2><a href="https://portal.onehome.com/en-CA/property/aotf~1190169714~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">3469 Caplan Crescent</a></h2>
+          <p class="where">Roseland, Burlington · Raised bungalow · 3+1 bed, 2 full + 1 half · 1,317 sq ft up, 500 down · 33 × 126 ft lot · separate entrance</p>
+          <div class="tags"><span class="stamp seen">Photos reviewed · 40</span><a class="stamp link" href="https://portal.onehome.com/en-CA/property/aotf~1190169714~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">Open listing ↗</a></div>
+        </div>
+        <dl class="money">
+          <div><dt>Ask</dt><dd>$988,800</dd></div>
+          <div class="hero"><dt>Day-one cash</dt><dd>$27,818</dd></div>
+          <div><dt>True cost</dt><dd>$1,016,618</dd></div>
+          <div><dt>Taxes + reserve</dt><dd>$519<span class="per">/mo</span></dd></div>
+          <div><dt>Wish list</dt><dd>$81,412</dd></div>
+        </dl>
+        <dl class="live-row" data-live="caplan"></dl>
+        <p class="take">The <strong>lowest day-one cash and lowest monthly reserve of all 24 houses</strong>.
+          Vinyl windows were actually confirmed here, which is the most expensive single thing a photo pass
+          can take off the table. The catch is size, and the rooms make it concrete: the second bedroom is
+          <strong>89 sq ft</strong>, and every main-floor room including all the bedrooms is
+          <strong>vinyl plank</strong>, not hardwood.</p>
+        <div class="split">
+          <section class="known"><h3>No problem found</h3><ul>
+            <li>Vinyl windows <b>confirmed</b> — a $15–28k item struck off</li>
+            <li>Kitchen: undermount sink, no soffit, crisp doors, granite</li>
+            <li>Flat painted ceilings, drywalled basement</li>
+            <li><span class="bad">Main bath vanity is an integrated cultured-marble top</span> — dated, confirmed</li></ul></section>
+          <section class="check"><h3>Check when you're there</h3><ul>
+            <li><input type="checkbox" id="c8a"><label for="c8a">Stand in the 89 sq ft bedroom. That is the real constraint here</label></li>
+            <li><input type="checkbox" id="c8b"><label for="c8b">Vinyl plank in the bedrooms — how does it feel underfoot?</label></li>
+            <li><input type="checkbox" id="c8c"><label for="c8c">The main tub was never directly photographed, only a mirror reflection</label></li>
+            <li><input type="checkbox" id="c8d"><label for="c8d">Basement is fully finished, so the foundation is hidden. Check the bottom of every wall anyway</label></li>
+            <li><input type="checkbox" id="c8e"><label for="c8e">Separate entrance — is the lower level actually usable as a suite?</label></li></ul></section>
+        </div>
+        <p class="ask"><span>Ask before you go</span>You list a 2022 furnace, 2022 water softener and 2021 windows. Can you send the invoices? And how old is the roof?</p>
+      </div>
+    </article>
+
+    <article class="lot" data-slug="pinemeadow">
+      <div class="rail"><div class="rank">9</div><div class="grade g-a">A−</div>
+        <div class="psf"><b>$656</b><span>per usable sq ft</span></div></div>
+      <div class="body">
+        <div class="lot-head">
+          <h2><a href="https://portal.onehome.com/en-CA/property/aotf~1190428774~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5ODcwMTk0IiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">3212 Pinemeadow Drive</a></h2>
+          <p class="where">Headon, Burlington · 1986 two storey · 4 bed, 2 full + 1 half · 2,063 sq ft · 51 × 113 ft lot · double garage</p>
+          <div class="tags"><span class="stamp seen">Photos reviewed · 50</span><a class="stamp link" href="https://portal.onehome.com/en-CA/property/aotf~1190428774~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwibGlzdGluZ2lkIjoiMzg5ODcwMTk0IiwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">Open listing ↗</a></div>
+        </div>
+        <dl class="money">
+          <div><dt>Ask</dt><dd>$1,299,900</dd></div>
+          <div class="hero"><dt>Day-one cash</dt><dd>$53,949</dd></div>
+          <div><dt>True cost</dt><dd>$1,353,849</dd></div>
+          <div><dt>Taxes + reserve</dt><dd>$717<span class="per">/mo</span></dd></div>
+          <div><dt>Wish list</dt><dd>$129,229</dd></div>
+        </dl>
+        <dl class="live-row" data-live="pinemeadow"></dl>
+        <p class="take">Strong on paper and the <strong>most expensive ask in the table</strong>. The photo pass
+          demoted it: stipple ceilings confirmed in raking light, the 1986 tell that survives every cosmetic
+          refresh, across 2,063 feet. Two room oddities worth seeing in person: the powder room is
+          <strong>6'3" × 2'11"</strong>, which is barely a corridor, and the basement utility room is
+          <strong>267 sq ft</strong> of space doing nothing.</p>
+        <div class="split">
+          <section class="known"><h3>No problem found</h3><ul>
+            <li>Squared granite counter edge, not a laminate rolled edge</li>
+            <li>Large-format bath tile with thin grout, undermount stone vanity</li>
+            <li>Four bedrooms all over 110 sq ft, which is consistent</li>
+            <li><span class="bad">Stipple ceilings confirmed throughout</span></li></ul></section>
+          <section class="check"><h3>Check when you're there</h3><ul>
+            <li><input type="checkbox" id="c9a"><label for="c9a"><b>Window frames are behind shutters in every single photo.</b> Open them</label></li>
+            <li><input type="checkbox" id="c9b"><label for="c9b">Try the powder room door. 2'11" wide is a real constraint</label></li>
+            <li><input type="checkbox" id="c9c"><label for="c9c">No tub appears in either bathroom. Find them</label></li>
+            <li><input type="checkbox" id="c9d"><label for="c9d">Kitchen: soffit above the uppers, door profile, sink rim — all unresolved</label></li>
+            <li><input type="checkbox" id="c9e"><label for="c9e">The 267 sq ft utility room — could it become something?</label></li></ul></section>
+        </div>
+        <p class="ask"><span>Ask before you go</span>How old are the roof, furnace and air conditioner, and have the windows been replaced since 1986?</p>
+      </div>
+    </article>
+
+    <article class="lot" data-slug="hazelwood">
+      <div class="rail"><div class="rank">10</div><div class="grade g-a">A−</div>
+        <div class="psf"><b>$698</b><span>per usable sq ft</span></div></div>
+      <div class="body">
+        <div class="lot-head">
+          <h2><a href="https://portal.onehome.com/en-CA/property/aotf~1190169692~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">3217 Hazelwood Avenue</a></h2>
+          <p class="where">Headon, Burlington · 1984 two storey · 4+1 bed, 3 full + 1 half · 1,824 sq ft · 52 × 100 ft lot · double garage</p>
+          <div class="tags"><span class="stamp seen">Photos reviewed · 40</span><a class="stamp link" href="https://portal.onehome.com/en-CA/property/aotf~1190169692~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">Open listing ↗</a></div>
+        </div>
+        <dl class="money">
+          <div><dt>Ask</dt><dd>$1,235,000</dd></div>
+          <div class="hero"><dt>Day-one cash</dt><dd>$38,560</dd></div>
+          <div><dt>True cost</dt><dd>$1,273,560</dd></div>
+          <div><dt>Taxes + reserve</dt><dd>$633<span class="per">/mo</span></dd></div>
+          <div><dt>Wish list</dt><dd>$146,076</dd></div>
+        </dl>
+        <dl class="live-row" data-live="hazelwood"></dl>
+        <p class="take">Four bedrooms up, three full baths, double garage. The photo pass found a
+          <strong>piecemeal renovation</strong> — the kitchen and ensuite are genuinely done, the hall
+          bathroom still has its original vanity. One number the rooms expose: the kitchen is
+          <strong>only 8.3 ft deep</strong> at 109 sq ft, the smallest kitchen of any four-bedroom house here.</p>
+        <div class="split">
+          <section class="known"><h3>No problem found</h3><ul>
+            <li>Kitchen genuinely redone: undermount sink, no soffit, crisp doors</li>
+            <li>Vinyl windows <b>confirmed</b></li>
+            <li>Hardwood named in every main and upper room</li>
+            <li><span class="bad">Hall bath keeps the original cultured-marble vanity</span></li>
+            <li><span class="bad">Stipple ceilings, and a drop-tile basement ceiling</span></li></ul></section>
+          <section class="check"><h3>Check when you're there</h3><ul>
+            <li><input type="checkbox" id="c10a"><label for="c10a">Stand in the kitchen. 8 ft of depth with an island in it is tight</label></li>
+            <li><input type="checkbox" id="c10b"><label for="c10b">Pull the curtain off the hall tub — hidden in every photo</label></li>
+            <li><input type="checkbox" id="c10c"><label for="c10c">Compare the ensuite against the hall bath. The gap is the story here</label></li>
+            <li><input type="checkbox" id="c10d"><label for="c10d">Panel and roof — neither photographed in 40</label></li></ul></section>
+        </div>
+        <p class="ask"><span>Ask before you go</span>Which rooms were renovated and in what year? And how old are the roof, furnace and air conditioner?</p>
+      </div>
+    </article>
+
+    <article class="lot" data-slug="enfield">
+      <div class="rail"><div class="rank">11</div><div class="grade g-b">B</div>
+        <div class="psf"><b>$702</b><span>per usable sq ft</span></div></div>
+      <div class="body">
+        <div class="lot-head">
+          <h2><a href="https://portal.onehome.com/en-CA/property/aotf~1190265190~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">522 Enfield Road</a></h2>
+          <p class="where">LaSalle, Burlington · <b>1954 bungalow</b> · 3 bed, 2 full · 1,295 sq ft · <b>59 × 155 ft lot</b>, 9,154 sq ft · single garage</p>
+          <div class="tags"><span class="stamp seen">Photos reviewed · 27</span><a class="stamp link" href="https://portal.onehome.com/en-CA/property/aotf~1190265190~TRREB?token=eyJPU04iOiJUUlJFQiIsInR5cGUiOiIxIiwic2V0aWQiOiI3NTk4NjkiLCJzZXRrZXkiOiIzMCIsImVtYWlsIjoiYWxleGFuZGVyLnN1dGNsaWZmZUBvdXRsb29rLmNvbSIsInJlc291cmNlaWQiOjAsImFnZW50aWQiOjY1NjUzLCJpc2RlbHRhIjpmYWxzZSwiVmlld01vZGUiOiIxIn0%3D&searchId=95bf4f5c-09dc-3b56-977c-dbcf16b294d1" target="_blank" rel="noopener">Open listing ↗</a></div>
+        </div>
+        <dl class="money">
+          <div><dt>Ask</dt><dd>$825,000</dd></div>
+          <div class="warn"><dt>Day-one cash</dt><dd>$84,098</dd></div>
+          <div><dt>True cost</dt><dd>$909,098</dd></div>
+          <div><dt>Taxes + reserve</dt><dd>$598<span class="per">/mo</span></dd></div>
+          <div><dt>Wish list</dt><dd>$183,740</dd></div>
+        </dl>
+        <dl class="live-row" data-live="enfield"></dl>
+        <p class="take">Cheapest ask, <strong>highest day-one cash on the list</strong> at 10% of the asking
+          price. The kitchen failed all four condition tests at once, the only house here that did. But the
+          expensive part is not the kitchen: this house still runs on <strong>oil</strong>, and a buried tank
+          is an open-ended environmental liability, not a line item. It is also the biggest lot by a wide
+          margin, which raises a different question entirely.</p>
+        <div class="split">
+          <section class="known"><h3>No problem found</h3><ul>
+            <li><span class="bad">Kitchen confirmed original on all four tells</span> — topmount sink, rolled edge, soffit present, raised-panel doors</li>
+            <li><span class="bad">Both baths dated</span>; basement drop tile over wood panelling</li>
+            <li><span class="bad">9-inch floor tile in the basement is asbestos-suspect</span></li>
+            <li>Vinyl windows confirmed</li></ul></section>
+          <section class="check"><h3>Check when you're there</h3><ul>
+            <li><input type="checkbox" id="c11a"><label for="c11a"><b>Find the oil tank.</b> Above ground or buried? This is the whole decision</label></li>
+            <li><input type="checkbox" id="c11b"><label for="c11b">Electrical panel — 1954 means fuses and knob-and-tube are live possibilities</label></li>
+            <li><input type="checkbox" id="c11c"><label for="c11c">Main floor is fully carpeted. What is underneath?</label></li>
+            <li><input type="checkbox" id="c11d"><label for="c11d">All three bedrooms on one floor, two of them under 105 sq ft</label></li>
+            <li><input type="checkbox" id="c11e"><label for="c11e">Walk the 155 ft lot. Is this a renovation or a rebuild?</label></li></ul></section>
+        </div>
+        <p class="ask"><span>Ask before you go</span>Where is the oil tank, is it buried, how old is it, and has the soil ever been tested? And can the house be insured as it stands?</p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="section-head">
+    <h2>Everything scored</h2>
+    <p>All 24 listings run through the same model, cheapest per usable foot first. The eleven above are
+      highlighted.</p>
+  </div>
+  <div class="tablewrap">
+    <table class="big">
+      <thead><tr><th>#</th><th>Grade</th><th>House</th><th>Area</th><th class="n">Ask</th><th class="n">Day-one</th><th class="n">$/sq ft</th><th class="n">Tax + res/mo</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr class="live"><td>1</td><td>A</td><td>3205 Tania Cres</td><td>Headon</td><td class="n">$1,274,999</td><td class="n">$67,223</td><td class="n">418</td><td class="n">$750</td><td class="vd">SEE FIRST</td></tr>
+        <tr class="live"><td>2</td><td>A−</td><td>470 Delaney Ct</td><td>Shoreacres</td><td class="n">$1,249,900</td><td class="n">$30,939</td><td class="n">501</td><td class="n">$796</td><td class="vd">SEE FIRST</td></tr>
+        <tr class="live"><td>3</td><td>B−</td><td>5174 Ravine Cres</td><td>Orchard</td><td class="n">$1,098,000</td><td class="n">$51,435</td><td class="n">537</td><td class="n">$670</td><td class="vd">SEE</td></tr>
+        <tr class="live"><td>4</td><td>C</td><td>2120 Cavendish Dr</td><td>Brant Hills</td><td class="n">$969,900</td><td class="n">$35,016</td><td class="n">573</td><td class="n">$590</td><td class="vd">SEE</td></tr>
+        <tr class="live"><td>5</td><td>B</td><td>1493 Clinton Ct</td><td>Palmer</td><td class="n">$1,174,900</td><td class="n">$31,009</td><td class="n">617</td><td class="n">$674</td><td class="vd">SEE FIRST</td></tr>
+        <tr class="live"><td>6</td><td>B−</td><td>5180 Bunton Cres</td><td>Orchard</td><td class="n">$1,050,000</td><td class="n">$40,810</td><td class="n">628</td><td class="n">$661</td><td class="vd">SEE</td></tr>
+        <tr class="live"><td>7</td><td>C+</td><td>1319 Bonnie Ct</td><td>Freeman</td><td class="n">$999,900</td><td class="n">$28,187</td><td class="n">631</td><td class="n">$530</td><td class="vd">SEE</td></tr>
+        <tr class="live"><td>8</td><td>C+</td><td>3469 Caplan Cres</td><td>Roseland</td><td class="n">$988,800</td><td class="n">$27,818</td><td class="n">649</td><td class="n">$519</td><td class="vd">SEE</td></tr>
+        <tr class="live"><td>9</td><td>A−</td><td>3212 Pinemeadow Dr</td><td>Headon</td><td class="n">$1,299,900</td><td class="n">$53,949</td><td class="n">656</td><td class="n">$717</td><td class="vd">SEE FIRST</td></tr>
+        <tr class="live"><td>10</td><td>A−</td><td>3217 Hazelwood Ave</td><td>Headon</td><td class="n">$1,235,000</td><td class="n">$38,560</td><td class="n">698</td><td class="n">$633</td><td class="vd">SEE FIRST</td></tr>
+        <tr class="live"><td>11</td><td>B</td><td>522 Enfield Rd</td><td>LaSalle</td><td class="n">$825,000</td><td class="n">$84,098</td><td class="n">702</td><td class="n">$598</td><td class="vd">SEE · oil tank</td></tr>
+        <tr><td>12</td><td>C+</td><td>2148 Stillmeadow Rd</td><td>Westmount, Oak</td><td class="n">$1,098,000</td><td class="n">$39,097</td><td class="n">707</td><td class="n">$703</td><td class="vd">SEE</td></tr>
+        <tr><td>13</td><td>C</td><td>1280 Aldridge Cres</td><td>Palmer</td><td class="n">$1,018,800</td><td class="n">$24,852</td><td class="n">729</td><td class="n">$568</td><td class="vd">SEE</td></tr>
+        <tr><td>14</td><td>C+</td><td>3490 Rexway Dr</td><td>Roseland</td><td class="n">$1,079,000</td><td class="n">$43,726</td><td class="n">741</td><td class="n">$606</td><td class="vd">SEE</td></tr>
+        <tr><td>15</td><td>B−</td><td>506 Pondview Pl</td><td>Wedgewood, Oak</td><td class="n">$1,299,000</td><td class="n">$41,156</td><td class="n">757</td><td class="n">$803</td><td class="vd">SEE</td></tr>
+        <tr><td>16</td><td>C+</td><td>395 Lark Ave</td><td>Aldershot S</td><td class="n">$1,249,000</td><td class="n">$37,075</td><td class="n">768</td><td class="n">$685</td><td class="vd">SEE</td></tr>
+        <tr><td>17</td><td>B</td><td>1177 Grand Blvd</td><td>Falgarwood, Oak</td><td class="n">$1,299,900</td><td class="n">$19,577</td><td class="n">769</td><td class="n">$608</td><td class="vd">SEE FIRST</td></tr>
+        <tr><td>18</td><td>B−</td><td>1228 Pallatine Dr</td><td>College Pk, Oak</td><td class="n">$1,228,000</td><td class="n">$50,815</td><td class="n">783</td><td class="n">$607</td><td class="vd">SEE · relisted</td></tr>
+        <tr class="stop"><td>19</td><td>C</td><td>Appleby sidesplit</td><td>Appleby</td><td class="n">$999,900</td><td class="n">$49,971</td><td class="n">827</td><td class="n">$601</td><td class="vd">STOP · moisture</td></tr>
+        <tr><td>20</td><td>C</td><td>2501 Yarmouth Cres</td><td>WO West, Oak</td><td class="n">$1,298,000</td><td class="n">$33,636</td><td class="n">836</td><td class="n">$605</td><td class="vd">SEE</td></tr>
+        <tr><td>21</td><td>C−</td><td>3202 Centennial Dr</td><td>Palmer</td><td class="n">$1,059,900</td><td class="n">$39,157</td><td class="n">845</td><td class="n">$572</td><td class="vd">SEE</td></tr>
+        <tr><td>22</td><td>C−</td><td>493 Crosby Ave</td><td>Central</td><td class="n">$1,149,900</td><td class="n">$35,364</td><td class="n">984</td><td class="n">$609</td><td class="vd">SEE</td></tr>
+        <tr><td>23</td><td>C</td><td>2221 Wyandotte Dr</td><td>WO West, Oak</td><td class="n">$1,299,999</td><td class="n">$25,960</td><td class="n">1,061</td><td class="n">$667</td><td class="vd">SEE</td></tr>
+        <tr><td>24</td><td>C+</td><td>1453 Mountain Grove</td><td>Mountainside</td><td class="n">$1,079,000</td><td class="n">$44,849</td><td class="n">1,088</td><td class="n">$631</td><td class="vd">SEE</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-head">
+    <h2>Under the hood</h2>
+    <p>Every number above comes out of these four tables. If one of them is wrong, the ranking moves.
+      They are here so you can argue with them.</p>
+  </div>
+
+  <div class="assume">
+    <section>
+      <h3>What each job is priced at</h3>
+      <table>
+        <thead><tr><th>Job</th><th class="n">Low</th><th class="n">Likely</th><th class="n">High</th></tr></thead>
+        <tbody>
+          <tr><td>Kitchen, full</td><td class="n">35,000</td><td class="n">50,000</td><td class="n">75,000</td></tr>
+          <tr><td>Kitchen, cosmetic</td><td class="n">12,000</td><td class="n">20,000</td><td class="n">32,000</td></tr>
+          <tr><td>Main bath, gut</td><td class="n">12,000</td><td class="n">18,000</td><td class="n">28,000</td></tr>
+          <tr><td>Second bath</td><td class="n">10,000</td><td class="n">15,000</td><td class="n">22,000</td></tr>
+          <tr><td>Powder room</td><td class="n">3,500</td><td class="n">6,500</td><td class="n">11,000</td></tr>
+          <tr><td>Flooring, per sq ft</td><td class="n">7</td><td class="n">10</td><td class="n">14</td></tr>
+          <tr><td>Ceilings, per sq ft</td><td class="n">2.50</td><td class="n">3.50</td><td class="n">4.50</td></tr>
+          <tr><td>Basement, per sq ft</td><td class="n">35</td><td class="n">50</td><td class="n">70</td></tr>
+          <tr><td>Waterproofing</td><td class="n">8,000</td><td class="n">14,000</td><td class="n">22,000</td></tr>
+          <tr><td>Panel, 100 to 200A</td><td class="n">2,500</td><td class="n">3,500</td><td class="n">5,000</td></tr>
+          <tr><td>Rewire</td><td class="n">15,000</td><td class="n">24,000</td><td class="n">35,000</td></tr>
+          <tr><td>Oil to gas</td><td class="n">10,000</td><td class="n">14,000</td><td class="n">19,000</td></tr>
+          <tr><td>Oil tank removal</td><td class="n">3,000</td><td class="n">5,500</td><td class="n">9,000</td></tr>
+          <tr><td>Asbestos abatement</td><td class="n">2,500</td><td class="n">7,000</td><td class="n">15,000</td></tr>
+        </tbody>
+      </table>
+      <p>GTA 2026, mid-range finish, same layout, before HST and before contingency. Kitchen and bath
+        figures come from published Ontario contractor ranges. The rest are working estimates and are
+        the first thing to replace with a real quote.</p>
+    </section>
+
+    <section>
+      <h3>Components, and what they cost to own</h3>
+      <table>
+        <thead><tr><th>Component</th><th class="n">Likely</th><th class="n">Life</th><th class="n">Per yr</th></tr></thead>
+        <tbody>
+          <tr><td>Roof</td><td class="n">13,000</td><td class="n">22 yr</td><td class="n">668</td></tr>
+          <tr><td>Furnace</td><td class="n">7,000</td><td class="n">20 yr</td><td class="n">405</td></tr>
+          <tr><td>A/C</td><td class="n">6,000</td><td class="n">15 yr</td><td class="n">465</td></tr>
+          <tr><td>Water heater</td><td class="n">2,600</td><td class="n">13 yr</td><td class="n">232</td></tr>
+          <tr><td>Windows, whole house</td><td class="n">20,000</td><td class="n">30 yr</td><td class="n">773</td></tr>
+        </tbody>
+      </table>
+      <p><b>Per year includes HST.</b> This is the honest cost of owning a house with mechanical
+        equipment in it, whether or not anything breaks in your first year. Because <b class="hot">not one
+        listing showed a panel, furnace or water heater</b>, every house here is charged the full reserve.
+        One date from the agent removes most of it: a 2023 furnace drops that line to near zero for a decade.</p>
+    </section>
+
+    <section>
+      <h3>How likely a job is needed</h3>
+      <table>
+        <thead><tr><th>House built</th><th class="n">Assumed</th></tr></thead>
+        <tbody>
+          <tr><td>Before 1990</td><td class="n">70%</td></tr>
+          <tr><td>1990 to 2004</td><td class="n">45%</td></tr>
+          <tr><td>2005 or later</td><td class="n">20%</td></tr>
+          <tr><td>Every tell read clean</td><td class="n">15%</td></tr>
+          <tr><td>Defect confirmed</td><td class="n">100%</td></tr>
+        </tbody>
+      </table>
+      <p>A job you cannot see is priced at the odds it has never been done, set by the age of the house.
+        Reading the sink rim, the counter edge, the soffit and the door profile at full resolution pulls
+        that number down toward 15%. Seeing a defect pins it at 100%. That is the whole mechanism, and it
+        is why <b>three houses here with no photo pass at all carry the largest wish lists.</b></p>
+      <table>
+        <thead><tr><th>Discovery contingency</th><th class="n">Added</th></tr></thead>
+        <tbody>
+          <tr><td>Built before 1980</td><td class="n">+25%</td></tr>
+          <tr><td>1980 to 1999</td><td class="n">+18%</td></tr>
+          <tr><td>2000 or later</td><td class="n">+12%</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h3>What you get back</h3>
+      <table>
+        <thead><tr><th>Work</th><th class="n">Recovers</th></tr></thead>
+        <tbody>
+          <tr><td>Adding a second full bath</td><td class="n">100 to 125%</td></tr>
+          <tr><td>Kitchen</td><td class="n">75 to 100%</td></tr>
+          <tr><td>Interior paint</td><td class="n">50 to 100%</td></tr>
+          <tr><td>Bathroom</td><td class="n">55 to 90%</td></tr>
+          <tr><td>Roof</td><td class="n">50 to 80%</td></tr>
+          <tr><td>Furnace and A/C</td><td class="n">50 to 80%</td></tr>
+          <tr><td>Flooring</td><td class="n">50 to 75%</td></tr>
+          <tr><td>Windows</td><td class="n">50 to 75%</td></tr>
+          <tr><td>Finishing a basement</td><td class="n">50 to 75%</td></tr>
+          <tr><td>Driveway</td><td class="n">20 to 50%</td></tr>
+          <tr><td>Oil tank, asbestos, waterproofing</td><td class="n">25 to 50%</td></tr>
+        </tbody>
+      </table>
+      <p>Appraisal Institute of Canada bands, with the bathroom low end pulled down to match the RE/MAX
+        renovation report. <b>Almost nothing returns more than it costs.</b> Spending past what a renovated
+        house in that pocket sells for returns 45 cents on the dollar, which is the arithmetic behind
+        the old rule about not over-improving for the street.</p>
+      <p class="hot"><b>The single most sensitive number on this page:</b> a renovated house is assumed to
+        trade at $720 per usable sq ft in Burlington and $790 in Oakville. Both are derived from asking
+        prices, not sold prices. Move them by $60 and several of the resale figures move by six digits.
+        Ask the agent for sold price per square foot in each pocket, and this stops being a guess.</p>
+    </section>
+  </div>
+
+  <div class="standing">
+    <h3>Two questions that go to every listing agent, always</h3>
+    <ol>
+      <li>How old are the roof, furnace and air conditioner?</li>
+      <li>Are any of the photos virtually staged or digitally enhanced, and when were they taken?</li>
+    </ol>
+    <p style="margin:12px 0 0; font-size:14px; color:var(--muted)">Not one of these 24 listings contains a
+      single photograph of an electrical panel, a furnace or a water heater. Across houses built between
+      1954 and 1999, that is the largest gap in everything above, and the first question closes most of it.</p>
+  </div>
+
+  <div class="caveat">
+    <section><h3>This cannot tell you a house is good</h3>
+      <p>It is a screening tool and a list of things to check. Every green line means "no problem found in
+        the photos", never "verified fine".</p></section>
+    <section><h3>None of these are offer prices</h3>
+      <p>There are no sold comparables in this model. Resale estimates rest on an asking-price benchmark
+        and will move the moment real sold data exists.</p></section>
+    <section><h3>The calculator is arithmetic, not advice</h3>
+      <p>Rates, insurance premiums and rebate rules change. Confirm every figure with your mortgage broker
+        and your real estate lawyer before you rely on it.</p></section>
+    <section><h3>It knows nothing about living there</h3>
+      <p>The street, the light, the noise, the walk to the car in February. All of it outranks everything
+        on this page.</p></section>
+  </div>
+
+  <p class="colophon">Ranked on true cost per usable square foot · usable = above grade + half the basement,
+    65% if it walks out<br>Grades score the facts only — size, layout, lot, baths, location, parking — and
+    never condition · Room dimensions as entered on MLS</p>
+
+</div>
+
+<script>
+const ROOMS = {
+ tania:[["Main","Powder",null,null,"2-piece"],["Main","Dining","10.9 × 12.0",131,""],
+  ["Main","Family","17.2 × 17.8",306,"Fireplace"],["Main","Kitchen","19.9 × 14.6",292,"Recessed lighting"],
+  ["Main","Living","10.9 × 17.9",196,"Broadloom · bay window · crown"],
+  ["Second","Bath",null,null,"5-piece"],["Second","Bath",null,null,"4-piece"],
+  ["Second","Bedroom","14.9 × 10.9",163,"Broadloom · shutters"],["Second","Bedroom","11.9 × 10.9",130,"Broadloom"],
+  ["Second","Bedroom","11.5 × 9.7",111,"Broadloom · shutters"],
+  ["Second","Primary","20.4 × 15.5",316,"Broadloom · 4-pc ensuite · fireplace · walk-in"],
+  ["Lower","Bath",null,null,"3-piece"],["Lower","Den","11.8 × 17.7",209,"Broadloom"],
+  ["Lower","Laundry","11.3 × 6.7",75,""],["Lower","Recreation","19.3 × 13.2",254,"Broadloom · built-ins · fireplace · bar"],
+  ["Lower","Utility","10.2 × 13.8",141,"Cedar closet"]],
+ delaney:[["Main","Powder",null,null,"2-piece"],["Main","Breakfast nook","5.9 × 9.3",55,""],
+  ["Main","Dining","10.2 × 15.1",154,""],["Main","Family","11.4 × 15.4",176,""],
+  ["Main","Kitchen","11.8 × 12.3",146,""],["Main","Living","14.7 × 12.8",188,""],
+  ["Second","Bath",null,null,"3-piece"],["Second","Bath",null,null,"4-piece"],
+  ["Second","Bedroom","11.4 × 11.6",132,""],["Second","Bedroom","12.3 × 10.3",127,""],
+  ["Second","Bedroom","13.2 × 10.3",136,""],["Second","Primary","15.3 × 24.5",375,"Largest primary in the set"],
+  ["Lower","Bedroom","14.7 × 12.3",181,""],["Lower","Office","12.1 × 14.8",178,""],
+  ["Lower","Recreation","14.5 × 22.8",331,""]],
+ ravine:[["Main","Powder",null,null,"2-piece"],["Main","Dining","11.4 × 7.5",86,""],
+  ["Main","Family","13.5 × 11.7",158,""],["Main","Kitchen","14.7 × 11.7",171,""],
+  ["Main","Living","11.4 × 14.5",165,""],
+  ["Second","Bath",null,null,"5-piece"],["Second","Bath",null,null,"4-piece"],
+  ["Second","Bedroom","13.1 × 11.1",145,""],["Second","Bedroom","11.4 × 13.3",152,""],
+  ["Second","Primary","17.4 × 10.8",187,""],
+  ["Lower","Bedroom","13.5 × 10.8",145,""],["Lower","Media room","14.3 × 9.7",139,""],
+  ["Lower","Unnamed","8.6 × 12.2",105,"Listed only as “Other”"],
+  ["Lower","Unnamed","7.4 × 21.0",154,"Listed only as “Other”"]],
+ cavendish:[["Main","Bath",null,null,"4-piece"],["Main","Bedroom","12.0 × 11.4",137,""],
+  ["Main","Bedroom","9.8 × 9.0",87,"Under 100 sq ft"],["Main","Bedroom","9.8 × 8.9",87,"Under 100 sq ft"],
+  ["Main","Dining","12.4 × 8.9",110,""],["Main","Kitchen","12.8 × 12.0",153,""],
+  ["Main","Living","14.6 × 12.9",189,""],
+  ["Lower","Bath",null,null,"3-piece"],["Lower","Bedroom","12.7 × 10.4",133,""],
+  ["Lower","Recreation","27.7 × 21.7",600,"Largest single room in the batch"],
+  ["Lower","Utility","13.5 × 10.5",141,""]],
+ clinton:[["Main","Bath",null,null,"3-piece"],
+  ["Main","Bedroom","14.3 × 9.8",141,"Carpet free · own 3-pc ensuite"],
+  ["Main","Foyer","8.2 × 17.6",144,"Hardwood"],
+  ["Main","Kitchen","17.1 × 15.2",259,"Hardwood · granite · recessed"],
+  ["Main","Living","17.1 × 12.8",219,"Hardwood · recessed"],["Main","Office","10.2 × 8.5",87,"Hardwood"],
+  ["Upper","Bath",null,null,"3-piece"],["Upper","Bedroom","8.2 × 11.2",92,"Hardwood · under 100 sq ft"],
+  ["Upper","Bedroom","12.2 × 11.2",136,"Hardwood"],["Upper","Bedroom","11.7 × 10.4",122,"Hardwood"],
+  ["Upper","Bedroom","8.8 × 10.4",91,"Hardwood · under 100 sq ft"],
+  ["Lower","Bath",null,null,"3-piece"],["Lower","Family","15.6 × 17.1",266,"Carpet free · recessed"],
+  ["Lower","Laundry",null,null,"No dimensions given"],["Lower","Utility","7.5 × 9.8",74,""]],
+ bunton:[["Main","Powder",null,null,"2-piece"],["Main","Dining","12.8 × 12.5",159,""],
+  ["Main","Family","13.3 × 11.1",148,""],["Main","Kitchen","15.0 × 9.0",135,"Only 9 ft deep"],
+  ["Main","Living","11.6 × 10.9",126,""],
+  ["Second","Bath",null,null,"4-piece"],["Second","Bath",null,null,"5-piece"],
+  ["Second","Bedroom","18.2 × 8.7",158,"Long and narrow"],["Second","Bedroom","11.3 × 10.1",113,""],
+  ["Second","Primary","21.7 × 10.0",217,""],
+  ["Lower","Laundry","10.6 × 10.2",107,""],["Lower","Recreation","27.6 × 9.9",273,"Only 10 ft wide"]],
+ bonnie:[["Main","Powder",null,null,"2-piece"],["Main","Dining","9.7 × 8.8",86,"Small"],
+  ["Main","Great room","20.0 × 12.8",255,""],["Main","Kitchen","9.7 × 10.4",101,"Smallest kitchen here"],
+  ["Second","Bath",null,null,"4-piece"],["Second","Bedroom","15.3 × 10.2",156,""],
+  ["Second","Bedroom","10.2 × 10.0",102,""],["Second","Primary","20.8 × 16.3",338,""],
+  ["Lower","Bath",null,null,"3-piece"],["Lower","Recreation","19.5 × 11.4",222,""]],
+ caplan:[["Main","Bath",null,null,"4-piece"],["Main","Powder",null,null,"2-piece"],
+  ["Main","Bedroom","12.4 × 10.7",133,"Vinyl · bay window"],
+  ["Main","Bedroom","9.9 × 9.0",89,"Vinyl · under 100 sq ft"],
+  ["Main","Dining","10.9 × 9.3",101,"Vinyl · open concept"],
+  ["Main","Kitchen","15.9 × 8.9",142,"Vinyl · breakfast bar · granite"],
+  ["Main","Living","18.2 × 11.9",217,"Vinyl · crown · open concept"],
+  ["Main","Primary","14.7 × 10.9",160,"Vinyl · bay window"],
+  ["Lower","Bath",null,null,"3-piece"],["Lower","Bedroom","12.6 × 11.9",150,"Laminate"],
+  ["Lower","Recreation","26.6 × 11.9",317,"Laminate · fireplace"]],
+ pinemeadow:[["Main","Powder","6.3 × 2.9",18,"2-piece · very tight"],
+  ["Main","Dining","11.0 × 11.0",121,""],["Main","Family","16.4 × 10.8",177,""],
+  ["Main","Kitchen","16.2 × 11.2",180,""],["Main","Laundry","7.7 × 6.9",53,""],
+  ["Main","Living","16.0 × 10.8",173,""],
+  ["Second","Bath",null,null,"3-piece"],["Second","Bath",null,null,"4-piece"],
+  ["Second","Bedroom","12.7 × 9.8",125,""],["Second","Bedroom","12.2 × 9.1",111,""],
+  ["Second","Bedroom","12.4 × 10.3",128,""],["Second","Primary","19.4 × 11.4",222,""],
+  ["Lower","Cold room","7.1 × 3.4",24,""],["Lower","Den","11.0 × 10.3",114,""],
+  ["Lower","Recreation","22.7 × 16.0",363,""],["Lower","Utility","17.3 × 15.5",267,"Unusually large"]],
+ hazelwood:[["Main","Bath",null,null,"3-piece"],["Main","Dining","12.5 × 10.2",127,"Hardwood · bay window"],
+  ["Main","Family","16.3 × 10.8",176,"Hardwood · crown"],
+  ["Main","Kitchen","13.1 × 8.3",109,"Hardwood · bay · stainless · only 8 ft deep"],
+  ["Main","Living","18.2 × 11.3",206,"Hardwood · fireplace · island"],
+  ["Second","Bath",null,null,"4-piece"],["Second","Bath",null,null,"4-piece"],
+  ["Second","Bedroom","12.9 × 11.2",144,"Hardwood"],["Second","Bedroom","11.3 × 10.8",122,"Hardwood"],
+  ["Second","Bedroom","12.6 × 12.5",158,"Hardwood"],
+  ["Second","Primary","15.9 × 11.4",181,"Hardwood · 4-pc ensuite"],
+  ["Lower","Powder",null,null,"2-piece"],["Lower","Recreation","26.9 × 18.8",507,"Laminate"]],
+ enfield:[["Main","Bath",null,null,"3-piece"],["Main","Bedroom","10.5 × 9.7",102,""],
+  ["Main","Bedroom","10.6 × 8.9",94,"Under 100 sq ft"],["Main","Bedroom","11.7 × 14.2",167,""],
+  ["Main","Foyer","10.5 × 6.8",71,""],["Main","Kitchen","11.2 × 13.3",149,""],
+  ["Main","Living","13.5 × 10.7",144,""],
+  ["Lower","Bath",null,null,"3-piece"],["Lower","Family","13.7 × 22.6",309,""],
+  ["Lower","Laundry","22.6 × 12.1",272,""],["Lower","Utility","11.7 × 11.6",136,""]]
+};
+
+const COSTS = {
+ tania: {"d1":[["Flooring",0.7,26106,25678,51356,"floor never resolved"],["Ceilings",0.7,8987,9171,16507,"ceiling never resolved"],["Basement waterproofing",0.12,2429,11300,31075,"base rate, no moisture seen"]],"wl":[["Kitchen",0.42,12406,16950,45200,"2 of 4 tells readable"],["Main bath",0.52,13623,16950,39550,"1 of 3 tells readable"],["Second full bath",0.7,15161,14125,31075,"never photographed"],["Third full bath",0.7,15161,14125,31075,"never photographed"],["Powder room",0.7,6674,4944,15537,"never photographed"],["Basement finish",1.0,64622,44494,88987,"1,227 sq ft below grade"]],"rs":[["Roof",1.0,14690,10170,19210,22,668],["Furnace",1.0,8098,5650,11300,20,405],["A/C",1.0,6968,5085,9605,15,465],["Water heater",1.0,3013,2034,4294,13,232],["Windows",0.7,16215,16950,31640,30,541]],"d1p50":56409,"d1p80":67223,"wp50":137618,"wp80":163406,"naive":234246,"resmo":192,"near5":48985,"cont":25,"eraP":70,"yb":null,"usable":3210,"norm":2311560,"head":1036561,"arv":[1383257,1413284,1443312],"rec":60,"sunk":92344,"be":1505628,"fs":82.6,"fp":{"size":25.0,"layout":20,"baths":20,"lot":3.0,"location":6.7,"parking":8},"tax":6691,"photos":null,"tier1":null,"stage":"professionally_staged","mech":"windows 2025 (remarks only)","cve":null},
+ delaney: {"d1":[["Flooring",0.15,4360,20012,40023,"floor read clean"],["Ceilings",0.15,1501,7147,12865,"ceiling read flat"],["Basement waterproofing",0.12,2293,10667,29335,"base rate, no moisture seen"]],"wl":[["Kitchen",0.15,4134,16001,42669,"4 of 4 tells readable"],["Main bath",0.52,12860,16001,37335,"1 of 3 tells readable"],["Second full bath",0.7,14312,13334,29335,"never photographed"],["Powder room",0.7,6300,4667,14667,"never photographed"],["Basement finish",0.42,23852,38642,77284,"828 sq ft below grade"]],"rs":[["Roof",1.0,14690,10170,19210,22,668],["Furnace",1.0,8098,5650,11300,20,405],["A/C",1.0,6968,5085,9605,15,465],["Water heater",1.0,3013,2034,4294,13,232],["Windows",0.7,16215,16950,31640,30,541]],"d1p50":10663,"d1p80":30939,"wp50":60001,"wp80":103144,"naive":100791,"resmo":192,"near5":48985,"cont":18,"eraP":70,"yb":1986,"usable":2558,"norm":1841760,"head":591860,"arv":[1312866,1330870,1348875],"rec":60,"sunk":53113,"be":1383983,"fs":73.7,"fp":{"size":17.9,"layout":20,"baths":15,"lot":4.2,"location":8.7,"parking":8},"tax":7249,"photos":null,"tier1":null,"stage":"professionally_staged","mech":null,"cve":null},
+ ravine: {"d1":[["Flooring",0.7,18707,18401,36801,"no flooring photo resolved"],["Ceilings",0.7,6440,6572,11829,"no ceiling photo resolved"],["Basement waterproofing",0.12,2429,11300,31075,"base rate, no moisture seen"]],"wl":[["Kitchen",0.7,20434,16950,45200,"0 of 4 tells readable"],["Main bath",0.7,18457,16950,39550,"0 of 3 tells readable"],["Second full bath",0.7,15161,14125,31075,"never photographed"],["Powder room",0.7,6674,4944,15537,"never photographed"],["Basement finish",0.7,28146,27685,55370,"560 sq ft below grade"]],"rs":[["Roof",1.0,14690,10170,19210,22,668],["Furnace",1.0,8098,5650,11300,20,405],["A/C",1.0,6968,5085,9605,15,465],["Water heater",1.0,3013,2034,4294,13,232],["Windows",0.7,16215,16950,31640,30,541]],"d1p50":43253,"d1p80":51435,"wp50":98069,"wp80":124884,"naive":168483,"resmo":192,"near5":48985,"cont":25,"eraP":70,"yb":null,"usable":2141,"norm":1541520,"head":443520,"arv":[1184748,1208030,1231313],"rec":62,"sunk":66289,"be":1274319,"fs":56.5,"fp":{"size":13.5,"layout":15,"baths":15,"lot":0,"location":8.0,"parking":5},"tax":5732.38,"photos":null,"tier1":null,"stage":null,"mech":null,"cve":null},
+ cavendish: {"d1":[["Flooring",0.7,11058,10876,21752,"no flooring photo resolved"],["Ceilings",0.7,3807,3884,6992,"no ceiling photo resolved"],["Basement waterproofing",0.12,2429,11300,31075,"base rate, no moisture seen"]],"wl":[["Kitchen",0.7,20434,16950,45200,"0 of 4 tells readable"],["Main bath",0.7,18457,16950,39550,"0 of 3 tells readable"],["Second full bath",0.7,15161,14125,31075,"never photographed"],["Basement finish",0.7,45235,44494,88987,"1,007 sq ft below grade"]],"rs":[["Roof",1.0,14690,10170,19210,22,668],["Furnace",1.0,8098,5650,11300,20,405],["A/C",1.0,6968,5085,9605,15,465],["Water heater",1.0,3013,2034,4294,13,232],["Windows",0.7,16215,16950,31640,30,541]],"d1p50":29467,"d1p80":35016,"wp50":115417,"wp80":145021,"naive":167219,"resmo":192,"near5":48985,"cont":25,"eraP":70,"yb":null,"usable":1755,"norm":1263276,"head":293376,"arv":[1058011,1080874,1103737],"rec":62,"sunk":69063,"be":1149937,"fs":45.4,"fp":{"size":1.6,"layout":9,"baths":13,"lot":8.5,"location":9.3,"parking":4},"tax":4782,"photos":null,"tier1":null,"stage":null,"mech":null,"cve":null},
+ clinton: {"d1":[["Flooring",0.15,3662,16809,33618,"floor read clean"],["Ceilings",0.15,1261,6003,10806,"ceiling read flat"],["Basement waterproofing",0.12,2429,11300,31075,"base rate, no moisture seen"]],"wl":[["Kitchen",0.29,8393,16950,45200,"3 of 4 tells readable"],["Main bath",0.52,13623,16950,39550,"1 of 3 tells readable"],["Second full bath",0.7,15161,14125,31075,"never photographed"],["Third full bath",0.7,15161,14125,31075,"never photographed"],["Basement finish",0.15,5493,25213,50426,"510 sq ft below grade"]],"rs":[["Roof",1.0,14690,10170,19210,22,668],["Furnace",1.0,8098,5650,11300,20,405],["A/C",1.0,6968,5085,9605,15,465],["Water heater",1.0,3013,2034,4294,13,232],["Windows",0.7,16215,16950,31640,30,541]],"d1p50":11235,"d1p80":31009,"wp50":55152,"wp80":85400,"naive":94891,"resmo":192,"near5":48985,"cont":25,"eraP":70,"yb":1973,"usable":1955,"norm":1407600,"head":232700,"arv":[1232237,1248836,1265435],"rec":64,"sunk":42473,"be":1291309,"fs":62.6,"fp":{"size":10.9,"layout":15,"baths":18,"lot":6.0,"location":8.7,"parking":8},"tax":5787.11,"photos":null,"tier1":null,"stage":"professionally_staged","mech":"furnace 2022; A/C 2019 (remarks only)","cve":null},
+ bunton: {"d1":[["Flooring",0.45,10602,16222,32444,"no flooring photo resolved"],["Ceilings",0.45,3650,5794,10429,"no ceiling photo resolved"],["Basement waterproofing",0.12,2293,10667,29335,"base rate, no moisture seen"]],"wl":[["Kitchen",0.45,12401,16001,42669,"0 of 4 tells readable"],["Main bath",0.45,11201,16001,37335,"0 of 3 tells readable"],["Second full bath",0.45,9200,13334,29335,"never photographed"],["Powder room",0.45,4050,4667,14667,"never photographed"],["Basement finish",0.45,23852,36495,72990,"782 sq ft below grade"]],"rs":[["Roof",1.0,14690,10170,19210,22,668],["Furnace",1.0,8098,5650,11300,20,405],["A/C",1.0,6968,5085,9605,15,465],["Water heater",1.0,3013,2034,4294,13,232],["Windows",0.45,10424,16950,31640,30,347]],"d1p50":26843,"d1p80":40810,"wp50":61887,"wp80":99025,"naive":111461,"resmo":176,"near5":32770,"cont":18,"eraP":45,"yb":1997,"usable":1738,"norm":1251360,"head":201360,"arv":[1117880,1136038,1154196],"rec":62,"sunk":53797,"be":1189835,"fs":55.5,"fp":{"size":11.5,"layout":15,"baths":15,"lot":0,"location":8.0,"parking":6},"tax":5818,"photos":null,"tier1":null,"stage":null,"mech":null,"cve":null},
+ bonnie: {"d1":[["Flooring",0.15,3314,15214,30428,"floor read clean"],["Ceilings",0.15,1141,5434,9780,"ceiling read flat"],["Basement waterproofing",0.12,2293,10667,29335,"base rate, no moisture seen"]],"wl":[["Kitchen",0.45,12401,16001,42669,"0 of 4 tells readable"],["Main bath",0.45,11201,16001,37335,"0 of 3 tells readable"],["Second full bath",0.45,9200,13334,29335,"never photographed"],["Powder room",0.45,4050,4667,14667,"never photographed"],["Basement finish",0.15,7463,34255,68510,"734 sq ft below grade"]],"rs":[["Roof",1.0,14690,10170,19210,22,668],["Furnace",1.0,8098,5650,11300,20,405],["A/C",1.0,6968,5085,9605,15,465],["Water heater",1.0,3013,2034,4294,13,232],["Windows",0.45,10424,16950,31640,30,347]],"d1p50":10379,"d1p80":28187,"wp50":42311,"wp80":70646,"naive":75631,"resmo":176,"near5":32770,"cont":18,"eraP":45,"yb":1996,"usable":1630,"norm":1173600,"head":173700,"arv":[1050053,1063325,1076596],"rec":64,"sunk":35408,"be":1098733,"fs":52.8,"fp":{"size":9.8,"layout":15,"baths":15,"lot":0,"location":8.0,"parking":5},"tax":4246,"photos":null,"tier1":null,"stage":"professionally_staged","mech":null,"cve":null},
+ caplan: {"d1":[["Flooring",0.15,2837,13022,26044,"floor read clean"],["Ceilings",0.15,977,4651,8371,"ceiling read flat"],["Basement waterproofing",0.12,2429,11300,31075,"base rate, no moisture seen"]],"wl":[["Kitchen",0.15,4379,16950,45200,"4 of 4 tells readable"],["Main bath",1.0,26367,16950,39550,"2 of 3 tells readable"],["Second full bath",0.7,15161,14125,31075,"never photographed"],["Powder room",0.7,6674,4944,15537,"never photographed"],["Basement finish",0.15,5385,24719,49437,"500 sq ft below grade"]],"rs":[["Roof",1.0,14690,10170,19210,22,668],["Furnace",1.0,8098,5650,11300,20,405],["A/C",1.0,6968,5085,9605,15,465],["Water heater",1.0,3013,2034,4294,13,232]],"d1p50":11172,"d1p80":27818,"wp50":59846,"wp80":81412,"naive":95266,"resmo":147,"near5":32770,"cont":25,"eraP":70,"yb":null,"usable":1567,"norm":1128240,"head":139440,"arv":[1041494,1057389,1073284],"rec":63,"sunk":40641,"be":1098030,"fs":49.0,"fp":{"size":5.0,"layout":11,"baths":15,"lot":0.4,"location":10.7,"parking":7},"tax":4469,"photos":40,"tier1":{"tier1_observed":2,"tier1_total":5},"stage":"professionally_staged","mech":"furnace 2022, water softener 2022, windows front+rear 2021, appliances 2021 (remarks only, not photo-verified)","cve":"Carpet-free and stone kitchen counters consistent with photos. Stated 2022 furnace, 2022 softener and 2021 windows cannot be verified: no mechanical, panel or nameplate photo exists."},
+ pinemeadow: {"d1":[["Flooring",0.7,19577,19256,38511,"floor never resolved"],["Ceilings",1.0,9628,6877,12379,"stipple confirmed"],["Basement waterproofing",0.12,2293,10667,29335,"base rate, no moisture seen"]],"wl":[["Kitchen",0.56,15501,16001,42669,"1 of 4 tells readable"],["Main bath",0.33,8297,16001,37335,"2 of 3 tells readable"],["Second full bath",0.7,14312,13334,29335,"never photographed"],["Powder room",0.7,6300,4667,14667,"never photographed"],["Basement finish",0.7,42702,42002,84004,"928 sq ft below grade"]],"rs":[["Roof",1.0,14690,10170,19210,22,668],["Furnace",1.0,8098,5650,11300,20,405],["A/C",1.0,6968,5085,9605,15,465],["Water heater",1.0,3013,2034,4294,13,232],["Windows",0.7,16215,16950,31640,30,541]],"d1p50":47283,"d1p80":53949,"wp50":99071,"wp80":129229,"naive":168907,"resmo":192,"near5":48985,"cont":18,"eraP":70,"yb":1986,"usable":2063,"norm":1485360,"head":185460,"arv":[1387440,1411324,1435207],"rec":61,"sunk":71754,"be":1483078,"fs":74.9,"fp":{"size":16.6,"layout":20,"baths":15,"lot":5.3,"location":10.0,"parking":8},"tax":6294.65,"photos":null,"tier1":null,"stage":"professionally_staged","mech":null,"cve":null},
+ hazelwood: {"d1":[["Flooring",0.15,3709,17025,34050,"floor read clean"],["Ceilings",1.0,8512,6080,10945,"stipple confirmed"],["Basement waterproofing",0.12,2293,10667,29335,"base rate, no moisture seen"]],"wl":[["Kitchen",0.15,4134,16001,42669,"4 of 4 tells readable"],["Main bath",1.0,24890,16001,37335,"3 of 3 tells readable"],["Second full bath",0.7,14312,13334,29335,"never photographed"],["Third full bath",0.7,14312,13334,29335,"never photographed"],["Powder room",0.7,6300,4667,14667,"never photographed"],["Basement finish",1.0,55648,38315,76630,"821 sq ft below grade"]],"rs":[["Roof",1.0,14690,10170,19210,22,668],["Furnace",1.0,8098,5650,11300,20,405],["A/C",1.0,6968,5085,9605,15,465],["Water heater",1.0,3013,2034,4294,13,232]],"d1p50":19338,"d1p80":38560,"wp50":129024,"wp80":146076,"naive":191274,"resmo":147,"near5":32770,"cont":18,"eraP":70,"yb":1984,"usable":1824,"norm":1313280,"head":78280,"arv":[1297604,1313280,1313280],"rec":44,"sunk":102794,"be":1419636,"fs":72.6,"fp":{"size":12.9,"layout":20,"baths":20,"lot":3.8,"location":8.0,"parking":8},"tax":5837.87,"photos":40,"tier1":{"tier1_observed":3,"tier1_total":5},"stage":"mixed","mech":null,"cve":"Kitchen and primary ensuite consistent with genuine updates. Hall 4pc bath shows original cultured-marble vanity and dated doors, so the blanket 'beautifully updated' claim does not hold uniformly. 'Carpet free' is supported."},
+ enfield: {"d1":[["Flooring",0.7,13018,12804,25609,"floor never resolved"],["Ceilings",0.15,960,4573,8231,"ceiling read flat"],["Electrical panel",0.5,2531,3531,7062,"pre-1970, panel not shown"],["Partial rewire",0.25,3437,8475,19775,"pre-1970 risk"],["Oil to gas conversion",1.0,20010,14125,26837,"oil heat in MLS"],["Oil tank removal",1.0,8004,4238,12712,"LIABILITY IF BURIED \u2014 uncapped"],["Asbestos abatement",0.6,6427,3531,21187,"suspect material, only if disturbed"],["Basement waterproofing",0.12,2429,11300,31075,"base rate, no moisture seen"]],"wl":[["Kitchen",1.0,72979,49437,105937,"defect confirmed"],["Main bath",1.0,26367,16950,39550,"3 of 3 tells readable"],["Second full bath",0.7,15161,14125,31075,"never photographed"],["Basement finish",1.0,41861,28822,57644,"583 sq ft below grade"]],"rs":[["Roof",1.0,14690,10170,19210,22,668],["Furnace",1.0,8098,5650,11300,20,405],["A/C",1.0,6968,5085,9605,15,465],["Water heater",1.0,3013,2034,4294,13,232]],"d1p50":71006,"d1p80":84098,"wp50":169507,"wp80":183740,"naive":308511,"resmo":147,"near5":32770,"cont":25,"eraP":70,"yb":1954,"usable":1295,"norm":932400,"head":107400,"arv":[927027,932400,932400],"rec":47,"sunk":142979,"be":1092838,"fs":60.3,"fp":{"size":4.6,"layout":11,"baths":13,"lot":15,"location":8.7,"parking":8},"tax":5411,"photos":27,"tier1":{"tier1_observed":3,"tier1_total":5},"stage":"vacant","mech":null,"cve":"The remarks market this openly as a renovation or investor opportunity and make no finish claims at all. Nothing in the photos contradicts the marketing, which is the opposite of the usual failure mode and is itself worth noting: this is the only listing in the set where the agent is not overstating anything."},
+};
+
+const HOUSES = [
+ {k:"tania",      n:"3205 Tania Cres",      p:1274999, d:67223, t:6691},
+ {k:"delaney",    n:"470 Delaney Ct",       p:1249900, d:30939, t:7249},
+ {k:"ravine",     n:"5174 Ravine Cres",     p:1098000, d:51435, t:5732},
+ {k:"cavendish",  n:"2120 Cavendish Dr",    p:969900,  d:35016, t:4782},
+ {k:"clinton",    n:"1493 Clinton Ct",      p:1174900, d:31009, t:5787},
+ {k:"bunton",     n:"5180 Bunton Cres",     p:1050000, d:40810, t:5818},
+ {k:"bonnie",     n:"1319 Bonnie Ct",       p:999900,  d:28187, t:4246},
+ {k:"caplan",     n:"3469 Caplan Cres",     p:988800,  d:27818, t:4469},
+ {k:"pinemeadow", n:"3212 Pinemeadow Dr",   p:1299900, d:53949, t:6295},
+ {k:"hazelwood",  n:"3217 Hazelwood Ave",   p:1235000, d:38560, t:5838},
+ {k:"enfield",    n:"522 Enfield Rd",       p:825000,  d:84098, t:5411}
+];
+// Component reserve ONLY (roof, furnace, A/C, water heater, windows). Property tax is
+// added separately in recalc(), so it must not be baked in here.
+const RESERVE = {tania:192,delaney:192,ravine:192,cavendish:192,clinton:192,bunton:176,
+                 bonnie:176,caplan:147,pinemeadow:192,hazelwood:147,enfield:147};
+const CLOSING_EXTRAS = 3500; // lawyer, title insurance, inspection — a working estimate
+
+function money(n){ return "$" + Math.round(n).toLocaleString("en-CA"); }
+
+// Ontario provincial land transfer tax. Burlington and Oakville levy no municipal LTT.
+function ontarioLTT(p){
+  const bands=[[55000,.005],[250000,.01],[400000,.015],[2000000,.02],[Infinity,.025]];
+  let t=0, prev=0;
+  for(const [cap,rate] of bands){ if(p<=prev) break; t += (Math.min(p,cap)-prev)*rate; prev=cap; }
+  return t;
+}
+// Canadian mortgages compound semi-annually, not monthly.
+function monthlyPayment(principal, annualPct, years){
+  if(principal<=0) return 0;
+  const i = Math.pow(1 + (annualPct/100)/2, 1/6) - 1;
+  const n = years*12;
+  if(i===0) return principal/n;
+  return principal * i / (1 - Math.pow(1+i, -n));
+}
+function cmhcRate(dpPct){
+  if(dpPct>=20) return 0;
+  if(dpPct>=15) return .028;
+  if(dpPct>=10) return .031;
+  return .04;
+}
+
+function recalc(){
+  const dp = Math.max(5, Math.min(100, +document.getElementById("dp").value || 20));
+  const rate = +document.getElementById("rate").value || 4.25;
+  const yrs = Math.max(5, Math.min(30, +document.getElementById("amort").value || 25));
+  const ftb = document.getElementById("ftb").checked;
+  document.getElementById("cmhc-note").classList.toggle("on", dp < 20);
+
+  const tbody = document.querySelector("#calctab tbody");
+  tbody.innerHTML = "";
+  HOUSES.forEach(function(h){
+    const down = h.p * dp/100;
+    const base = h.p - down;
+    const prem = base * cmhcRate(dp);
+    const loan = base + prem;
+    const pay = monthlyPayment(loan, rate, yrs);
+    const ltt = ontarioLTT(h.p);
+    const rebate = ftb ? Math.min(4000, ltt) : 0;
+    const taxmo = h.t/12;
+    const res = RESERVE[h.k];
+    const total = pay + taxmo + res;
+    const cash = down + (ltt - rebate) + CLOSING_EXTRAS + h.d;
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td>"+h.n+"</td>"+
+      "<td class='n'>"+money(h.p)+"</td>"+
+      "<td class='n'>"+money(loan)+"</td>"+
+      "<td class='n'>"+money(pay)+"</td>"+
+      "<td class='n'>"+money(taxmo)+"</td>"+
+      "<td class='n'>"+money(res)+"</td>"+
+      "<td class='n'><b>"+money(total)+"</b></td>"+
+      "<td class='n'>"+money(ltt-rebate)+"</td>"+
+      "<td class='n'><b>"+money(cash)+"</b></td>";
+    tbody.appendChild(tr);
+
+    const live = document.querySelector('[data-live="'+h.k+'"]');
+    if(live){
+      live.innerHTML =
+        "<div><dt>Total per month</dt><dd>"+money(total)+"</dd></div>"+
+        "<div><dt>Cash on closing day</dt><dd>"+money(cash)+"</dd></div>"+
+        "<div><dt>Mortgage</dt><dd>"+money(loan)+"</dd></div>";
+    }
+  });
+  try{ localStorage.setItem("walk-shortlist-calc", JSON.stringify({dp:dp,rate:rate,yrs:yrs,ftb:ftb})); }catch(e){}
+}
+
+function PSF(c){ return c.oak ? "$790" : "$720"; }
+function renderCosts(){
+  function row(r, cls){
+    var pct = Math.round(r[1]*100);
+    return "<tr><td class='odds'><i>"+pct+"%</i><u><s style='width:"+pct+"%'></s></u></td>"+
+      "<td>"+r[0]+"<span class='why'>"+r[5]+"</span></td>"+
+      "<td class='amt'>"+money(r[2])+"</td></tr>";
+  }
+  document.querySelectorAll(".lot").forEach(function(lot){
+    var c = COSTS[lot.dataset.slug];
+    if(!c) return;
+    var hh = HOUSES.filter(function(x){return x.k===lot.dataset.slug;})[0];
+    var listPrice = hh ? hh.p : (c.be - c.d1p80 - c.wp80);
+    var d1 = c.d1.map(function(r){return row(r);}).join("");
+    var wl = c.wl.map(function(r){return row(r);}).join("");
+    var rs = c.rs.map(function(r){
+      return "<tr><td>"+r[0]+"<span class='why'>"+r[5]+" yr life"+
+        (r[1]<1 ? ", charged at "+Math.round(r[1]*100)+"%" : "")+"</span></td>"+
+        "<td class='amt'>"+money(r[2]/r[1])+"</td><td class='amt'>"+money(r[6])+"/yr</td></tr>";
+    }).join("");
+
+    var gparts = [["size","Size",25],["layout","Layout",20],["baths","Baths",20],
+                  ["lot","Lot",15],["location","Location",12],["parking","Parking",8]];
+    var gbars = gparts.map(function(g){
+      var v = c.fp[g[0]] || 0, pc = Math.round(100*v/g[2]);
+      return "<div class='gp'><em>"+g[1]+"</em><span><i style='width:"+pc+"%'></i></span>"+
+             "<b>"+v.toFixed(0)+" / "+g[2]+"</b></div>";
+    }).join("");
+
+    var era = c.yb ? ("built "+c.yb) : "build year not published, treated as pre-1990";
+    var det = document.createElement("details");
+    det.className = "costs";
+    det.innerHTML =
+      "<summary>Renovation cost, line by line</summary><div class='costbody'>"+
+      "<div class='costgrid'>"+
+        "<section class='cb d1'><h4>Day one <b>"+money(c.d1p80)+"</b></h4>"+
+          "<table><tbody>"+d1+"</tbody></table>"+
+          "<p class='foot'>Midpoint outcome "+money(c.d1p50)+". The planning figure is the 80th percentile "+
+          "of 4,000 simulated outcomes taken on the <b>total</b>, not by adding up each line's high end, "+
+          "which would read "+money(c.naive)+" once day one and the wish list are combined. A "+c.cont+
+          "% discovery contingency and HST are already inside every line.</p></section>"+
+        "<section class='cb wl'><h4>Wish list <b>"+money(c.wp80)+"</b></h4>"+
+          "<table><tbody>"+wl+"</tbody></table>"+
+          "<p class='foot'>Midpoint "+money(c.wp50)+". None of this is required to move in and none of it "+
+          "is in the ranking. It is what the house would cost to bring fully current, on your timing.</p></section>"+
+        "<section class='cb rs'><h4>Reserve <b>"+money(c.resmo)+"/mo</b></h4>"+
+          "<table><tbody>"+rs+"</tbody></table>"+
+          "<p class='foot'>Replacement cost and expected life, annualised. "+money(c.near5)+" of this sits "+
+          "in components already past their rated life if the house is as old as it looks. Every date you "+
+          "get from the agent shrinks it.</p></section>"+
+      "</div>"+
+      "<div class='valuebox'><dl class='valuerow'>"+
+        "<div><dt>Peer benchmark</dt><dd>"+money(c.norm)+"</dd></div>"+
+        "<div><dt>Room to spend</dt><dd>"+money(c.head)+"</dd></div>"+
+        "<div><dt>Worth after the work</dt><dd>"+money(c.arv[1])+"</dd></div>"+
+        "<div><dt>Recovered</dt><dd>"+c.rec+"%</dd></div>"+
+        "<div class='neg'><dt>Never comes back</dt><dd>"+money(c.sunk)+"</dd></div>"+
+        "<div><dt>Break-even</dt><dd>"+money(c.be)+"</dd></div>"+
+      "</dl><p class='valuenote'>Spend the full "+money(c.d1p80+c.wp80)+" and the house is worth roughly "+
+      money(c.arv[0])+" to "+money(c.arv[2])+", against "+money(c.be)+" all in. <b>"+money(c.sunk)+
+      " of that spend does not come back</b> on resale, which is normal and is the price of living in it. "+
+      "The peer benchmark is "+c.usable.toLocaleString("en-CA")+" usable sq ft at a flat "+PSF(c)+" a foot, "+
+      "so there is "+money(c.head)+" of headroom before the work starts over-improving for the street"+
+      (c.head > 0.35*listPrice ? ". On a house this large a flat rate reads higher than anything in the "+
+      "pocket actually trades at, so treat that headroom as an upper bound" : "")+". Property tax "+
+      money(c.tax)+" a year. "+era.charAt(0).toUpperCase()+era.slice(1)+
+      ", so an unseen job is priced at "+c.eraP+"% likely.</p></div>"+
+      "<div class='gradebox'><span class='gl'>Grade "+(c.fs).toFixed(0)+" / 100</span>"+gbars+"</div>"+
+      "</div>";
+    lot.querySelector(".body").appendChild(det);
+  });
+}
+
+function renderRooms(){
+  document.querySelectorAll(".lot").forEach(function(lot){
+    const slug = lot.dataset.slug;
+    const rows = ROOMS[slug];
+    if(!rows) return;
+    const det = document.createElement("details");
+    det.className = "rooms";
+    let html = "<summary>Every room, as entered on MLS</summary><div class='roomtab'><table>"+
+      "<thead><tr><th>Level</th><th>Room</th><th>Feet</th><th style='text-align:right;padding-right:14px'>Sq ft</th><th>Notes</th></tr></thead><tbody>";
+    let last = null;
+    rows.forEach(function(r){
+      const lvl = (r[0] === last) ? "" : r[0];
+      last = r[0];
+      const small = (r[3] && r[3] < 100 && /bed/i.test(r[1])) ? " small" : "";
+      html += "<tr><td class='lvl'>"+lvl+"</td><td>"+r[1]+"</td>"+
+        "<td class='dim'>"+(r[2] || "—")+"</td>"+
+        "<td class='sq"+small+"'>"+(r[3] || "—")+"</td>"+
+        "<td class='ft'>"+(r[4] || "")+"</td></tr>";
+    });
+    html += "</tbody></table></div>";
+    det.innerHTML = html;
+    lot.querySelector(".body").appendChild(det);
+  });
+}
+
+(function init(){
+  try{
+    const s = JSON.parse(localStorage.getItem("walk-shortlist-calc") || "null");
+    if(s){
+      document.getElementById("dp").value = s.dp;
+      document.getElementById("rate").value = s.rate;
+      document.getElementById("amort").value = s.yrs;
+      document.getElementById("ftb").checked = !!s.ftb;
+    }
+  }catch(e){}
+  renderRooms();
+  renderCosts();
+  recalc();
+  ["dp","rate","amort","ftb"].forEach(function(id){
+    document.getElementById(id).addEventListener("input", recalc);
+    document.getElementById(id).addEventListener("change", recalc);
+  });
+
+  var KEY = "walk-shortlist-checks", saved = {};
+  try{ saved = JSON.parse(localStorage.getItem(KEY) || "{}"); }catch(e){ saved = {}; }
+  document.querySelectorAll(".check input[type=checkbox]").forEach(function(b){
+    if(saved[b.id]) b.checked = true;
+    b.addEventListener("change", function(){
+      try{
+        var cur = {};
+        try{ cur = JSON.parse(localStorage.getItem(KEY) || "{}"); }catch(e2){ cur = {}; }
+        if(b.checked){ cur[b.id] = 1; } else { delete cur[b.id]; }
+        localStorage.setItem(KEY, JSON.stringify(cur));
+      }catch(e3){}
+    });
+  });
+})();
+</script>

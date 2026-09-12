@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Walking the Shortlist</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+  html,body{height:100%;margin:0;background:#faf9f7;color:#24211c;
+    font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif}
+  .wrap{min-height:100%;display:flex;align-items:center;justify-content:center;padding:24px}
+  .card{max-width:30rem;text-align:center}
+  h1{font-size:1.25rem;font-weight:600;margin:0 0 .5rem}
+  p{margin:0 0 1.25rem;color:#6b655c}
+  a{display:inline-block;margin:0 .25rem;padding:.6rem 1rem;border:1px solid #d8d2c8;
+    border-radius:8px;text-decoration:none;color:#24211c;background:#fff}
+  @media (prefers-color-scheme:dark){
+    body{background:#171614;color:#f0ede8}
+    p{color:#a29b90}
+    a{background:#201f1c;border-color:#39352f;color:#f0ede8}
+  }
+</style>
+<script>
+  // Route to the build that fits the device. Query overrides win so a link can
+  // force a version: ?v=full or ?v=mobile. Choice is remembered per browser.
+  (function () {
+    try {
+      var q = new URLSearchParams(location.search).get('v');
+      var pick = q === 'full' || q === 'mobile' ? q : null;
+      if (pick) { try { localStorage.setItem('wts-view', pick); } catch (e) {} }
+      if (!pick) { try { pick = localStorage.getItem('wts-view'); } catch (e) {} }
+      if (pick !== 'full' && pick !== 'mobile') {
+        var coarse = window.matchMedia && window.matchMedia('(pointer:coarse)').matches;
+        pick = (Math.min(screen.width, screen.height) < 820 && coarse) ? 'mobile' : 'full';
+      }
+      location.replace(pick === 'mobile' ? 'mobile.html' : 'full.html');
+    } catch (e) { /* fall through to the manual links below */ }
+  })();
+</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>Walking the Shortlist</h1>
+    <p>Pick a version if you are not sent along automatically.</p>
+    <a href="full.html">Desktop</a>
+    <a href="mobile.html">Phone</a>
+  </div>
+</div>
+</body>
+</html>

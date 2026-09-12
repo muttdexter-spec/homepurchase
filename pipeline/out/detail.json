@@ -1,0 +1,8855 @@
+{
+ "bur-3217-hazelwood": {
+  "addr": "3217 Hazelwood Avenue, Burlington, ON L7M 2V3",
+  "list": 1235000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4134,
+    "lo": 16001,
+    "hi": 42669,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 24890,
+    "lo": 16001,
+    "hi": 37335,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 14312,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 14312,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6300,
+    "lo": 4667,
+    "hi": 14667,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3709,
+    "lo": 17025,
+    "hi": 34050,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 1.0,
+    "exp": 8512,
+    "lo": 6080,
+    "hi": 10945,
+    "basis": "ceiling=stipple_popcorn"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 43244,
+    "lo": 29775,
+    "hi": 59550,
+    "basis": "638 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2293,
+    "lo": 10667,
+    "hi": 29335,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 43000,
+    "status": "confirmed"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 25000,
+    "status": "confirmed"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 1.0,
+    "cost": 9000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 20000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 20000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 9000,
+    "status": "likely, unseen"
+   }
+  ],
+  "reno_text": "basement $43k; main bath $25k; ceilings $9k; bath 2 $20k (unseen); bath 3 $20k (unseen); powder $9k (unseen)",
+  "reno_total": 126000,
+  "day1_p50": 19466,
+  "day1_p80": 38621,
+  "wish_p50": 115555,
+  "wish_p80": 131978,
+  "naive": 174193,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 18,
+  "era_p": 0.7,
+  "yb": 1984,
+  "yb_src": "mls",
+  "bg_est": true,
+  "usable": 2143,
+  "norm": 1542960,
+  "headroom": 307960,
+  "arv_lo": 1314767,
+  "arv_mid": 1338668,
+  "arv_hi": 1362569,
+  "recovered_pct": 61,
+  "sunk": 66931,
+  "breakeven": 1405599,
+  "bath_op": null,
+  "fact_score": 72.6,
+  "fact_parts": {
+   "size": 12.9,
+   "layout": 20,
+   "baths": 20,
+   "lot": 3.8,
+   "location": 8.0,
+   "parking": 8
+  },
+  "grade": "A-",
+  "verdict": "SEE FIRST",
+  "verdict_notes": [],
+  "tax_mo": 486,
+  "taxes": 5837.87,
+  "mech_stated": "",
+  "photos": 40,
+  "inv": {
+   "total": 40,
+   "exterior": 2,
+   "kitchen": 7,
+   "bath": 5,
+   "bed": 7,
+   "living": 7,
+   "basement": 7,
+   "mech": 0,
+   "yard": 5,
+   "aerial": 0,
+   "floorplan": 0
+  },
+  "tier1": {
+   "tier1_observed": 3,
+   "tier1_total": 5
+  },
+  "concealed": [
+   "front foyer floor under large area rug (photo 2)",
+   "basement rec-room floor under gym mat (photo 30)",
+   "hall 4pc tub/shower behind closed opaque curtain (photo 26)"
+  ],
+  "red_flags": [
+   "no panel or roof photo among 40",
+   "hall 4pc bath contradicts blanket 'beautifully updated' claim",
+   "staging is partial, not whole-house",
+   "hall tub fully concealed by curtain"
+  ],
+  "claim_vs_evidence": "Kitchen and primary ensuite consistent with genuine updates. Hall 4pc bath shows original cultured-marble vanity and dated doors, so the blanket 'beautifully updated' claim does not hold uniformly. 'Carpet free' is supported.",
+  "defects": [
+   {
+    "defect": "hall 4pc bath retains original integrated cultured-marble vanity top with dated raised-panel doors",
+    "photo_index": 26,
+    "confidence": "high"
+   },
+   {
+    "defect": "renovation is piecemeal: kitchen and ensuite current, second full bath not",
+    "photo_index": 26,
+    "confidence": "medium"
+   },
+   {
+    "defect": "stipple ceilings throughout main level",
+    "photo_index": 3,
+    "confidence": "high"
+   },
+   {
+    "defect": "basement drop-tile ceiling",
+    "photo_index": 30,
+    "confidence": "high"
+   },
+   {
+    "defect": "no electrical panel or roof photo in a 40-photo set",
+    "photo_index": 0,
+    "confidence": "medium"
+   }
+  ],
+  "staging": "mixed",
+  "hdr": "none",
+  "evidence": "high",
+  "evidence_notes": "basement area estimated",
+  "cash_to_close": 306296
+ },
+ "bur-3469-caplan": {
+  "addr": "3469 Caplan Crescent, Burlington, ON L7N 2P9",
+  "list": 988800,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 26367,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "2/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6674,
+    "lo": 4944,
+    "hi": 15537,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2837,
+    "lo": 13022,
+    "hi": 26044,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 977,
+    "lo": 4651,
+    "hi": 8371,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 5385,
+    "lo": 24719,
+    "hi": 49437,
+    "basis": "500 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 26000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 10000,
+    "status": "likely, unseen"
+   }
+  ],
+  "reno_text": "main bath $26k; bath 2 $22k (unseen); powder $10k (unseen)",
+  "reno_total": 58000,
+  "day1_p50": 11456,
+  "day1_p80": 27890,
+  "wish_p50": 60359,
+  "wish_p80": 81846,
+  "naive": 95266,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": null,
+  "yb_src": "none",
+  "bg_est": false,
+  "usable": 1567,
+  "norm": 1128240,
+  "headroom": 139440,
+  "arv_lo": 1041738,
+  "arv_mid": 1057707,
+  "arv_hi": 1073675,
+  "recovered_pct": 63,
+  "sunk": 40829,
+  "breakeven": 1098536,
+  "bath_op": null,
+  "fact_score": 49.0,
+  "fact_parts": {
+   "size": 5.0,
+   "layout": 11,
+   "baths": 15,
+   "lot": 0.4,
+   "location": 10.7,
+   "parking": 7
+  },
+  "grade": "C+",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 372,
+  "taxes": 4469,
+  "mech_stated": "furnace 2022, water softener 2022, windows front+rear 2021, appliances 2021 (remarks only, not photo-verified)",
+  "photos": 40,
+  "inv": {
+   "total": 40,
+   "exterior": 3,
+   "kitchen": 5,
+   "bath": 5,
+   "bed": 6,
+   "living": 9,
+   "basement": 8,
+   "mech": 0,
+   "yard": 4,
+   "aerial": 0,
+   "floorplan": 0
+  },
+  "tier1": {
+   "tier1_observed": 2,
+   "tier1_total": 5
+  },
+  "concealed": [
+   "kitchen peninsula counter under staged bottles/tray (photo 8)",
+   "rear patio stone under gazebo rug (photo 37)",
+   "foundation and any moisture history behind fully finished basement drywall"
+  ],
+  "red_flags": [
+   "no panel, furnace or mechanical photo despite stated 2022 upgrades",
+   "no floor plan",
+   "main 4pc tub type unverified",
+   "basement fully finished, concealing foundation and moisture history",
+   "roof not assessable",
+   "smallest secondary bedroom 89 sqft"
+  ],
+  "claim_vs_evidence": "Carpet-free and stone kitchen counters consistent with photos. Stated 2022 furnace, 2022 softener and 2021 windows cannot be verified: no mechanical, panel or nameplate photo exists.",
+  "defects": [
+   {
+    "defect": "lower-level kitchen uses an older freestanding white coil-top electric stove against new stainless laundry, a piecemeal tell",
+    "photo_index": 33,
+    "confidence": "high"
+   },
+   {
+    "defect": "main 4pc semi-ensuite vanity has an integrated moulded cultured-marble top",
+    "photo_index": 17,
+    "confidence": "medium"
+   },
+   {
+    "defect": "no mechanical/utility/panel photo despite claimed 2022 furnace and softener",
+    "photo_index": 33,
+    "confidence": "medium"
+   },
+   {
+    "defect": "main 4pc tub/shower never directly photographed, only a mirror reflection",
+    "photo_index": 17,
+    "confidence": "low"
+   }
+  ],
+  "staging": "professionally_staged",
+  "hdr": "none",
+  "evidence": "high",
+  "evidence_notes": "build year estimated",
+  "cash_to_close": 241401
+ },
+ "bur-appleby-sidesplit": {
+  "addr": "5322 Windermere Drive, Burlington, ON L7L 3M1",
+  "list": 999900,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.52,
+    "exp": 13623,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "1/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2053,
+    "lo": 9423,
+    "hi": 18846,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 707,
+    "lo": 3365,
+    "hi": 6058,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 5245,
+    "lo": 24076,
+    "hi": 48152,
+    "basis": "487 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 1.0,
+    "exp": 20246,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "moisture CONFIRMED"
+   }
+  ],
+  "reno": [
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 1.0,
+    "cost": 20000,
+    "status": "confirmed"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.52,
+    "cost": 26000,
+    "status": "likely"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "waterproofing $20k; main bath $26k; bath 2 $22k (unseen); panel $5k (unseen)",
+  "reno_total": 73000,
+  "day1_p50": 38213,
+  "day1_p80": 49310,
+  "wish_p50": 39088,
+  "wish_p80": 60087,
+  "naive": 99475,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1963,
+  "yb_src": "mls",
+  "bg_est": false,
+  "usable": 1270,
+  "norm": 914076,
+  "headroom": 0,
+  "arv_lo": 914076,
+  "arv_mid": 914076,
+  "arv_hi": 914076,
+  "recovered_pct": 23,
+  "sunk": 83780,
+  "breakeven": 1109297,
+  "bath_op": null,
+  "fact_score": 43.6,
+  "fact_parts": {
+   "size": 0,
+   "layout": 9,
+   "baths": 13,
+   "lot": 10.0,
+   "location": 9.3,
+   "parking": 5
+  },
+  "grade": "C",
+  "verdict": "STOP",
+  "verdict_notes": [
+   "basement moisture confirmed"
+  ],
+  "tax_mo": 454,
+  "taxes": 5452,
+  "mech_stated": "",
+  "photos": 48,
+  "inv": {
+   "total": 48,
+   "exterior": 5,
+   "kitchen": 13,
+   "bath": 3,
+   "bed": 7,
+   "living": 8,
+   "basement": 1,
+   "mech": 2,
+   "yard": 9,
+   "aerial": 0,
+   "floorplan": 0
+  },
+  "tier1": {
+   "tier1_observed": 2,
+   "tier1_total": 5
+  },
+  "concealed": [
+   "upper 4pc tub/shower interior behind drawn curtain (photo 25)",
+   "basement 3pc tub/shower interior behind drawn curtain (photos 33-34)",
+   "basement floor under chaise and bed placement (photos 26-27)"
+  ],
+  "red_flags": [
+   "1963 build with no electrical panel photo",
+   "no roof photo",
+   "basement only partly finished despite MLS 'Finished'",
+   "no mechanical ages stated",
+   "possible efflorescence at walk-out",
+   "953 sqft above grade, smallest in the batch"
+  ],
+  "claim_vs_evidence": "'Carpet free' supported. 'Porcelain countertops' plausible but not visually separable from quartz. 'Main floor fully refreshed 2024' is scoped to the main floor only, and the basement contradicts the MLS 'Finished' descriptor.",
+  "defects": [
+   {
+    "defect": "whitish mineral staining consistent with efflorescence on the exterior block foundation at the basement walk-out stairwell",
+    "photo_index": 47,
+    "confidence": "medium"
+   },
+   {
+    "defect": "utility closet shows exposed joists, unfinished fibreglass insulation and bare block: basement only partly finished despite 'Finished' field",
+    "photo_index": 35,
+    "confidence": "high"
+   },
+   {
+    "defect": "basement laundry walls are dated wood panelling",
+    "photo_index": 36,
+    "confidence": "high"
+   },
+   {
+    "defect": "irregular rough-troweled patch on basement family-room wall",
+    "photo_index": 27,
+    "confidence": "medium"
+   },
+   {
+    "defect": "both tub/shower interiors fully concealed by drawn curtains",
+    "photo_index": 33,
+    "confidence": "high"
+   },
+   {
+    "defect": "window frame profile inconsistent across the house",
+    "photo_index": 25,
+    "confidence": "low"
+   }
+  ],
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "",
+  "cash_to_close": 265263
+ },
+ "oak-2501-yarmouth": {
+  "addr": "2501 Yarmouth Crescent, Oakville, ON L6L 2M9",
+  "list": 1298000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 72979,
+    "lo": 49437,
+    "hi": 105937,
+    "basis": "4/4 tells seen, defect=True"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 26367,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "2/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2430,
+    "lo": 11153,
+    "hi": 22306,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 836,
+    "lo": 3983,
+    "hi": 7170,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 9693,
+    "lo": 44494,
+    "hi": 88987,
+    "basis": "931 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.4,
+    "exp": 8098,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "moisture suspected, low conf"
+   }
+  ],
+  "reno": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 73000,
+    "status": "confirmed"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 26000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.4,
+    "cost": 20000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "kitchen $73k; main bath $26k; bath 2 $22k (unseen)",
+  "reno_total": 121000,
+  "day1_p50": 18691,
+  "day1_p80": 33821,
+  "wish_p50": 127827,
+  "wish_p80": 149715,
+  "naive": 197440,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1972,
+  "yb_src": "mls",
+  "bg_est": false,
+  "usable": 1594,
+  "norm": 1258865,
+  "headroom": 0,
+  "arv_lo": 1258865,
+  "arv_mid": 1258865,
+  "arv_hi": 1258865,
+  "recovered_pct": 31,
+  "sunk": 126815,
+  "breakeven": 1481536,
+  "bath_op": null,
+  "fact_score": 45.1,
+  "fact_parts": {
+   "size": 2.0,
+   "layout": 9,
+   "baths": 13,
+   "lot": 6.4,
+   "location": 6.7,
+   "parking": 8
+  },
+  "grade": "C",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 458,
+  "taxes": 5492,
+  "mech_stated": "tankless water heater (remarks, no age)",
+  "photos": 50,
+  "inv": {
+   "total": 50,
+   "exterior": 4,
+   "kitchen": 8,
+   "bath": 3,
+   "bed": 7,
+   "living": 10,
+   "basement": 4,
+   "mech": 1,
+   "yard": 11,
+   "aerial": 2,
+   "floorplan": 0
+  },
+  "tier1": {
+   "tier1_observed": 3,
+   "tier1_total": 5
+  },
+  "concealed": [
+   "main bath tub fully behind a closed shower curtain (photo 25)",
+   "living room hardwood mostly under a large area rug (photo 9)",
+   "basement shelving beside shower stacked with towels, obscuring wall (photo 35)",
+   "rear patio slab under the hot tub footprint (photo 44)",
+   "basement mechanical room floor under a gym mat (photo 36)",
+   "kitchen island stool upholstery under draped dish towels (photo 12)"
+  ],
+  "red_flags": [
+   "50 days on market against a 1-day median for the rest of the batch",
+   "only 2 full baths for 5 bedrooms",
+   "topmount sink contradicts the Caesarstone claim",
+   "no panel, mechanical or roof photo in 50",
+   "no floor plan",
+   "bathrooms finished in visibly different eras"
+  ],
+  "claim_vs_evidence": "Caesarstone counters: the topmount sink with a visible rim argues against stone and the claim cannot be confirmed. 'Recently renovated bathrooms' plural: the main tub is curtained off and the two baths are finished in different eras, so the claim reads as partial work rather than one coordinated renovation. New bedroom carpet is consistent with what is visible. Main-floor hardwood is largely concealed by a rug.",
+  "defects": [
+   {
+    "defect": "topmount kitchen sink with a visible rim, the highest-signal laminate tell, against a marketed Caesarstone counter",
+    "photo_index": 15,
+    "confidence": "medium"
+   },
+   {
+    "defect": "kitchen soffit present above the uppers, meaning the cabinet boxes were never replaced",
+    "photo_index": 15,
+    "confidence": "medium"
+   },
+   {
+    "defect": "main bath tub fully concealed behind a closed curtain despite a 'recently renovated bathrooms' claim",
+    "photo_index": 25,
+    "confidence": "medium"
+   },
+   {
+    "defect": "the two bathrooms show different finish eras, so the renovation was not one coordinated job",
+    "photo_index": 25,
+    "confidence": "medium"
+   },
+   {
+    "defect": "only 2 full baths serving a 3+2 five-bedroom layout",
+    "photo_index": 25,
+    "confidence": "high"
+   },
+   {
+    "defect": "possible vertical moisture streak on unfinished foundation wall in the mechanical room",
+    "photo_index": 36,
+    "confidence": "low"
+   },
+   {
+    "defect": "12x12 tile with wide grout in the main bath, an older tile scale",
+    "photo_index": 25,
+    "confidence": "medium"
+   },
+   {
+    "defect": "no panel, mechanical nameplate or roof close-up anywhere in 50 photos",
+    "photo_index": 36,
+    "confidence": "medium"
+   }
+  ],
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "",
+  "cash_to_close": 315356
+ },
+ "oak-2221-wyandotte": {
+  "addr": "2221 Wyandotte Drive, Oakville, ON L6L 2T4",
+  "list": 1299999,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.42,
+    "exp": 12406,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "2/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3955,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2693,
+    "lo": 12359,
+    "hi": 24719,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 927,
+    "lo": 4414,
+    "hi": 7945,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 6279,
+    "lo": 28822,
+    "hi": 57644,
+    "basis": "583 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "windows",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 23165,
+    "lo": 16950,
+    "hi": 31640,
+    "life": 30,
+    "per_yr": 772,
+    "basis": "aluminum_original CONFIRMED \u2014 near term"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.42,
+    "cost": 29000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "bath 2 $22k (unseen)",
+  "reno_total": 22000,
+  "day1_p50": 10941,
+  "day1_p80": 26233,
+  "wish_p50": 33136,
+  "wish_p80": 59533,
+  "naive": 64170,
+  "reserve_monthly": 212,
+  "near_term_5yr": 55935,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1972,
+  "yb_src": "mls",
+  "bg_est": true,
+  "usable": 1542,
+  "norm": 1217785,
+  "headroom": 0,
+  "arv_lo": 1217785,
+  "arv_mid": 1217785,
+  "arv_hi": 1217785,
+  "recovered_pct": 29,
+  "sunk": 60897,
+  "breakeven": 1385765,
+  "bath_op": null,
+  "fact_score": 44.6,
+  "fact_parts": {
+   "size": 3.9,
+   "layout": 13,
+   "baths": 13,
+   "lot": 3.8,
+   "location": 8.7,
+   "parking": 5
+  },
+  "grade": "C",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 455,
+  "taxes": 5455,
+  "mech_stated": "",
+  "photos": 21,
+  "inv": {
+   "total": 21,
+   "exterior": 3,
+   "kitchen": 2,
+   "bath": 3,
+   "bed": 4,
+   "living": 4,
+   "basement": 3,
+   "mech": 0,
+   "yard": 2,
+   "aerial": 0,
+   "floorplan": 0
+  },
+  "tier1": {
+   "tier1_observed": 4,
+   "tier1_total": 5
+  },
+  "concealed": [
+   "kitchen floor under a black runner (photo 3)",
+   "living room floor under an area rug (photo 6)",
+   "upper hallway floor under a runner (photo 9)",
+   "upper bath vanity counter under toiletries (photos 11, 12)",
+   "basement rec-room floor under a large rug (photos 13, 14)",
+   "basement shower floor partly under a bath mat (photo 15)",
+   "garage/gym floor under rubber mats (photo 18)"
+  ],
+  "red_flags": [
+   "no daylight rear elevation: both rear photos are twilight pool shots, so the rear roofline, siding and gutters are never shown",
+   "no mechanical, furnace or panel photo despite a finished basement and a stated sump pump",
+   "no floor plan",
+   "basement bedroom is unstaged and lived-in while the rest is staged",
+   "room table returned only 2 of 11 rooms, so no bedroom or kitchen dimensions exist",
+   "2 full baths for a 3+1 layout"
+  ],
+  "claim_vs_evidence": "'Large waterfall granite island' reads as quartz or marble-look rather than granite. 'Engineered hardwood on upper, main and lower levels' cannot be verified because every photo showing those floors has them majority-concealed by rugs and runners. The stated basement separate entrance has no photo evidence either way.",
+  "defects": [
+   {
+    "defect": "upper 4pc bath window is a dark crank-style awning unit consistent with an original 1970s aluminum window",
+    "photo_index": 11,
+    "confidence": "medium"
+   },
+   {
+    "defect": "island slab veining reads as quartz or marble-look, not the granite the remarks claim",
+    "photo_index": 3,
+    "confidence": "low"
+   }
+  ],
+  "staging": "mixed",
+  "hdr": "none",
+  "evidence": "medium",
+  "evidence_notes": "only 21 photos; basement area estimated",
+  "cash_to_close": 308208
+ },
+ "oak-1177-grand": {
+  "addr": "1177 GRAND Boulevard, Oakville, ON L6H 2V2",
+  "list": 1299900,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 72979,
+    "lo": 49437,
+    "hi": 105937,
+    "basis": "4/4 tells seen, defect=True"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 26367,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "1/3 tells seen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 13348,
+    "lo": 9887,
+    "hi": 31075,
+    "basis": "2 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3694,
+    "lo": 16957,
+    "hi": 33914,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1272,
+    "lo": 6056,
+    "hi": 10901,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 40209,
+    "lo": 39550,
+    "hi": 79100,
+    "basis": "800 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   },
+   {
+    "name": "driveway",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 11535,
+    "lo": 7062,
+    "hi": 16950,
+    "basis": "cracked, confirmed"
+   }
+  ],
+  "reno": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 73000,
+    "status": "confirmed"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 26000,
+    "status": "confirmed"
+   },
+   {
+    "name": "driveway",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 12000,
+    "status": "confirmed"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 57000,
+    "status": "likely"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 19000,
+    "status": "likely, unseen"
+   }
+  ],
+  "reno_text": "kitchen $73k; main bath $26k; driveway $12k; basement $57k; powder $19k (unseen)",
+  "reno_total": 187000,
+  "day1_p50": 11589,
+  "day1_p80": 31581,
+  "wish_p50": 185652,
+  "wish_p80": 207453,
+  "naive": 250011,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1976,
+  "yb_src": "mls",
+  "bg_est": true,
+  "usable": 2115,
+  "norm": 1670850,
+  "headroom": 370950,
+  "arv_lo": 1425564,
+  "arv_mid": 1455001,
+  "arv_hi": 1484438,
+  "recovered_pct": 65,
+  "sunk": 83933,
+  "breakeven": 1538934,
+  "bath_op": [
+   16950,
+   16950,
+   21188
+  ],
+  "fact_score": 62.8,
+  "fact_parts": {
+   "size": 11.2,
+   "layout": 20,
+   "baths": 7,
+   "lot": 7.3,
+   "location": 9.3,
+   "parking": 8
+  },
+  "grade": "B",
+  "verdict": "SEE FIRST",
+  "verdict_notes": [],
+  "tax_mo": 461,
+  "taxes": 5531,
+  "mech_stated": "roof 2017 (remarks only, not photo-verified)",
+  "photos": 31,
+  "inv": {
+   "total": 31,
+   "exterior": 4,
+   "kitchen": 4,
+   "bath": 2,
+   "bed": 5,
+   "living": 12,
+   "basement": 0,
+   "mech": 0,
+   "yard": 4,
+   "aerial": 0,
+   "floorplan": 0
+  },
+  "tier1": {
+   "tier1_observed": 3,
+   "tier1_total": 5
+  },
+  "concealed": [
+   "living room hardwood mostly under a large area rug (photo 5)",
+   "family room hardwood under an area rug (photo 15)"
+  ],
+  "red_flags": [
+   "no basement photos at all despite a full unfinished basement, so moisture, foundation, mechanicals and panel are entirely unverifiable",
+   "the only full bathroom in the house is never photographed",
+   "one full bath and two powder rooms serving four bedrooms",
+   "no mechanical, furnace or panel photo",
+   "no floor plan",
+   "roof claimed 2017, not confirmable at close range"
+  ],
+  "claim_vs_evidence": "'Updated eat-in kitchen with granite' is contradicted on two tells: a retained soffit and a rolled bullnose edge, plus mismatched appliance finishes. Hardwood and upper-level broadloom claims are supported. Roof 2017 is unverifiable.",
+  "defects": [
+   {
+    "defect": "kitchen uppers stop at a boxed soffit well below the ceiling, so the original cabinet boxes were never replaced",
+    "photo_index": 11,
+    "confidence": "high"
+   },
+   {
+    "defect": "rolled bullnose counter edge, a laminate profile, against a granite claim",
+    "photo_index": 12,
+    "confidence": "medium"
+   },
+   {
+    "defect": "white refrigerator beside a stainless range, a piecemeal appliance tell",
+    "photo_index": 12,
+    "confidence": "high"
+   },
+   {
+    "defect": "second bathroom has an integrated cultured-marble top on an oak cabinet",
+    "photo_index": 20,
+    "confidence": "medium"
+   },
+   {
+    "defect": "driveway asphalt shows patch seams and surface unevenness",
+    "photo_index": 0,
+    "confidence": "low"
+   }
+  ],
+  "staging": "professionally_staged",
+  "hdr": "none",
+  "evidence": "medium",
+  "evidence_notes": "no basement frame; basement area estimated",
+  "cash_to_close": 313534
+ },
+ "bur-1280-aldridge": {
+  "addr": "1280 ALDRIDGE Crescent, Burlington, ON L7M 1H9",
+  "list": 1018800,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 26367,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "2/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2477,
+    "lo": 11371,
+    "hi": 22741,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 853,
+    "lo": 4061,
+    "hi": 7310,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 6053,
+    "lo": 27784,
+    "hi": 55568,
+    "basis": "562 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 26000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   }
+  ],
+  "reno_text": "main bath $26k; bath 2 $22k (unseen)",
+  "reno_total": 48000,
+  "day1_p50": 10686,
+  "day1_p80": 25617,
+  "wish_p50": 49939,
+  "wish_p80": 74552,
+  "naive": 84654,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": null,
+  "yb_src": "none",
+  "bg_est": false,
+  "usable": 1431,
+  "norm": 1030320,
+  "headroom": 11520,
+  "arv_lo": 1030320,
+  "arv_mid": 1030320,
+  "arv_hi": 1030320,
+  "recovered_pct": 33,
+  "sunk": 66791,
+  "breakeven": 1118969,
+  "bath_op": null,
+  "fact_score": 43.4,
+  "fact_parts": {
+   "size": 2.3,
+   "layout": 13,
+   "baths": 13,
+   "lot": 2.5,
+   "location": 7.3,
+   "parking": 8
+  },
+  "grade": "C",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 421,
+  "taxes": 5056,
+  "mech_stated": "kitchen renovated 2023 (remarks only, not photo-verified)",
+  "photos": 30,
+  "inv": {
+   "total": 30,
+   "exterior": 3,
+   "kitchen": 5,
+   "bath": 2,
+   "bed": 6,
+   "living": 7,
+   "basement": 4,
+   "mech": 0,
+   "yard": 3,
+   "aerial": 0,
+   "floorplan": 0
+  },
+  "tier1": {
+   "tier1_observed": 2,
+   "tier1_total": 5
+  },
+  "concealed": [
+   "kitchen counter under a staged cutting board and knife block (photos 10, 11)",
+   "upper bathroom tub/shower behind a closed curtain (photo 20)",
+   "basement patio pavers under a round outdoor rug (photo 29)",
+   "basement wall recess behind a built-in cabinet, possible utility access (photo 26)",
+   "basement foundation fully drywalled with no bare wall exposed anywhere"
+  ],
+  "red_flags": [
+   "no panel, furnace or mechanical photo in 30 images",
+   "no true rear elevation, only tree-obscured backyard shots",
+   "no floor plan",
+   "basement fully drywalled with no exposed foundation, so moisture cannot be ruled out",
+   "Year Built is not published on this ITSO listing at all",
+   "one bedroom's parsed dimensions were corrupted (1012.58 x 9.75) and excluded"
+  ],
+  "claim_vs_evidence": "No outright contradiction. The claimed 2023 kitchen is consistent with what is visible, though photos cannot confirm quartz or the date. The 'updated' framing does not extend to the upper bathroom, which retains an integrated cultured-marble vanity and small-format tile.",
+  "defects": [
+   {
+    "defect": "upper bathroom has an older integrated one-piece cultured-marble vanity top with a curved backsplash",
+    "photo_index": 20,
+    "confidence": "medium"
+   },
+   {
+    "defect": "upper bathroom floor is a smaller-module stone-look tile with visible grout lines",
+    "photo_index": 20,
+    "confidence": "low"
+   }
+  ],
+  "staging": "mixed",
+  "hdr": "none",
+  "evidence": "high",
+  "evidence_notes": "build year estimated",
+  "cash_to_close": 245728
+ },
+ "bur-522-enfield": {
+  "addr": "522 Enfield Road, Burlington, ON L7T 2X8",
+  "list": 825000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 72979,
+    "lo": 49437,
+    "hi": 105937,
+    "basis": "4/4 tells seen, defect=True"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 26367,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.7,
+    "exp": 13018,
+    "lo": 12804,
+    "hi": 25609,
+    "basis": "floor=not_shown"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 960,
+    "lo": 4573,
+    "hi": 8231,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 64622,
+    "lo": 44494,
+    "hi": 88987,
+    "basis": "906 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "oil\u2192gas",
+    "bucket": "day1",
+    "p": 1.0,
+    "exp": 20010,
+    "lo": 14125,
+    "hi": 26837,
+    "basis": "oil heat in MLS"
+   },
+   {
+    "name": "tank removal",
+    "bucket": "day1",
+    "p": 1.0,
+    "exp": 8004,
+    "lo": 4238,
+    "hi": 12712,
+    "basis": "LIABILITY IF BURIED \u2014 uncapped"
+   },
+   {
+    "name": "asbestos",
+    "bucket": "day1",
+    "p": 0.6,
+    "exp": 6427,
+    "lo": 3531,
+    "hi": 21187,
+    "basis": "suspect material, only if disturbed"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 73000,
+    "status": "confirmed"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 65000,
+    "status": "confirmed"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 26000,
+    "status": "confirmed"
+   },
+   {
+    "name": "oil\u2192gas",
+    "bucket": "day1",
+    "p": 1.0,
+    "cost": 20000,
+    "status": "confirmed"
+   },
+   {
+    "name": "tank removal",
+    "bucket": "day1",
+    "p": 1.0,
+    "cost": 8000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.7,
+    "cost": 19000,
+    "status": "likely"
+   },
+   {
+    "name": "asbestos",
+    "bucket": "day1",
+    "p": 0.6,
+    "cost": 11000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "kitchen $73k; basement $65k; main bath $26k; oil\u2192gas $20k; tank removal $8k; bath 2 $22k (unseen); flooring $19k; asbestos $11k (unseen); panel $5k (unseen)",
+  "reno_total": 249000,
+  "day1_p50": 70636,
+  "day1_p80": 84179,
+  "wish_p50": 193829,
+  "wish_p80": 209610,
+  "naive": 339855,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1954,
+  "yb_src": "mls",
+  "bg_est": true,
+  "usable": 1748,
+  "norm": 1258560,
+  "headroom": 433560,
+  "arv_lo": 971099,
+  "arv_mid": 1006569,
+  "arv_hi": 1042039,
+  "recovered_pct": 62,
+  "sunk": 112220,
+  "breakeven": 1118789,
+  "bath_op": null,
+  "fact_score": 60.3,
+  "fact_parts": {
+   "size": 4.6,
+   "layout": 11,
+   "baths": 13,
+   "lot": 15,
+   "location": 8.7,
+   "parking": 8
+  },
+  "grade": "B",
+  "verdict": "SEE",
+  "verdict_notes": [
+   "OIL TANK \u2014 buried? uncapped liability",
+   "day-1 cash 10% of list"
+  ],
+  "tax_mo": 451,
+  "taxes": 5411,
+  "mech_stated": "",
+  "photos": 27,
+  "inv": {
+   "total": 27,
+   "exterior": 7,
+   "kitchen": 2,
+   "bath": 2,
+   "bed": 6,
+   "living": 3,
+   "basement": 2,
+   "mech": 1,
+   "yard": 2,
+   "aerial": 2,
+   "floorplan": 0
+  },
+  "tier1": {
+   "tier1_observed": 3,
+   "tier1_total": 5
+  },
+  "concealed": [
+   "basement bathroom floor partly under a bath mat (photo 19)",
+   "entire main floor subfloor under wall-to-wall carpet"
+  ],
+  "red_flags": [
+   "heating listed as Baseboard, Electric, Forced Air AND Oil, with no mechanical photo to explain it",
+   "no electrical panel photo in a 1954 house",
+   "9-inch tile is asbestos-suspect and must be tested before anyone disturbs it",
+   "basement finish is inconsistent between rooms, suggesting a partial non-permitted build-out",
+   "main floor fully carpeted, so the subfloor and any hardwood beneath are unseen",
+   "no floor plan"
+  ],
+  "claim_vs_evidence": "The remarks market this openly as a renovation or investor opportunity and make no finish claims at all. Nothing in the photos contradicts the marketing, which is the opposite of the usual failure mode and is itself worth noting: this is the only listing in the set where the agent is not overstating anything.",
+  "defects": [
+   {
+    "defect": "topmount kitchen sink with a visible rim in a rolled post-form laminate counter",
+    "photo_index": 11,
+    "confidence": "high"
+   },
+   {
+    "defect": "kitchen soffit present, cabinet boxes stop well short of the ceiling",
+    "photo_index": 10,
+    "confidence": "medium"
+   },
+   {
+    "defect": "soft raised-panel cabinet doors",
+    "photo_index": 10,
+    "confidence": "high"
+   },
+   {
+    "defect": "basement bathroom is unfinished: exposed joists over a one-piece acrylic shower insert, wall-hung sink with exposed trap",
+    "photo_index": 19,
+    "confidence": "high"
+   },
+   {
+    "defect": "main bathroom has an integrated one-piece vanity top, small-format floor tile and a grab bar at the toilet",
+    "photo_index": 18,
+    "confidence": "medium"
+   },
+   {
+    "defect": "9-inch-module resilient tile in the basement rec room, asbestos-suspect",
+    "photo_index": 22,
+    "confidence": "medium"
+   },
+   {
+    "defect": "basement drop-tile ceiling over wood panelling in the rec room",
+    "photo_index": 22,
+    "confidence": "high"
+   },
+   {
+    "defect": "crack across the rear concrete patio slab",
+    "photo_index": 23,
+    "confidence": "medium"
+   }
+  ],
+  "staging": "vacant",
+  "hdr": "none",
+  "evidence": "high",
+  "evidence_notes": "basement area estimated",
+  "cash_to_close": 261654
+ },
+ "bur-493-crosby": {
+  "addr": "493 CROSBY Avenue, Burlington, ON L7R 2R6",
+  "list": 1149900,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3955,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6674,
+    "lo": 4944,
+    "hi": 15537,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2596,
+    "lo": 11914,
+    "hi": 23829,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 894,
+    "lo": 4255,
+    "hi": 7659,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 28247,
+    "lo": 27784,
+    "hi": 55568,
+    "basis": "562 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 40000,
+    "status": "likely"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 10000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "basement $40k; powder $10k (unseen); panel $5k (unseen)",
+  "reno_total": 55000,
+  "day1_p50": 18126,
+  "day1_p80": 32422,
+  "wish_p50": 47837,
+  "wish_p80": 63811,
+  "naive": 79413,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1950,
+  "yb_src": "est",
+  "bg_est": true,
+  "usable": 1486,
+  "norm": 1069920,
+  "headroom": 0,
+  "arv_lo": 1069920,
+  "arv_mid": 1069920,
+  "arv_hi": 1069920,
+  "recovered_pct": 25,
+  "sunk": 72163,
+  "breakeven": 1246133,
+  "bath_op": [
+   16950,
+   16950,
+   21188
+  ],
+  "fact_score": 39.4,
+  "fact_parts": {
+   "size": 3.2,
+   "layout": 11,
+   "baths": 7,
+   "lot": 1.2,
+   "location": 12,
+   "parking": 5
+  },
+  "grade": "C-",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 417,
+  "taxes": 5004,
+  "mech_stated": null,
+  "photos": 33,
+  "inv": {
+   "exterior": 8,
+   "living": 4,
+   "stairs": 1,
+   "kitchen": 6,
+   "dining": 1,
+   "bed": 5,
+   "bath": 2,
+   "mudroom": 1,
+   "rear_yard": 5
+  },
+  "tier1": null,
+  "concealed": [
+   "NO basement photo of any kind in 33 frames; the lower level is entirely unread",
+   "no furnace, panel or water-heater frame",
+   "new concrete driveway and a bare-soil rear yard: the grading around the house is fresh and any settlement is months away"
+  ],
+  "red_flags": [
+   "a full flip that shows nothing below grade: in a 1950 house the basement is where the cost is, and it is not in the set",
+   "EV charger on the side wall (3) implies a panel upgrade; ask for the ESA certificate",
+   "1.5-storey brick with parged block at grade (0, 3); parging looks fresh, which hides as much as it shows",
+   "listing has dropped off the buyer's saved search (ITSO board): confirm status before scheduling"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "medium",
+  "evidence_notes": "no basement frame; build year estimated; basement area estimated",
+  "cash_to_close": 281375
+ },
+ "bur-395-lark": {
+  "addr": "395 LARK Avenue, Burlington, ON L7T 2T1",
+  "list": 1249000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3955,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2589,
+    "lo": 11885,
+    "hi": 23770,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 891,
+    "lo": 4245,
+    "hi": 7640,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 9693,
+    "lo": 44494,
+    "hi": 88987,
+    "basis": "945 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "windows",
+    "bucket": "reserve",
+    "p": 0.7,
+    "exp": 16215,
+    "lo": 16950,
+    "hi": 31640,
+    "life": 30,
+    "per_yr": 541,
+    "basis": "frame not shown"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "bath 2 $22k (unseen); panel $5k (unseen)",
+  "reno_total": 27000,
+  "day1_p50": 17251,
+  "day1_p80": 32084,
+  "wish_p50": 24250,
+  "wish_p80": 55685,
+  "naive": 64729,
+  "reserve_monthly": 192,
+  "near_term_5yr": 48985,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1958,
+  "yb_src": "est",
+  "bg_est": false,
+  "usable": 1674,
+  "norm": 1205640,
+  "headroom": 0,
+  "arv_lo": 1205640,
+  "arv_mid": 1205640,
+  "arv_hi": 1205640,
+  "recovered_pct": 26,
+  "sunk": 65134,
+  "breakeven": 1336769,
+  "bath_op": null,
+  "fact_score": 52.6,
+  "fact_parts": {
+   "size": 3.2,
+   "layout": 9,
+   "baths": 13,
+   "lot": 11.1,
+   "location": 9.3,
+   "parking": 7
+  },
+  "grade": "C+",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 493,
+  "taxes": 5919.08,
+  "mech_stated": null,
+  "photos": 50,
+  "inv": {
+   "exterior": 5,
+   "aerial": 3,
+   "foyer": 1,
+   "living_dining": 8,
+   "kitchen": 6,
+   "bed": 6,
+   "bath": 3,
+   "basement": 9,
+   "basement_bath": 2,
+   "office": 3,
+   "yard": 2,
+   "floorplan": 2
+  },
+  "tier1": null,
+  "concealed": [
+   "window frames: front units sit deep behind planting and read as dark-framed at 2x (2); could be original wood or new black vinyl, not settled",
+   "basement slab under LVP (26-33)",
+   "no furnace, panel or water-heater frame in 50; two floor plans included"
+  ],
+  "red_flags": [
+   "design-grade renovation with no mechanical evidence: for a 1958 bungalow the panel, plumbing and drainage are the money and none of it is shown",
+   "front window frames unresolved; if original wood in a 1958 house the full window reserve applies",
+   "dropped off the buyer's saved search (ITSO); confirm status",
+   "asphalt drive is older but sound (2)"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "lived_in",
+  "hdr": "none",
+  "evidence": "high",
+  "evidence_notes": "build year estimated",
+  "cash_to_close": 302839
+ },
+ "bur-1453-mountain-grove": {
+  "addr": "1453 Mountain Grove Avenue, Burlington, ON L7P 2H4",
+  "list": 1079000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.29,
+    "exp": 8393,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "3/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.33,
+    "exp": 8789,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "2/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2225,
+    "lo": 10214,
+    "hi": 20428,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 766,
+    "lo": 3648,
+    "hi": 6566,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 51913,
+    "lo": 35743,
+    "hi": 71487,
+    "basis": "723 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 52000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.29,
+    "cost": 29000,
+    "status": "possible"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.33,
+    "cost": 26000,
+    "status": "possible"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "basement $52k; bath 2 $22k (unseen); panel $5k (unseen)",
+  "reno_total": 79000,
+  "day1_p50": 18081,
+  "day1_p80": 31597,
+  "wish_p50": 86692,
+  "wish_p80": 111846,
+  "naive": 135670,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1958,
+  "yb_src": "mls",
+  "bg_est": true,
+  "usable": 1394,
+  "norm": 1004040,
+  "headroom": 0,
+  "arv_lo": 1004040,
+  "arv_mid": 1004040,
+  "arv_hi": 1004040,
+  "recovered_pct": 26,
+  "sunk": 106254,
+  "breakeven": 1222443,
+  "bath_op": null,
+  "fact_score": 50.3,
+  "fact_parts": {
+   "size": 0.5,
+   "layout": 11,
+   "baths": 13,
+   "lot": 10.8,
+   "location": 10.0,
+   "parking": 5
+  },
+  "grade": "C+",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 439,
+  "taxes": 5269.3,
+  "mech_stated": "'newer' furnace and A/C, 'updated' roof, attic insulation (no years; remarks only)",
+  "photos": 49,
+  "inv": {
+   "exterior": 4,
+   "foyer": 1,
+   "kitchen": 5,
+   "living_dining": 9,
+   "hall": 1,
+   "bed": 7,
+   "bath": 2,
+   "basement": 9,
+   "basement_bath": 2,
+   "laundry": 1,
+   "yard": 8
+  },
+  "tier1": null,
+  "concealed": [
+   "main-bath tub behind a drawn curtain (27-28)",
+   "kitchen sink hidden behind the island in every kitchen frame",
+   "basement slab under new LVP (31-36)",
+   "no furnace, panel or water-heater frame; laundry (40) is new cabinetry and machines despite 'newer furnace and A/C' in the remarks"
+  ],
+  "red_flags": [
+   "basement rec room has a drop-tile grid ceiling (31): the lower level was refreshed with LVP and paint, not rebuilt",
+   "carport, not a garage; parking_spots 5 counts the driveway",
+   "two of three main-floor bedrooms are under 100 sqft (98 and 72)",
+   "'updated roof' and 'newer' mechanicals carry no dates"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "basement area estimated",
+  "cash_to_close": 264952
+ },
+ "bur-1493-clinton": {
+  "addr": "1493 Clinton Court, Burlington, ON L7M 1N1",
+  "list": 1174900,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.33,
+    "exp": 8789,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "2/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3662,
+    "lo": 16809,
+    "hi": 33618,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1261,
+    "lo": 6003,
+    "hi": 10806,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 5493,
+    "lo": 25213,
+    "hi": 50426,
+    "basis": "510 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.33,
+    "cost": 26000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "bath 2 $22k (unseen); bath 3 $22k (unseen)",
+  "reno_total": 44000,
+  "day1_p50": 11004,
+  "day1_p80": 30552,
+  "wish_p50": 47830,
+  "wish_p80": 77237,
+  "naive": 81425,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1973,
+  "yb_src": "mls",
+  "bg_est": false,
+  "usable": 1955,
+  "norm": 1407600,
+  "headroom": 232700,
+  "arv_lo": 1226731,
+  "arv_mid": 1242232,
+  "arv_hi": 1257734,
+  "recovered_pct": 62,
+  "sunk": 40457,
+  "breakeven": 1282689,
+  "bath_op": null,
+  "fact_score": 62.6,
+  "fact_parts": {
+   "size": 10.9,
+   "layout": 15,
+   "baths": 18,
+   "lot": 6.0,
+   "location": 8.7,
+   "parking": 8
+  },
+  "grade": "B",
+  "verdict": "SEE FIRST",
+  "verdict_notes": [],
+  "tax_mo": 482,
+  "taxes": 5787.11,
+  "mech_stated": "furnace 2022; A/C 2019 (remarks only)",
+  "photos": 40,
+  "inv": {
+   "exterior": 3,
+   "aerial": 1,
+   "deck": 2,
+   "floorplan": 2,
+   "living": 3,
+   "stairs_hall": 4,
+   "kitchen": 4,
+   "dining": 3,
+   "bed": 12,
+   "bath": 2,
+   "basement": 3,
+   "basement_bath_laundry": 1
+  },
+  "tier1": null,
+  "concealed": [
+   "main tub fully behind a drawn shower curtain (35)",
+   "foundation and any moisture history behind a fully drywalled basement (36-38)",
+   "driveway never framed at readable size",
+   "no mechanical frame despite remarks claiming a 2022 furnace and 2019 A/C"
+  ],
+  "red_flags": [
+   "kitchen doors are painted square raised-panel on what look like original 1973 boxes with new granite and an undermount sink (16-17): a reface, not a rebuild",
+   "tub concealed by a drawn curtain, so tub type and surround are unread",
+   "earlier pass had 7 tells unread; this pass settles the sink (undermount), windows (vinyl) and basement moisture (none visible)"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "",
+  "cash_to_close": 285005
+ },
+ "bur-1319-bonnie": {
+  "addr": "1319 Bonnie Court, Burlington, ON L7R 5A2",
+  "list": 999900,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 27557,
+    "lo": 16001,
+    "hi": 42669,
+    "basis": "4/4 tells seen, defect=True"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 24890,
+    "lo": 16001,
+    "hi": 37335,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 9200,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 4050,
+    "lo": 4667,
+    "hi": 14667,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3314,
+    "lo": 15214,
+    "hi": 30428,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1141,
+    "lo": 5434,
+    "hi": 9780,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 5795,
+    "lo": 26601,
+    "hi": 53203,
+    "basis": "570 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2293,
+    "lo": 10667,
+    "hi": 29335,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 28000,
+    "status": "confirmed"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 25000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 20000,
+    "status": "possible"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 9000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "kitchen $28k; main bath $25k",
+  "reno_total": 53000,
+  "day1_p50": 10589,
+  "day1_p80": 28973,
+  "wish_p50": 73490,
+  "wish_p80": 91222,
+  "naive": 117337,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 18,
+  "era_p": 0.45,
+  "yb": 1996,
+  "yb_src": "mls",
+  "bg_est": true,
+  "usable": 1915,
+  "norm": 1378800,
+  "headroom": 378900,
+  "arv_lo": 1064262,
+  "arv_mid": 1080345,
+  "arv_hi": 1096427,
+  "recovered_pct": 67,
+  "sunk": 39750,
+  "breakeven": 1120095,
+  "bath_op": null,
+  "fact_score": 52.8,
+  "fact_parts": {
+   "size": 9.8,
+   "layout": 15,
+   "baths": 15,
+   "lot": 0,
+   "location": 8.0,
+   "parking": 5
+  },
+  "grade": "C+",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 354,
+  "taxes": 4246,
+  "mech_stated": null,
+  "photos": 49,
+  "inv": {
+   "exterior": 2,
+   "foyer_stairs": 6,
+   "living_dining": 8,
+   "kitchen": 3,
+   "family": 2,
+   "bed": 6,
+   "closet": 1,
+   "ensuite": 2,
+   "bath": 1,
+   "basement": 9,
+   "basement_bath": 1,
+   "deck_yard": 5,
+   "aerial": 4
+  },
+  "tier1": null,
+  "concealed": [
+   "basement slab under laminate (34-38)",
+   "no furnace, panel or water-heater frame in 49, 4 of them aerials",
+   "main 4pc bath never framed at readable size; only the ensuite (27-28) and the basement bath (39)"
+  ],
+  "red_flags": [
+   "kitchen is 1996 builder-original under fresh paint: topmount double sink on brown post-form laminate, small U footprint (11-12)",
+   "ensuite is 1996 original: corner jetted tub on a beige 4x4 platform, maple vanity with laminate top and drop-in sink, 4x4 tiled shower stall (27-28)",
+   "house is vacant and freshly painted; new LVP throughout hides the original subfloor",
+   "earlier pass listed 11 of 15 tells unread; this pass settles 14 and turns both the kitchen and ensuite from 'unverified' to confirmed jobs"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "vacant",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "basement area estimated",
+  "cash_to_close": 244926
+ },
+ "bur-3490-rexway": {
+  "addr": "3490 Rexway Drive, Burlington, ON L7N 2L6",
+  "list": 1079000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 26367,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "2/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6674,
+    "lo": 4944,
+    "hi": 15537,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3266,
+    "lo": 14989,
+    "hi": 29979,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1124,
+    "lo": 5353,
+    "hi": 9636,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 7615,
+    "lo": 34952,
+    "hi": 69905,
+    "basis": "707 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 26000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 10000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "main bath $26k; bath 2 $22k (unseen); powder $10k (unseen); panel $5k (unseen)",
+  "reno_total": 63000,
+  "day1_p50": 18963,
+  "day1_p80": 34811,
+  "wish_p50": 60016,
+  "wish_p80": 85018,
+  "naive": 107591,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1968,
+  "yb_src": "est",
+  "bg_est": true,
+  "usable": 1870,
+  "norm": 1346040,
+  "headroom": 267040,
+  "arv_lo": 1134064,
+  "arv_mid": 1151025,
+  "arv_hi": 1167987,
+  "recovered_pct": 60,
+  "sunk": 47804,
+  "breakeven": 1198829,
+  "bath_op": null,
+  "fact_score": 50.2,
+  "fact_parts": {
+   "size": 8.1,
+   "layout": 9,
+   "baths": 15,
+   "lot": 3.0,
+   "location": 11.3,
+   "parking": 7
+  },
+  "grade": "C+",
+  "verdict": "SEE",
+  "verdict_notes": [
+   "POOL \u2014 in-ground, not priced"
+  ],
+  "tax_mo": 414,
+  "taxes": 4965,
+  "mech_stated": null,
+  "photos": 48,
+  "inv": {
+   "exterior": 2,
+   "living_dining": 6,
+   "kitchen": 6,
+   "family": 3,
+   "powder": 1,
+   "stairs_hall": 3,
+   "bed": 6,
+   "bath": 4,
+   "basement": 8,
+   "laundry": 1,
+   "deck_pool_yard": 12
+  },
+  "tier1": null,
+  "concealed": [
+   "no vanity top framed at readable size in either full bath (26, 34)",
+   "basement slab under hardwood and tile (28-32)",
+   "laundry room ceiling is drop-tile (35); the rest of the lower level is drywall",
+   "no furnace, panel or water heater frame in 48, 11 of which are of the pool"
+  ],
+  "red_flags": [
+   "second full bath is a mid-2000s job in 12x12 beige tile with a glass-mosaic border around an alcove tub (34): dated, functional",
+   "in-ground pool: liner, heater and closing costs the model does not price; 11 photos are of it",
+   "house is vacant; every room is empty so floors are fully visible, and the hardwood shows no defects at 1x",
+   "no year built on MLS; late-1960s backsplit sets the 25% contingency"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "vacant",
+  "hdr": "moderate",
+  "evidence": "medium",
+  "evidence_notes": "build year estimated; basement area estimated",
+  "cash_to_close": 268166
+ },
+ "bur-3202-centennial": {
+  "addr": "3202 Centennial Drive E, Burlington, ON L7M 1C2",
+  "list": 1059900,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 26367,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2800,
+    "lo": 12854,
+    "hi": 25707,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 964,
+    "lo": 4591,
+    "hi": 8263,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 6538,
+    "lo": 30009,
+    "hi": 60017,
+    "basis": "607 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   },
+   {
+    "name": "driveway",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 11535,
+    "lo": 7062,
+    "hi": 16950,
+    "basis": "cracked, confirmed"
+   }
+  ],
+  "reno": [
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 26000,
+    "status": "confirmed"
+   },
+   {
+    "name": "driveway",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 12000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "main bath $26k; driveway $12k; bath 2 $22k (unseen); panel $5k (unseen)",
+  "reno_total": 65000,
+  "day1_p50": 18953,
+  "day1_p80": 33411,
+  "wish_p50": 64721,
+  "wish_p80": 88087,
+  "naive": 111335,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1968,
+  "yb_src": "est",
+  "bg_est": true,
+  "usable": 1604,
+  "norm": 1154520,
+  "headroom": 94620,
+  "arv_lo": 1108868,
+  "arv_mid": 1124753,
+  "arv_hi": 1140638,
+  "recovered_pct": 53,
+  "sunk": 56645,
+  "breakeven": 1181398,
+  "bath_op": null,
+  "fact_score": 41.5,
+  "fact_parts": {
+   "size": 4.7,
+   "layout": 9,
+   "baths": 13,
+   "lot": 1.5,
+   "location": 10.0,
+   "parking": 6
+  },
+  "grade": "C-",
+  "verdict": "SEE",
+  "verdict_notes": [
+   "POOL \u2014 in-ground, not priced"
+  ],
+  "tax_mo": 380,
+  "taxes": 4554,
+  "mech_stated": null,
+  "photos": 42,
+  "inv": {
+   "exterior": 2,
+   "foyer": 2,
+   "living_dining": 5,
+   "kitchen": 4,
+   "stairs": 2,
+   "bed": 6,
+   "bath": 4,
+   "basement": 6,
+   "basement_bath": 1,
+   "pool_yard": 10
+  },
+  "tier1": null,
+  "concealed": [
+   "photo source is 680px wide, the lowest in the set; every read is at reduced resolution",
+   "basement slab under LVP (27-31)",
+   "no furnace, panel or water-heater frame in 42, 9 of them of the pool"
+  ],
+  "red_flags": [
+   "main bath is a 2000s black-tile job around a corner jetted tub on a platform (22-24): dated, and the platform shell type the model flags",
+   "basement 3pc uses a one-piece shower insert with a dated vanity (32)",
+   "asphalt driveway shows surface crazing at 1.6x (0)",
+   "in-ground pool: liability and carrying cost the model does not price",
+   "low-resolution photo set limits every tell to about 1.3x effective"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "lived_in",
+  "hdr": "moderate",
+  "evidence": "medium",
+  "evidence_notes": "build year estimated; basement area estimated",
+  "cash_to_close": 262564
+ },
+ "oak-1228-pallatine": {
+  "addr": "1228 Pallatine Drive, Oakville, ON L6H 1Z2",
+  "list": 1228000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3955,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6674,
+    "lo": 4944,
+    "hi": 15537,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3022,
+    "lo": 13872,
+    "hi": 27744,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1040,
+    "lo": 4954,
+    "hi": 8918,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4954,
+    "lo": 22741,
+    "hi": 45482,
+    "basis": "460 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 10000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "bath 2 $22k (unseen); bath 3 $22k (unseen); powder $10k (unseen); panel $5k (unseen)",
+  "reno_total": 59000,
+  "day1_p50": 18378,
+  "day1_p80": 33860,
+  "wish_p50": 54033,
+  "wish_p80": 75488,
+  "naive": 91619,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1963,
+  "yb_src": "mls",
+  "bg_est": false,
+  "usable": 1633,
+  "norm": 1290070,
+  "headroom": 62070,
+  "arv_lo": 1269972,
+  "arv_mid": 1282781,
+  "arv_hi": 1290070,
+  "recovered_pct": 50,
+  "sunk": 54567,
+  "breakeven": 1337348,
+  "bath_op": null,
+  "fact_score": 59.3,
+  "fact_parts": {
+   "size": 6.3,
+   "layout": 9,
+   "baths": 20,
+   "lot": 10.5,
+   "location": 9.3,
+   "parking": 8
+  },
+  "grade": "B-",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 415,
+  "taxes": 4978.46,
+  "mech_stated": "roof, furnace 2016; A/C 2020 (remarks only)",
+  "photos": 40,
+  "inv": {
+   "exterior": 4,
+   "living_dining": 5,
+   "kitchen": 8,
+   "bed": 6,
+   "bath": 4,
+   "basement": 4,
+   "laundry": 1,
+   "yard": 8
+  },
+  "tier1": null,
+  "concealed": [
+   "furnace and panel out of frame in the utility/laundry photo (31); a tank water heater and a dryer vent are visible",
+   "basement slab under LVP and hex tile (28-31)"
+  ],
+  "red_flags": [
+   "1963 sidesplit with every finish replaced: kitchen (slab doors, quartz waterfall, Wolf range), all three baths, floors, black windows; nothing original is visible so age-driven risks (wiring, plumbing behind walls) are unread",
+   "'Back on Market' badge: ask what fell through",
+   "dark engineered floors show surface scratching at 1.8x (26); cosmetic"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "lived_in",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "",
+  "cash_to_close": 299995
+ },
+ "bur-470-delaney": {
+  "addr": "470 Delaney Court, Burlington, ON L7L 5T7",
+  "list": 1249900,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4134,
+    "lo": 16001,
+    "hi": 42669,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3734,
+    "lo": 16001,
+    "hi": 37335,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 14312,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6300,
+    "lo": 4667,
+    "hi": 14667,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 4360,
+    "lo": 20012,
+    "hi": 40023,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1501,
+    "lo": 7147,
+    "hi": 12865,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 8418,
+    "lo": 38642,
+    "hi": 77284,
+    "basis": "828 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2293,
+    "lo": 10667,
+    "hi": 29335,
+    "basis": "below-grade base rate"
+   },
+   {
+    "name": "driveway",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 10889,
+    "lo": 6667,
+    "hi": 16001,
+    "basis": "cracked, confirmed"
+   }
+  ],
+  "reno": [
+   {
+    "name": "driveway",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 11000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 20000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 9000,
+    "status": "likely, unseen"
+   }
+  ],
+  "reno_text": "driveway $11k; bath 2 $20k (unseen); powder $9k (unseen)",
+  "reno_total": 40000,
+  "day1_p50": 10502,
+  "day1_p80": 30372,
+  "wish_p50": 43637,
+  "wish_p80": 73072,
+  "naive": 81849,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 18,
+  "era_p": 0.7,
+  "yb": 1986,
+  "yb_src": "mls",
+  "bg_est": false,
+  "usable": 2558,
+  "norm": 1841760,
+  "headroom": 591860,
+  "arv_lo": 1293071,
+  "arv_mid": 1307258,
+  "arv_hi": 1321445,
+  "recovered_pct": 55,
+  "sunk": 46086,
+  "breakeven": 1353344,
+  "bath_op": null,
+  "fact_score": 73.7,
+  "fact_parts": {
+   "size": 17.9,
+   "layout": 20,
+   "baths": 15,
+   "lot": 4.2,
+   "location": 8.7,
+   "parking": 8
+  },
+  "grade": "A-",
+  "verdict": "SEE FIRST",
+  "verdict_notes": [],
+  "tax_mo": 604,
+  "taxes": 7249,
+  "mech_stated": null,
+  "photos": 48,
+  "inv": {
+   "exterior": 3,
+   "foyer": 3,
+   "living": 3,
+   "dining": 2,
+   "kitchen": 6,
+   "family": 3,
+   "laundry": 1,
+   "powder": 1,
+   "stairs": 2,
+   "bed": 9,
+   "bath": 2,
+   "ensuite": 3,
+   "basement": 6,
+   "deck_yard": 3,
+   "aerial": 4
+  },
+  "tier1": null,
+  "concealed": [
+   "living room and basement floors under area rugs (6, 34)",
+   "no panel, furnace or water-heater frame in 48",
+   "front windows partly behind the Japanese maple (0); the visible units are white vinyl"
+  ],
+  "red_flags": [
+   "asphalt driveway is alligator-cracked across its width (0): a repave line, wishlist bucket",
+   "two full baths for a 4+1 bed house; the ensuite has a freestanding tub and glass shower (31-32), the hall bath is a corner shower with a vessel sink on a wood top (26)",
+   "no mechanical evidence; the 1986 furnace and A/C would both be past life if original",
+   "earlier pass had 6 tells unread; this pass settles all but the panel"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "",
+  "cash_to_close": 301325
+ },
+ "bur-5174-ravine": {
+  "addr": "5174 Ravine Crescent, Burlington, ON L7L 6N2",
+  "list": 1098000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4134,
+    "lo": 16001,
+    "hi": 42669,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 24890,
+    "lo": 16001,
+    "hi": 37335,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 9200,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 4050,
+    "lo": 4667,
+    "hi": 14667,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3784,
+    "lo": 17370,
+    "hi": 34740,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1303,
+    "lo": 6204,
+    "hi": 11167,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 5694,
+    "lo": 26135,
+    "hi": 52269,
+    "basis": "560 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2293,
+    "lo": 10667,
+    "hi": 29335,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 25000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 20000,
+    "status": "possible"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 9000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "main bath $25k",
+  "reno_total": 25000,
+  "day1_p50": 10416,
+  "day1_p80": 29704,
+  "wish_p50": 47957,
+  "wish_p80": 68796,
+  "naive": 81783,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 18,
+  "era_p": 0.45,
+  "yb": 1999,
+  "yb_src": "est",
+  "bg_est": false,
+  "usable": 2141,
+  "norm": 1541520,
+  "headroom": 443520,
+  "arv_lo": 1145312,
+  "arv_mid": 1159468,
+  "arv_hi": 1173624,
+  "recovered_pct": 62,
+  "sunk": 37032,
+  "breakeven": 1196500,
+  "bath_op": null,
+  "fact_score": 56.5,
+  "fact_parts": {
+   "size": 13.5,
+   "layout": 15,
+   "baths": 15,
+   "lot": 0,
+   "location": 8.0,
+   "parking": 5
+  },
+  "grade": "B-",
+  "verdict": "SEE",
+  "verdict_notes": [
+   "POOL \u2014 in-ground, not priced"
+  ],
+  "tax_mo": 478,
+  "taxes": 5732.38,
+  "mech_stated": null,
+  "photos": 36,
+  "inv": {
+   "exterior": 4,
+   "aerial": 4,
+   "pool_yard": 8,
+   "kitchen": 3,
+   "living_dining": 5,
+   "bed": 3,
+   "bath": 3,
+   "basement": 3,
+   "mech": 0,
+   "floorplan": 1
+  },
+  "tier1": null,
+  "concealed": [
+   "main bath tub and surround behind a drawn shower curtain (photo 19)",
+   "basement slab under wall-to-wall carpet (photos 22-24)",
+   "driveway surface never framed; only the exposed-aggregate walk is shown (photo 30)"
+  ],
+  "red_flags": [
+   "MLS lists a sump pump; no photo of the sump, utility room, furnace or panel in 36",
+   "ensuite keeps a 1990s corner drop-in tub on a platform, re-tiled in large-format grey; the shell is original even though the finishes are not",
+   "no mechanical photos despite 36 frames, 3 of them aerials and 4 of the pool"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "lived_in",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "build year estimated",
+  "cash_to_close": 267239
+ },
+ "bur-2120-cavendish": {
+  "addr": "2120 Cavendish Drive, Burlington, ON L7P 1Z3",
+  "list": 969900,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.29,
+    "exp": 8393,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "3/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.33,
+    "exp": 8789,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "2/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2369,
+    "lo": 10876,
+    "hi": 21752,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 816,
+    "lo": 3884,
+    "hi": 6992,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 64622,
+    "lo": 44494,
+    "hi": 88987,
+    "basis": "1007 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 65000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.29,
+    "cost": 29000,
+    "status": "possible"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.33,
+    "cost": 26000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "basement $65k; bath 2 $22k (unseen)",
+  "reno_total": 87000,
+  "day1_p50": 10968,
+  "day1_p80": 25020,
+  "wish_p50": 97593,
+  "wish_p80": 125549,
+  "naive": 144959,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1972,
+  "yb_src": "est",
+  "bg_est": false,
+  "usable": 1755,
+  "norm": 1263276,
+  "headroom": 293376,
+  "arv_lo": 1040015,
+  "arv_mid": 1058359,
+  "arv_hi": 1076703,
+  "recovered_pct": 59,
+  "sunk": 62110,
+  "breakeven": 1120469,
+  "bath_op": null,
+  "fact_score": 45.4,
+  "fact_parts": {
+   "size": 1.6,
+   "layout": 9,
+   "baths": 13,
+   "lot": 8.5,
+   "location": 9.3,
+   "parking": 4
+  },
+  "grade": "C",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 398,
+  "taxes": 4782,
+  "mech_stated": null,
+  "photos": 45,
+  "inv": {
+   "exterior": 5,
+   "kitchen": 6,
+   "living_dining": 8,
+   "bed": 5,
+   "bath": 3,
+   "basement": 9,
+   "laundry": 1,
+   "yard": 6,
+   "floorplan": 2
+  },
+  "tier1": null,
+  "concealed": [
+   "kitchen sink hidden behind the counter angle in every kitchen frame (4-9)",
+   "original subfloor under new wide-plank LVP on every level",
+   "basement slab under wall-to-wall carpet (28-34)",
+   "driveway never framed; only the front walk (0-2)"
+  ],
+  "red_flags": [
+   "basement has a drop-tile ceiling grid in every rec-room frame (28-32): the lower level was refreshed, not rebuilt",
+   "no photo of the furnace, panel, or water heater in 45 frames; laundry (35) shows only cabinetry",
+   "new LVP throughout is the classic pre-sale cover; what is under it is unknown",
+   "MLS says 700-1100 sqft above grade for a 3+1 sidesplit: the 1755 usable figure in the model leans on the finished lower levels"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "medium",
+  "evidence_notes": "build year estimated",
+  "cash_to_close": 234373
+ },
+ "bur-5180-bunton": {
+  "addr": "5180 Bunton Crescent, Burlington, ON L7L 6J3",
+  "list": 1050000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 27557,
+    "lo": 16001,
+    "hi": 42669,
+    "basis": "4/4 tells seen, defect=True"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 24890,
+    "lo": 16001,
+    "hi": 37335,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 9200,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 4050,
+    "lo": 4667,
+    "hi": 14667,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3534,
+    "lo": 16222,
+    "hi": 32444,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1217,
+    "lo": 5794,
+    "hi": 10429,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 6182,
+    "lo": 28375,
+    "hi": 56750,
+    "basis": "608 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2293,
+    "lo": 10667,
+    "hi": 29335,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 28000,
+    "status": "confirmed"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 25000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 20000,
+    "status": "possible"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 9000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "kitchen $28k; main bath $25k",
+  "reno_total": 53000,
+  "day1_p50": 10870,
+  "day1_p80": 29175,
+  "wish_p50": 73995,
+  "wish_p80": 92003,
+  "naive": 118269,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 18,
+  "era_p": 0.45,
+  "yb": 1997,
+  "yb_src": "mls",
+  "bg_est": true,
+  "usable": 2042,
+  "norm": 1470240,
+  "headroom": 420240,
+  "arv_lo": 1114791,
+  "arv_mid": 1130994,
+  "arv_hi": 1147196,
+  "recovered_pct": 67,
+  "sunk": 40184,
+  "breakeven": 1171178,
+  "bath_op": null,
+  "fact_score": 55.5,
+  "fact_parts": {
+   "size": 11.5,
+   "layout": 15,
+   "baths": 15,
+   "lot": 0,
+   "location": 8.0,
+   "parking": 6
+  },
+  "grade": "B-",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 485,
+  "taxes": 5818,
+  "mech_stated": null,
+  "photos": 30,
+  "inv": {
+   "exterior": 2,
+   "aerial": 3,
+   "kitchen": 3,
+   "living_dining": 6,
+   "stairs": 2,
+   "bed_office": 5,
+   "bath": 4,
+   "powder": 1,
+   "basement": 3,
+   "yard": 2
+  },
+  "tier1": null,
+  "concealed": [
+   "main bath tub behind a drawn curtain (photo 20)",
+   "basement slab under carpet (23-25)",
+   "roof condition: shingles visible at 2x in photo 0 but the pitch is too steep to read granule loss"
+  ],
+  "red_flags": [
+   "kitchen is 1997 builder-original: topmount double sink on post-form laminate, flat maple slab doors, 4x4 tile backsplash (5-7)",
+   "ensuite is 1997 original: corner tub on a 4x4 tiled platform, laminate vanity top with drop-in oval sink (17-18)",
+   "main bath keeps the same laminate/maple vanity (20)",
+   "no furnace, panel or water-heater frame in 30; the 1997 furnace and A/C would both be past life if original"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "lived_in",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "basement area estimated",
+  "cash_to_close": 256150
+ },
+ "oak-506-pondview": {
+  "addr": "506 PONDVIEW Place, Oakville, ON L6H 6S3",
+  "list": 1299000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4134,
+    "lo": 16001,
+    "hi": 42669,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3734,
+    "lo": 16001,
+    "hi": 37335,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 9200,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 9200,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 4050,
+    "lo": 4667,
+    "hi": 14667,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3599,
+    "lo": 16521,
+    "hi": 33042,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1239,
+    "lo": 5900,
+    "hi": 10621,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 6304,
+    "lo": 28935,
+    "hi": 57870,
+    "basis": "620 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2293,
+    "lo": 10667,
+    "hi": 29335,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 20000,
+    "status": "possible"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 20000,
+    "status": "possible"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 9000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "-",
+  "reno_total": 0,
+  "day1_p50": 10635,
+  "day1_p80": 28310,
+  "wish_p50": 33378,
+  "wish_p80": 59671,
+  "naive": 63752,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 18,
+  "era_p": 0.45,
+  "yb": 1999,
+  "yb_src": "mls",
+  "bg_est": true,
+  "usable": 2080,
+  "norm": 1643200,
+  "headroom": 344200,
+  "arv_lo": 1341078,
+  "arv_mid": 1353416,
+  "arv_hi": 1365754,
+  "recovered_pct": 62,
+  "sunk": 33565,
+  "breakeven": 1386981,
+  "bath_op": null,
+  "fact_score": 55.0,
+  "fact_parts": {
+   "size": 12.0,
+   "layout": 11,
+   "baths": 20,
+   "lot": 0,
+   "location": 6.0,
+   "parking": 6
+  },
+  "grade": "B-",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 530,
+  "taxes": 6357.02,
+  "mech_stated": null,
+  "photos": 50,
+  "inv": {
+   "exterior": 6,
+   "foyer": 2,
+   "kitchen": 8,
+   "living_dining": 8,
+   "stairs": 1,
+   "primary": 4,
+   "bed": 6,
+   "bath": 3,
+   "basement": 5,
+   "laundry": 1,
+   "aerial_community": 7
+  },
+  "tier1": null,
+  "concealed": [
+   "basement slab under new LVP (38-40)",
+   "no furnace, panel or water-heater frame in 50; laundry (42) is machines and a new counter",
+   "roof: shingles visible at the porch (0) but pitch too steep to read wear"
+  ],
+  "red_flags": [
+   "50 photos, 7 of them aerials, community pool and pond; padded set with no mechanical frame",
+   "every finish is refreshed on a 1999 house; nothing behind the surfaces is visible",
+   "narrow lot, attached-garage streetscape; driveway is asphalt, sound but short"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "basement area estimated",
+  "cash_to_close": 310065
+ },
+ "oak-2148-stillmeadow": {
+  "addr": "2148 Stillmeadow Road, Oakville, ON L6M 3R1",
+  "list": 1098000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.22,
+    "exp": 6200,
+    "lo": 16001,
+    "hi": 42669,
+    "basis": "3/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 24890,
+    "lo": 16001,
+    "hi": 37335,
+    "basis": "2/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 9200,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 4050,
+    "lo": 4667,
+    "hi": 14667,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3272,
+    "lo": 15018,
+    "hi": 30036,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1126,
+    "lo": 5364,
+    "hi": 9654,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 5724,
+    "lo": 26275,
+    "hi": 52549,
+    "basis": "563 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2293,
+    "lo": 10667,
+    "hi": 29335,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 25000,
+    "status": "confirmed"
+   },
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.22,
+    "cost": 28000,
+    "status": "possible"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 20000,
+    "status": "possible"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 9000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "main bath $25k",
+  "reno_total": 25000,
+  "day1_p50": 10319,
+  "day1_p80": 27816,
+  "wish_p50": 49867,
+  "wish_p80": 72843,
+  "naive": 84093,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 18,
+  "era_p": 0.45,
+  "yb": 1996,
+  "yb_src": "mls",
+  "bg_est": true,
+  "usable": 1890,
+  "norm": 1493495,
+  "headroom": 395495,
+  "arv_lo": 1147065,
+  "arv_mid": 1161414,
+  "arv_hi": 1175763,
+  "recovered_pct": 63,
+  "sunk": 37245,
+  "breakeven": 1198659,
+  "bath_op": null,
+  "fact_score": 52.8,
+  "fact_parts": {
+   "size": 9.5,
+   "layout": 15,
+   "baths": 15,
+   "lot": 0,
+   "location": 7.3,
+   "parking": 6
+  },
+  "grade": "C+",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 484,
+  "taxes": 5812.4,
+  "mech_stated": "windows 2020; roof 2016 (remarks only)",
+  "photos": 50,
+  "inv": {
+   "exterior": 4,
+   "living": 6,
+   "kitchen": 6,
+   "dining": 4,
+   "hall_stairs": 4,
+   "primary": 4,
+   "ensuite": 2,
+   "bed": 6,
+   "bath": 1,
+   "basement": 8,
+   "laundry": 1,
+   "deck_yard": 4
+  },
+  "tier1": null,
+  "concealed": [
+   "no tub framed anywhere: the ensuite is a walk-in shower (30) and the main bath (36) shows only vanity and toilet",
+   "basement slab under LVP (38-45)",
+   "no furnace, panel or water-heater frame in 50; laundry (42) is cabinetry and machines"
+  ],
+  "red_flags": [
+   "main bath keeps an integrated cultured-marble top with an oval basin on a newer dark vanity box: a refresh, not a rebuild (36)",
+   "kitchen door profile could not be settled at 2.4x; the fit view suggests painted applied-moulding doors, which may be 1996 originals repainted",
+   "50 photos, 7 of them of the covered rear deck, none of anything mechanical"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "lived_in",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "basement area estimated",
+  "cash_to_close": 265351
+ },
+ "bur-3205-tania": {
+  "addr": "3205 Tania Crescent, Burlington, ON L7M 3M7",
+  "list": 1274999,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.29,
+    "exp": 7923,
+    "lo": 16001,
+    "hi": 42669,
+    "basis": "3/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3734,
+    "lo": 16001,
+    "hi": 37335,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 20445,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "confirmed original"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 14312,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6300,
+    "lo": 4667,
+    "hi": 14667,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 5281,
+    "lo": 24240,
+    "hi": 48480,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 1.0,
+    "exp": 12120,
+    "lo": 8657,
+    "hi": 15583,
+    "basis": "ceiling=stipple_popcorn"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 61003,
+    "lo": 42002,
+    "hi": 84004,
+    "basis": "1227 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2293,
+    "lo": 10667,
+    "hi": 29335,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 61000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 20000,
+    "status": "confirmed"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 1.0,
+    "cost": 12000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 20000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 9000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.29,
+    "cost": 28000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "basement $61k; bath 2 $20k; ceilings $12k; bath 3 $20k (unseen); powder $9k (unseen)",
+  "reno_total": 122000,
+  "day1_p50": 23249,
+  "day1_p80": 42675,
+  "wish_p50": 120879,
+  "wish_p80": 141821,
+  "naive": 188383,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 18,
+  "era_p": 0.7,
+  "yb": 1988,
+  "yb_src": "est",
+  "bg_est": false,
+  "usable": 3210,
+  "norm": 2311560,
+  "headroom": 1036561,
+  "arv_lo": 1361097,
+  "arv_mid": 1386101,
+  "arv_hi": 1411105,
+  "recovered_pct": 60,
+  "sunk": 73394,
+  "breakeven": 1459495,
+  "bath_op": null,
+  "fact_score": 82.6,
+  "fact_parts": {
+   "size": 25.0,
+   "layout": 20,
+   "baths": 20,
+   "lot": 3.0,
+   "location": 6.7,
+   "parking": 8
+  },
+  "grade": "A",
+  "verdict": "SEE",
+  "verdict_notes": [
+   "virtually staged frames"
+  ],
+  "tax_mo": 558,
+  "taxes": 6691,
+  "mech_stated": "windows 2025 (remarks only)",
+  "photos": 43,
+  "inv": {
+   "exterior": 3,
+   "foyer": 2,
+   "living_dining": 5,
+   "kitchen": 8,
+   "family": 2,
+   "stairs_hall": 4,
+   "primary_ensuite": 6,
+   "bed": 4,
+   "bath": 1,
+   "basement": 5,
+   "basement_bath": 1,
+   "yard": 3
+  },
+  "tier1": null,
+  "concealed": [
+   "kitchen sink never framed at readable size in any of 8 kitchen photos",
+   "main-level 4pc tub behind a drawn curtain (32)",
+   "basement slab under carpet (36) and under a virtually staged floor (34)",
+   "no furnace, panel or water-heater frame; 'windows 2025' is remarks only"
+  ],
+  "red_flags": [
+   "second-floor ceilings are stippled (24): the whole upper level carries the ceiling line at p=1.0",
+   "basement 3pc bath is 1980s-original: oak vanity with cultured-marble top, 4x4 floor tile, shower insert (38)",
+   "basement rec room is virtually staged (34): whatever was on that floor and wall is unknown; the unstaged frame (36) shows carpet under a drop-tile grid",
+   "kitchen is a gloss-slab reface over 1980s boxes with black granite; the door style and hardware are 2010s, the layout is original",
+   "earlier pass listed this house with 11 of 15 tells unread; this pass settles 14"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "virtually_staged",
+  "hdr": "moderate",
+  "evidence": "medium",
+  "evidence_notes": "virtual staging; build year estimated",
+  "cash_to_close": 319150
+ },
+ "bur-3212-pinemeadow": {
+  "addr": "3212 Pinemeadow Drive, Burlington, ON L7M 2N7",
+  "list": 1299900,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4134,
+    "lo": 16001,
+    "hi": 42669,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 24890,
+    "lo": 16001,
+    "hi": 37335,
+    "basis": "1/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 14312,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6300,
+    "lo": 4667,
+    "hi": 14667,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 4195,
+    "lo": 19256,
+    "hi": 38511,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 1.0,
+    "exp": 9628,
+    "lo": 6877,
+    "hi": 12379,
+    "basis": "ceiling=stipple_popcorn"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 7341,
+    "lo": 33695,
+    "hi": 67390,
+    "basis": "722 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2293,
+    "lo": 10667,
+    "hi": 29335,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 25000,
+    "status": "confirmed"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 1.0,
+    "cost": 10000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 20000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 9000,
+    "status": "likely, unseen"
+   }
+  ],
+  "reno_text": "main bath $25k; ceilings $10k; bath 2 $20k (unseen); powder $9k (unseen)",
+  "reno_total": 64000,
+  "day1_p50": 20441,
+  "day1_p80": 40844,
+  "wish_p50": 56972,
+  "wish_p80": 83849,
+  "naive": 106321,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 18,
+  "era_p": 0.7,
+  "yb": 1986,
+  "yb_src": "mls",
+  "bg_est": true,
+  "usable": 2424,
+  "norm": 1745280,
+  "headroom": 445380,
+  "arv_lo": 1359203,
+  "arv_mid": 1378248,
+  "arv_hi": 1397293,
+  "recovered_pct": 63,
+  "sunk": 46345,
+  "breakeven": 1424593,
+  "bath_op": null,
+  "fact_score": 74.9,
+  "fact_parts": {
+   "size": 16.6,
+   "layout": 20,
+   "baths": 15,
+   "lot": 5.3,
+   "location": 10.0,
+   "parking": 8
+  },
+  "grade": "A-",
+  "verdict": "SEE FIRST",
+  "verdict_notes": [],
+  "tax_mo": 525,
+  "taxes": 6294.65,
+  "mech_stated": null,
+  "photos": 50,
+  "inv": {
+   "exterior": 3,
+   "foyer": 2,
+   "living_dining": 6,
+   "kitchen": 4,
+   "family": 2,
+   "powder": 1,
+   "laundry": 1,
+   "stairs": 2,
+   "primary_ensuite": 5,
+   "bed": 5,
+   "bath": 1,
+   "basement": 5,
+   "deck_yard": 10,
+   "aerial": 5
+  },
+  "tier1": null,
+  "concealed": [
+   "main 4pc tub never framed; only the vanity wall (24)",
+   "basement slab under new LVP (29-33)",
+   "no furnace, panel or water-heater frame in 50, 14 of which are yard and aerials",
+   "driveway never framed at readable size"
+  ],
+  "red_flags": [
+   "stipple ceilings on both the main floor (5) and the bedroom level (26): the ceiling line applies to the whole house",
+   "main 4pc bath keeps its 1986 cultured-marble integrated top on the original vanity box (24); the ensuite (22) was redone, the hall bath was not",
+   "kitchen is a 1986 footprint with repainted shaker doors, granite and a 12x12 beige ceramic floor (11-12): current counters on original boxes and floor",
+   "earlier pass listed 11 of 15 tells unread; this pass settles 13"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "lived_in",
+  "hdr": "moderate",
+  "evidence": "medium",
+  "evidence_notes": "basement area estimated",
+  "cash_to_close": 322797
+ },
+ "bur-2105-maplewood": {
+  "addr": "2105 Maplewood Drive, Burlington, ON L7R 2C6",
+  "list": 1199000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.33,
+    "exp": 8789,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "2/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6674,
+    "lo": 4944,
+    "hi": 15537,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2208,
+    "lo": 10135,
+    "hi": 20269,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 760,
+    "lo": 3620,
+    "hi": 6515,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 9693,
+    "lo": 44494,
+    "hi": 88987,
+    "basis": "1033 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 10000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.33,
+    "cost": 26000,
+    "status": "possible"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "bath 2 $22k (unseen); powder $10k (unseen); panel $5k (unseen)",
+  "reno_total": 37000,
+  "day1_p50": 18326,
+  "day1_p80": 31679,
+  "wish_p50": 38116,
+  "wish_p80": 70006,
+  "naive": 82162,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1958,
+  "yb_src": "est",
+  "bg_est": false,
+  "usable": 1542,
+  "norm": 1109880,
+  "headroom": 0,
+  "arv_lo": 1109880,
+  "arv_mid": 1109880,
+  "arv_hi": 1109880,
+  "recovered_pct": 26,
+  "sunk": 74821,
+  "breakeven": 1300685,
+  "bath_op": null,
+  "fact_score": 54.2,
+  "fact_parts": {
+   "size": 0.4,
+   "layout": 9,
+   "baths": 15,
+   "lot": 10.5,
+   "location": 11.3,
+   "parking": 8
+  },
+  "grade": "B-",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 573,
+  "taxes": 6873.45,
+  "mech_stated": "windows, sliding doors & sunroom ceiling 2024; furnace & A/C 2025; soffits/eaves 2025; basement reno + 200A panel 2024; main 3pc bath + powder 2024 (remarks only)",
+  "photos": 50,
+  "inv": {
+   "exterior": 5,
+   "aerial": 8,
+   "foyer": 1,
+   "living_dining": 8,
+   "kitchen": 6,
+   "bed": 4,
+   "bath": 1,
+   "sunroom": 2,
+   "basement": 9,
+   "basement_bath": 2,
+   "laundry": 1,
+   "yard_spa": 3
+  },
+  "tier1": null,
+  "concealed": [
+   "no tub anywhere: main 3pc and both lower baths are showers (27, 36, 37)",
+   "basement slab under new LVP (28-37)",
+   "furnace, A/C and 200A panel are remarks claims (2024-25); none framed in 50 photos"
+  ],
+  "red_flags": [
+   "kitchen keeps a dark-painted bulkhead over new gloss slab uppers (18): the soffit was kept, not removed",
+   "50 photos include 8 aerials and 6 of the swim spa; no mechanical frame despite three new mechanical claims",
+   "the swim spa, gazebo and heated garage are lifestyle items the model does not price either way",
+   "1025 sqft above grade with the two secondary bedrooms at 110 and 95 sqft"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "lived_in",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "build year estimated",
+  "cash_to_close": 291434
+ },
+ "oak-28-osborne": {
+  "addr": "28 Osborne Crescent, Oakville, ON L6H 1G1",
+  "list": 1299000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.29,
+    "exp": 8393,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "3/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 26367,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "2/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2856,
+    "lo": 13111,
+    "hi": 26222,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 983,
+    "lo": 4682,
+    "hi": 8428,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 6667,
+    "lo": 30602,
+    "hi": 61204,
+    "basis": "619 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 26000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.29,
+    "cost": 29000,
+    "status": "possible"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "main bath $26k; bath 2 $22k (unseen); bath 3 $22k (unseen); panel $5k (unseen)",
+  "reno_total": 75000,
+  "day1_p50": 18965,
+  "day1_p80": 33785,
+  "wish_p50": 75190,
+  "wish_p80": 101793,
+  "naive": 122632,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1965,
+  "yb_src": "est",
+  "bg_est": true,
+  "usable": 1728,
+  "norm": 1365396,
+  "headroom": 66396,
+  "arv_lo": 1349182,
+  "arv_mid": 1363951,
+  "arv_hi": 1365396,
+  "recovered_pct": 48,
+  "sunk": 70627,
+  "breakeven": 1434578,
+  "bath_op": null,
+  "fact_score": 47.6,
+  "fact_parts": {
+   "size": 5.1,
+   "layout": 11,
+   "baths": 18,
+   "lot": 1.2,
+   "location": 7.3,
+   "parking": 8
+  },
+  "grade": "C",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 447,
+  "taxes": 5361.39,
+  "mech_stated": "heat pump 2024; lower 3pc bath 2018; primary addition + ensuite 2018 (legal); pergola 2023; painted 2024/2026 (remarks only)",
+  "photos": 49,
+  "inv": {
+   "exterior": 3,
+   "aerial": 1,
+   "foyer": 1,
+   "living_dining": 8,
+   "kitchen": 6,
+   "primary": 4,
+   "ensuite": 3,
+   "bed": 6,
+   "bath": 2,
+   "basement": 8,
+   "basement_bath": 2,
+   "laundry": 1,
+   "deck_yard": 8
+  },
+  "tier1": null,
+  "concealed": [
+   "kitchen sink never framed at readable size (12-16)",
+   "basement slab under laminate (33-37)",
+   "laundry (40) shows machines and a sink; furnace and panel out of frame",
+   "the 'large crawl space storage' is never shown"
+  ],
+  "red_flags": [
+   "main hall bath is a 2000s beige 12x12 job with a listello border around an alcove tub (30), the one bath not touched in 2018",
+   "two upper bedrooms are 81 and 73 sqft; only the 2018 primary addition is a real bedroom",
+   "'legal addition' 2018: ask for the permit close-out and whether the crawl space under it is conditioned",
+   "price decrease and 46 days on market at $1.299M"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "medium",
+  "evidence_notes": "build year estimated; basement area estimated",
+  "cash_to_close": 315540
+ },
+ "bur-4831-columbus": {
+  "addr": "4831 Columbus Drive, Burlington, ON L7M 0J4",
+  "list": 1250000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 26156,
+    "lo": 15187,
+    "hi": 40499,
+    "basis": "4/4 tells seen, defect=True"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 23625,
+    "lo": 15187,
+    "hi": 35437,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.2,
+    "exp": 3881,
+    "lo": 12656,
+    "hi": 27843,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.2,
+    "exp": 1709,
+    "lo": 4430,
+    "hi": 13922,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3926,
+    "lo": 18020,
+    "hi": 36039,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1351,
+    "lo": 6436,
+    "hi": 11584,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 6871,
+    "lo": 31539,
+    "hi": 63078,
+    "basis": "712 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2177,
+    "lo": 10125,
+    "hi": 27843,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 26000,
+    "status": "confirmed"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 24000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.2,
+    "cost": 19000,
+    "status": "possible"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.2,
+    "cost": 9000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "kitchen $26k; main bath $24k",
+  "reno_total": 50000,
+  "day1_p50": 9888,
+  "day1_p80": 29237,
+  "wish_p50": 58292,
+  "wish_p80": 80193,
+  "naive": 104235,
+  "reserve_monthly": 147,
+  "near_term_5yr": 9982,
+  "contingency_pct": 12,
+  "era_p": 0.2,
+  "yb": 2008,
+  "yb_src": "mls",
+  "bg_est": true,
+  "usable": 2390,
+  "norm": 1720800,
+  "headroom": 470800,
+  "arv_lo": 1308780,
+  "arv_mid": 1323149,
+  "arv_hi": 1337519,
+  "recovered_pct": 67,
+  "sunk": 36281,
+  "breakeven": 1359430,
+  "bath_op": null,
+  "fact_score": 63.1,
+  "fact_parts": {
+   "size": 16.2,
+   "layout": 15,
+   "baths": 15,
+   "lot": 0.9,
+   "location": 8.0,
+   "parking": 8
+  },
+  "grade": "B",
+  "verdict": "SEE FIRST",
+  "verdict_notes": [],
+  "tax_mo": 550,
+  "taxes": 6602,
+  "mech_stated": "furnace 2026; roof 2023; garage door 2023 (remarks only)",
+  "photos": 50,
+  "inv": {
+   "exterior": 4,
+   "foyer": 2,
+   "dining": 3,
+   "living": 5,
+   "kitchen": 8,
+   "powder": 1,
+   "stairs_hall": 3,
+   "primary": 5,
+   "ensuite": 1,
+   "bed": 4,
+   "bath": 1,
+   "laundry": 1,
+   "basement": 8,
+   "deck_yard": 4
+  },
+  "tier1": null,
+  "concealed": [
+   "main-bath tub behind a drawn curtain (36)",
+   "basement slab under laminate (39-45)",
+   "no furnace, panel or water-heater frame despite the remarks claiming a 2026 furnace; laundry (37) shows machines only"
+  ],
+  "red_flags": [
+   "2008 builder-original kitchen: cherry doors, granite, topmount stainless sink, ceramic floor (14-21); functional, dated, a cosmetic job when the buyer chooses",
+   "ensuite is builder-original: jetted drop-in tub on a beige 4x4 tiled deck, cherry vanity with integrated white top (31)",
+   "bedrooms have laminate rather than the hardwood claimed for the main floor; the swap suggests original broadloom was replaced cheaply",
+   "'Back on Market' badge: ask what fell through"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "lived_in",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "basement area estimated",
+  "cash_to_close": 300212
+ },
+ "oak-568-weir": {
+  "addr": "568 Weir Avenue, Oakville, ON L6L 4X4",
+  "list": 1299999,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3955,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 21658,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "confirmed original"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2180,
+    "lo": 10006,
+    "hi": 20012,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 750,
+    "lo": 3574,
+    "hi": 6433,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 53852,
+    "lo": 37078,
+    "hi": 74156,
+    "basis": "750 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "asbestos",
+    "bucket": "day1",
+    "p": 0.6,
+    "exp": 6427,
+    "lo": 3531,
+    "hi": 21187,
+    "basis": "suspect material, only if disturbed"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 54000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 22000,
+    "status": "confirmed"
+   },
+   {
+    "name": "asbestos",
+    "bucket": "day1",
+    "p": 0.6,
+    "cost": 11000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "basement $54k; bath 2 $22k; asbestos $11k (unseen); panel $5k (unseen)",
+  "reno_total": 92000,
+  "day1_p50": 27406,
+  "day1_p80": 40641,
+  "wish_p50": 84890,
+  "wish_p80": 106515,
+  "naive": 146827,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1957,
+  "yb_src": "mls",
+  "bg_est": false,
+  "usable": 1500,
+  "norm": 1184605,
+  "headroom": 0,
+  "arv_lo": 1184605,
+  "arv_mid": 1184605,
+  "arv_hi": 1184605,
+  "recovered_pct": 25,
+  "sunk": 110505,
+  "breakeven": 1447155,
+  "bath_op": null,
+  "fact_score": 51.6,
+  "fact_parts": {
+   "size": 0.2,
+   "layout": 13,
+   "baths": 13,
+   "lot": 10.7,
+   "location": 8.7,
+   "parking": 6
+  },
+  "grade": "C+",
+  "verdict": "SEE",
+  "verdict_notes": [
+   "TENANTED"
+  ],
+  "tax_mo": 416,
+  "taxes": 4996,
+  "mech_stated": "full reno 2021; driveway 2023; gutters 2023 (remarks only)",
+  "photos": 22,
+  "inv": {
+   "exterior": 2,
+   "living": 3,
+   "kitchen": 4,
+   "dining": 1,
+   "bed": 3,
+   "bath": 2,
+   "office": 1,
+   "basement": 2,
+   "basement_kitchen": 1,
+   "basement_bath": 1,
+   "yard": 3
+  },
+  "tier1": null,
+  "concealed": [
+   "tenant's belongings throughout; main-floor bedrooms not shown at all (22 photos, none of a main-floor bedroom)",
+   "basement slab under LVP (15-17)",
+   "no furnace, panel or water-heater frame",
+   "the 'walk-up' separate entrance is never framed"
+  ],
+  "red_flags": [
+   "basement 3pc bath is 1957-original: blue 4x4 wall tile, cultured-marble integrated top, curtain (18); the '2021 full renovation' skipped it",
+   "basement ceiling is a painted tile grid at 1.4x (15): drop-tile or glued tile, either way an older basement finish; 9-inch or 12-inch tile in a 1957 house is an asbestos suspect until checked",
+   "tenanted at $57,000/yr: vacant possession and the Ontario N12 timeline are a purchase condition, not a detail",
+   "only 22 photos and no main-floor bedroom among them"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "lived_in",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "only 22 photos",
+  "cash_to_close": 322616
+ },
+ "bur-5190-wood": {
+  "addr": "5190 Wood Crescent, Burlington, ON L7L 6N3",
+  "list": 1099900,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4134,
+    "lo": 16001,
+    "hi": 42669,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 24890,
+    "lo": 16001,
+    "hi": 37335,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 9200,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 4050,
+    "lo": 4667,
+    "hi": 14667,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2709,
+    "lo": 12433,
+    "hi": 24865,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 932,
+    "lo": 4440,
+    "hi": 7992,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 5958,
+    "lo": 27348,
+    "hi": 54696,
+    "basis": "586 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2293,
+    "lo": 10667,
+    "hi": 29335,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 25000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 20000,
+    "status": "possible"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 9000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "main bath $25k",
+  "reno_total": 25000,
+  "day1_p50": 10425,
+  "day1_p80": 26338,
+  "wish_p50": 47636,
+  "wish_p80": 69873,
+  "naive": 80190,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 18,
+  "era_p": 0.45,
+  "yb": 1999,
+  "yb_src": "est",
+  "bg_est": false,
+  "usable": 1625,
+  "norm": 1170000,
+  "headroom": 70100,
+  "arv_lo": 1142551,
+  "arv_mid": 1155340,
+  "arv_hi": 1168130,
+  "recovered_pct": 58,
+  "sunk": 40771,
+  "breakeven": 1196111,
+  "bath_op": null,
+  "fact_score": 47.9,
+  "fact_parts": {
+   "size": 5.2,
+   "layout": 15,
+   "baths": 15,
+   "lot": 0,
+   "location": 6.7,
+   "parking": 6
+  },
+  "grade": "C",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 412,
+  "taxes": 4945.39,
+  "mech_stated": null,
+  "photos": 33,
+  "inv": {
+   "exterior": 3,
+   "aerial": 1,
+   "pool_yard": 7,
+   "living_dining": 4,
+   "kitchen": 4,
+   "powder": 1,
+   "bed": 4,
+   "bath": 1,
+   "basement": 4,
+   "basement_bath": 1,
+   "stairs": 1,
+   "floorplan": 1
+  },
+  "tier1": null,
+  "concealed": [
+   "main-bath tub behind a drawn curtain (18)",
+   "basement slab under new LVP (20-23)",
+   "no furnace, panel, water heater or sump frame; the outdoor heat-pump unit is visible at the side of the house (0)"
+  ],
+  "red_flags": [
+   "main 4pc bath is builder-original behind a renovated kitchen: dark wood vanity, green post-form laminate top with a drop-in sink, dark green 4x4 tub surround (18)",
+   "'extensively renovated' applies to the main floor and basement bath; the upstairs bath was skipped",
+   "above-ground pool: a removal or maintenance cost the model does not price",
+   "MLS says sump pump; the basement is fully finished so the slab and walls cannot be inspected",
+   "kitchen is 7 x 7 ft (52 sqft) per the room table; small for a 3-bed"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "build year estimated",
+  "cash_to_close": 264291
+ },
+ "bur-2294-seton": {
+  "addr": "2294 Seton Crescent, Burlington, ON L7L 6Y4",
+  "list": 1194900,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3923,
+    "lo": 15187,
+    "hi": 40499,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3544,
+    "lo": 15187,
+    "hi": 35437,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 8733,
+    "lo": 12656,
+    "hi": 27843,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "exp": 3844,
+    "lo": 4430,
+    "hi": 13922,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3314,
+    "lo": 15211,
+    "hi": 30422,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1141,
+    "lo": 5433,
+    "hi": 9779,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 7556,
+    "lo": 34684,
+    "hi": 69368,
+    "basis": "783 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2177,
+    "lo": 10125,
+    "hi": 27843,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 19000,
+    "status": "possible"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.45,
+    "cost": 9000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "-",
+  "reno_total": 0,
+  "day1_p50": 9701,
+  "day1_p80": 26212,
+  "wish_p50": 23561,
+  "wish_p80": 50675,
+  "naive": 49961,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 12,
+  "era_p": 0.45,
+  "yb": 2002,
+  "yb_src": "mls",
+  "bg_est": false,
+  "usable": 2108,
+  "norm": 1518120,
+  "headroom": 323220,
+  "arv_lo": 1231391,
+  "arv_mid": 1241782,
+  "arv_hi": 1252172,
+  "recovered_pct": 61,
+  "sunk": 30005,
+  "breakeven": 1271787,
+  "bath_op": null,
+  "fact_score": 54.9,
+  "fact_parts": {
+   "size": 11.2,
+   "layout": 15,
+   "baths": 15,
+   "lot": 0,
+   "location": 8.7,
+   "parking": 5
+  },
+  "grade": "B-",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 453,
+  "taxes": 5441,
+  "mech_stated": "full reno 2026 incl. all windows, doors, walls/ceilings, LVP, kitchen, all baths (remarks only)",
+  "photos": 42,
+  "inv": {
+   "exterior": 3,
+   "foyer": 1,
+   "living": 4,
+   "dining": 2,
+   "kitchen": 8,
+   "powder": 1,
+   "stairs": 1,
+   "primary_ensuite": 6,
+   "bed": 3,
+   "bath": 2,
+   "basement": 7,
+   "laundry": 1,
+   "yard": 3
+  },
+  "tier1": null,
+  "concealed": [
+   "everything behind new drywall: remarks say walls and ceilings were 'completely renewed' in 2026, so no original surface is visible anywhere",
+   "basement slab under new LVP (31-37)",
+   "no furnace, panel or water heater frame; laundry (38) shows only the new machines"
+  ],
+  "red_flags": [
+   "2026 whole-house flip by the original owners' agent: every tell is new so photos can verify nothing older than this year; ask for permits for the electrical, plumbing and the basement bath rough-in",
+   "basement bath is a rough-in only (remarks); baths_full counts the two upstairs",
+   "31-ft lot; the house is 1717 sf on a narrow footprint",
+   "driveway asphalt is the one surface not redone: weathered with patching (0)"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "mixed",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "",
+  "cash_to_close": 285065
+ },
+ "bur-2265-middlesmoor": {
+  "addr": "2265 Middlesmoor Crescent, Burlington, ON L7P 3X2",
+  "list": 1049900,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.33,
+    "exp": 8789,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "2/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6674,
+    "lo": 4944,
+    "hi": 15537,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3102,
+    "lo": 14238,
+    "hi": 28476,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1068,
+    "lo": 5085,
+    "hi": 9153,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 7927,
+    "lo": 36386,
+    "hi": 72772,
+    "basis": "736 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 0.3,
+    "exp": 4407,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 200,
+    "basis": "metal roof in MLS/photo, long life"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 10000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.33,
+    "cost": 26000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "bath 2 $22k (unseen); powder $10k (unseen)",
+  "reno_total": 32000,
+  "day1_p50": 10919,
+  "day1_p80": 28855,
+  "wish_p50": 36782,
+  "wish_p80": 67787,
+  "naive": 72881,
+  "reserve_monthly": 108,
+  "near_term_5yr": 22487,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1979,
+  "yb_src": "mls",
+  "bg_est": false,
+  "usable": 1808,
+  "norm": 1301760,
+  "headroom": 251860,
+  "arv_lo": 1096147,
+  "arv_mid": 1109712,
+  "arv_hi": 1123277,
+  "recovered_pct": 62,
+  "sunk": 36830,
+  "breakeven": 1146542,
+  "bath_op": null,
+  "fact_score": 39.9,
+  "fact_parts": {
+   "size": 6.9,
+   "layout": 2,
+   "baths": 15,
+   "lot": 0,
+   "location": 10.0,
+   "parking": 6
+  },
+  "grade": "C-",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 408,
+  "taxes": 4893,
+  "mech_stated": null,
+  "photos": 39,
+  "inv": {
+   "exterior": 2,
+   "foyer": 1,
+   "kitchen": 7,
+   "powder": 1,
+   "laundry": 1,
+   "living_dining": 6,
+   "stairs": 2,
+   "primary": 3,
+   "bath": 2,
+   "bed": 4,
+   "basement": 4,
+   "yard": 3,
+   "floorplan": 3
+  },
+  "tier1": null,
+  "concealed": [
+   "tub in the main bath never framed; only the subway surround (22-23)",
+   "basement slab under new LVP (29-32)",
+   "no furnace, panel or water heater frame; laundry (11) is a stacked unit in a closet"
+  ],
+  "red_flags": [
+   "photos are heavily brightened; whites clip in every bath frame, so bath tile and fixture wear cannot be read",
+   "the 41 sqft 'bedroom' (8.3 x 5.0 ft) is a closet-sized room; treat the house as a 2-bed plus office",
+   "metal roof claim is consistent with the photo (metal shingle profile at the eave in 0); ask for the install date, it removes the roof reserve line",
+   "1979 house with a full cosmetic flip: every surface renewed, nothing behind it visible"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "",
+  "cash_to_close": 255808
+ },
+ "bur-1379-christina": {
+  "addr": "1379 Christina Court, Burlington, ON L7P 2V8",
+  "list": 1299900,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3955,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6674,
+    "lo": 4944,
+    "hi": 15537,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3421,
+    "lo": 15701,
+    "hi": 31403,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1178,
+    "lo": 5608,
+    "hi": 10094,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 6268,
+    "lo": 28773,
+    "hi": 57545,
+    "basis": "582 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 10000,
+    "status": "likely, unseen"
+   }
+  ],
+  "reno_text": "bath 2 $22k (unseen); powder $10k (unseen)",
+  "reno_total": 32000,
+  "day1_p50": 10968,
+  "day1_p80": 29850,
+  "wish_p50": 32500,
+  "wish_p80": 60847,
+  "naive": 63927,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1972,
+  "yb_src": "mls",
+  "bg_est": false,
+  "usable": 1879,
+  "norm": 1352880,
+  "headroom": 52980,
+  "arv_lo": 1336292,
+  "arv_mid": 1346967,
+  "arv_hi": 1352880,
+  "recovered_pct": 52,
+  "sunk": 43630,
+  "breakeven": 1390597,
+  "bath_op": null,
+  "fact_score": 50.9,
+  "fact_parts": {
+   "size": 9.2,
+   "layout": 15,
+   "baths": 15,
+   "lot": 0,
+   "location": 8.0,
+   "parking": 7
+  },
+  "grade": "C+",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 410,
+  "taxes": 4925.96,
+  "mech_stated": "roof 2025 (35-yr shingles); windows and doors 2025; driveway newly paved (remarks only)",
+  "photos": 34,
+  "inv": {
+   "exterior": 3,
+   "living_dining": 6,
+   "kitchen": 4,
+   "stairs": 1,
+   "family": 2,
+   "bed": 6,
+   "bath": 3,
+   "basement": 4,
+   "basement_bath": 1,
+   "laundry": 1,
+   "yard": 3
+  },
+  "tier1": null,
+  "concealed": [
+   "everything original is behind 2025-26 finishes: no pre-renovation surface visible anywhere",
+   "basement slab under new LVP (26-30)",
+   "no furnace, panel or water-heater frame; laundry (30) is new cabinetry and machines"
+  ],
+  "red_flags": [
+   "top-of-range price ($1.30M) for a 1972 sidesplit on a 37-ft lot: the premium is the renovation, which photos can verify only at the surface",
+   "4th 'bedroom' is a 6.3 x 11.3 ft basement room (71 sqft)",
+   "aluminum-siding upper storey retained behind new black windows",
+   "no permits or mechanical ages in the remarks beyond roof and windows 2025"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "",
+  "cash_to_close": 311803
+ },
+ "oak-1218-oxlow": {
+  "addr": "1218 Oxlow Drive, Oakville, ON L6H 1S2",
+  "list": 1249999,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3955,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2507,
+    "lo": 11509,
+    "hi": 23018,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 863,
+    "lo": 4110,
+    "hi": 7399,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 5848,
+    "lo": 26845,
+    "hi": 53689,
+    "basis": "543 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   }
+  ],
+  "reno_text": "bath 2 $22k (unseen)",
+  "reno_total": 22000,
+  "day1_p50": 10633,
+  "day1_p80": 24489,
+  "wish_p50": 23729,
+  "wish_p80": 50770,
+  "naive": 50810,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1972,
+  "yb_src": "mls",
+  "bg_est": true,
+  "usable": 1436,
+  "norm": 1134045,
+  "headroom": 0,
+  "arv_lo": 1134045,
+  "arv_mid": 1134045,
+  "arv_hi": 1134045,
+  "recovered_pct": 28,
+  "sunk": 54390,
+  "breakeven": 1325258,
+  "bath_op": null,
+  "fact_score": 50.0,
+  "fact_parts": {
+   "size": 2.6,
+   "layout": 20,
+   "baths": 13,
+   "lot": 5.6,
+   "location": 6.0,
+   "parking": 6
+  },
+  "grade": "C+",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 408,
+  "taxes": 4899,
+  "mech_stated": "Napoleon hybrid heat pump 2024; pool liner 2025; gazebo 2021; laundry 2024 (remarks only)",
+  "photos": 42,
+  "inv": {
+   "exterior": 5,
+   "foyer": 2,
+   "living_dining": 5,
+   "kitchen": 4,
+   "bed": 8,
+   "bath": 3,
+   "lower_family_rec": 8,
+   "lower_bath": 1,
+   "laundry": 1,
+   "side_yard": 1,
+   "pool_deck": 4
+  },
+  "tier1": null,
+  "concealed": [
+   "lower-level slab under LVP (26-32)",
+   "no furnace, panel or water-heater frame in 42; the 'hybrid heat pump 2024' is remarks only",
+   "pool under a winter cover in every frame; liner claim unverifiable"
+  ],
+  "red_flags": [
+   "parging on the side foundation wall is spalling and peeling at 2x (37): exterior moisture and freeze-thaw at the foundation, the one photo in the whole set that shows a building-envelope defect",
+   "the pool is above-ground with a wrap-around deck, not in-ground as the remarks say",
+   "lower 3pc bath is dated: drop-tile ceiling, terracotta floor, shower insert (35)",
+   "1164 sqft above grade for 4 bedrooms; the 4th is 8.9 ft wide"
+  ],
+  "claim_vs_evidence": [
+   "remarks say 'in-ground swimming pool with built-in deck'; photos 38-40 show an above-ground pool with a deck built around it"
+  ],
+  "defects": null,
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "basement area estimated",
+  "cash_to_close": 295464
+ },
+ "bur-659-cherrywood": {
+  "addr": "659 Cherrywood Drive, Burlington, ON L7T 3W9",
+  "list": 1299999,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3955,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6674,
+    "lo": 4944,
+    "hi": 15537,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3485,
+    "lo": 15998,
+    "hi": 31996,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1200,
+    "lo": 5714,
+    "hi": 10284,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 5988,
+    "lo": 27487,
+    "hi": 54974,
+    "basis": "556 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "windows",
+    "bucket": "reserve",
+    "p": 0.7,
+    "exp": 16215,
+    "lo": 16950,
+    "hi": 31640,
+    "life": 30,
+    "per_yr": 541,
+    "basis": "frame not shown"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 10000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "bath 2 $22k (unseen); powder $10k (unseen); panel $5k (unseen)",
+  "reno_total": 37000,
+  "day1_p50": 18771,
+  "day1_p80": 34621,
+  "wish_p50": 32915,
+  "wish_p80": 60250,
+  "naive": 72133,
+  "reserve_monthly": 192,
+  "near_term_5yr": 48985,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1965,
+  "yb_src": "est",
+  "bg_est": false,
+  "usable": 1896,
+  "norm": 1365120,
+  "headroom": 65121,
+  "arv_lo": 1339252,
+  "arv_mid": 1350906,
+  "arv_hi": 1362560,
+  "recovered_pct": 54,
+  "sunk": 43964,
+  "breakeven": 1394870,
+  "bath_op": null,
+  "fact_score": 62.2,
+  "fact_parts": {
+   "size": 9.7,
+   "layout": 15,
+   "baths": 15,
+   "lot": 9.9,
+   "location": 8.7,
+   "parking": 8
+  },
+  "grade": "B",
+  "verdict": "SEE FIRST",
+  "verdict_notes": [],
+  "tax_mo": 595,
+  "taxes": 7137.43,
+  "mech_stated": null,
+  "photos": 49,
+  "inv": {
+   "exterior": 6,
+   "foyer": 1,
+   "living_dining": 8,
+   "kitchen": 6,
+   "family": 4,
+   "bed": 6,
+   "bath": 3,
+   "laundry": 1,
+   "basement": 8,
+   "yard": 13
+  },
+  "tier1": null,
+  "concealed": [
+   "window frames: front porch units read as tan-framed and older (0), bedroom units read white; mixed, not settled",
+   "basement slab under LVP (29-34)",
+   "no furnace, panel or water-heater frame in 49; laundry (21) shows a sink and machines"
+  ],
+  "red_flags": [
+   "front windows may be original: tan frames behind the porch (0) do not match the white units elsewhere; if original in a 1960s house the full window reserve applies",
+   "taxes $7,137, the highest in the set, on a 62-ft Aldershot lot: the land is most of the price",
+   "no year built on MLS; block foundation and sidesplit form point to the early 1960s, which sets the 25% contingency and the asbestos check"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "lived_in",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "build year estimated",
+  "cash_to_close": 316596
+ },
+ "bur-275-kent": {
+  "addr": "275 Kent Crescent, Burlington, ON L7L 4T2",
+  "list": 1179000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4379,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.33,
+    "exp": 8789,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "2/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2285,
+    "lo": 10491,
+    "hi": 20981,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 787,
+    "lo": 3747,
+    "hi": 6744,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 9693,
+    "lo": 44494,
+    "hi": 88987,
+    "basis": "900 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.33,
+    "cost": 26000,
+    "status": "possible"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "bath 2 $22k (unseen); panel $5k (unseen)",
+  "reno_total": 27000,
+  "day1_p50": 17367,
+  "day1_p80": 31297,
+  "wish_p50": 27184,
+  "wish_p80": 61142,
+  "naive": 71427,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1968,
+  "yb_src": "mls",
+  "bg_est": false,
+  "usable": 1511,
+  "norm": 1087920,
+  "headroom": 0,
+  "arv_lo": 1087920,
+  "arv_mid": 1087920,
+  "arv_hi": 1087920,
+  "recovered_pct": 26,
+  "sunk": 68324,
+  "breakeven": 1271439,
+  "bath_op": null,
+  "fact_score": 37.5,
+  "fact_parts": {
+   "size": 1.0,
+   "layout": 2,
+   "baths": 13,
+   "lot": 6.9,
+   "location": 6.7,
+   "parking": 8
+  },
+  "grade": "C-",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 438,
+  "taxes": 5259.16,
+  "mech_stated": null,
+  "photos": 44,
+  "inv": {
+   "exterior": 8,
+   "living": 3,
+   "kitchen": 6,
+   "dining": 2,
+   "bed": 6,
+   "office": 2,
+   "bath": 1,
+   "basement": 6,
+   "utility": 1,
+   "yard": 9
+  },
+  "tier1": null,
+  "concealed": [
+   "main 4pc bath never framed at readable size; only the lower 3pc (33) is shown",
+   "rec-room slab under laminate (24-29)",
+   "furnace and panel out of frame in the utility photo (34): joists, PEX and laundry only"
+  ],
+  "red_flags": [
+   "utility room walls are painted block with the joists open (34): the unfinished part of a 1968 basement, dry at 1.8x but the paint is fresh",
+   "MLS says 3 beds; the room table lists two main-floor bedrooms (94 and 143 sqft) plus one lower; the third main bed is not in the room table",
+   "carport-free but the '1.5 garage' is a single with storage; 60 x 105 lot is the asset"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "lived_in",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "",
+  "cash_to_close": 286652
+ },
+ "oak-1273-barberry": {
+  "addr": "1273 Barberry Green, Oakville, ON L6M 2A8",
+  "list": 1199000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 4134,
+    "lo": 16001,
+    "hi": 42669,
+    "basis": "4/4 tells seen, defect=False"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 3734,
+    "lo": 16001,
+    "hi": 37335,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 14312,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 14312,
+    "lo": 13334,
+    "hi": 29335,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6300,
+    "lo": 4667,
+    "hi": 14667,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 3365,
+    "lo": 15447,
+    "hi": 30895,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 1159,
+    "lo": 5517,
+    "hi": 9930,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 6588,
+    "lo": 30242,
+    "hi": 60483,
+    "basis": "648 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2293,
+    "lo": 10667,
+    "hi": 29335,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 20000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "bath 3",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 20000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 9000,
+    "status": "likely, unseen"
+   }
+  ],
+  "reno_text": "bath 2 $20k (unseen); bath 3 $20k (unseen); powder $9k (unseen)",
+  "reno_total": 49000,
+  "day1_p50": 10680,
+  "day1_p80": 28486,
+  "wish_p50": 49981,
+  "wish_p80": 74831,
+  "naive": 82053,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 18,
+  "era_p": 0.7,
+  "yb": 1986,
+  "yb_src": "mls",
+  "bg_est": false,
+  "usable": 1979,
+  "norm": 1563410,
+  "headroom": 364410,
+  "arv_lo": 1248609,
+  "arv_mid": 1263418,
+  "arv_hi": 1278227,
+  "recovered_pct": 62,
+  "sunk": 38899,
+  "breakeven": 1302317,
+  "bath_op": null,
+  "fact_score": 60.6,
+  "fact_parts": {
+   "size": 10.2,
+   "layout": 15,
+   "baths": 20,
+   "lot": 0,
+   "location": 7.3,
+   "parking": 8
+  },
+  "grade": "B",
+  "verdict": "SEE FIRST",
+  "verdict_notes": [],
+  "tax_mo": 405,
+  "taxes": 4858,
+  "mech_stated": "new furnace, updated wiring, new drywall/ceilings, new flooring, new driveway (no years given; remarks only)",
+  "photos": 37,
+  "inv": {
+   "exterior": 1,
+   "foyer": 1,
+   "living_dining_family": 10,
+   "kitchen": 6,
+   "powder": 1,
+   "bath": 2,
+   "stairs": 1,
+   "bed": 4,
+   "basement": 8,
+   "basement_bath": 3,
+   "utility": 1
+  },
+  "tier1": null,
+  "concealed": [
+   "basement slab under new LVP (29-35)",
+   "furnace and panel out of frame in the one utility photo (36); tankless water heater and CSST gas line visible",
+   "upper-bath tile explicitly kept (remarks), read as large-format marble-look, so it was re-tiled at some earlier date"
+  ],
+  "red_flags": [
+   "kitchen keeps its bulkhead above new high-gloss slab uppers: the soffit was boxed around rather than removed (13)",
+   "utility room (36) shows open joists with loose wiring and exposed batt insulation over the laundry: unfinished work behind a finished-looking flip",
+   "66 days on market on a full cosmetic flip at $1.199M",
+   "remarks say 'new drywall and ceilings throughout except kitchen and upper bath': ask why the drywall was replaced in a 1986 house"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "",
+  "cash_to_close": 288241
+ },
+ "oak-462-samford": {
+  "addr": "462 Samford Place, Oakville, ON L6L 4E8",
+  "list": 1099000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 29192,
+    "lo": 16950,
+    "hi": 45200,
+    "basis": "4/4 tells seen, defect=True"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 26367,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "1/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 2199,
+    "lo": 10095,
+    "hi": 20190,
+    "basis": "floor=no_defect_seen"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 0.15,
+    "exp": 757,
+    "lo": 3605,
+    "hi": 6490,
+    "basis": "ceiling=flat_painted"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 7701,
+    "lo": 35348,
+    "hi": 70696,
+    "basis": "715 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   }
+  ],
+  "reno": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 29000,
+    "status": "confirmed"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 26000,
+    "status": "confirmed"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
+   }
+  ],
+  "reno_text": "kitchen $29k; main bath $26k; bath 2 $22k (unseen); panel $5k (unseen)",
+  "reno_total": 82000,
+  "day1_p50": 18393,
+  "day1_p80": 31571,
+  "wish_p50": 81412,
+  "wish_p80": 95674,
+  "naive": 133313,
+  "reserve_monthly": 147,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1958,
+  "yb_src": "est",
+  "bg_est": true,
+  "usable": 1378,
+  "norm": 1089015,
+  "headroom": 0,
+  "arv_lo": 1089015,
+  "arv_mid": 1089015,
+  "arv_hi": 1089015,
+  "recovered_pct": 29,
+  "sunk": 90243,
+  "breakeven": 1226245,
+  "bath_op": null,
+  "fact_score": 47.8,
+  "fact_parts": {
+   "size": 0.3,
+   "layout": 13,
+   "baths": 13,
+   "lot": 5.5,
+   "location": 8.0,
+   "parking": 8
+  },
+  "grade": "C",
+  "verdict": "SEE",
+  "verdict_notes": [],
+  "tax_mo": 430,
+  "taxes": 5158,
+  "mech_stated": "roof, windows, A/C, furnace 'upgraded' (no years; remarks only)",
+  "photos": 47,
+  "inv": {
+   "exterior": 3,
+   "living_dining": 6,
+   "kitchen": 4,
+   "hall": 2,
+   "bed": 13,
+   "bath": 3,
+   "basement": 10,
+   "basement_bath": 2,
+   "utility": 1,
+   "yard_hot_tub": 3
+  },
+  "tier1": null,
+  "concealed": [
+   "main 4pc bath tub never framed; only the tiled shower stall (17) and basement shower (33)",
+   "STR furnishings in every room: floors mostly under rugs and beds",
+   "no panel or water-heater frame; furnace partly visible behind boxes (34)"
+  ],
+  "red_flags": [
+   "kitchen is old boxes repainted navy with new hardware: raised-panel doors, topmount double sink, small footprint (8-9); a cosmetic job at best",
+   "utility room (34) shows open joists with patched drywall, loose wiring and a painted-concrete wall: the unfinished corner of a 1950s basement",
+   "72 days on market; marketed both as an Airbnb income property and as a teardown lot, which is two different buyers",
+   "main bath is 2000s beige 12x12 with a mosaic listello (17)",
+   "MLS 2 garage spaces: the photos show a carport plus a single garage door"
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "professionally_staged",
+  "hdr": "moderate",
+  "evidence": "medium",
+  "evidence_notes": "build year estimated; basement area estimated",
+  "cash_to_close": 269326
+ }
+}

@@ -1,0 +1,26 @@
+slug,board,listing_id,mls,address,city,postal,list_price,bd,ba,sqft_raw,badge,in_prior_28,prior_grade
+bur-1280-aldridge,ITSO,aotf~1189332950~ITSO,40858467,1280 ALDRIDGE Crescent,Burlington,L7M 1H9,1018800,3,2,1150,New Listing,yes,C+
+bur-1432-dewbourne,ITSO,aotf~1186253739~ITSO,40856454,1432 DEWBOURNE Crescent,Burlington,L7M 1E7,1189000,3,2,1221,New Listing,yes,D
+bur-343-duncombe,ITSO,aotf~1186151776~ITSO,40857935,343 DUNCOMBE Drive,Burlington,L7L 4M2,979000,3,3,1239,New Listing,yes,A
+bur-1486-barker,ITSO,aotf~1179118807~ITSO,40853528,1486 BARKER Avenue,Burlington,L7P 2R4,1159900,3+1,2,1500,,yes,B-
+bur-3453-hannibal,ITSO,aotf~1178107746~ITSO,40851000,3453 HANNIBAL Road,Burlington,L7M 1Z5,999000,3+1,2,1708,,yes,B
+bur-2450-overton,ITSO,aotf~1177100090~ITSO,40848578,2450 OVERTON Drive,Burlington,L7P 4B5,1149000,3+2,3,1950,,yes,A
+oak-495-tipperton,ITSO,aotf~1176950984~ITSO,40846639,495 TIPPERTON Crescent,Oakville,L6L 5E1,1249000,4,2,1739,,yes,D
+bur-2203-previn,ITSO,aotf~1176200934~ITSO,40843785,2203 PREVIN Court,Burlington,L7P 4J3,1199900,4,3,1934,,yes,B
+bur-2105-maplewood,TRREB,aotf~1182454009~TRREB,W13686080,2105 Maplewood Drive,Burlington,L7R 2C6,1199000,3+2,3,700-1100,Back on Market,yes,A-
+bur-4691-huffman,TRREB,aotf~1189447822~TRREB,W13736742,4691 Huffman Road,Burlington,L7M 0E7,1285000,4,3,2000-2500,New Listing,yes,B
+oak-28-osborne,TRREB,aotf~1178447615~TRREB,W13611862,28 Osborne Crescent,Oakville,L6H 1G1,1299000,3,3,1100-1500,Price Decrease,yes,D
+bur-4831-columbus,TRREB,aotf~1184473183~TRREB,W13705250,4831 Columbus Drive,Burlington,L7M 0J4,1250000,3,3,2000-2500,Back on Market,yes,A-
+oak-205-littlewood,TRREB,aotf~1189212052~TRREB,W13727594,205 Littlewood Drive,Oakville,L6H 6T8,1050000,3+1,4,1100-1500,New Listing,yes,C+
+oak-568-weir,TRREB,aotf~1179853508~TRREB,W13667672,568 Weir Avenue,Oakville,L6L 4X4,1299999,3+1,2,700-1100,New Listing,yes,D
+bur-5190-wood,TRREB,aotf~1188088029~TRREB,W13722834,5190 Wood Crescent,Burlington,L7L 6N3,1099900,3,3,1100-1500,New Listing,yes,C+
+bur-2294-seton,TRREB,aotf~1187118192~TRREB,W13718864,2294 Seton Crescent,Burlington,L7L 6Y4,1194900,3+1,3,1500-2000,New Listing,yes,C
+bur-635-ramsgate,TRREB,aotf~1184603356~TRREB,W13707258,635 Ramsgate Road,Burlington,L7N 2X9,1150000,3+2,2,1100-1500,New Listing,yes,B-
+bur-2265-middlesmoor,TRREB,aotf~1182878857~TRREB,W13690954,2265 Middlesmoor Crescent,Burlington,L7P 3X2,1049900,3,3,1100-1500,,yes,B
+bur-1379-christina,TRREB,aotf~1181591297~TRREB,W13677482,1379 Christina Court,Burlington,L7P 2V8,1299900,3+1,3,1500-2000,,NO_NEW,
+oak-1218-oxlow,TRREB,aotf~1181122147~TRREB,W13674510,1218 Oxlow Drive,Oakville,L6H 1S2,1249999,3+1,2,1100-1500,,yes,C
+bur-659-cherrywood,TRREB,aotf~1179871345~TRREB,W13668110,659 Cherrywood Drive,Burlington,L7T 3W9,1299999,3+1,3,1500-2000,,yes,A
+bur-275-kent,TRREB,aotf~1179203223~TRREB,W13646886,275 Kent Crescent,Burlington,L7L 4T2,1179000,3,2,700-1100,,yes,C
+bur-2641-cavendish,TRREB,aotf~1178155216~TRREB,W13605156,2641 Cavendish Drive,Burlington,L7P 3W6,1199000,3,3,1500-2000,,yes,B+
+oak-1273-barberry,TRREB,aotf~1176768719~TRREB,W13545050,1273 Barberry Green,Oakville,L6M 2A8,1199000,3+1,4,1500-2000,,yes,B+
+oak-462-samford,TRREB,aotf~1176390652~TRREB,W13514972,462 Samford Place,Oakville,L6L 4E8,1099000,3+2,2,700-1100,,yes,B+

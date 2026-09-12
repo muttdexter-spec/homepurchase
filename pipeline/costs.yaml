@@ -1,0 +1,137 @@
+# First House cost model v3 — Halton / GTA, 2026
+# CHANGES FROM v2:
+#   1. Every number carries a `src`. No unsourced number is allowed in the catalog.
+#   2. Costs are RANGES (low/likely/high), not points. p80 is computed on the SUM
+#      by simulation, never by multiplying a sum of p80s.
+#   3. Costs are bucketed by WHEN you pay: day1 / reserve / wishlist.
+#   4. The gut band is deleted. It was a 3-valued constant.
+#   5. Catalog is MID-RANGE GTA market, pre-HST. Not "top of range".
+
+meta:
+  version: "3.2"
+  basis: "pre-HST, GTA/Halton 2026, mid-range finish, same-layout (no structural moves)"
+  hst: 0.13
+
+# ---------------------------------------------------------------- WHEN you pay
+# day1     = must happen before or at move-in. Competes with the down payment.
+# reserve  = age-driven component replacement. An annualised monthly reserve.
+# wishlist = discretionary. Buyer sets the number. NEVER in the ranking.
+
+catalog:
+  # --- day1: safety, insurability, or 2x more expensive once furniture is in ---
+  panel_upgrade:      {low: 2500,  likely: 3500,  high: 5000,  bucket: day1, src: "100->200A service upgrade, Ontario 2026 trade range. UNSOURCED - verify with ESA-licensed quote."}
+  rewire_knob_tube:   {low: 15000, likely: 24000, high: 35000, bucket: day1, src: "full rewire, ~1500sqft. UNSOURCED - verify."}
+  oil_to_gas:         {low: 10000, likely: 14000, high: 19000, bucket: day1, src: "furnace + line to street + decommission. UNSOURCED - verify with Enbridge + HVAC quote."}
+  oil_tank_removal:   {low: 3000,  likely: 5500,  high: 9000,  bucket: day1, src: "above-ground removal + soil test. BURIED TANK IS UNCAPPED - treat as a liability, not a line."}
+  asbestos_abatement: {low: 2500,  likely: 7000,  high: 15000, bucket: day1, src: "residential tile/vermiculite abatement. Only charged if disturbed. UNSOURCED."}
+  waterproofing:      {low: 8000,  likely: 14000, high: 22000, bucket: day1, src: "interior perimeter + sump, full basement. UNSOURCED - verify."}
+  flooring_per_sqft:  {low: 7,     likely: 10,    high: 14,    bucket: day1, src: "engineered/LVP supply+install GTA 2026. Day1 because doing it occupied costs ~2x."}
+  ceilings_per_sqft:  {low: 2.5,   likely: 3.5,   high: 4.5,   bucket: day1, src: "stipple removal + reskim + paint. Day1 for the same reason."}
+
+  # --- reserve: age-driven, actuarial. NOT a purchase cost. ---
+  roof:          {low: 9000,  likely: 13000, high: 17000, life: 22, bucket: reserve, src: "Ontario 2026 asphalt tear-off + replace, typical detached $10,000-$16,500 [naileditroofing, countrycontracting]. Life 20-30yr architectural."}
+  furnace:       {low: 5000,  likely: 7000,  high: 10000, life: 20, bucket: reserve, src: "high-eff gas furnace installed. UNSOURCED - verify."}
+  ac:            {low: 4500,  likely: 6000,  high: 8500,  life: 15, bucket: reserve, src: "central AC installed. UNSOURCED - verify."}
+  water_heater:  {low: 1800,  likely: 2600,  high: 3800,  life: 13, bucket: reserve, src: "owned tank replacement. UNSOURCED - verify."}
+  windows_full:  {low: 15000, likely: 20000, high: 28000, life: 30, bucket: reserve, src: "~16 openings, vinyl, GTA. NOTE: your own prior calibration said 18k, v2 used 28k."}
+
+  # --- wishlist: you choose when. Never gates a purchase. ---
+  kitchen_full:      {low: 35000, likely: 50000, high: 75000, bucket: wishlist, src: "GTA 2026 full same-layout reno. Multiple sources converge $40-75k mid-range; market avg ~$58k [mdkitchen, adeptreno, routehomes]."}
+  kitchen_cosmetic:  {low: 12000, likely: 20000, high: 32000, bucket: wishlist, src: "reface + counters + backsplash + fixtures, cabinets retained [asmconstruction, trocanada]."}
+  bath_primary:      {low: 22000, likely: 30000, high: 45000, bucket: wishlist, src: "primary ensuite gut, GTA 2026 $25-40k [fptilemarble, extreme-renovations]."}
+  bath_main_full:    {low: 12000, likely: 18000, high: 28000, bucket: wishlist, src: "standard 4pc gut. GTA avg $14,800 over 498 projects [smartreno4u]; $12-30k range [josephkitchens, sensodesign]."}
+  bath_secondary:    {low: 10000, likely: 15000, high: 22000, bucket: wishlist, src: "as above, lower spec."}
+  bath_powder:       {low: 3500,  likely: 6500,  high: 11000, bucket: wishlist, src: "$3.5-9k [extreme-renovations]; $3-12k [fptilemarble]."}
+  basement_per_sqft: {low: 35,    likely: 50,    high: 70,    bucket: wishlist, src: "finish/refinish incl. egress + permit. UNSOURCED - v2 used $30, which is below market."}
+  deck:              {low: 5000,  likely: 8000,  high: 14000, bucket: wishlist, src: "UNSOURCED."}
+  driveway:          {low: 5000,  likely: 8000,  high: 12000, bucket: wishlist, src: "asphalt tear + repave. UNSOURCED."}
+
+# ------------------------------------------------------------------ scoping
+# Probability an unverified finish item has NOT been done. Same idea as v2, but it
+# now scales a PROBABILITY of the job existing, not the size of the job.
+p_not_done:
+  pre_1990:   0.70
+  y1990_2004: 0.45
+  y2005_plus: 0.20
+observed_floor: 0.15    # a clean full-res look on every tell floors the probability here
+
+# ONE contingency, applied ONCE, to day1 work only (reserve items are commodity
+# replacements with firm quotes; they do not need a discovery contingency).
+contingency:
+  pre_1980:   0.25
+  y1980_1999: 0.18
+  y2000_plus: 0.12
+
+# Real, and only where real: >=3 rooms in one shot adds mobilisation + sequencing.
+multi_room_premium: 0.08
+multi_room_threshold: 3
+soft_costs_day1: {low: 3000, likely: 6000, high: 11000, src: "permits, drawings, disposal, temp measures. Scales with day1 scope, not with wishlist."}
+
+# ------------------------------------------------------------------ resale
+# AIC published recovery bands. These are RECOVERY, not profit: 70% means the
+# home's value rises 70c per dollar spent. Very few items exceed 100%.
+# Source: Appraisal Institute of Canada, as cited by CIBC / National Bank.
+# Bathroom low end pulled down by RE/MAX Renovation Investment Report (~62% avg).
+recovery:
+  kitchen:       {low: 0.75, high: 1.00, src: "AIC 75-100%"}
+  bath:          {low: 0.55, high: 0.90, src: "AIC 75-100%; RE/MAX avg 62%. Band widened."}
+  second_bath:   {low: 1.00, high: 1.25, src: "Conformity fix, not an upgrade. The only item that can exceed 100%."}
+  paint:         {low: 0.50, high: 1.00, src: "AIC interior painting 50-100%"}
+  flooring:      {low: 0.50, high: 0.75, src: "AIC hardwood 50-75%"}
+  basement:      {low: 0.50, high: 0.75, src: "AIC finished basement 50-75%"}
+  roof:          {low: 0.50, high: 0.80, src: "AIC 50-80%"}
+  hvac:          {low: 0.50, high: 0.80, src: "AIC furnace 50-80%; A/C 50-75%"}
+  windows:       {low: 0.50, high: 0.75, src: "AIC doors and windows 50-75%"}
+  driveway:      {low: 0.20, high: 0.50, src: "AIC asphalt driveway 20-50%"}
+  deck:          {low: 0.50, high: 0.75, src: "AIC 50-75%"}
+  remediation:   {low: 0.25, high: 0.50, src: "K&T, oil tank, asbestos, waterproofing. Removes a buyer discount rather than adding value. UNSOURCED."}
+
+conformity:
+  within_norm: 1.00   # spend that brings the house up to the pocket norm
+  past_norm:   0.45   # spend beyond it. "Do not over-improve relative to neighbourhood."
+
+# THE MOST SENSITIVE NUMBER IN THIS MODEL. One input per pocket: what a RENOVATED
+# house of this type trades at, per USABLE sqft (above grade + 50% below, 65% walkout).
+# This is the number to get from the agent. Everything downstream moves with it.
+# A hedonic fit on the 28-listing ask corpus returned R2=0.26 and an implausible
+# size coefficient — the corpus is price-filtered, so it cannot be fit on. Replace
+# these with sold $/sqft the moment sold data exists.
+arv_psf_renovated:
+  Burlington: {value: 720, confidence: PROVISIONAL_ASK_DERIVED}
+  Oakville:   {value: 790, confidence: PROVISIONAL_ASK_DERIVED}
+sensitivity_psf_delta: 60   # report how the rank moves if the above is wrong by this
+
+below_grade_weight: 0.50
+below_grade_weight_walkout: 0.65
+# v3.1 (2026-09-12). When MLS gives no below-grade area but says the basement is finished,
+# usable() and cost() previously disagreed: cost() charged 45% of above-grade as basement
+# sqft while usable() counted zero. Both now use the same estimate: this factor times the
+# footprint (above-grade / storeys). Calibrated on 20 listings with stated areas: median
+# stated/estimated = 1.11, so 0.70 is slightly conservative. Set to 0 to disable.
+below_grade_estimate_factor: 0.70
+
+# ---------------------------------------------------------------- fact score
+# 100 points. Contains NO price and NO carrying cost, so it can be divided by
+# dollars without double-counting, and it does not move when the batch changes.
+# All thresholds are ABSOLUTE. A listing scored today is comparable to one scored
+# in March.
+fact_weights:
+  size:     {pts: 25, floor_sqft: 1000, ceiling_sqft: 2600}
+  layout:   {pts: 20}
+  baths:    {pts: 20}
+  lot:      {pts: 15, floor_sqft: 4000, ceiling_sqft: 9000}
+  location: {pts: 12}
+  parking:  {pts: 8}
+split_dock: 0.94
+
+grade_bands: {A: 78, "A-": 72, "B+": 66, B: 60, "B-": 54, "C+": 48, C: 42, "C-": 36, D: 0}
+
+# ------------------------------------------------------------------- verdict
+# No neighbourhood ceiling. No net position. Both were guesses driving decisions.
+verdict:
+  hard_stops:
+    - confirmed_basement_moisture
+    - buried_oil_tank_unresolved
+    - knob_and_tube_confirmed
+  day1_share_warn: 0.06      # day1 p80 > 6% of list = a cash problem worth naming
+  see_first_min_grade: "B"
