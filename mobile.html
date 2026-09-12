@@ -5803,7 +5803,19 @@
     });
 
     paintPayments(); applyView(); paintSat(); paintCmp(); paintPairs(); calibration();
-    if("serviceWorker" in navigator){ try{ navigator.serviceWorker.register("sw.js"); }catch(e){} }
+    if("serviceWorker" in navigator){
+      try{
+        navigator.serviceWorker.register("sw.js", {updateViaCache: "none"}).then(function(reg){
+          reg.update();
+          setInterval(function(){ reg.update(); }, 60 * 60 * 1000);
+        }).catch(function(){});
+        var reloaded = false;
+        navigator.serviceWorker.addEventListener("controllerchange", function(){
+          if(reloaded) return;              /* once, never a loop */
+          reloaded = true; location.reload();
+        });
+      }catch(e){}
+    }
   }
 
   /* ---------- calibration: gut against model, once five gut scores exist ---------- */

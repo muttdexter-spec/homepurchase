@@ -1072,7 +1072,19 @@ V6JS = r"""
     });
 
     paintPayments(); applyView(); paintSat(); paintCmp(); paintPairs(); calibration();
-    if("serviceWorker" in navigator){ try{ navigator.serviceWorker.register("sw.js"); }catch(e){} }
+    if("serviceWorker" in navigator){
+      try{
+        navigator.serviceWorker.register("sw.js", {updateViaCache: "none"}).then(function(reg){
+          reg.update();
+          setInterval(function(){ reg.update(); }, 60 * 60 * 1000);
+        }).catch(function(){});
+        var reloaded = false;
+        navigator.serviceWorker.addEventListener("controllerchange", function(){
+          if(reloaded) return;              /* once, never a loop */
+          reloaded = true; location.reload();
+        });
+      }catch(e){}
+    }
   }
 
   /* ---------- calibration: gut against model, once five gut scores exist ---------- */
@@ -1213,24 +1225,57 @@ def v6js():
            "pairids": [p["id"] for p in (PAIRS or {}).get("pairs", [])]}
     return V6JS.replace("__CFG__", json.dumps(cfg))
 
-# ---------- offline: manifest and a small service worker at the repo root ----------
-def write_offline():
+# ---------- offline: manifest and a service worker at the repo root ----------
+def write_offline(version):
+    """A page the buyers open in a basement with no signal, that is still the page that was last
+    deployed.
+
+    The first version of this was cache-first against a fixed cache name, which is the classic
+    trap: the worker served whatever it cached on the first visit and never checked again, and
+    because `sw.js` itself never changed byte for byte the browser never installed a replacement.
+    A deploy could not reach anybody who had already opened the page.
+
+    So: the cache name carries the build, install skips waiting and activate claims the open pages,
+    and the fetch rule is network first with a cache fallback. Online you always get the deploy;
+    offline you get the last build you saw. The page reloads itself once when a new worker takes
+    over, so a rebuild reaches a phone that is already open."""
     json.dump({"name": "Walking the Shortlist", "short_name": "Shortlist", "start_url": "index.html",
                "display": "standalone", "background_color": "#ffffff", "theme_color": "#ffffff",
                "icons": []}, open(os.path.join(ROOT, "manifest.json"), "w"), indent=1)
     open(os.path.join(ROOT, "sw.js"), "w", encoding="utf-8").write(
-        'var C = "walk-v6";\n'
+        'var VERSION = "%s";\n' % version +
+        'var C = "walk-" + VERSION;\n'
         'var FILES = ["index.html", "full.html", "mobile.html", "manifest.json"];\n'
+        '\n'
         'self.addEventListener("install", function(e){\n'
-        '  e.waitUntil(caches.open(C).then(function(c){ return c.addAll(FILES); }));\n'
+        '  self.skipWaiting();\n'
+        '  e.waitUntil(caches.open(C).then(function(c){ return c.addAll(FILES); }).catch(function(){}));\n'
         '});\n'
+        '\n'
         'self.addEventListener("activate", function(e){\n'
         '  e.waitUntil(caches.keys().then(function(ks){\n'
         '    return Promise.all(ks.filter(function(k){ return k !== C; }).map(function(k){ return caches.delete(k); }));\n'
-        '  }));\n'
+        '  }).then(function(){ return self.clients.claim(); }));\n'
         '});\n'
+        '\n'
+        '/* Network first. The deployed page always wins when there is a network; the cache is the\n'
+        '   fallback for a basement, not the source of truth. */\n'
         'self.addEventListener("fetch", function(e){\n'
-        '  e.respondWith(caches.match(e.request).then(function(r){ return r || fetch(e.request); }));\n'
+        '  var r = e.request;\n'
+        '  if (r.method !== "GET" || new URL(r.url).origin !== self.location.origin) return;\n'
+        '  e.respondWith(\n'
+        '    fetch(r).then(function(resp){\n'
+        '      if (resp && resp.ok) {\n'
+        '        var copy = resp.clone();\n'
+        '        caches.open(C).then(function(c){ c.put(r, copy); }).catch(function(){});\n'
+        '      }\n'
+        '      return resp;\n'
+        '    }).catch(function(){\n'
+        '      return caches.match(r).then(function(hit){\n'
+        '        return hit || caches.match("index.html");\n'
+        '      });\n'
+        '    })\n'
+        '  );\n'
         '});\n')
 
 # ---------- sold comps ----------
@@ -1308,7 +1353,6 @@ FIELDS = {
                                   for k, q in SH.QS.items()}}),
 }
 
-write_offline()
 write_sold()
 
 for variant in ("full", "mobile"):
@@ -1323,6 +1367,12 @@ for variant in ("full", "mobile"):
     path = os.path.join(ROOT, f"{variant}.html")
     open(path, "w", encoding="utf-8").write(out)
     print(f"wrote {variant}.html {len(out):,} bytes; {n} cards")
+
+import hashlib
+_v = hashlib.md5(b"".join(open(os.path.join(ROOT, f"{v}.html"), "rb").read()
+                          for v in ("full", "mobile"))).hexdigest()[:12]
+write_offline(_v)
+print(f"wrote manifest.json and sw.js; cache name walk-{_v}")
 
 # the one thing the spec forbids anywhere but Monthly payment
 for variant in ("full", "mobile"):
