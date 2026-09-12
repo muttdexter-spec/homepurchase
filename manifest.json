@@ -1,0 +1,9 @@
+{
+ "name": "Walking the Shortlist",
+ "short_name": "Shortlist",
+ "start_url": "index.html",
+ "display": "standalone",
+ "background_color": "#ffffff",
+ "theme_color": "#ffffff",
+ "icons": []
+}

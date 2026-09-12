@@ -1,3 +1,4 @@
+import re
 #!/usr/bin/env python3
 """Showing record, v2 — generalised questions, one note-taker.
 
@@ -182,10 +183,28 @@ def questions_html(k, o, d):
     return "".join(out)
 
 
-def mech_html(k):
-    ins = "".join(f'<label class="sr-my"><span>{lab}</span><input type="number" inputmode="numeric" '
-                  f'placeholder="year" min="1940" max="2026" data-kind="mech" data-h="{k}" data-f="{f}"></label>'
-                  for f, lab in MECH)
+CLAIM_WORD = {"roof_year": "roof", "furnace_year": "furnace", "ac_year": "a/c",
+              "water_heater_year": "water heater"}
+def claimed_year(o, f):
+    """v6, USABILITY-SPEC 4.4. The 18 mech_ages_stated claims, pre-filled as 'claimed 2022, verify',
+    so the question at the showing is 'is it 2022?' and not 'how old is it?'."""
+    t = str(o.get("mech_ages_stated") or "").lower()
+    w = CLAIM_WORD.get(f, "")
+    if not t or not w: return ""
+    m = re.search(re.escape(w) + r"[^.;]{0,40}?((?:19|20)\d{2})", t)
+    if not m: m = re.search(r"((?:19|20)\d{2})[^.;]{0,20}?" + re.escape(w), t)
+    return m.group(1) if m else ""
+
+def mech_html(k, o=None):
+    o = o or {}
+    def one(f, lab):
+        c = claimed_year(o, f)
+        ph = f"claimed {c}, verify" if c else "year"
+        cl = " claimed" if c else ""
+        return (f'<label class="sr-my{cl}"><span>{lab}</span><input type="number" inputmode="numeric" '
+                f'placeholder="{ph}" min="1940" max="2026" data-kind="mech" data-h="{k}" data-f="{f}"'
+                + (f' data-claim="{c}"' if c else "") + '></label>')
+    ins = "".join(one(f, lab) for f, lab in MECH)
     ins += (f'<label class="sr-my wide"><span>Rented equipment</span><input type="text" '
             f'placeholder="tank, furnace, none" data-kind="mech" data-h="{k}" data-f="rentals"></label>')
     return f'<div class="sr-mech">{ins}</div>'
@@ -227,7 +246,7 @@ def record_html(k, o, d, checks):
             </div>
             <div class="sr-b">
               <h4>Dates off the equipment labels <em>every one shrinks the monthly reserve</em></h4>
-              {mech_html(k)}
+              {mech_html(k, o)}
             </div>
             <div class="sr-b">
               <h4>This house in particular</h4>
@@ -238,9 +257,13 @@ def record_html(k, o, d, checks):
               <ul class="sr-list sr-walkhost" data-walk="{k}"></ul>
             </div>
             <div class="sr-b">
-              <h4>Call it</h4>
+              <h4>Call it <em>each of you separately; the export carries both</em></h4>
+              <label class="sr-my wide sr-whorow"><span>Who is answering</span>
+                <select class="sr-who" data-kind="who" data-h="{k}">
+                  <option value="alex">Me</option><option value="partner">My partner</option></select></label>
               <div class="sr-verdicts">{verdict}</div>
-              <div class="sr-guts"><p class="sr-gl">Out of 5</p><span class="sr-gbtns">{gut}</span></div>
+              <div class="sr-guts"><p class="sr-gl">Out of 5</p><span class="sr-gbtns">{gut}</span>
+                <span class="sr-gpair" data-gpair="{k}"></span></div>
               <textarea class="sr-notes" rows="3" placeholder="Anything the questions above don't hold" data-kind="notes" data-h="{k}"></textarea>
             </div>
           </div>
@@ -320,6 +343,9 @@ CSS = """<style>
   .sr-v-shortlist.on{background:var(--clear); border-color:var(--clear); color:#fff}
   .sr-v-maybe.on{background:var(--accent); border-color:var(--accent); color:#fff}
   .sr-v-out.on{background:var(--flag); border-color:var(--flag); color:#fff}
+  .sr-whorow{margin-bottom:10px}
+  .sr-my.claimed span{color:var(--accent)}
+  .sr-gpair{font-size:11.5px; color:var(--muted)}
   .sr-guts{display:flex; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap}
   .sr-guts .sr-gl{margin:0; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
   .sr-gbtns{display:flex; gap:5px}

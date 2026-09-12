@@ -1,0 +1,769 @@
+{
+ "built": "2026-09-14",
+ "n": 15,
+ "components": [
+  "space",
+  "layout",
+  "baths",
+  "parking",
+  "lot",
+  "location",
+  "condition",
+  "price"
+ ],
+ "swing_gap": 30.0,
+ "min_pairs_per_component": 3,
+ "max_appearances_per_house": 4,
+ "pairs": [
+  {
+   "id": "p01",
+   "why": "widest on lot (92) and price (81)",
+   "A": {
+    "slug": "bur-522-enfield",
+    "address": "522 Enfield Road, Burlington, ON L7T 2X8",
+    "street": "Enfield",
+    "ask": 825000,
+    "grade": "C+",
+    "comp": {
+     "space": 27.6,
+     "layout": 55.0,
+     "baths": 65.0,
+     "parking": 100.0,
+     "lot": 100.0,
+     "location": 72.2,
+     "condition": 25.0,
+     "price": 97.6
+    },
+    "line": "1954 bungalow, vacant, 9,154 sqft lot. Kitchen and both baths confirmed not done. Oil in the heating string is the finding that matters most and is no..."
+   },
+   "B": {
+    "slug": "oak-28-osborne",
+    "address": "28 Osborne Crescent, Oakville, ON L6H 1G1",
+    "street": "Osborne",
+    "ask": 1299000,
+    "grade": "C+",
+    "comp": {
+     "space": 46.1,
+     "layout": 55.0,
+     "baths": 90.0,
+     "parking": 100.0,
+     "lot": 8.2,
+     "location": 61.1,
+     "condition": 61.4,
+     "price": 16.3
+    },
+    "line": "College Park backsplit: painted raised-panel kitchen with brown granite and glass-tile backsplash (2000s), 2018 primary addition with a glass-shower e..."
+   },
+   "d": {
+    "space": -18.5,
+    "layout": 0.0,
+    "baths": -25.0,
+    "parking": 0.0,
+    "lot": 91.8,
+    "location": 11.1,
+    "condition": -36.4,
+    "price": 81.4
+   }
+  },
+  {
+   "id": "p02",
+   "why": "covers condition (|d| = 44)",
+   "A": {
+    "slug": "oak-1228-pallatine",
+    "address": "1228 Pallatine Drive, Oakville, ON L6H 1Z2",
+    "street": "Pallatine",
+    "ask": 1228000,
+    "grade": "B",
+    "comp": {
+     "space": 36.2,
+     "layout": 45.0,
+     "baths": 100.0,
+     "parking": 100.0,
+     "lot": 70.0,
+     "location": 77.8,
+     "condition": 70.2,
+     "price": 30.5
+    },
+    "line": "High-spec 2020s renovation of a 1963 Oakville sidesplit: slab kitchen with quartz waterfall island and undermount sink, marble-look tiled alcove baths..."
+   },
+   "B": {
+    "slug": "oak-1177-grand",
+    "address": "1177 GRAND Boulevard, Oakville, ON L6H 2V2",
+    "street": "GRAND",
+    "ask": 1299900,
+    "grade": "C+",
+    "comp": {
+     "space": 57.2,
+     "layout": 100.0,
+     "baths": 35.0,
+     "parking": 100.0,
+     "lot": 48.4,
+     "location": 77.8,
+     "condition": 26.1,
+     "price": 15.0
+    },
+    "line": "Unfinished basement with zero basement photos. The house's only full bath was never shown. Kitchen defect confirmed on two independent tells."
+   },
+   "d": {
+    "space": -21.0,
+    "layout": -55.0,
+    "baths": 65.0,
+    "parking": 0.0,
+    "lot": 21.6,
+    "location": 0.0,
+    "condition": 44.2,
+    "price": 15.5
+   }
+  },
+  {
+   "id": "p03",
+   "why": "covers condition (|d| = 35)",
+   "A": {
+    "slug": "bur-3217-hazelwood",
+    "address": "3217 Hazelwood Avenue, Burlington, ON L7M 2V3",
+    "street": "Hazelwood",
+    "ask": 1235000,
+    "grade": "A-",
+    "comp": {
+     "space": 76.5,
+     "layout": 100.0,
+     "baths": 100.0,
+     "parking": 100.0,
+     "lot": 25.0,
+     "location": 66.7,
+     "condition": 40.5,
+     "price": 24.7
+    },
+    "line": "Piecemeal renovation. Panel and roof unverifiable. Three concealed surfaces."
+   },
+   "B": {
+    "slug": "bur-275-kent",
+    "address": "275 Kent Crescent, Burlington, ON L7L 4T2",
+    "street": "Kent",
+    "ask": 1179000,
+    "grade": "C",
+    "comp": {
+     "space": 24.9,
+     "layout": 10.0,
+     "baths": 65.0,
+     "parking": 100.0,
+     "lot": 46.0,
+     "location": 55.6,
+     "condition": 75.1,
+     "price": 38.9
+    },
+    "line": "Cherry shaker kitchen to the ceiling with quartz and an undermount sink over porcelain tile; new 3pc lower bath; rec room drywalled with pot lights an..."
+   },
+   "d": {
+    "space": 51.6,
+    "layout": 90.0,
+    "baths": 35.0,
+    "parking": 0.0,
+    "lot": -21.0,
+    "location": 11.1,
+    "condition": -34.6,
+    "price": -14.2
+   }
+  },
+  {
+   "id": "p04",
+   "why": "covers location (|d| = 33)",
+   "A": {
+    "slug": "bur-2265-middlesmoor",
+    "address": "2265 Middlesmoor Crescent, Burlington, ON L7P 3X2",
+    "street": "Middlesmoor",
+    "ask": 1049900,
+    "grade": "C",
+    "comp": {
+     "space": 47.2,
+     "layout": 10.0,
+     "baths": 75.0,
+     "parking": 75.0,
+     "lot": 0.0,
+     "location": 83.3,
+     "condition": 74.6,
+     "price": 65.7
+    },
+    "line": "Cosmetic flip on a 1979 Brant Hills two-storey: shaker kitchen with quartz, gold hardware and undermount sink; baths in white subway with modern integ..."
+   },
+   "B": {
+    "slug": "oak-1218-oxlow",
+    "address": "1218 Oxlow Drive, Oakville, ON L6H 1S2",
+    "street": "Oxlow",
+    "ask": 1249999,
+    "grade": "B-",
+    "comp": {
+     "space": 25.1,
+     "layout": 100.0,
+     "baths": 65.0,
+     "parking": 75.0,
+     "lot": 37.4,
+     "location": 50.0,
+     "condition": 70.5,
+     "price": 16.1
+    },
+    "line": "Renovated main and upper (white shaker kitchen with quartz and undermount sink, two-sink upper bath with tiled alcove tub and glass door), lower level..."
+   },
+   "d": {
+    "space": 22.1,
+    "layout": -90.0,
+    "baths": 10.0,
+    "parking": 0.0,
+    "lot": -37.4,
+    "location": 33.3,
+    "condition": 4.1,
+    "price": 49.6
+   }
+  },
+  {
+   "id": "p05",
+   "why": "covers location (|d| = 33)",
+   "A": {
+    "slug": "oak-506-pondview",
+    "address": "506 PONDVIEW Place, Oakville, ON L6H 6S3",
+    "street": "PONDVIEW",
+    "ask": 1299000,
+    "grade": "B",
+    "comp": {
+     "space": 73.6,
+     "layout": 55.0,
+     "baths": 100.0,
+     "parking": 75.0,
+     "lot": 0.0,
+     "location": 50.0,
+     "condition": 69.4,
+     "price": 2.1
+    },
+    "line": "Refreshed 1999 Oakville two-storey: white shaker kitchen with quartz and undermount sink, large-format tiled alcove tub, quartz vanities with undermou..."
+   },
+   "B": {
+    "slug": "bur-1453-mountain-grove",
+    "address": "1453 Mountain Grove Avenue, Burlington, ON L7P 2H4",
+    "street": "Mountain",
+    "ask": 1079000,
+    "grade": "C+",
+    "comp": {
+     "space": 14.6,
+     "layout": 55.0,
+     "baths": 65.0,
+     "parking": 62.5,
+     "lot": 72.0,
+     "location": 83.3,
+     "condition": 52.7,
+     "price": 57.2
+    },
+    "line": "1958 Mountainside bungalow with a current shaker kitchen (white and navy, quartz, gold hardware), a hex-tile double-vanity main bath with the tub behi..."
+   },
+   "d": {
+    "space": 59.0,
+    "layout": 0.0,
+    "baths": 35.0,
+    "parking": 12.5,
+    "lot": -72.0,
+    "location": -33.3,
+    "condition": 16.7,
+    "price": -55.1
+   }
+  },
+  {
+   "id": "p06",
+   "why": "widest on price (67) and lot (64)",
+   "A": {
+    "slug": "bur-3469-caplan",
+    "address": "3469 Caplan Crescent, Burlington, ON L7N 2P9",
+    "street": "Caplan",
+    "ask": 988800,
+    "grade": "C+",
+    "comp": {
+     "space": 45.4,
+     "layout": 55.0,
+     "baths": 75.0,
+     "parking": 87.5,
+     "lot": 2.4,
+     "location": 88.9,
+     "condition": 61.7,
+     "price": 75.2
+    },
+    "line": "Year Built absent from the crawl. Narrow 32.67 ft frontage. Basement finish conceals the foundation."
+   },
+   "B": {
+    "slug": "bur-659-cherrywood",
+    "address": "659 Cherrywood Drive, Burlington, ON L7T 3W9",
+    "street": "Cherrywood",
+    "ask": 1299999,
+    "grade": "B+",
+    "comp": {
+     "space": 69.4,
+     "layout": 75.0,
+     "baths": 75.0,
+     "parking": 100.0,
+     "lot": 66.0,
+     "location": 72.2,
+     "condition": 76.0,
+     "price": 8.2
+    },
+    "line": "Finishes are current: white shaker kitchen with granite and an undermount double sink, 5pc bath with freestanding tub and vessel sinks on stone, glass..."
+   },
+   "d": {
+    "space": -24.1,
+    "layout": -20.0,
+    "baths": 0.0,
+    "parking": -12.5,
+    "lot": -63.6,
+    "location": 16.7,
+    "condition": -14.3,
+    "price": 67.0
+   }
+  },
+  {
+   "id": "p07",
+   "why": "widest on lot (55) and price (52)",
+   "A": {
+    "slug": "bur-1280-aldridge",
+    "address": "1280 ALDRIDGE Crescent, Burlington, ON L7M 1H9",
+    "street": "ALDRIDGE",
+    "ask": 1018800,
+    "grade": "C",
+    "comp": {
+     "space": 32.0,
+     "layout": 65.0,
+     "baths": 65.0,
+     "parking": 100.0,
+     "lot": 16.4,
+     "location": 61.1,
+     "condition": 63.6,
+     "price": 68.1
+    },
+    "line": "Year Built absent from the ITSO listing, so the model prices it at the worst-case era. Cheapest listing in the batch by $270k."
+   },
+   "B": {
+    "slug": "oak-568-weir",
+    "address": "568 Weir Avenue, Oakville, ON L6L 4X4",
+    "street": "Weir",
+    "ask": 1299999,
+    "grade": "C+",
+    "comp": {
+     "space": 9.0,
+     "layout": 65.0,
+     "baths": 65.0,
+     "parking": 75.0,
+     "lot": 71.4,
+     "location": 72.2,
+     "condition": 50.9,
+     "price": 15.7
+    },
+    "line": "Renovated main floor (cream shaker kitchen with quartz waterfall and undermount sink, new 4pc bath with floating vanity) over a basement suite with an..."
+   },
+   "d": {
+    "space": 23.0,
+    "layout": 0.0,
+    "baths": 0.0,
+    "parking": 25.0,
+    "lot": -55.0,
+    "location": -11.1,
+    "condition": 12.7,
+    "price": 52.3
+   }
+  },
+  {
+   "id": "p08",
+   "why": "widest on lot (92) and price (52)",
+   "A": {
+    "slug": "bur-493-crosby",
+    "address": "493 CROSBY Avenue, Burlington, ON L7R 2R6",
+    "street": "CROSBY",
+    "ask": 1149900,
+    "grade": "C-",
+    "comp": {
+     "space": 16.4,
+     "layout": 55.0,
+     "baths": 35.0,
+     "parking": 62.5,
+     "lot": 8.0,
+     "location": 100.0,
+     "condition": 76.2,
+     "price": 45.5
+    },
+    "line": "Complete flip of a 1950 brick 1.5-storey: shaker kitchen with quartz island and undermount sink, marble-look tiled alcove bath with glass slider, LVP ..."
+   },
+   "B": {
+    "slug": "bur-522-enfield",
+    "address": "522 Enfield Road, Burlington, ON L7T 2X8",
+    "street": "Enfield",
+    "ask": 825000,
+    "grade": "C+",
+    "comp": {
+     "space": 27.6,
+     "layout": 55.0,
+     "baths": 65.0,
+     "parking": 100.0,
+     "lot": 100.0,
+     "location": 72.2,
+     "condition": 25.0,
+     "price": 97.6
+    },
+    "line": "1954 bungalow, vacant, 9,154 sqft lot. Kitchen and both baths confirmed not done. Oil in the heating string is the finding that matters most and is no..."
+   },
+   "d": {
+    "space": -11.2,
+    "layout": 0.0,
+    "baths": -30.0,
+    "parking": -37.5,
+    "lot": -92.0,
+    "location": 27.8,
+    "condition": 51.2,
+    "price": -52.1
+   }
+  },
+  {
+   "id": "p09",
+   "why": "covers location (|d| = 44)",
+   "A": {
+    "slug": "bur-493-crosby",
+    "address": "493 CROSBY Avenue, Burlington, ON L7R 2R6",
+    "street": "CROSBY",
+    "ask": 1149900,
+    "grade": "C-",
+    "comp": {
+     "space": 16.4,
+     "layout": 55.0,
+     "baths": 35.0,
+     "parking": 62.5,
+     "lot": 8.0,
+     "location": 100.0,
+     "condition": 76.2,
+     "price": 45.5
+    },
+    "line": "Complete flip of a 1950 brick 1.5-storey: shaker kitchen with quartz island and undermount sink, marble-look tiled alcove bath with glass slider, LVP ..."
+   },
+   "B": {
+    "slug": "bur-3205-tania",
+    "address": "3205 Tania Crescent, Burlington, ON L7M 3M7",
+    "street": "Tania",
+    "ask": 1274999,
+    "grade": "A",
+    "comp": {
+     "space": 91.9,
+     "layout": 100.0,
+     "baths": 100.0,
+     "parking": 100.0,
+     "lot": 20.0,
+     "location": 55.6,
+     "condition": 42.1,
+     "price": 12.5
+    },
+    "line": "Largest house in the set. Main floor flat ceilings and a 2010s gloss-slab kitchen with black granite; upstairs ceilings stippled; ensuite fully redone..."
+   },
+   "d": {
+    "space": -75.5,
+    "layout": -45.0,
+    "baths": -65.0,
+    "parking": -37.5,
+    "lot": -12.0,
+    "location": 44.4,
+    "condition": 34.1,
+    "price": 33.0
+   }
+  },
+  {
+   "id": "p10",
+   "why": "covers parking (|d| = 38)",
+   "A": {
+    "slug": "bur-1319-bonnie",
+    "address": "1319 Bonnie Court, Burlington, ON L7R 5A2",
+    "street": "Bonnie",
+    "ask": 999900,
+    "grade": "C+",
+    "comp": {
+     "space": 62.4,
+     "layout": 75.0,
+     "baths": 75.0,
+     "parking": 62.5,
+     "lot": 0.0,
+     "location": 66.7,
+     "condition": 48.3,
+     "price": 63.8
+    },
+    "line": "1996 Freeman two-storey, vacant and painted: original kitchen (laminate, topmount sink) and original ensuite (corner tub, 4x4 tile, laminate vanity), ..."
+   },
+   "B": {
+    "slug": "bur-659-cherrywood",
+    "address": "659 Cherrywood Drive, Burlington, ON L7T 3W9",
+    "street": "Cherrywood",
+    "ask": 1299999,
+    "grade": "B+",
+    "comp": {
+     "space": 69.4,
+     "layout": 75.0,
+     "baths": 75.0,
+     "parking": 100.0,
+     "lot": 66.0,
+     "location": 72.2,
+     "condition": 76.0,
+     "price": 8.2
+    },
+    "line": "Finishes are current: white shaker kitchen with granite and an undermount double sink, 5pc bath with freestanding tub and vessel sinks on stone, glass..."
+   },
+   "d": {
+    "space": -7.0,
+    "layout": 0.0,
+    "baths": 0.0,
+    "parking": -37.5,
+    "lot": -66.0,
+    "location": -5.6,
+    "condition": -27.7,
+    "price": 55.6
+   }
+  },
+  {
+   "id": "p11",
+   "why": "widest on space (61) and layout (55)",
+   "A": {
+    "slug": "oak-2501-yarmouth",
+    "address": "2501 Yarmouth Crescent, Oakville, ON L6L 2M9",
+    "street": "Yarmouth",
+    "ask": 1298000,
+    "grade": "C-",
+    "comp": {
+     "space": 22.2,
+     "layout": 45.0,
+     "baths": 65.0,
+     "parking": 100.0,
+     "lot": 42.8,
+     "location": 55.6,
+     "condition": 42.8,
+     "price": 15.5
+    },
+    "line": "Photo pass completed on the second attempt. Kitchen is defect_confirmed on two independent tells. Moisture reading is a single low-confidence streak o..."
+   },
+   "B": {
+    "slug": "bur-470-delaney",
+    "address": "470 Delaney Court, Burlington, ON L7L 5T7",
+    "street": "Delaney",
+    "ask": 1249900,
+    "grade": "A-",
+    "comp": {
+     "space": 82.9,
+     "layout": 100.0,
+     "baths": 75.0,
+     "parking": 100.0,
+     "lot": 27.9,
+     "location": 72.2,
+     "condition": 69.7,
+     "price": 17.8
+    },
+    "line": "1986 Shoreacres two-storey with a full modern kitchen (walnut and gloss slab, quartz, undermount sink), freestanding-tub ensuite in dark subway tile, ..."
+   },
+   "d": {
+    "space": -60.6,
+    "layout": -55.0,
+    "baths": -10.0,
+    "parking": 0.0,
+    "lot": 14.9,
+    "location": -16.7,
+    "condition": -26.8,
+    "price": -2.3
+   }
+  },
+  {
+   "id": "p12",
+   "why": "widest on space (47) and lot (43)",
+   "A": {
+    "slug": "bur-2294-seton",
+    "address": "2294 Seton Crescent, Burlington, ON L7L 6Y4",
+    "street": "Seton",
+    "ask": 1194900,
+    "grade": "B",
+    "comp": {
+     "space": 69.4,
+     "layout": 75.0,
+     "baths": 75.0,
+     "parking": 62.5,
+     "lot": 0.0,
+     "location": 72.2,
+     "condition": 71.0,
+     "price": 24.5
+    },
+    "line": "Fully renovated in 2026: shaker kitchen with quartz and undermount sink, subway-tiled alcove tub, shaker vanities with stone tops, LVP on every level,..."
+   },
+   "B": {
+    "slug": "oak-2501-yarmouth",
+    "address": "2501 Yarmouth Crescent, Oakville, ON L6L 2M9",
+    "street": "Yarmouth",
+    "ask": 1298000,
+    "grade": "C-",
+    "comp": {
+     "space": 22.2,
+     "layout": 45.0,
+     "baths": 65.0,
+     "parking": 100.0,
+     "lot": 42.8,
+     "location": 55.6,
+     "condition": 42.8,
+     "price": 15.5
+    },
+    "line": "Photo pass completed on the second attempt. Kitchen is defect_confirmed on two independent tells. Moisture reading is a single low-confidence streak o..."
+   },
+   "d": {
+    "space": 47.1,
+    "layout": 30.0,
+    "baths": 10.0,
+    "parking": -37.5,
+    "lot": -42.8,
+    "location": 16.7,
+    "condition": 28.2,
+    "price": 9.0
+   }
+  },
+  {
+   "id": "p13",
+   "why": "widest on parking (50) and price (49)",
+   "A": {
+    "slug": "bur-2120-cavendish",
+    "address": "2120 Cavendish Drive, Burlington, ON L7P 1Z3",
+    "street": "Cavendish",
+    "ask": 969900,
+    "grade": "C+",
+    "comp": {
+     "space": 28.0,
+     "layout": 45.0,
+     "baths": 65.0,
+     "parking": 50.0,
+     "lot": 56.9,
+     "location": 77.8,
+     "condition": 46.4,
+     "price": 79.1
+    },
+    "line": "Kitchen is a full same-footprint refresh: crisp shaker doors, dark stone with squared edge, ledgestone backsplash, crown to a flat ceiling. Main bath ..."
+   },
+   "B": {
+    "slug": "bur-2105-maplewood",
+    "address": "2105 Maplewood Drive, Burlington, ON L7R 2C6",
+    "street": "Maplewood",
+    "ask": 1199000,
+    "grade": "B-",
+    "comp": {
+     "space": 14.0,
+     "layout": 45.0,
+     "baths": 75.0,
+     "parking": 100.0,
+     "lot": 70.0,
+     "location": 94.4,
+     "condition": 73.3,
+     "price": 29.8
+    },
+    "line": "Brant bungalow with a 2024 gloss-slab kitchen under a retained bulkhead, quartz and undermount sink, new 3pc main bath, fully rebuilt basement with se..."
+   },
+   "d": {
+    "space": 14.0,
+    "layout": 0.0,
+    "baths": -10.0,
+    "parking": -50.0,
+    "lot": -13.1,
+    "location": -16.7,
+    "condition": -26.9,
+    "price": 49.3
+   }
+  },
+  {
+   "id": "p14",
+   "why": "widest on condition (44) and space (32)",
+   "A": {
+    "slug": "oak-1218-oxlow",
+    "address": "1218 Oxlow Drive, Oakville, ON L6H 1S2",
+    "street": "Oxlow",
+    "ask": 1249999,
+    "grade": "B-",
+    "comp": {
+     "space": 25.1,
+     "layout": 100.0,
+     "baths": 65.0,
+     "parking": 75.0,
+     "lot": 37.4,
+     "location": 50.0,
+     "condition": 70.5,
+     "price": 16.1
+    },
+    "line": "Renovated main and upper (white shaker kitchen with quartz and undermount sink, two-sink upper bath with tiled alcove tub and glass door), lower level..."
+   },
+   "B": {
+    "slug": "oak-1177-grand",
+    "address": "1177 GRAND Boulevard, Oakville, ON L6H 2V2",
+    "street": "GRAND",
+    "ask": 1299900,
+    "grade": "C+",
+    "comp": {
+     "space": 57.2,
+     "layout": 100.0,
+     "baths": 35.0,
+     "parking": 100.0,
+     "lot": 48.4,
+     "location": 77.8,
+     "condition": 26.1,
+     "price": 15.0
+    },
+    "line": "Unfinished basement with zero basement photos. The house's only full bath was never shown. Kitchen defect confirmed on two independent tells."
+   },
+   "d": {
+    "space": -32.1,
+    "layout": 0.0,
+    "baths": 30.0,
+    "parking": -25.0,
+    "lot": -11.0,
+    "location": -27.8,
+    "condition": 44.4,
+    "price": 1.1
+   }
+  },
+  {
+   "id": "p15",
+   "why": "covers parking (|d| = 38)",
+   "A": {
+    "slug": "oak-2221-wyandotte",
+    "address": "2221 Wyandotte Drive, Oakville, ON L6L 2T4",
+    "street": "Wyandotte",
+    "ask": 1299999,
+    "grade": "C+",
+    "comp": {
+     "space": 40.0,
+     "layout": 65.0,
+     "baths": 65.0,
+     "parking": 62.5,
+     "lot": 25.6,
+     "location": 72.2,
+     "condition": 63.2,
+     "price": 0.7
+    },
+    "line": "Original aluminum window frames confirmed at full resolution, which is the single most expensive finding in this batch. No room dimensions at all."
+   },
+   "B": {
+    "slug": "bur-1280-aldridge",
+    "address": "1280 ALDRIDGE Crescent, Burlington, ON L7M 1H9",
+    "street": "ALDRIDGE",
+    "ask": 1018800,
+    "grade": "C",
+    "comp": {
+     "space": 32.0,
+     "layout": 65.0,
+     "baths": 65.0,
+     "parking": 100.0,
+     "lot": 16.4,
+     "location": 61.1,
+     "condition": 63.6,
+     "price": 68.1
+    },
+    "line": "Year Built absent from the ITSO listing, so the model prices it at the worst-case era. Cheapest listing in the batch by $270k."
+   },
+   "d": {
+    "space": 8.0,
+    "layout": 0.0,
+    "baths": 0.0,
+    "parking": -37.5,
+    "lot": 9.2,
+    "location": 11.1,
+    "condition": -0.4,
+    "price": -67.4
+   }
+  }
+ ]
+}

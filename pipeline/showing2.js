@@ -5,6 +5,44 @@
 (function () {
   var LS = "walk-showings-v2";
   var ST = {}, DB = null, MODE = "all", T = {};
+  /* v6: two people, one record. gut, verdict and notes are per person; everything else is shared. */
+  var WHO = "alex";
+  function pf(base) { return base + "_" + WHO; }
+  function gv(r, base, who) { return r[base + "_" + (who || WHO)]; }
+  function mirrorGut() {
+    var g = {};
+    Object.keys(ST).forEach(function (k) {
+      var r = ST[k] || {}, o = {};
+      if (r.gut_alex) o.alex = r.gut_alex;
+      if (r.gut_partner) o.partner = r.gut_partner;
+      if (o.alex || o.partner) g[k] = o;
+    });
+    try { localStorage.setItem("walk-v6-gut", JSON.stringify(g)); } catch (e) { }
+    var picks = {};
+    Object.keys(ST).forEach(function (k) {
+      var r = ST[k] || {}, o = {};
+      if (r.verdict_alex === "shortlist") o.alex = 1;
+      if (r.verdict_partner === "shortlist") o.partner = 1;
+      if (o.alex || o.partner) picks[k] = o;
+    });
+    try { localStorage.setItem("walk-v6-picks", JSON.stringify(picks)); } catch (e) { }
+    document.querySelectorAll("[data-gut]").forEach(function (el) {
+      var r = ST[el.dataset.gut] || {}, b = [];
+      if (r.gut_alex) b.push("You " + r.gut_alex);
+      if (r.gut_partner) b.push("Partner " + r.gut_partner);
+      el.textContent = b.length ? " \u00b7 " + b.join(" \u00b7 ") : "";
+    });
+    document.querySelectorAll("[data-gpair]").forEach(function (el) {
+      var r = ST[el.dataset.gpair] || {}, b = [];
+      if (r.gut_alex) b.push("you " + r.gut_alex + "/5");
+      if (r.gut_partner) b.push("partner " + r.gut_partner + "/5");
+      el.textContent = b.join(" \u00b7 ");
+    });
+    document.querySelectorAll("[data-gutdis]").forEach(function (el) {
+      var r = ST[el.dataset.gutdis] || {};
+      el.hidden = !(r.gut_alex && r.gut_partner && Math.abs(r.gut_alex - r.gut_partner) >= 3);
+    });
+  }
   var H = (SHOW_DATA && SHOW_DATA.houses) || {}, QS = (SHOW_DATA && SHOW_DATA.qs) || {};
 
   function rec(k) { if (!ST[k]) ST[k] = {}; return ST[k]; }
@@ -16,7 +54,9 @@
 
   function touched(r) {
     if (!r) return false;
-    if (r.visited || r.verdict || r.gut || (r.notes || "").trim()) return true;
+    if (r.visited) return true;
+    if (r.verdict_alex || r.verdict_partner || r.gut_alex || r.gut_partner) return true;
+    if ((r.notes_alex || "").trim() || (r.notes_partner || "").trim()) return true;
     var n = 0;
     ["ans", "mech", "targ", "walk"].forEach(function (g) { if (r[g] && Object.keys(r[g]).length) n++; });
     return n > 0;
@@ -40,6 +80,7 @@
   }
 
   function boot() {
+    try { WHO = localStorage.getItem("walk-v6-who") || "alex"; } catch (e) { }
     ST = lsRead();
     paint(); applyMode();
     if (!(window.claude && window.claude.use)) { pill("This device only", "warn"); return; }
@@ -59,6 +100,7 @@
         Object.keys(ST).forEach(function (k) { if (touched(ST[k]) && !seen[k]) persist(k); });
       }, function () { pill("Live sync dropped, still saving here", "warn"); });
     }).catch(function () { pill("This device only", "warn"); });
+    mirrorGut();
   }
 
   /* The generic fourteen are built here rather than repeated in every card's markup. */
@@ -92,9 +134,10 @@
         if (document.activeElement !== el) el.value = (r.mech || {})[el.dataset.f] || "";
         el.classList.toggle("set", !!(r.mech || {})[el.dataset.f]);
       }
-      else if (kd === "verdict") el.classList.toggle("on", (r.verdict || "") === el.dataset.v);
-      else if (kd === "gut") el.classList.toggle("on", String(r.gut || "") === el.dataset.v);
-      else if (kd === "notes") { if (document.activeElement !== el) el.value = r.notes || ""; }
+      else if (kd === "verdict") el.classList.toggle("on", (gv(r, "verdict") || "") === el.dataset.v);
+      else if (kd === "gut") el.classList.toggle("on", String(gv(r, "gut") || "") === el.dataset.v);
+      else if (kd === "notes") { if (document.activeElement !== el) el.value = gv(r, "notes") || ""; }
+      else if (kd === "who") { el.value = WHO; }
       else if (kd === "visited") el.classList.toggle("on", !!r.visited);
     });
     document.querySelectorAll(".sr-row").forEach(function (row) {
@@ -107,8 +150,9 @@
       var r = ST[e.dataset.meta] || {}, bits = [];
       if (r.date) bits.push("seen " + r.date);
       var a = settled(r); if (a) bits.push(a + " settled");
-      if (r.verdict) bits.push(r.verdict);
-      if (r.gut) bits.push(r.gut + "/5");
+      if (gv(r, "verdict")) bits.push(gv(r, "verdict"));
+      if (r.gut_alex) bits.push("you " + r.gut_alex + "/5");
+      if (r.gut_partner) bits.push("partner " + r.gut_partner + "/5");
       e.textContent = bits.join(" · ");
     });
   }
@@ -118,7 +162,7 @@
     var r = ST[k] || {};
     if (MODE === "all") return true;
     if (MODE === "seen") return touched(r);
-    if (MODE === "short") return r.verdict === "shortlist";
+    if (MODE === "short") return r.verdict_alex === "shortlist" || r.verdict_partner === "shortlist";
     if (MODE === "todo") return !touched(r) && (H[k] || {}).verdict !== "STOP";
     return true;
   }
@@ -170,9 +214,19 @@
         });
       });
       if (flags.length) p.showing_flags = flags;
-      if (r.verdict) p.showing_verdict = r.verdict;
-      if (r.gut) p.showing_gut = r.gut;
-      if ((r.notes || "").trim()) p.showing_notes = r.notes.trim();
+      ["alex", "partner"].forEach(function (w) {
+        if (r["verdict_" + w]) p["verdict_" + w] = r["verdict_" + w];
+        if (r["gut_" + w]) p["gut_" + w] = r["gut_" + w];
+        if ((r["notes_" + w] || "").trim()) p["notes_" + w] = r["notes_" + w].trim();
+      });
+      /* v6: the four year boxes become the _seen vocabulary score.py reads. A year is
+         replaced_<year>; leaving a box empty says nothing, which is not the same as original. */
+      var SEEN = {roof_year: "roof_seen", furnace_year: "furnace_seen",
+                  ac_year: "ac_seen", water_heater_year: "water_heater_seen"};
+      Object.keys(SEEN).forEach(function (f) {
+        var y = ((r.mech || {})[f] || "").toString().trim();
+        if (/^(19|20)\d{2}$/.test(y)) p[SEEN[f]] = "replaced_" + y;
+      });
       if (Object.keys(p).length) patch[H[k].slug] = p;
     });
     return JSON.stringify({ generated: nowISO(), observations_patch: patch, showings: showings }, null, 2);
@@ -211,12 +265,22 @@
       m[i].s = m[i].s === v ? "" : v;
       if (!m[i].s && !m[i].n) delete m[i];
     }
-    else if (kd === "verdict") r.verdict = r.verdict === v ? "" : v;
-    else if (kd === "gut") r.gut = String(r.gut) === v ? "" : Number(v);
+    else if (kd === "verdict") r[pf("verdict")] = r[pf("verdict")] === v ? "" : v;
+    else if (kd === "gut") r[pf("gut")] = String(r[pf("gut")]) === v ? "" : Number(v);
     else if (kd === "visited") { r.visited = !r.visited; if (r.visited && !r.date) r.date = today(); }
     else return;
     if (touched(r)) { r.visited = true; if (!r.date) r.date = today(); }
-    queue(k); paint(); applyMode();
+    queue(k); paint(); applyMode(); mirrorGut();
+  });
+
+  /* the who selector is a change, not a click */
+  document.addEventListener("change", function (ev) {
+    var el = ev.target;
+    if (!el.dataset || el.dataset.kind !== "who") return;
+    WHO = el.value === "partner" ? "partner" : "alex";
+    document.querySelectorAll("[data-kind=who]").forEach(function (s2) { s2.value = WHO; });
+    try { localStorage.setItem("walk-v6-who", WHO); } catch (e) { }
+    paint();
   });
 
   document.addEventListener("input", function (ev) {
@@ -228,10 +292,10 @@
       var g = kd === "targn" ? "targ" : "walk", m = r[g] = r[g] || {}, i = el.dataset.i;
       m[i] = m[i] || {}; m[i].n = el.value; if (!m[i].s && !m[i].n) delete m[i];
     }
-    else if (kd === "notes") r.notes = el.value;
+    else if (kd === "notes") r[pf("notes")] = el.value;
     else return;
     if (touched(r)) { r.visited = true; if (!r.date) r.date = today(); }
-    queue(k);
+    queue(k); mirrorGut();
   });
 
   if (document.readyState !== "loading") boot();

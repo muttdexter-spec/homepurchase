@@ -8,7 +8,7 @@
 #   5. Catalog is MID-RANGE GTA market, pre-HST. Not "top of range".
 
 meta:
-  version: "3.2"
+  version: "3.4"
   basis: "pre-HST, GTA/Halton 2026, mid-range finish, same-layout (no structural moves)"
   hst: 0.13
 
@@ -54,6 +54,7 @@ p_not_done:
   y1990_2004: 0.45
   y2005_plus: 0.20
 observed_floor: 0.15    # a clean full-res look on every tell floors the probability here
+concealed_floor_read: 0.5   # v3.4: floor read counts as half-seen when concealed_surfaces notes a rug/mat/runner. UNSOURCED.
 
 # ONE contingency, applied ONCE, to day1 work only (reserve items are commodity
 # replacements with firm quotes; they do not need a discovery contingency).
@@ -109,6 +110,7 @@ below_grade_weight_walkout: 0.65
 # footprint (above-grade / storeys). Calibrated on 20 listings with stated areas: median
 # stated/estimated = 1.11, so 0.70 is slightly conservative. Set to 0 to disable.
 below_grade_estimate_factor: 0.70
+below_grade_estimate_factor_partial: 0.35   # v3.4: "Partially Finished" with no stated area. UNSOURCED, half the full-finish factor.
 
 # ---------------------------------------------------------------- fact score
 # 100 points. Contains NO price and NO carrying cost, so it can be divided by
@@ -116,13 +118,15 @@ below_grade_estimate_factor: 0.70
 # All thresholds are ABSOLUTE. A listing scored today is comparable to one scored
 # in March.
 fact_weights:
+  # size: SUPERSEDED by fit_weights.space below (rank v5). Kept for the 25-pt cap and so a
+  # pre-v5 record can still be read. facts() no longer uses floor_sqft / ceiling_sqft.
   size:     {pts: 25, floor_sqft: 1000, ceiling_sqft: 2600}
   layout:   {pts: 20}
   baths:    {pts: 20}
   lot:      {pts: 15, floor_sqft: 4000, ceiling_sqft: 9000}
   location: {pts: 12}
   parking:  {pts: 8}
-split_dock: 0.94
+split_dock: 0.95   # ELICITED 2026-09-14 (Alex): asked yes/no on 0.94, answered "mark to 5%". Splits are docked 5%, not 6%.
 
 grade_bands: {A: 78, "A-": 72, "B+": 66, B: 60, "B-": 54, "C+": 48, C: 42, "C-": 36, D: 0}
 
@@ -135,3 +139,90 @@ verdict:
     - knob_and_tube_confirmed
   day1_share_warn: 0.06      # day1 p80 > 6% of list = a cash problem worth naming
   see_first_min_grade: "B"
+
+# ============================================================== rank v5
+# Review 2026-09-12, section 3 (specification) and section 6.2 (this block).
+# The rank is: gates -> hold-period cost of ownership -> facts-only fit ->
+# dominance frontier -> overpay against the frontier. No composite, no weights
+# to fit on 37 asks.
+
+hold:                          # money. Market inputs, not preferences.
+  years_default: 5             # ELICITED 2026-09-14 (Alex): "3-7 years", which straddles the 3 and the 5. Recorded as 5. Page toggle: 3 / 5 / 10.
+  # v6: cost_of_capital is no longer a free key. score.py derives it as
+  #   (1 - down_payment) * mortgage_rate + down_payment * opportunity_rate
+  # so the ranking's price component and the page's monthly payment come from one rate.
+  # At 0.20 / 0.0425 / 0.03 this reproduces the 0.040 v5 used.
+  mortgage_rate: 0.0425        # page default and the rate the rank is computed at
+  opportunity_rate: 0.030      # what the down payment would earn elsewhere
+  down_payment: 0.20           # page default
+  amortization: 25             # page default, years
+  exit_commission: 0.055       # 5% + HST on the commission out
+  closing_extras: 3500         # same figure the page calculator uses in cash_to_close()
+  price_anchor_per_year: {best: 54000, worst: 84000}   # v6 §4: $270k / $420k over five years, expressed per year so the 3 / 5 / 10 band stays meaningful
+
+gates:                         # non-compensatory, in order. PREFERENCES except STOP.
+  min_beds_ag: 2               # ELICITED 2026-09-14 (Alex): "2". Was 3. Puts Kent and Middlesmoor back in the rank.
+  min_baths_full: 1            # buyer
+  max_all_in: null             # buyer: ask + day1_p80 ceiling. null = the search price filter is doing this.
+  max_cash_to_close: null      # ELICITED 2026-09-14 (Alex): "ignore this constraint". Off.
+  max_monthly: null            # ELICITED 2026-09-14 (Alex): "ignore this constraint". Off.
+  no_projects: false           # ELICITED 2026-09-14 (Alex): "yes" he would take a house needing >15% of ask in work.
+  project_share_of_ask: 0.15   # G4: work_expected above this share of ask earns a Project stamp (ranked, not excluded).
+
+fit_weights:                   # replaces fact_weights.size; layout / baths / lot / location / parking unchanged
+  space: {pts: 25, floor_sqft: 1000, knee_sqft: 1800, cap_sqft: 2600, pts_to_knee: 16, pts_knee_to_cap: 4,
+          basement_finished: 3, basement_partial: 1, basement_exterior_access: 2}
+  # space saturates at the knee: a couple gets most of the value of a 3-bed house by 1,800 sq ft
+  # above grade. Below grade is a discrete amenity from MLS text, never an estimated area.
+  condition_demote: {kitchen_full: 8, kitchen_cosmetic: 6, main_bath: 4, secondary_bath: 2, cap: 12,
+                     era_scale: {pre_1990: 1.0, y1990_2004: 0.67, y2005_plus: 0.33}}
+  # condition can only subtract, and only where the cost model puts that line at p >= 0.95.
+  # era_scale: a 2008 builder kitchen with a topmount sink is not a 1965 kitchen with one.
+  # PREFERENCES. Asserted defaults; replace after the elicitation in the review, section 2.9.
+
+rank:
+  # v6: dollars_per_fit_point_mo is GONE. The order is the weighted composite in weights.*, and
+  # there is no exchange rate between fit points and dollars any more: price is one of the eight
+  # components and carries its own elicited weight.
+  dominance_tolerance_pts: 3           # "about as much house". Kept: overpay is still computed for the "Before you offer" line.
+  visit_if_band_top_at_or_above: 10    # p10 rank at or above this earns a "Worth a look" stamp
+  frontier_display_threshold_mo: 50    # within $50/mo of the frontier reads as a tie, not "+$12"
+
+reserve:
+  pool_carry_annual: {low: 2000, likely: 3000, high: 5000, life: 1, src: "UNSOURCED. Placeholder so POOL can be priced rather than only flagged. v6: WIRED into cost() as a reserve line, p = 1, life 1 (annual carry)."}
+
+# ============================================================== rank v6: weights
+# PROVISIONAL. These are not elicited weights. They are rank-order centroid applied to an example
+# order the assistant wrote in the chat of 13 September; the buyer neither ranked the eight nor
+# stated any swing value. Item 2 of the 14 September correction replaces swing weighting with
+# fifteen pairwise choices made on the page; choices.alex / choices.partner below are where those
+# answers land, and fit_weights_from_choices() in score.py replaces these numbers once they exist.
+# Until then the page stamps every card "Weights provisional".
+weights:
+  alex: {condition: 33.97, space: 21.47, price: 15.22, layout: 11.06, baths: 7.93, location: 5.43, lot: 3.35, parking: 1.56}
+  method:
+    alex: "PROVISIONAL. Rank-order centroid on the assistant's example order of 13 Sep; the buyer
+           declined to rank or to state values. To be replaced by pairwise_choice (item 2)."
+  partner: pending
+  joint: mean                             # falls back to whoever is on file
+  provisional: {alex: true, partner: true}
+  cross_check_notes: []                   # Part C. Never changes a weight; it tells the fit what to look for.
+
+# Fifteen pairwise choices per person, made on the page and pasted back as a preferences_patch.
+# Each entry is {pair: <id>, pick: A|B}. Nothing is fitted from a partial set.
+choices:
+  alex: []
+  partner: []
+pairs:
+  n: 15
+  min_pairs_per_component: 3              # every component needs this many pairs with |d_k| >= swing_gap
+  swing_gap: 30                           # a difference smaller than this teaches the fit nothing about that component
+  max_appearances_per_house: 4
+  ridge_target: roc_prior                 # L2 shrinkage target when the choices are thin
+  ridge_min_move: 10                      # strength chosen so a perfectly consistent respondent moves a supported weight at least this far
+
+location:
+  municipality_bonus: {}   # ELICITED 2026-09-14 (Alex): "both are fine". No municipality term.
+
+condition:
+  photos_may_lower_p: true  # v6 §3. false restores the demote-only rule of v5.

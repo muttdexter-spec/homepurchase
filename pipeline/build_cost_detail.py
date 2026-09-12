@@ -31,7 +31,7 @@ for r in rows:
     if d is None:
         print("no detail for", addr, file=sys.stderr); continue
     short = addr.split(",")[0]
-    band = f"{r['rank_low']}–{r['rank_high']}" if r.get("rank_low") else "-"
+    band = f"{r['rank_p10']}–{r['rank_p90']}" if r.get("rank_p10","-") not in ("-","") else "-"
     ev = r.get("evidence", "")
     evn = r.get("evidence_notes", "")
     out.append(f"## {r['rank']}. {short} — grade {r['grade']}, ${r['all_in_psf']}/usable sq ft, {r['verdict']}")

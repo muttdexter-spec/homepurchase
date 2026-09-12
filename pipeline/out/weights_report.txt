@@ -1,0 +1,2 @@
+alex: 0 of 15 choices on file. Not fitted; weights stay provisional.
+partner: 0 of 15 choices on file. Not fitted; weights stay provisional.

@@ -1,0 +1,1278 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Walking the Shortlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ic-check:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 13l5.5 5.5L20 6" fill="none" stroke="black" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    --ic-x:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.5 5.5l13 13M18.5 5.5l-13 13" fill="none" stroke="black" stroke-width="3.4" stroke-linecap="round"/></svg>');
+    /* Nocturne, light — navy ground, navy accent, three signal colours */
+    --paper:#eef1f8; --card:#fbfcfe; --ink:#1b2340; --muted:#4e5670;
+    --rule:#d3dae9; --rule-soft:#e3e8f3;
+    --accent:#1f3a6e; --accent-soft:#dde5f3;
+    --flag:#b3423b; --flag-soft:#f6e3e1;
+    --clear:#2f7d55; --clear-soft:#dfeee6;
+    --warn:#b07f18; --warn-soft:#f6ecd8;
+    --bad:#c0231d; --bad-soft:#f9dedb;
+    --shadow:0 0 0 1px #ccd2e4, 0 6px 18px rgba(27,35,64,.08);
+    --serif:"Inter",system-ui,sans-serif;
+    --sans:"Inter",system-ui,sans-serif;
+    --mono:"Inter",system-ui,sans-serif;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.55;
+    font-variant-numeric:tabular-nums;
+    -webkit-font-smoothing:antialiased; padding:0 20px; margin:0;
+  }
+  .wrap{max-width:1080px; margin:0 auto; padding-block:40px 72px;
+        display:flex; flex-direction:column; gap:40px}
+  a{color:var(--accent)}
+
+  .mast{display:flex; flex-direction:column; gap:14px; padding-bottom:22px;
+        background:linear-gradient(to right, var(--rule), var(--rule) calc(100% - 48px), transparent) no-repeat bottom / 100% 1px}
+  .kicker{font-family:var(--mono); font-size:11px; letter-spacing:.14em;
+          text-transform:uppercase; color:var(--accent); margin:0}
+  .mast h1{font-family:var(--serif); font-weight:500; font-size:clamp(34px,6vw,52px);
+           line-height:1.05; margin:0; letter-spacing:-.02em; text-wrap:balance}
+  .standfirst{margin:0; max-width:none; color:var(--muted); font-size:17px}
+  .mast-meta{display:flex; flex-wrap:wrap; gap:8px 20px; font-family:var(--mono);
+             font-size:11.5px; color:var(--muted); letter-spacing:.04em}
+
+  .glossary{display:grid; grid-template-columns:repeat(auto-fit,minmax(176px,1fr)); gap:1px;
+            background:var(--rule); border:1px solid var(--rule); border-radius:8px; overflow:hidden}
+  .term{background:var(--card); padding:16px 18px; display:flex; flex-direction:column; gap:5px}
+  .term dt{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em;
+           text-transform:uppercase; color:var(--accent)}
+  .term dd{margin:0; font-size:14px; line-height:1.45; color:var(--muted)}
+  .term dd b{color:var(--ink); font-weight:700}
+
+  .howto{font-size:15px; color:var(--muted); margin:0; max-width:none;
+         border-left:3px solid var(--accent); padding-left:16px}
+  .howto b{color:var(--ink)}
+
+  /* ---------- calculator ---------- */
+  .calc{background:var(--card); border:1px solid var(--rule); border-radius:8px;
+        box-shadow:var(--shadow); overflow:hidden}
+  .calc-head{padding:20px 22px 0; display:flex; flex-direction:column; gap:6px}
+  .calc-head h2{font-family:var(--serif); font-size:26px; font-weight:500; margin:0; letter-spacing:-.01em}
+  .calc-head p{margin:0; color:var(--muted); font-size:14.5px; max-width:none}
+  .controls{display:flex; flex-wrap:wrap; gap:18px 26px; padding:18px 22px;
+            border-bottom:1px solid var(--rule-soft); align-items:flex-end}
+  .ctrl{display:flex; flex-direction:column; gap:5px}
+  .ctrl label{font-family:var(--mono); font-size:9.5px; letter-spacing:.09em;
+              text-transform:uppercase; color:var(--muted)}
+  .ctrl input[type=number]{font-family:var(--mono); font-size:16px; width:88px; padding:6px 8px;
+    border:1px solid var(--rule); border-radius:8px; background:var(--paper); color:var(--ink);
+    font-variant-numeric:tabular-nums}
+  .ctrl input:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+  .ftb{flex-direction:row; align-items:center; gap:8px; padding-bottom:7px}
+  .ftb input{width:16px; height:16px; accent-color:var(--accent); cursor:pointer}
+  .ftb label{font-family:var(--sans); font-size:14px; text-transform:none;
+             letter-spacing:0; color:var(--ink); cursor:pointer}
+  #cmhc-note{font-size:13px; color:var(--warn); margin:0; padding:0 22px 14px; display:none}
+  #cmhc-note.on{display:block}
+
+  /* ---------- listings ---------- */
+  .lots{display:flex; flex-direction:column; gap:26px}
+  .lot{background:var(--card); border:1px solid var(--rule); border-radius:8px;
+       box-shadow:var(--shadow); display:grid; grid-template-columns:104px 1fr; overflow:hidden}
+  .rail{border-right:1px solid var(--rule); padding:20px 14px;
+        display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center}
+  .rank{font-family:var(--serif); font-size:38px; line-height:1; color:var(--accent);
+        font-weight:500; font-variant-numeric:tabular-nums}
+  .grade{font-family:var(--mono); font-size:15px; font-weight:500; padding:3px 10px;
+         border-radius:6px; letter-spacing:.02em}
+  .g-a{background:var(--accent-soft); color:var(--accent); border:1px solid var(--accent)}
+  .g-b{background:transparent; color:var(--ink); border:1px solid var(--ink)}
+  .g-c{background:transparent; color:var(--muted); border:1px solid var(--rule)}
+  .psf{display:flex; flex-direction:column; gap:2px; font-family:var(--mono)}
+  .psf b{font-size:16px; font-weight:500; font-variant-numeric:tabular-nums}
+  .psf span{font-size:9.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); line-height:1.3}
+
+  .body{padding:20px 22px 22px; display:flex; flex-direction:column; gap:16px; min-width:0}
+  .lot-head h2{font-family:var(--serif); font-size:25px; font-weight:500; margin:0 0 3px;
+               letter-spacing:-.01em; line-height:1.2}
+  .lot-head h2 a{text-decoration:none; color:inherit; border-bottom:2px solid var(--accent-soft)}
+  .lot-head h2 a:hover{border-bottom-color:var(--accent)}
+  .where{margin:0; font-size:13.5px; color:var(--muted)}
+  .tags{display:flex; flex-wrap:wrap; gap:7px; margin-top:9px}
+  .stamp{display:inline-flex; align-items:center; font-family:var(--mono);
+         font-size:10px; letter-spacing:.08em; text-transform:uppercase; padding:2px 8px; border-radius:6px}
+  .stamp.seen{background:var(--clear-soft); color:var(--clear)}
+  .stamp.unseen{background:var(--flag-soft); color:var(--flag)}
+  .stamp.link{background:var(--accent-soft); color:var(--accent); text-decoration:none}
+  .stamp.link:hover{background:var(--accent); color:var(--card)}
+
+  .money{display:grid; grid-template-columns:repeat(auto-fit,minmax(112px,1fr));
+         gap:14px 10px; margin:0; padding:14px 0; border-block:1px solid var(--rule-soft)}
+  .money div{display:flex; flex-direction:column; gap:2px; min-width:0}
+  .money dt{font-family:var(--mono); font-size:9.5px; letter-spacing:.08em;
+            text-transform:uppercase; color:var(--muted)}
+  .money dd{margin:0; font-family:var(--mono); font-size:17px; font-weight:500;
+            font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+  .money .hero dd{color:var(--accent)}
+  .money .warn dd{color:var(--flag)}
+
+  .live-row{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px;
+            background:var(--accent-soft); border-radius:8px; padding:12px 14px}
+  .live-row div{display:flex; flex-direction:column; gap:1px}
+  .live-row dt{font-family:var(--mono); font-size:9px; letter-spacing:.08em;
+               text-transform:uppercase; color:var(--accent)}
+  .live-row dd{margin:0; font-family:var(--mono); font-size:16px; font-weight:500;
+               font-variant-numeric:tabular-nums}
+
+  .take{margin:0; font-size:15.5px; line-height:1.6; max-width:none}
+  .split{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+  .split section{display:flex; flex-direction:column; gap:9px; min-width:0}
+  .split h3{font-family:var(--mono); font-size:10px; letter-spacing:.11em;
+            text-transform:uppercase; margin:0; font-weight:500}
+  .known h3{color:var(--clear)}
+  .check h3{color:var(--flag)}
+  .known ul{margin:0; padding-left:16px; display:flex; flex-direction:column; gap:6px;
+            font-size:14px; line-height:1.45}
+  .known ul{list-style:none; padding-left:0}
+  .known li{color:var(--ink); display:grid; grid-template-columns:19px minmax(0,1fr);
+    align-items:start; gap:3px}
+  .known li::before{content:""; width:13px; height:13px; margin-top:.32em; flex:none;
+    background:var(--clear); border-radius:50%;
+    -webkit-mask:var(--ic-check) center/9px 9px no-repeat; mask:var(--ic-check) center/9px 9px no-repeat}
+  .known li.hasbad::before{background:var(--flag);
+    -webkit-mask:var(--ic-x) center/8px 8px no-repeat; mask:var(--ic-x) center/8px 8px no-repeat}
+  .known .bad{color:var(--ink); font-weight:500}
+  .check h3{display:flex; align-items:center; gap:9px}
+  .check h3 .ck-prog{margin-left:auto; font-family:var(--mono); font-size:9.5px; letter-spacing:.07em;
+    font-variant-numeric:tabular-nums; color:var(--muted); font-weight:500}
+  .check h3 .ck-prog.done{color:var(--clear)}
+  .check ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:1px}
+  .check li{position:relative; margin:0}
+  .check li label{display:grid; grid-template-columns:19px minmax(0,1fr); gap:3px; align-items:start;
+    font-size:14px; line-height:1.45; padding:5px 8px 5px 5px; margin:0 -8px 0 -5px;
+    border-radius:6px; cursor:pointer; transition:background .12s ease, color .12s ease}
+  .check li label::before{content:""; width:13px; height:13px; margin-top:.32em; box-sizing:border-box;
+    border:1.5px solid var(--flag); border-radius:4px;
+    transition:background .12s ease, border-color .12s ease}
+  .check li label:hover{background:var(--accent-soft)}
+  .check li label:hover::before{border-color:var(--accent)}
+  .check input{position:absolute; opacity:0; width:1px; height:1px; margin:0; pointer-events:none}
+  .check input:checked + label{color:var(--muted)}
+  .check input:checked + label span{text-decoration:line-through; text-decoration-color:var(--rule)}
+  .check input:checked + label::before{background:var(--clear); border-color:var(--clear);
+    -webkit-mask:var(--ic-check) center/9px 9px no-repeat; mask:var(--ic-check) center/9px 9px no-repeat}
+  .check input:focus-visible + label{outline:2px solid var(--accent); outline-offset:1px}
+
+  .ask{margin:0; font-size:14px; line-height:1.5; background:var(--accent-soft);
+       border-radius:8px; padding:11px 14px; color:var(--ink)}
+  .ask span{font-family:var(--mono); font-size:9.5px; letter-spacing:.1em;
+            text-transform:uppercase; color:var(--accent); display:block; margin-bottom:3px}
+
+  /* ---------- room tables ---------- */
+  details.rooms{border-top:1px solid var(--rule-soft); padding-top:14px}
+  details.rooms summary{font-family:var(--mono); font-size:10px; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--accent); cursor:pointer; list-style:none;
+    display:flex; align-items:center; gap:7px}
+  details.rooms summary::-webkit-details-marker{display:none}
+  details.rooms summary::before{content:"▸"; font-size:11px; transition:transform .15s}
+  details.rooms[open] summary::before{transform:rotate(90deg)}
+  details.rooms summary:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+  .roomtab{margin-top:12px; overflow-x:auto}
+  .roomtab table{border-collapse:collapse; width:100%; font-size:13px; min-width:0}
+  .roomtab th{font-family:var(--mono); font-size:9px; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--muted); font-weight:500; text-align:left; padding:5px 10px 5px 0; border-bottom:1px solid var(--rule)}
+  .roomtab td{padding:5px 10px 5px 0; border-bottom:1px solid var(--rule-soft); vertical-align:top}
+  .roomtab td.dim,.roomtab td.sq{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap}
+  .roomtab td.sq{text-align:right; padding-right:14px}
+  .roomtab .lvl{font-family:var(--mono); font-size:10px; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--accent)}
+  .roomtab .small{color:var(--warn); font-weight:700}
+  .roomtab td.ft{color:var(--muted); font-size:12.5px}
+
+  .money dd .per{font-size:11px; color:var(--muted); font-weight:400; letter-spacing:0}
+
+  /* ---------- cost breakdown ---------- */
+  details.costs{border-top:1px solid var(--rule-soft); padding-top:14px}
+  details.costs summary{font-family:var(--mono); font-size:10px; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--flag); cursor:pointer; list-style:none;
+    display:flex; align-items:center; gap:7px}
+  details.costs summary::-webkit-details-marker{display:none}
+  details.costs summary::before{content:"\25B8"; font-size:11px; transition:transform .15s}
+  details.costs[open] summary::before{transform:rotate(90deg)}
+  details.costs summary:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+  .costbody{margin-top:14px; display:flex; flex-direction:column; gap:18px}
+  .costgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1px;
+    background:var(--rule); border:1px solid var(--rule); border-radius:8px; overflow:hidden}
+  .cb{background:var(--card); padding:14px 15px; display:flex; flex-direction:column; gap:9px; min-width:0}
+  .cb h4{margin:0; font-family:var(--mono); font-size:9.5px; letter-spacing:.1em;
+    text-transform:uppercase; font-weight:500; display:flex; justify-content:space-between;
+    gap:10px; align-items:baseline}
+  .cb h4 b{font-size:14px; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
+  .cb.d1 h4{color:var(--flag)} .cb.d1 h4 b{color:var(--flag)}
+  .cb.wl h4{color:var(--clear)} .cb.wl h4 b{color:var(--clear)}
+  .cb.rs h4{color:var(--accent)} .cb.rs h4 b{color:var(--accent)}
+  .cb table{border-collapse:collapse; width:100%; font-size:12.5px}
+  .cb td{padding:3px 0; border-bottom:1px solid var(--rule-soft); vertical-align:top}
+  .cb tr:last-child td{border-bottom:none}
+  .cb td.amt{font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right;
+    white-space:nowrap; padding-left:8px}
+  .cb td.odds{width:52px; padding-right:8px}
+  .odds i{display:block; font-style:normal; font-family:var(--mono); font-size:9.5px;
+    color:var(--muted); letter-spacing:.03em}
+  .odds u{display:block; text-decoration:none; height:3px; border-radius:6px;
+    background:var(--rule); margin-top:2px; overflow:hidden}
+  .odds u s{display:block; height:100%; text-decoration:none; background:currentColor}
+  .cb.d1 .odds u s{background:var(--flag)} .cb.wl .odds u s{background:var(--clear)}
+  .cb .why{color:var(--muted); font-size:11.5px; display:block; line-height:1.3}
+  .cb .foot{margin:0; font-size:11.5px; color:var(--muted); line-height:1.45}
+
+  .valuebox{border:1px solid var(--rule); border-radius:8px; overflow:hidden}
+  .valuerow{display:grid; grid-template-columns:repeat(auto-fit,minmax(128px,1fr));
+    gap:1px; background:var(--rule); margin:0}
+  .valuerow div{background:var(--card); padding:11px 13px; display:flex; flex-direction:column; gap:2px}
+  .valuerow dt{font-family:var(--mono); font-size:9px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--muted)}
+  .valuerow dd{margin:0; font-family:var(--mono); font-size:15px; font-weight:500;
+    font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+  .valuerow .neg dd{color:var(--flag)}
+  .valuenote{margin:0; background:var(--card); border-top:1px solid var(--rule);
+    padding:11px 13px; font-size:13px; color:var(--muted); line-height:1.5}
+  .valuenote b{color:var(--ink)}
+
+  .gradebox{display:flex; flex-wrap:wrap; gap:10px 18px; align-items:flex-end;
+    border-top:1px solid var(--rule-soft); padding-top:13px}
+  .gradebox .gl{font-family:var(--mono); font-size:9px; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--muted); flex:none; padding-bottom:2px}
+  .gp{display:flex; flex-direction:column; gap:3px; min-width:56px}
+  .gp em{font-style:normal; font-family:var(--mono); font-size:9px; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--muted)}
+  .gp span{display:block; height:5px; background:var(--rule); border-radius:8px; overflow:hidden}
+  .gp span i{display:block; height:100%; background:var(--accent)}
+  .gp b{font-family:var(--mono); font-size:10.5px; font-weight:500;
+    font-variant-numeric:tabular-nums; color:var(--ink)}
+
+  /* ---------- assumptions ---------- */
+  .assume{display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:1px;
+    background:var(--rule); border:1px solid var(--rule); border-radius:8px; overflow:hidden}
+  .assume section{background:var(--card); padding:16px 18px; display:flex;
+    flex-direction:column; gap:10px; min-width:0}
+  .assume h3{margin:0; font-family:var(--mono); font-size:10px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--accent); font-weight:500}
+  .assume table{border-collapse:collapse; width:100%; font-size:12.5px}
+  .assume th{font-family:var(--mono); font-size:8.5px; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--muted); font-weight:500; text-align:left; padding:0 0 4px; border-bottom:1px solid var(--rule)}
+  .assume th.n,.assume td.n{text-align:right; font-family:var(--mono);
+    font-variant-numeric:tabular-nums; white-space:nowrap; padding-left:8px}
+  .assume td{padding:4px 0; border-bottom:1px solid var(--rule-soft)}
+  .assume tr:last-child td{border-bottom:none}
+  .assume p{margin:0; font-size:12.5px; color:var(--muted); line-height:1.5}
+  .assume p b{color:var(--ink)}
+  .assume .hot{color:var(--flag)}
+
+  .section-head{display:flex; flex-direction:column; gap:6px; padding-top:20px;
+                background:linear-gradient(to right, var(--rule), var(--rule) calc(100% - 48px), transparent) no-repeat top / 100% 1px}
+  .section-head h2{font-family:var(--serif); font-size:27px; font-weight:500; margin:0; letter-spacing:-.01em}
+  .section-head p{margin:0; color:var(--muted); font-size:14.5px; max-width:none}
+  .tablewrap{overflow-x:auto; border:1px solid var(--rule); border-radius:8px; background:var(--card)}
+  table.big{border-collapse:collapse; width:100%; font-size:11.5px; min-width:0; table-layout:auto}
+  table.big th,table.big td{padding:5px 6px; text-align:left;
+    border-bottom:1px solid var(--rule-soft); white-space:nowrap}
+  table.big th{font-family:var(--mono); font-size:8.5px; letter-spacing:.05em; text-transform:uppercase;
+     color:var(--muted); font-weight:500; background:var(--paper); position:sticky; top:0}
+  table.big td:nth-child(2){letter-spacing:-.01em}
+  table.big td.n{font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right}
+  table.big tbody tr:last-child td{border-bottom:none}
+  table.big tr.stop td{color:var(--flag)}
+  table.big tr.live{background:var(--accent-soft)}
+  .vd{font-family:var(--mono); font-size:9px; letter-spacing:.02em}
+
+  .standing{background:var(--card); border:1px solid var(--rule); border-radius:8px; padding:18px 20px}
+  .standing h3{font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+               color:var(--accent); margin:0 0 10px; font-weight:500}
+  .standing ol{margin:0; padding-left:20px; display:flex; flex-direction:column; gap:7px;
+               font-size:15px; line-height:1.5}
+  .caveat{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px;
+          border-top:1px solid var(--rule); padding-top:24px}
+  .caveat section h3{font-family:var(--mono); font-size:10px; letter-spacing:.1em;
+                     text-transform:uppercase; color:var(--flag); margin:0 0 8px; font-weight:500}
+  .caveat p{margin:0; font-size:14px; color:var(--muted); line-height:1.5}
+  .colophon{font-family:var(--mono); font-size:11px; color:var(--muted); letter-spacing:.03em;
+            text-align:center; line-height:1.7; margin:0}
+
+  @media (max-width:640px){
+    .lot{grid-template-columns:1fr}
+    .rail{flex-direction:row; justify-content:flex-start; gap:16px;
+          border-right:none; border-bottom:1px solid var(--rule); padding:14px 18px}
+    .rank{font-size:28px}
+    .psf{flex-direction:row; align-items:baseline; gap:6px}
+    .split{grid-template-columns:1fr; gap:18px}
+    .body{padding:18px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<style>
+  .reno{border:1px solid var(--rule); border-radius:8px; padding:12px 14px 10px; background:var(--card)}
+  .reno h3{font-family:var(--mono); font-size:10px; letter-spacing:.11em; text-transform:uppercase; margin:0 0 8px; font-weight:500; color:var(--accent); display:flex; justify-content:space-between; gap:12px}
+  .reno h3 b{font-family:var(--mono); font-weight:500; color:var(--ink); letter-spacing:0; text-transform:none; font-size:11px}
+  .reno ul{margin:0; padding:0; list-style:none; display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(158px,1fr)); gap:1px 26px}
+  /* label · dot leader · figure, so the money lines up with its item */
+  .reno li{display:grid; grid-template-columns:auto minmax(10px,1fr) auto; align-items:baseline;
+    gap:0 7px; font-size:14px; line-height:1.5; padding:3px 0}
+  .reno li span:first-child{grid-column:1; text-transform:none}
+  .reno li::before{content:""; grid-column:2; align-self:center; margin-top:2px;
+    border-bottom:1px dotted var(--rule)}
+  .reno li .amt{grid-column:3; font-family:var(--mono); font-variant-numeric:tabular-nums;
+    white-space:nowrap; letter-spacing:-.01em}
+  .reno li.unseen{color:var(--muted)}
+  .reno li.unseen::before{border-bottom-color:var(--rule-soft)}
+  .reno li.unseen .amt::after{content:"?"; font-size:9px; vertical-align:super;
+    margin-left:2px; color:var(--warn)}
+  .reno li.conf .amt{font-weight:600; color:var(--ink)}
+  .reno .maybe{display:flex; gap:8px; align-items:baseline; margin:7px 0 0;
+    font-size:12.5px; color:var(--muted); line-height:1.5}
+  .reno .maybe + .maybe{margin-top:3px}
+  .reno .maybe i{flex:none; font-style:normal; font-family:var(--mono); font-size:9px;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--muted);
+    padding:2px 6px; border:1px solid var(--rule); border-radius:4px;
+    background:var(--accent-soft); position:relative; top:-1px}
+  .reno .none{margin:0; font-size:14px; color:var(--muted)}
+  table.big td:last-child{white-space:normal; max-width:150px; font-size:10.5px; line-height:1.3;
+    color:var(--flag); text-wrap:pretty}
+  table.big th.flag-col{white-space:normal}
+  .tl{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--rule)}
+  .tl:hover{color:var(--accent); border-bottom-color:var(--accent)}
+  .tl:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+  .legend{display:flex; flex-wrap:wrap; align-items:center; gap:8px 22px; font-family:var(--mono);
+    font-size:10.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted)}
+  .legend span{display:flex; align-items:center; gap:7px}
+  .legend i{width:9px; height:9px; border-radius:50%; flex:none}
+
+  /* ---------- prominent score ---------- */
+  .lot-head{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr)); gap:18px 22px; align-items:start}
+  .lh-text{min-width:0}
+  .scorepanel{border:1px solid var(--rule); border-radius:8px; background:var(--paper);
+    padding:13px 15px 12px; display:flex; flex-direction:column; gap:12px; min-width:0}
+  .sp-top{display:flex; align-items:center; gap:13px}
+  .sp-letter{font-family:var(--mono); font-size:24px; line-height:1; font-weight:500;
+    padding:8px 12px; border-radius:8px; letter-spacing:.02em}
+  .sp-num{display:flex; flex-direction:column; gap:3px; min-width:0}
+  .sp-num .big{display:flex; align-items:baseline; gap:5px; font-family:var(--mono); font-variant-numeric:tabular-nums}
+  .sp-num b{font-size:31px; font-weight:500; letter-spacing:-.03em; line-height:1; color:var(--ink)}
+  .sp-num i{font-style:normal; font-size:13px; color:var(--muted)}
+  .sp-num em{font-style:normal; font-family:var(--mono); font-size:9px; letter-spacing:.09em;
+    text-transform:uppercase; color:var(--muted)}
+  .sp-parts{display:flex; flex-direction:column; gap:7px}
+  .sp{display:grid; grid-template-columns:60px minmax(0,1fr) 54px; align-items:center; gap:10px}
+  .sp em{font-style:normal; font-family:var(--mono); font-size:9.5px; letter-spacing:.07em;
+    text-transform:uppercase; color:var(--muted)}
+  .sp>span{display:block; height:7px; border-radius:8px; background:var(--rule-soft); overflow:hidden}
+  .sp>span i{display:block; height:100%; background:var(--accent)}
+  .sp b{font-family:var(--mono); font-size:11px; font-weight:500; font-variant-numeric:tabular-nums;
+    color:var(--ink); text-align:right}
+  .sp b s{text-decoration:none; color:var(--muted)}
+  .sp.weak em,.sp.weak b{color:var(--warn)}
+  .sp.weak>span i{background:var(--warn)}
+  .sp.bad em,.sp.bad b{color:var(--bad)}
+  .sp.bad b s{color:var(--bad); opacity:.7}
+  .sp.bad>span i{background:var(--bad)}
+  .sp.bad>span{background:var(--bad-soft)}
+  .sp-foot{margin:0; font-size:11px; color:var(--muted); line-height:1.45;
+    border-top:1px solid var(--rule-soft); padding-top:9px}
+  .scorecol{display:flex; align-items:center; gap:5px}
+  .scorecol .l{font-family:var(--mono); font-size:11px; font-weight:500; width:16px}
+  .scorecol .v{font-family:var(--mono); font-size:13px; font-weight:500;
+    font-variant-numeric:tabular-nums; width:22px; text-align:right; color:var(--ink)}
+  .scorecol .bar{display:block; width:30px; height:6px; border-radius:8px;
+    background:var(--rule-soft); overflow:hidden; flex:none}
+  .scorecol .bar i{display:block; height:100%}
+  th.scoreth{color:var(--accent)!important}
+  @media (max-width:640px){ .lot-head{grid-template-columns:1fr} }
+
+  /* ---------- renovations needed, reworked ---------- */
+  .reno{padding:14px 16px 12px}
+  .reno-head{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px 26px;
+    padding-bottom:12px; border-bottom:1px solid var(--rule-soft); margin-bottom:11px}
+  .rh-lab{display:block; font-family:var(--mono); font-size:9.5px; letter-spacing:.11em;
+    text-transform:uppercase; color:var(--accent); margin-bottom:6px}
+  .rh-total b{display:block; font-family:var(--mono); font-size:30px; font-weight:500; line-height:1;
+    letter-spacing:-.03em; font-variant-numeric:tabular-nums; color:var(--ink)}
+  .rh-total em,.rh-score em{display:block; font-style:normal; font-size:11.5px; color:var(--muted);
+    margin-top:6px; line-height:1.35}
+  .rh-num{display:flex; align-items:baseline; gap:6px}
+  .rh-num b{font-family:var(--mono); font-size:30px; font-weight:500; line-height:1;
+    letter-spacing:-.03em; font-variant-numeric:tabular-nums}
+  .rh-num i{font-style:normal; font-family:var(--mono); font-size:12px; color:var(--muted)}
+  .rh-num u{text-decoration:none; margin-left:auto; font-family:var(--mono); font-size:9.5px;
+    letter-spacing:.09em; text-transform:uppercase}
+  .rh-bar{display:block; height:7px; border-radius:8px; background:var(--rule-soft);
+    overflow:hidden; margin-top:9px}
+  .rh-bar i{display:block; height:100%}
+  .reno li span:first-child{text-transform:none}
+
+  /* ---------- room-driven score ---------- */
+  .roomscore{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px 26px;
+    margin-top:12px; padding:12px 14px; border:1px solid var(--rule); border-radius:8px; background:var(--paper)}
+  .rs-num{display:flex; align-items:baseline; gap:6px; margin-bottom:4px}
+  .rs-num b{font-family:var(--mono); font-size:26px; font-weight:500; line-height:1;
+    letter-spacing:-.03em; font-variant-numeric:tabular-nums; color:var(--ink)}
+  .rs-num i{font-style:normal; font-family:var(--mono); font-size:12px; color:var(--muted)}
+  .roomscore em{display:block; font-style:normal; font-size:11.5px; color:var(--muted); line-height:1.4}
+</style>
+<style>
+  /* ---------- showing record ---------- */
+  .sr{border:1px solid var(--rule); border-radius:6px; background:var(--card); overflow:hidden; margin-top:4px}
+  .sr-head{display:flex; align-items:center; gap:12px; flex-wrap:wrap; padding:11px 14px; cursor:pointer;
+    border-bottom:1px solid var(--rule-soft); background:var(--accent-soft)}
+  .sr-head h3{font-size:11px; letter-spacing:.09em; text-transform:uppercase; margin:0; font-weight:600;
+    color:var(--accent); flex:1; display:flex; align-items:center; gap:7px}
+  .sr-head h3::before{content:"+"; font-size:14px; line-height:1}
+  .sr.open .sr-head h3::before{content:"\2212"}
+  .sr-visit{font-size:11px; letter-spacing:.04em; text-transform:uppercase; background:var(--card);
+    color:var(--ink); border:1px solid var(--rule); border-radius:4px; padding:6px 11px; cursor:pointer; font-weight:600}
+  .sr-visit.on{background:var(--clear); border-color:var(--clear); color:#fff}
+  .sr-meta{font-size:11px; color:var(--muted)}
+  .sr-body{display:none; padding:14px; flex-direction:column; gap:20px}
+  .sr.open .sr-body{display:flex}
+  .sr-b h4{font-size:11px; letter-spacing:.07em; text-transform:uppercase; margin:0 0 10px; font-weight:600;
+    color:var(--ink); display:flex; gap:10px; flex-wrap:wrap; align-items:baseline}
+  .sr-b h4 em{font-style:normal; font-size:12px; letter-spacing:0; text-transform:none; color:var(--muted); font-weight:400}
+  .sr-none{margin:0; font-size:13.5px; color:var(--muted)}
+  .sr-q{margin:0 0 13px}
+  .sr-q .sr-ql{margin:0 0 6px; font-size:14px; display:flex; gap:9px; flex-wrap:wrap; align-items:baseline}
+  .sr-q .sr-ql em{font-style:normal; font-size:11px; color:var(--muted)}
+  .sr-chips{display:flex; gap:6px; flex-wrap:wrap}
+  .sr-chip{font-size:13px; line-height:1.2; padding:8px 12px; border-radius:4px; cursor:pointer;
+    border:1px solid var(--rule); background:transparent; color:var(--ink); font-family:inherit}
+  .sr-chip.on{background:var(--clear-soft); border-color:var(--clear); font-weight:600}
+  .sr-chip.bad.on{background:var(--flag-soft); border-color:var(--flag)}
+  .sr-chip.skip{color:var(--muted)}
+  .sr-chip.skip.on{background:var(--rule-soft); border-color:var(--muted)}
+  .sr-mech{display:flex; gap:8px; flex-wrap:wrap}
+  .sr-my{display:flex; flex-direction:column; gap:3px; font-size:11px; color:var(--muted); width:92px}
+  .sr-my.wide{width:200px}
+  .sr-my input{font-size:14px; padding:7px 8px; border:1px solid var(--rule); border-radius:4px;
+    background:var(--card); color:var(--ink); width:100%; font-family:inherit}
+  .sr-my input.set{border-color:var(--clear); font-weight:600}
+  .sr-list{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:5px}
+  .sr-row{display:grid; grid-template-columns:1fr auto; gap:6px 10px; align-items:center;
+    font-size:13.5px; line-height:1.35; border-bottom:1px solid var(--rule-soft); padding-bottom:5px}
+  .sr-tri{display:flex; gap:4px}
+  .sr-tri button{font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; padding:5px 9px;
+    border:1px solid var(--rule); border-radius:4px; background:transparent; color:var(--muted);
+    cursor:pointer; font-family:inherit; font-weight:600}
+  .sr-tri .ok.on{background:var(--clear); border-color:var(--clear); color:#fff}
+  .sr-tri .no.on{background:var(--flag); border-color:var(--flag); color:#fff}
+  .sr-row .sr-tn{display:none; grid-column:1/-1; font-size:13px; padding:6px 9px; border:1px solid var(--rule);
+    border-radius:4px; background:var(--card); color:var(--ink); font-family:inherit}
+  .sr-row.flagged .sr-tn{display:block}
+  .sr-row.done .sr-t{color:var(--muted)}
+  .sr-verdicts{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:14px}
+  .sr-v{font-size:11px; letter-spacing:.05em; text-transform:uppercase; padding:9px 15px; font-weight:600;
+    border:1px solid var(--rule); border-radius:4px; background:transparent; color:var(--ink); cursor:pointer; font-family:inherit}
+  .sr-v-shortlist.on{background:var(--clear); border-color:var(--clear); color:#fff}
+  .sr-v-maybe.on{background:var(--accent); border-color:var(--accent); color:#fff}
+  .sr-v-out.on{background:var(--flag); border-color:var(--flag); color:#fff}
+  .sr-guts{display:flex; align-items:center; gap:12px; margin-bottom:12px; flex-wrap:wrap}
+  .sr-guts .sr-gl{margin:0; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
+  .sr-gbtns{display:flex; gap:5px}
+  .sr-g{width:34px; height:34px; border:1px solid var(--rule); border-radius:4px; background:transparent;
+    color:var(--ink); font-size:13px; cursor:pointer; font-family:inherit}
+  .sr-g.on{background:var(--accent); border-color:var(--accent); color:#fff}
+  .sr-notes{width:100%; font-family:inherit; font-size:13.5px; line-height:1.5; padding:9px 11px;
+    border:1px solid var(--rule); border-radius:4px; background:var(--card); color:var(--ink); resize:vertical}
+
+  /* ---------- control bar ---------- */
+  .sr-ctl{display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    padding:10px 14px; margin:0 -14px 0; background:var(--paper); border-bottom:1px solid var(--rule)}
+  .lot{scroll-margin-top:64px}
+  /* the only thing that follows you down the page is the house picker */
+  .sr-float{position:fixed; top:12px; right:18px; z-index:45; padding:7px 10px;
+    background:var(--paper); border:1px solid var(--rule); border-radius:8px;
+    box-shadow:0 6px 20px rgba(16,24,48,.10);
+    transition:transform .26s cubic-bezier(.22,.7,.3,1), opacity .16s ease}
+  .sr-float.is-parked{transform:translateY(-150%); opacity:0; pointer-events:none}
+  @media (max-width:560px){ .sr-float{left:14px; right:14px; top:8px} .sr-float .sr-jump select{width:100%; max-width:none} }
+  .sr-jump{display:flex; align-items:center; gap:7px}
+  .sr-jump>span{font-family:var(--mono); font-size:9.5px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--muted)}
+  .sr-jump select{font-family:inherit; font-size:12px; padding:6px 26px 6px 10px; max-width:230px;
+    border:1px solid var(--rule); border-radius:4px; background-color:var(--card); color:var(--ink);
+    cursor:pointer; -webkit-appearance:none; appearance:none;
+    background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+    background-size:5px 5px,5px 5px; background-position:calc(100% - 15px) 13px,calc(100% - 10px) 13px;
+    background-repeat:no-repeat}
+  .sr-jump select:hover{border-color:var(--accent)}
+  .sr-jump select:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+  .sr-modes{display:flex; gap:5px; flex-wrap:wrap}
+  .sr-mode{font-size:11px; letter-spacing:.04em; text-transform:uppercase; padding:7px 11px; font-weight:600;
+    border:1px solid var(--rule); border-radius:4px; background:var(--card); color:var(--ink);
+    cursor:pointer; font-family:inherit}
+  .sr-mode.on{background:var(--ink); border-color:var(--ink); color:var(--paper)}
+  .sr-exp{font-size:11px; letter-spacing:.04em; text-transform:uppercase; padding:7px 11px; font-weight:600;
+    border:1px solid var(--accent); border-radius:4px; background:transparent; color:var(--accent);
+    cursor:pointer; font-family:inherit; margin-left:auto}
+  .sr-pill{font-size:11px; color:var(--muted)}
+  .sr-pill.ok{color:var(--clear)} .sr-pill.warn{color:var(--flag)}
+  .sr-strip{border:1px solid var(--rule); border-radius:6px; background:var(--card); padding:13px 15px; display:none}
+  .sr-strip.on{display:block}
+  .sr-strip h3{font-size:11px; letter-spacing:.09em; text-transform:uppercase; margin:0 0 9px;
+    font-weight:600; color:var(--accent)}
+  .sr-strip h3 .hint{float:right; font-weight:500; letter-spacing:.04em; text-transform:none; color:var(--muted)}
+  .sr-strip ol{margin:0; padding:0; list-style:none; font-size:14px;
+    display:flex; flex-direction:column; gap:2px}
+  .sr-strip .sv{font-size:11.5px; color:var(--muted); display:block; margin-top:1px}
+  .sr-strip .empty{margin:0; font-size:13.5px; color:var(--muted)}
+  /* manual re-ranking rows */
+  .ord{display:grid; grid-template-columns:20px 26px minmax(0,1fr) auto; gap:9px; align-items:center;
+    padding:6px 7px; border-radius:6px; border:1px solid transparent;
+    transition:background .12s ease, border-color .12s ease, opacity .12s ease}
+  .ord:hover{background:var(--accent-soft)}
+  .ord.drop{border-color:var(--accent); background:var(--accent-soft)}
+  .ord.lift{opacity:.4}
+  .ord .grip{cursor:grab; color:var(--muted); font-size:13px; line-height:1; text-align:center;
+    user-select:none; letter-spacing:.5px}
+  .ord:active .grip{cursor:grabbing}
+  .ord .mine{font-family:var(--mono); font-size:13px; font-weight:600; font-variant-numeric:tabular-nums;
+    text-align:right; color:var(--ink)}
+  .ord.moved .mine{color:var(--accent)}
+  .ord .nm{min-width:0}
+  .ord .nm a{font-weight:500}
+  .ord .mv{display:flex; gap:3px}
+  .ord .mv button{width:23px; height:23px; padding:0; font-size:11px; line-height:1; cursor:pointer;
+    font-family:inherit; border:1px solid var(--rule); border-radius:4px;
+    background:var(--paper); color:var(--muted)}
+  .ord .mv button:hover:not(:disabled){border-color:var(--accent); color:var(--accent)}
+  .ord .mv button:disabled{opacity:.3; cursor:default}
+  .ord .mv button:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+  .sr-reset{margin:11px 0 0; padding:0; font-family:var(--mono); font-size:9.5px; letter-spacing:.08em;
+    text-transform:uppercase; border:0; background:none; color:var(--muted);
+    text-decoration:underline; text-underline-offset:3px; cursor:pointer}
+  .sr-reset:hover{color:var(--accent)}
+  .sr-reset:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+  .lot.sr-hide{display:none}
+  .sr-expbox{display:none; flex-direction:column; gap:8px}
+  .sr-expbox.on{display:flex}
+  .sr-expbox p{margin:0; font-size:13.5px; color:var(--muted)}
+  .sr-expbox textarea{width:100%; height:190px; font-size:11.5px; font-family:ui-monospace,Menlo,monospace;
+    border:1px solid var(--rule); border-radius:4px; background:var(--card); color:var(--ink); padding:9px}
+  @media (max-width:560px){
+    .sr-body{padding:11px}
+    .sr-my{width:calc(50% - 4px)} .sr-my.wide{width:100%}
+    .sr-ctl{margin:0 -16px; padding:9px 16px}
+    .sr-exp{margin-left:0}
+  }
+</style>
+</head><body style="margin:0;font:14px system-ui"><div class="wrap">
+
+  <header class="mast">
+    <p class="kicker">{{KICKER}}</p>
+    <h1>Walking the Shortlist</h1>
+    <p class="standfirst">{{STANDFIRST}}</p>
+    <div class="mast-meta">{{MASTMETA}}</div>
+    {{CHANGES}}
+    <div class="legend">
+      <span><i style="background:var(--clear)"></i>No problem found</span>
+      <span><i style="background:var(--warn)"></i>Unseen, or under half its weight</span>
+      <span><i style="background:var(--bad)"></i>Under 30% of its weight</span>
+      <span><i style="background:var(--flag)"></i>Confirmed, costs money</span>
+      <span><i style="background:var(--accent)"></i>Grade and score</span>
+    </div>
+  </header>
+
+  <div class="sr-ctl" id="sr-ctl">
+    <div class="sr-modes">
+      <button type="button" class="sr-mode on" data-kind="mode" data-v="all">All 37</button>
+      <button type="button" class="sr-mode" data-kind="mode" data-v="todo">Not walked</button>
+      <button type="button" class="sr-mode" data-kind="mode" data-v="seen">Walked</button>
+      <button type="button" class="sr-mode" data-kind="mode" data-v="short">Shortlist</button>
+    </div>
+    <button type="button" class="sr-exp" data-kind="export">Export notes</button>
+    {{FILTERS}}<span class="sr-pill" id="sr-pill"></span>{{HOLDTOGGLE}}
+  </div>
+
+  <div class="sr-float is-parked" id="sr-float">
+    <label class="sr-jump"><span>Jump to</span><select id="jump">{{JUMPOPTS}}</select></label>
+  </div>
+  <div class="sr-strip" id="sr-strip"></div>
+  {{SATURDAY}}
+  {{PAIRS}}
+  {{COMPARE}}
+  <div class="sr-expbox" id="sr-expbox">
+    <p>Everything recorded so far. Paste it into the chat, or merge the <code>observations_patch</code>
+      block into <code>observations.json</code> and run <code>refresh.sh</code> to re-rank on what you saw.</p>
+    <textarea id="sr-exptext" readonly></textarea>
+  </div>
+
+
+  <dl class="glossary">{{GLOSSARY}}</dl>
+
+  <p class="howto">{{HOWTO}}</p>
+
+  <div class="section-head">
+    <h2>The whole table</h2>
+    <p>{{TABLEINTRO}}</p>{{FRONTIERCHART}}
+  </div>
+  <div class="tablewrap">
+    <table class="big"><thead><tr>{{THEAD}}</tr></thead>
+      <tbody>{{TBODY}}</tbody></table>
+  </div>
+
+
+  <div class="section-head">
+    <h2>House by house</h2>
+    <p>{{CARDSINTRO}}</p>
+  </div>
+
+  <div class="lots" id="lots">{{LOTS}}
+  </div>
+
+  <div class="section-head">
+    <h2>Under the hood</h2>
+    <p>Every number above comes out of these four tables. If one of them is wrong, the ranking moves.
+      They are here so you can argue with them.</p>
+  </div>
+
+  <div class="assume">
+    <section>
+      <h3>What each job is priced at</h3>
+      <table>
+        <thead><tr><th>Job</th><th class="n">Low</th><th class="n">Likely</th><th class="n">High</th></tr></thead>
+        <tbody>
+          <tr><td>Kitchen, full</td><td class="n">35,000</td><td class="n">50,000</td><td class="n">75,000</td></tr>
+          <tr><td>Kitchen, cosmetic</td><td class="n">12,000</td><td class="n">20,000</td><td class="n">32,000</td></tr>
+          <tr><td>Main bath, gut</td><td class="n">12,000</td><td class="n">18,000</td><td class="n">28,000</td></tr>
+          <tr><td>Second bath</td><td class="n">10,000</td><td class="n">15,000</td><td class="n">22,000</td></tr>
+          <tr><td>Powder room</td><td class="n">3,500</td><td class="n">6,500</td><td class="n">11,000</td></tr>
+          <tr><td>Flooring, per sq ft</td><td class="n">7</td><td class="n">10</td><td class="n">14</td></tr>
+          <tr><td>Ceilings, per sq ft</td><td class="n">2.50</td><td class="n">3.50</td><td class="n">4.50</td></tr>
+          <tr><td>Basement, per sq ft</td><td class="n">35</td><td class="n">50</td><td class="n">70</td></tr>
+          <tr><td>Waterproofing</td><td class="n">8,000</td><td class="n">14,000</td><td class="n">22,000</td></tr>
+          <tr><td>Panel, 100 to 200A</td><td class="n">2,500</td><td class="n">3,500</td><td class="n">5,000</td></tr>
+          <tr><td>Rewire</td><td class="n">15,000</td><td class="n">24,000</td><td class="n">35,000</td></tr>
+          <tr><td>Oil to gas</td><td class="n">10,000</td><td class="n">14,000</td><td class="n">19,000</td></tr>
+          <tr><td>Oil tank removal</td><td class="n">3,000</td><td class="n">5,500</td><td class="n">9,000</td></tr>
+          <tr><td>Asbestos abatement</td><td class="n">2,500</td><td class="n">7,000</td><td class="n">15,000</td></tr>
+        </tbody>
+      </table>
+      <p>GTA 2026, mid-range finish, same layout, before HST and before contingency. Kitchen and bath
+        figures come from published Ontario contractor ranges. The rest are working estimates and are
+        the first thing to replace with a real quote.</p>
+    </section>
+
+    <section>
+      <h3>Components, and what they cost to replace</h3>
+      <table>
+        <thead><tr><th>Component</th><th class="n">Likely</th><th class="n">Life</th><th class="n">Per yr</th></tr></thead>
+        <tbody>
+          <tr><td>Roof</td><td class="n">13,000</td><td class="n">22 yr</td><td class="n">668</td></tr>
+          <tr><td>Furnace</td><td class="n">7,000</td><td class="n">20 yr</td><td class="n">405</td></tr>
+          <tr><td>A/C</td><td class="n">6,000</td><td class="n">15 yr</td><td class="n">465</td></tr>
+          <tr><td>Water heater</td><td class="n">2,600</td><td class="n">13 yr</td><td class="n">232</td></tr>
+          <tr><td>Windows, whole house</td><td class="n">20,000</td><td class="n">30 yr</td><td class="n">773</td></tr>
+        </tbody>
+      </table>
+      <p><b>Per year includes HST.</b> This is the honest cost of owning a house with mechanical
+        equipment in it, whether or not anything breaks in your first year. Because <b class="hot">only four of the 37 listings showed anything mechanical</b> (a tankless water heater at Barberry, a tank at Pallatine, a furnace cabinet at Samford, PEX lines at Kent) and none showed a panel, every house here is charged the full reserve.
+        One date from the agent removes most of it: a 2023 furnace drops that line to near zero for a decade.</p>
+    </section>
+
+    <section>
+      <h3>How likely a job is needed</h3>
+      <table>
+        <thead><tr><th>House built</th><th class="n">Assumed</th></tr></thead>
+        <tbody>
+          <tr><td>Before 1990</td><td class="n">70%</td></tr>
+          <tr><td>1990 to 2004</td><td class="n">45%</td></tr>
+          <tr><td>2005 or later</td><td class="n">20%</td></tr>
+          <tr><td>Every tell read clean</td><td class="n">15%</td></tr>
+          <tr><td>Defect confirmed</td><td class="n">100%</td></tr>
+        </tbody>
+      </table>
+      <p>A job you cannot see is priced at the odds it has never been done, set by the age of the house.
+        Reading the sink rim, the counter edge, the soffit and the door profile at full resolution pulls
+        that number down toward 15%. Seeing a defect pins it at 100%. That is the whole mechanism, and it
+        is why the houses whose tells came back original carry the largest wish lists.</p>
+      <table>
+        <thead><tr><th>Discovery contingency</th><th class="n">Added</th></tr></thead>
+        <tbody>
+          <tr><td>Built before 1980</td><td class="n">+25%</td></tr>
+          <tr><td>1980 to 1999</td><td class="n">+18%</td></tr>
+          <tr><td>2000 or later</td><td class="n">+12%</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h3>What you get back</h3>
+      <table>
+        <thead><tr><th>Work</th><th class="n">Recovers</th></tr></thead>
+        <tbody>
+          <tr><td>Adding a second full bath</td><td class="n">100 to 125%</td></tr>
+          <tr><td>Kitchen</td><td class="n">75 to 100%</td></tr>
+          <tr><td>Interior paint</td><td class="n">50 to 100%</td></tr>
+          <tr><td>Bathroom</td><td class="n">55 to 90%</td></tr>
+          <tr><td>Roof</td><td class="n">50 to 80%</td></tr>
+          <tr><td>Furnace and A/C</td><td class="n">50 to 80%</td></tr>
+          <tr><td>Flooring</td><td class="n">50 to 75%</td></tr>
+          <tr><td>Windows</td><td class="n">50 to 75%</td></tr>
+          <tr><td>Finishing a basement</td><td class="n">50 to 75%</td></tr>
+          <tr><td>Driveway</td><td class="n">20 to 50%</td></tr>
+          <tr><td>Oil tank, asbestos, waterproofing</td><td class="n">25 to 50%</td></tr>
+        </tbody>
+      </table>
+      <p>Appraisal Institute of Canada bands, with the bathroom low end pulled down to match the RE/MAX
+        renovation report. <b>Almost nothing returns more than it costs.</b> Spending past what a renovated
+        house in that pocket sells for returns 45 cents on the dollar, which is the arithmetic behind
+        the old rule about not over-improving for the street.</p>
+      <p class="hot"><b>The single most sensitive number on this page:</b> a renovated house is assumed to
+        trade at $720 per usable sq ft in Burlington and $790 in Oakville. Both are derived from asking
+        prices, not sold prices. Move them by $60 and several of the resale figures move by six digits.
+        Ask the agent for sold price per square foot in each pocket, and this stops being a guess.</p>
+    </section>
+  </div>
+
+  <div class="standing">
+    <h3>Two questions that go to every listing agent, always</h3>
+    <ol>
+      <li>How old are the roof, furnace and air conditioner?</li>
+      <li>Are any of the photos virtually staged or digitally enhanced, and when were they taken?</li>
+    </ol>
+    <p style="margin:12px 0 0; font-size:14px; color:var(--muted)">Not one of these 37 listings contains a photograph of an electrical panel, and only four show any
+      mechanical equipment at all. Across houses built between 1950 and 2008, that is the largest gap in everything
+      above, and the first question closes most of it. Two listings were caught overstating: Oxlow calls an
+      above-ground pool in-ground, and Tania has at least one virtually staged basement frame.</p>
+  </div>
+
+  <div class="caveat">
+    <section><h3>This cannot tell you a house is good</h3>
+      <p>It is a screening tool and a list of things to check. Every green line means "no problem found in
+        the photos", never "verified fine".</p></section>
+    <section><h3>None of these are offer prices</h3>
+      <p>There are no sold comparables in this model. Resale estimates rest on an asking-price benchmark
+        and will move the moment real sold data exists.</p></section>
+    <section><h3>The calculator is arithmetic, not advice</h3>
+      <p>Rates, insurance premiums and rebate rules change. Confirm every figure with your mortgage broker
+        and your real estate lawyer before you rely on it.</p></section>
+    <section><h3>It knows nothing about living there</h3>
+      <p>The street, the light, the noise, the walk to the car in February. All of it outranks everything
+        on this page.</p></section>
+  </div>
+
+  
+  <section class="calc">
+    <div class="calc-head">
+      <h2>What each one actually costs you</h2>
+      <p>Put your own numbers in. Everything below recalculates, including Ontario land transfer tax and
+        the first-time buyer rebate. Payments use the Canadian semi-annual compounding convention.</p>
+    </div>
+    <div class="controls">
+      <div class="ctrl"><label for="dp">Down payment %</label>
+        <input type="number" id="dp" value="20" min="5" max="100" step="1"></div>
+      <div class="ctrl"><label for="rate">Interest rate %</label>
+        <input type="number" id="rate" value="4.25" min="0.5" max="12" step="0.05"></div>
+      <div class="ctrl"><label for="amort">Amortization yrs</label>
+        <input type="number" id="amort" value="25" min="5" max="30" step="1"></div>
+      <div class="ctrl ftb"><input type="checkbox" id="ftb" checked>
+        <label for="ftb">First-time buyers</label></div>
+    </div>
+    <p id="cmhc-note">Under 20% down, mortgage default insurance applies and gets added to the loan.
+      Confirm the premium and the maximum purchase price with your lender.</p>
+    <div class="tablewrap">
+      <table class="big" id="calctab">
+        <thead><tr><th>House</th><th class="n">Ask</th><th class="n">Mortgage</th>
+          <th class="n">P&amp;I</th><th class="n">Tax</th><th class="n">Upkeep</th>
+          <th class="n">Monthly payment</th><th class="n">Land transfer</th><th class="n">Cash on closing day</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  {{CALIBRATION}}
+
+  <p class="colophon">{{COLOPHON}}</p>
+
+</div>
+{{V6JS}}
+<script>
+const HOUSES = {{HOUSES}};
+const RESERVE = {{RESERVE}};
+const CLOSING_EXTRAS = 3500; // lawyer, title insurance, inspection — a working estimate
+
+function money(n){ return "$" + Math.round(n).toLocaleString("en-CA"); }
+
+// Ontario provincial land transfer tax. Burlington and Oakville levy no municipal LTT.
+function ontarioLTT(p){
+  const bands=[[55000,.005],[250000,.01],[400000,.015],[2000000,.02],[Infinity,.025]];
+  let t=0, prev=0;
+  for(const [cap,rate] of bands){ if(p<=prev) break; t += (Math.min(p,cap)-prev)*rate; prev=cap; }
+  return t;
+}
+// Canadian mortgages compound semi-annually, not monthly.
+function monthlyPayment(principal, annualPct, years){
+  if(principal<=0) return 0;
+  const i = Math.pow(1 + (annualPct/100)/2, 1/6) - 1;
+  const n = years*12;
+  if(i===0) return principal/n;
+  return principal * i / (1 - Math.pow(1+i, -n));
+}
+function cmhcRate(dpPct){
+  if(dpPct>=20) return 0;
+  if(dpPct>=15) return .028;
+  if(dpPct>=10) return .031;
+  return .04;
+}
+
+function recalc(){
+  const dp = Math.max(5, Math.min(100, +document.getElementById("dp").value || 20));
+  const rate = +document.getElementById("rate").value || 4.25;
+  const yrs = Math.max(5, Math.min(30, +document.getElementById("amort").value || 25));
+  const ftb = document.getElementById("ftb").checked;
+  document.getElementById("cmhc-note").classList.toggle("on", dp < 20);
+
+  const tbody = document.querySelector("#calctab tbody");
+  tbody.innerHTML = "";
+  HOUSES.forEach(function(h){
+    const down = h.p * dp/100;
+    const base = h.p - down;
+    const prem = base * cmhcRate(dp);
+    const loan = base + prem;
+    const pay = monthlyPayment(loan, rate, yrs);
+    const ltt = ontarioLTT(h.p);
+    const rebate = ftb ? Math.min(4000, ltt) : 0;
+    const taxmo = h.t/12;
+    const res = RESERVE[h.k];
+    const total = pay + taxmo + res;
+    const cash = down + (ltt - rebate) + CLOSING_EXTRAS + h.d;
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td>"+h.n+"</td>"+
+      "<td class='n'>"+money(h.p)+"</td>"+
+      "<td class='n'>"+money(loan)+"</td>"+
+      "<td class='n'>"+money(pay)+"</td>"+
+      "<td class='n'>"+money(taxmo)+"</td>"+
+      "<td class='n'>"+money(res)+"</td>"+
+      "<td class='n'><b>"+money(total)+"</b></td>"+
+      "<td class='n'>"+money(ltt-rebate)+"</td>"+
+      "<td class='n'><b>"+money(cash)+"</b></td>";
+    tbody.appendChild(tr);
+
+    const live = document.querySelector('[data-live="'+h.k+'"]');
+    if(live){
+      live.innerHTML =
+        "<div><dt>Mortgage</dt><dd>"+money(loan)+"</dd></div>"+
+        "<div><dt>Down payment</dt><dd>"+money(down)+"</dd></div>"+
+        "<div><dt>Land transfer, net</dt><dd>"+money(ltt-rebate)+"</dd></div>";
+    }
+  });
+  try{ localStorage.setItem("walk-shortlist-calc", JSON.stringify({dp:dp,rate:rate,yrs:yrs,ftb:ftb})); }catch(e){}
+}
+
+
+(function init(){
+  try{
+    const s = JSON.parse(localStorage.getItem("walk-shortlist-calc") || "null");
+    if(s){
+      document.getElementById("dp").value = s.dp;
+      document.getElementById("rate").value = s.rate;
+      document.getElementById("amort").value = s.yrs;
+      document.getElementById("ftb").checked = !!s.ftb;
+    }
+  }catch(e){}
+  recalc();
+  ["dp","rate","amort","ftb"].forEach(function(id){
+    document.getElementById(id).addEventListener("input", recalc);
+    document.getElementById(id).addEventListener("change", recalc);
+  });
+  /* ---------- walk checklist: real boxes, per-house progress, saved ---------- */
+  var KEY = "walk-shortlist-checks-v2", saved = {};
+  try{ saved = JSON.parse(localStorage.getItem(KEY) || "{}"); }catch(e){ saved = {}; }
+  function saveChecks(){ try{ localStorage.setItem(KEY, JSON.stringify(saved)); }catch(e){} }
+  var lots = [].slice.call(document.querySelectorAll(".lot"));
+  lots.forEach(function(lot){
+    if(!lot.id && lot.dataset.slug) lot.id = lot.dataset.slug;
+    var sec = lot.querySelector(".check"); if(!sec) return;
+    var key = lot.dataset.slug || lot.id || "x";
+    var prog = document.createElement("span"); prog.className = "ck-prog";
+    var h3 = sec.querySelector("h3"); if(h3) h3.appendChild(prog);
+    var boxes = [];
+    function paint(){
+      var n = boxes.filter(function(b){ return b.checked; }).length;
+      prog.textContent = n + " / " + boxes.length;
+      prog.classList.toggle("done", boxes.length > 0 && n === boxes.length);
+    }
+    [].slice.call(sec.querySelectorAll("li")).forEach(function(li, i){
+      if(li.querySelector("input")) return;
+      var id = "ck-" + key + "-" + i;
+      var txt = document.createElement("span");
+      while(li.firstChild) txt.appendChild(li.firstChild);
+      var lab = document.createElement("label");
+      lab.setAttribute("for", id); lab.appendChild(txt);
+      var box = document.createElement("input");
+      box.type = "checkbox"; box.id = id; box.checked = !!saved[id];
+      li.appendChild(box); li.appendChild(lab);
+      box.addEventListener("change", function(){
+        if(box.checked){ saved[id] = 1; } else { delete saved[id]; }
+        saveChecks(); paint();
+      });
+      boxes.push(box);
+    });
+    paint();
+  });
+
+  /* ---------- sticky bar: jump to one house, park while scrolling ---------- */
+  var ctl = document.getElementById("sr-float"), jb = document.getElementById("jump");
+  if(jb){
+    lots.forEach(function(lot){
+      var h2 = lot.querySelector("h2"); if(!lot.id || !h2) return;
+      var rank = lot.querySelector(".rank");
+      var o = document.createElement("option");
+      o.value = lot.id;
+      o.textContent = (rank ? rank.textContent.trim() + ". " : "") + h2.textContent.trim();
+      jb.appendChild(o);
+    });
+    jb.addEventListener("change", function(){
+      var el = this.value && document.getElementById(this.value);
+      if(el) window.scrollTo({top: el.getBoundingClientRect().top + window.pageYOffset - 58, behavior:"smooth"});
+    });
+  }
+  if(ctl){
+    var idle = null;
+    function settled(){
+      // at the very top the real control bar is on screen; stay out of its way
+      if(window.pageYOffset < 220){ ctl.classList.add("is-parked"); return; }
+      ctl.classList.remove("is-parked");
+    }
+    window.addEventListener("scroll", function(){
+      if(!ctl.contains(document.activeElement)) ctl.classList.add("is-parked");
+      clearTimeout(idle); idle = setTimeout(settled, 360);
+    }, {passive:true});
+    settled();
+  }
+})();
+</script>
+<script>
+const SHOW_DATA = {{SHOW_DATA}};
+/* Showing record runtime, v2. One note-taker, generalised questions.
+   Reads SHOW_DATA = {houses:{k:{slug,name,psf,rank,verdict}}, walk:[...], qs:{key:{opts:[{v,patch}]}}}.
+   Storage: the artifact's shared db when published as an artifact, localStorage otherwise.
+   Nothing here recomputes the model; answers are exported as a patch for score.py. */
+(function () {
+  var LS = "walk-showings-v2";
+  var ST = {}, DB = null, MODE = "all", T = {};
+  var H = (SHOW_DATA && SHOW_DATA.houses) || {}, QS = (SHOW_DATA && SHOW_DATA.qs) || {};
+
+  function rec(k) { if (!ST[k]) ST[k] = {}; return ST[k]; }
+  function nowISO() { return new Date().toISOString(); }
+  function today() { return new Date().toISOString().slice(0, 10); }
+  function pill(t, c) { var e = document.getElementById("sr-pill"); if (e) { e.textContent = t; e.className = "sr-pill " + (c || ""); } }
+  function lsRead() { try { return JSON.parse(localStorage.getItem(LS) || "{}"); } catch (e) { return {}; } }
+  function lsWrite() { try { localStorage.setItem(LS, JSON.stringify(ST)); } catch (e) { } }
+
+  function touched(r) {
+    if (!r) return false;
+    if (r.visited || r.verdict || r.gut || (r.notes || "").trim()) return true;
+    var n = 0;
+    ["ans", "mech", "targ", "walk"].forEach(function (g) { if (r[g] && Object.keys(r[g]).length) n++; });
+    return n > 0;
+  }
+  function settled(r) {
+    var c = 0, a = (r && r.ans) || {};
+    Object.keys(a).forEach(function (q) { if (a[q] && a[q] !== "unsure") c++; });
+    return c;
+  }
+
+  /* ---------------- persistence ---------------- */
+  function queue(k) { clearTimeout(T[k]); T[k] = setTimeout(function () { persist(k); }, 700); }
+  function persist(k) {
+    var r = rec(k);
+    r.ts = nowISO();
+    lsWrite();
+    if (!DB) { pill("Saved", "ok"); return; }
+    pill("Saving…");
+    DB.doc("showings/" + k).set(r).then(function () { pill("Saved", "ok"); })
+      .catch(function (e) { pill(e && e.code === "not_granted" ? "Saved" : "Save failed, kept locally", "warn"); });
+  }
+
+  function boot() {
+    ST = lsRead();
+    paint(); applyMode();
+    if (!(window.claude && window.claude.use)) { pill(""); return; }
+    pill("Connecting…");
+    window.claude.use("db").then(function (db) {
+      if (!db) { pill(""); return; }
+      DB = db;
+      db.collection("showings").onSnapshot(function (snap) {
+        var seen = {};
+        snap.docs.forEach(function (doc) {
+          var k = doc.id, d = doc.data() || {}; seen[k] = 1;
+          var mine = ST[k];
+          if (!mine || (mine.ts || "") <= (d.ts || "")) ST[k] = d;
+          else persist(k);
+        });
+        lsWrite(); paint(); applyMode(); pill("Saved", "ok");
+        Object.keys(ST).forEach(function (k) { if (touched(ST[k]) && !seen[k]) persist(k); });
+      }, function () { pill("Live sync dropped, still saving here", "warn"); });
+    }).catch(function () { pill(""); });
+  }
+
+  /* The generic fourteen are built here rather than repeated in every card's markup. */
+  function fillWalk(host) {
+    if (!host || host.dataset.filled) return;
+    var k = host.dataset.walk, W = (SHOW_DATA && SHOW_DATA.walk) || [], h = "";
+    for (var i = 0; i < W.length; i++) {
+      h += '<li class="sr-row"><span class="sr-t"></span>'
+        + '<span class="sr-tri"><button type="button" class="ok" data-kind="walk" data-h="' + k + '" data-i="' + i + '" data-v="ok">Fine</button>'
+        + '<button type="button" class="no" data-kind="walk" data-h="' + k + '" data-i="' + i + '" data-v="issue">Problem</button></span>'
+        + '<input class="sr-tn" type="text" placeholder="what you saw" data-kind="walkn" data-h="' + k + '" data-i="' + i + '"></li>';
+    }
+    host.innerHTML = h;
+    host.querySelectorAll(".sr-t").forEach(function (e, i) { e.textContent = W[i]; });
+    host.dataset.filled = "1";
+  }
+
+  /* ---------------- paint ---------------- */
+  function paint() {
+    document.querySelectorAll(".sr").forEach(function (s) { if (touched(ST[s.dataset.rec])) s.classList.add("open"); });
+    document.querySelectorAll(".sr.open .sr-walkhost").forEach(fillWalk);
+    document.querySelectorAll("[data-kind]").forEach(function (el) {
+      var kd = el.dataset.kind, k = el.dataset.h, r = (k && ST[k]) || {};
+      if (kd === "ans") el.classList.toggle("on", ((r.ans || {})[el.dataset.q] || "") === el.dataset.v);
+      else if (kd === "targ" || kd === "walk") el.classList.toggle("on", (((r[kd] || {})[el.dataset.i] || {}).s || "") === el.dataset.v);
+      else if (kd === "targn" || kd === "walkn") {
+        var g = kd === "targn" ? "targ" : "walk", v = ((r[g] || {})[el.dataset.i] || {}).n || "";
+        if (document.activeElement !== el) el.value = v;
+      }
+      else if (kd === "mech") {
+        if (document.activeElement !== el) el.value = (r.mech || {})[el.dataset.f] || "";
+        el.classList.toggle("set", !!(r.mech || {})[el.dataset.f]);
+      }
+      else if (kd === "verdict") el.classList.toggle("on", (r.verdict || "") === el.dataset.v);
+      else if (kd === "gut") el.classList.toggle("on", String(r.gut || "") === el.dataset.v);
+      else if (kd === "notes") { if (document.activeElement !== el) el.value = r.notes || ""; }
+      else if (kd === "visited") el.classList.toggle("on", !!r.visited);
+    });
+    document.querySelectorAll(".sr-row").forEach(function (row) {
+      var b = row.querySelector("button[data-kind]"); if (!b) return;
+      var r = ST[b.dataset.h] || {}, s = ((r[b.dataset.kind] || {})[b.dataset.i] || {}).s || "";
+      row.classList.toggle("flagged", s === "issue");
+      row.classList.toggle("done", s === "ok");
+    });
+    document.querySelectorAll("[data-meta]").forEach(function (e) {
+      var r = ST[e.dataset.meta] || {}, bits = [];
+      if (r.date) bits.push("seen " + r.date);
+      var a = settled(r); if (a) bits.push(a + " settled");
+      if (r.verdict) bits.push(r.verdict);
+      if (r.gut) bits.push(r.gut + "/5");
+      e.textContent = bits.join(" · ");
+    });
+  }
+
+  /* ---------------- modes ---------------- */
+  function want(k) {
+    var r = ST[k] || {};
+    if (MODE === "all") return true;
+    if (MODE === "seen") return touched(r);
+    if (MODE === "short") return r.verdict === "shortlist";
+    if (MODE === "todo") return !touched(r) && (H[k] || {}).verdict !== "STOP";
+    return true;
+  }
+  /* ---- manual re-ranking (todo / seen / short only; model rank untouched) ---- */
+  var ORD_KEY = "walk-shortlist-order-v1", ORD = {};
+  try { ORD = JSON.parse(localStorage.getItem(ORD_KEY) || "{}"); } catch (e) { ORD = {}; }
+  function ordSave() { try { localStorage.setItem(ORD_KEY, JSON.stringify(ORD)); } catch (e) {} }
+  function baseSort(ks) {
+    if (MODE === "todo") return ks.sort(function (x, y) { return H[x].rank - H[y].rank; });
+    return ks.sort(function (x, y) { return (H[x].psf || 0) - (H[y].psf || 0); });
+  }
+  function ordered() {
+    var ks = baseSort(Object.keys(H).filter(want)), man = ORD[MODE] || [];
+    var pos = {}; man.forEach(function (k, i) { pos[k] = i; });
+    return ks.slice().sort(function (x, y) {
+      var a = pos[x], b = pos[y];
+      if (a == null && b == null) return ks.indexOf(x) - ks.indexOf(y);
+      if (a == null) return 1;
+      if (b == null) return -1;
+      return a - b;
+    });
+  }
+  function ordMove(k, d) {
+    var ks = ordered(), i = ks.indexOf(k), j = i + d;
+    if (i < 0 || j < 0 || j >= ks.length) return;
+    ks.splice(j, 0, ks.splice(i, 1)[0]);
+    ORD[MODE] = ks; ordSave(); applyMode();
+    var row = document.querySelector('.ord[data-k="' + k + '"] .mv button[data-d="' + d + '"]');
+    if (row) row.focus();
+  }
+  function ordDrop(from, to) {
+    var ks = ordered(), i = ks.indexOf(from), j = ks.indexOf(to);
+    if (i < 0 || j < 0 || i === j) return;
+    ks.splice(j, 0, ks.splice(i, 1)[0]);
+    ORD[MODE] = ks; ordSave(); applyMode();
+  }
+  function applyMode() {
+    document.querySelectorAll("#sr-ctl .sr-mode").forEach(function (b) { b.classList.toggle("on", b.dataset.v === MODE); });
+    document.querySelectorAll(".lot").forEach(function (a) { a.classList.toggle("sr-hide", !want(a.dataset.slug)); });
+    var strip = document.getElementById("sr-strip");
+    if (!strip) return;
+    if (MODE === "all") { strip.classList.remove("on"); ordLots(null); return; }
+    strip.classList.add("on");
+    var ks = ordered(), man = ORD[MODE] || [];
+    var lab = MODE === "seen" ? "Houses you have walked" : MODE === "short" ? "Your shortlist" : "Not walked yet";
+    var sub = man.length ? "your order" : (MODE === "todo" ? "model rank order" : "cheapest to own first");
+    var body = ks.length ? "<ol>" + ks.map(function (k, i) {
+      var r = ST[k] || {}, mv = man.indexOf(k) > -1;
+      return "<li class='ord" + (mv ? " moved" : "") + "' data-k='" + k + "' draggable='true'>"
+        + "<span class='grip' aria-hidden='true'>⠿</span>"
+        + "<span class='mine'>" + (i + 1) + "</span>"
+        + "<span class='nm'><a href='#sr-lot-" + k + "'>" + H[k].name + "</a>"
+        + "<span class='sv'>$" + Number(H[k].psf).toLocaleString("en-CA") + "/mo to own · " + (H[k].rank > 90 ? "not ranked" : "rank " + H[k].rank)
+        + (r.verdict ? " · " + r.verdict : "") + (r.gut ? " · " + r.gut + "/5" : "") + "</span></span>"
+        + "<span class='mv'><button type='button' data-d='-1' title='Move up'"
+        + (i === 0 ? " disabled" : "") + " aria-label='Move " + H[k].name + " up'>↑</button>"
+        + "<button type='button' data-d='1' title='Move down'"
+        + (i === ks.length - 1 ? " disabled" : "") + " aria-label='Move " + H[k].name + " down'>↓</button></span></li>";
+    }).join("") + "</ol>" : "<p class='empty'>Nothing in here yet.</p>";
+    strip.innerHTML = "<h3>" + lab + " · " + ks.length + " of " + Object.keys(H).length
+      + "<span class='hint'>Drag or use ↑↓ · " + sub + "</span></h3>" + body
+      + (man.length ? "<button type='button' class='sr-reset' data-kind='ordreset'>Reset to model order</button>" : "");
+    ordLots(ks);
+  }
+  /* mirror the chosen order onto the house cards below */
+  function ordLots(ks) {
+    var lots = [].slice.call(document.querySelectorAll(".lot"));
+    if (!lots.length) return;
+    var host = lots[0].parentNode;
+    var by = {}; lots.forEach(function (a) { by[a.dataset.slug] = a; });
+    var seq = ks ? ks.slice() : Object.keys(H).sort(function (x, y) { return H[x].rank - H[y].rank; });
+    if (ks) Object.keys(by).forEach(function (k) { if (seq.indexOf(k) < 0) seq.push(k); });
+    seq.forEach(function (k) { if (by[k]) host.appendChild(by[k]); });
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest(".ord .mv button");
+    if (b) { ordMove(b.closest(".ord").dataset.k, +b.dataset.d); return; }
+    if (e.target.closest("[data-kind=ordreset]")) { delete ORD[MODE]; ordSave(); applyMode(); }
+  });
+  (function dnd() {
+    var drag = null;
+    document.addEventListener("dragstart", function (e) {
+      var li = e.target.closest(".ord"); if (!li) return;
+      drag = li.dataset.k; li.classList.add("lift");
+      e.dataTransfer.effectAllowed = "move";
+      try { e.dataTransfer.setData("text/plain", drag); } catch (x) {}
+    });
+    document.addEventListener("dragover", function (e) {
+      var li = e.target.closest(".ord"); if (!li || !drag) return;
+      e.preventDefault();
+      document.querySelectorAll(".ord.drop").forEach(function (o) { o.classList.remove("drop"); });
+      if (li.dataset.k !== drag) li.classList.add("drop");
+    });
+    document.addEventListener("drop", function (e) {
+      var li = e.target.closest(".ord"); if (!li || !drag) return;
+      e.preventDefault(); ordDrop(drag, li.dataset.k); drag = null;
+    });
+    document.addEventListener("dragend", function () {
+      drag = null;
+      document.querySelectorAll(".ord.lift,.ord.drop").forEach(function (o) { o.classList.remove("lift", "drop"); });
+    });
+  })();
+
+  /* ---------------- export ---------------- */
+  function buildExport() {
+    var patch = {}, showings = {};
+    Object.keys(ST).forEach(function (k) {
+      var r = ST[k]; if (!touched(r) || !H[k]) return;
+      showings[H[k].slug] = r;
+      var p = {};
+      Object.keys(r.ans || {}).forEach(function (q) {
+        var v = r.ans[q]; if (!v || v === "unsure") return;
+        var def = QS[q]; if (!def) return;
+        var op = null;
+        for (var i = 0; i < def.opts.length; i++) if (def.opts[i].v === v) op = def.opts[i];
+        if (!op || !op.patch) return;
+        Object.keys(op.patch).forEach(function (f) { p[f] = op.patch[f]; });
+      });
+      var m = {}; Object.keys(r.mech || {}).forEach(function (f) { if (String(r.mech[f]).trim()) m[f] = r.mech[f]; });
+      if (Object.keys(m).length) p.mech_confirmed = m;
+      var flags = [];
+      ["targ", "walk"].forEach(function (g) {
+        var src = g === "walk" ? (SHOW_DATA.walk || []) : null;
+        Object.keys(r[g] || {}).forEach(function (i) {
+          var c = r[g][i]; if (!c || c.s !== "issue") return;
+          var base = src ? src[+i] : ("listing check " + (+i + 1));
+          flags.push((c.n || "").trim() ? base + " — " + c.n.trim() : base);
+        });
+      });
+      if (flags.length) p.showing_flags = flags;
+      if (r.verdict) p.showing_verdict = r.verdict;
+      if (r.gut) p.showing_gut = r.gut;
+      if ((r.notes || "").trim()) p.showing_notes = r.notes.trim();
+      if (Object.keys(p).length) patch[H[k].slug] = p;
+    });
+    return JSON.stringify({ generated: nowISO(), observations_patch: patch, showings: showings }, null, 2);
+  }
+  function doExport() {
+    var txt = buildExport(), box = document.getElementById("sr-expbox"), ta = document.getElementById("sr-exptext");
+    box.classList.add("on"); ta.value = txt; ta.focus(); ta.select();
+    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(function () { pill("Copied to the clipboard", "ok"); }).catch(function () { });
+    if (window.claude && window.claude.use) {
+      window.claude.use("downloads").then(function (dl) {
+        if (!dl) return;
+        dl.save({ filename: "showings-" + today() + ".json", data: txt }).catch(function () { });
+      }).catch(function () { });
+    }
+  }
+
+  /* ---------------- events ---------------- */
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest("button[data-kind]");
+    if (!b) {
+      if (ev.target.closest("button,input,textarea,a")) return;
+      var h = ev.target.closest(".sr-head"); if (!h) return;
+      var sec = h.closest(".sr");
+      sec.classList.toggle("open");
+      if (sec.classList.contains("open")) { fillWalk(sec.querySelector(".sr-walkhost")); paint(); }
+      return;
+    }
+    var kd = b.dataset.kind, k = b.dataset.h, v = b.dataset.v;
+    if (kd === "mode") { MODE = v; applyMode(); return; }
+    if (kd === "export") { doExport(); return; }
+    if (!k) return;
+    var r = rec(k);
+    if (kd === "ans") { r.ans = r.ans || {}; if (r.ans[b.dataset.q] === v) delete r.ans[b.dataset.q]; else r.ans[b.dataset.q] = v; }
+    else if (kd === "targ" || kd === "walk") {
+      var m = r[kd] = r[kd] || {}, i = b.dataset.i; m[i] = m[i] || {};
+      m[i].s = m[i].s === v ? "" : v;
+      if (!m[i].s && !m[i].n) delete m[i];
+    }
+    else if (kd === "verdict") r.verdict = r.verdict === v ? "" : v;
+    else if (kd === "gut") r.gut = String(r.gut) === v ? "" : Number(v);
+    else if (kd === "visited") { r.visited = !r.visited; if (r.visited && !r.date) r.date = today(); }
+    else return;
+    if (touched(r)) { r.visited = true; if (!r.date) r.date = today(); }
+    queue(k); paint(); applyMode();
+  });
+
+  document.addEventListener("input", function (ev) {
+    var el = ev.target; if (!el.dataset || !el.dataset.kind || el.tagName === "BUTTON") return;
+    var kd = el.dataset.kind, k = el.dataset.h; if (!k) return;
+    var r = rec(k);
+    if (kd === "mech") { r.mech = r.mech || {}; if (el.value) r.mech[el.dataset.f] = el.value; else delete r.mech[el.dataset.f]; }
+    else if (kd === "targn" || kd === "walkn") {
+      var g = kd === "targn" ? "targ" : "walk", m = r[g] = r[g] || {}, i = el.dataset.i;
+      m[i] = m[i] || {}; m[i].n = el.value; if (!m[i].s && !m[i].n) delete m[i];
+    }
+    else if (kd === "notes") r.notes = el.value;
+    else return;
+    if (touched(r)) { r.visited = true; if (!r.date) r.date = today(); }
+    queue(k);
+  });
+
+  if (document.readyState !== "loading") boot();
+  else document.addEventListener("DOMContentLoaded", boot);
+})();
+
+</script>
+</body></html>

@@ -1,0 +1,18 @@
+wrote out/pairs.json: 15 pairs from 623 candidates
+coverage (pairs with |d| >= 30): space 6  layout 6  baths 6  parking 6  lot 8  location 3  condition 6  price 10
+appearances: max 2, houses used 23
+  p01  Enfield        vs Osborne         widest on lot (92) and price (81)
+  p02  Pallatine      vs GRAND           covers condition (|d| = 44)
+  p03  Hazelwood      vs Kent            covers condition (|d| = 35)
+  p04  Middlesmoor    vs Oxlow           covers location (|d| = 33)
+  p05  PONDVIEW       vs Mountain        covers location (|d| = 33)
+  p06  Caplan         vs Cherrywood      widest on price (67) and lot (64)
+  p07  ALDRIDGE       vs Weir            widest on lot (55) and price (52)
+  p08  CROSBY         vs Enfield         widest on lot (92) and price (52)
+  p09  CROSBY         vs Tania           covers location (|d| = 44)
+  p10  Bonnie         vs Cherrywood      covers parking (|d| = 38)
+  p11  Yarmouth       vs Delaney         widest on space (61) and layout (55)
+  p12  Seton          vs Yarmouth        widest on space (47) and lot (43)
+  p13  Cavendish      vs Maplewood       widest on parking (50) and price (49)
+  p14  Oxlow          vs GRAND           widest on condition (44) and space (32)
+  p15  Wyandotte      vs ALDRIDGE        covers parking (|d| = 38)

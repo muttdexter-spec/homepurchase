@@ -51,11 +51,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 3709,
+    "p": 0.42,
+    "exp": 10509,
     "lo": 17025,
     "hi": 34050,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -171,15 +171,22 @@
     "p": 0.7,
     "cost": 9000,
     "status": "likely, unseen"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.42,
+    "cost": 25000,
+    "status": "possible"
    }
   ],
   "reno_text": "basement $43k; main bath $25k; ceilings $9k; bath 2 $20k (unseen); bath 3 $20k (unseen); powder $9k (unseen)",
   "reno_total": 126000,
-  "day1_p50": 19466,
-  "day1_p80": 38621,
-  "wish_p50": 115555,
-  "wish_p80": 131978,
-  "naive": 174193,
+  "day1_p50": 32800,
+  "day1_p80": 46209,
+  "wish_p50": 115643,
+  "wish_p80": 131773,
+  "naive": 183557,
   "reserve_monthly": 147,
   "near_term_5yr": 32770,
   "contingency_pct": 18,
@@ -190,21 +197,22 @@
   "usable": 2143,
   "norm": 1542960,
   "headroom": 307960,
-  "arv_lo": 1314767,
-  "arv_mid": 1338668,
-  "arv_hi": 1362569,
-  "recovered_pct": 61,
-  "sunk": 66931,
-  "breakeven": 1405599,
+  "arv_lo": 1317983,
+  "arv_mid": 1342641,
+  "arv_hi": 1367299,
+  "recovered_pct": 60,
+  "sunk": 70341,
+  "breakeven": 1412982,
   "bath_op": null,
-  "fact_score": 72.6,
+  "fact_score": 74.9,
   "fact_parts": {
-   "size": 12.9,
+   "space": 19.1,
    "layout": 20,
    "baths": 20,
    "lot": 3.8,
    "location": 8.0,
-   "parking": 8
+   "parking": 8,
+   "condition": -4.0
   },
   "grade": "A-",
   "verdict": "SEE FIRST",
@@ -273,7 +281,7 @@
   "hdr": "none",
   "evidence": "high",
   "evidence_notes": "basement area estimated",
-  "cash_to_close": 306296
+  "cash_to_close": 313884
  },
  "bur-3469-caplan": {
   "addr": "3469 Caplan Crescent, Burlington, ON L7N 2P9",
@@ -318,11 +326,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 2837,
+    "p": 0.42,
+    "exp": 8038,
     "lo": 13022,
     "hi": 26044,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -387,6 +395,24 @@
     "basis": "life 13y, age unstated"
    },
    {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
     "name": "waterproofing",
     "bucket": "day1",
     "p": 0.12,
@@ -417,15 +443,36 @@
     "p": 0.7,
     "cost": 10000,
     "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.42,
+    "cost": 19000,
+    "status": "possible"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
    }
   ],
-  "reno_text": "main bath $26k; bath 2 $22k (unseen); powder $10k (unseen)",
-  "reno_total": 58000,
-  "day1_p50": 11456,
-  "day1_p80": 27890,
-  "wish_p50": 60359,
-  "wish_p80": 81846,
-  "naive": 95266,
+  "reno_text": "main bath $26k; bath 2 $22k (unseen); powder $10k (unseen); panel $5k (unseen)",
+  "reno_total": 63000,
+  "day1_p50": 28670,
+  "day1_p80": 40340,
+  "wish_p50": 60158,
+  "wish_p80": 80598,
+  "naive": 110903,
   "reserve_monthly": 147,
   "near_term_5yr": 32770,
   "contingency_pct": 25,
@@ -436,21 +483,22 @@
   "usable": 1567,
   "norm": 1128240,
   "headroom": 139440,
-  "arv_lo": 1041738,
-  "arv_mid": 1057707,
-  "arv_hi": 1073675,
-  "recovered_pct": 63,
-  "sunk": 40829,
-  "breakeven": 1098536,
+  "arv_lo": 1044308,
+  "arv_mid": 1061281,
+  "arv_hi": 1078255,
+  "recovered_pct": 60,
+  "sunk": 48457,
+  "breakeven": 1109738,
   "bath_op": null,
-  "fact_score": 49.0,
+  "fact_score": 51.4,
   "fact_parts": {
-   "size": 5.0,
+   "space": 11.3,
    "layout": 11,
    "baths": 15,
    "lot": 0.4,
    "location": 10.7,
-   "parking": 7
+   "parking": 7,
+   "condition": -4.0
   },
   "grade": "C+",
   "verdict": "SEE",
@@ -516,7 +564,7 @@
   "hdr": "none",
   "evidence": "high",
   "evidence_notes": "build year estimated",
-  "cash_to_close": 241401
+  "cash_to_close": 253851
  },
  "bur-appleby-sidesplit": {
   "addr": "5322 Windermere Drive, Burlington, ON L7L 3M1",
@@ -552,11 +600,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 2053,
+    "p": 0.42,
+    "exp": 5816,
     "lo": 9423,
     "hi": 18846,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -678,6 +726,13 @@
     "status": "likely, unseen"
    },
    {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.42,
+    "cost": 14000,
+    "status": "possible"
+   },
+   {
     "name": "partial rewire",
     "bucket": "day1",
     "p": 0.25,
@@ -687,11 +742,11 @@
   ],
   "reno_text": "waterproofing $20k; main bath $26k; bath 2 $22k (unseen); panel $5k (unseen)",
   "reno_total": 73000,
-  "day1_p50": 38213,
-  "day1_p80": 49310,
-  "wish_p50": 39088,
-  "wish_p80": 60087,
-  "naive": 99475,
+  "day1_p50": 44040,
+  "day1_p80": 54398,
+  "wish_p50": 39695,
+  "wish_p80": 59713,
+  "naive": 104657,
   "reserve_monthly": 147,
   "near_term_5yr": 32770,
   "contingency_pct": 25,
@@ -706,19 +761,20 @@
   "arv_mid": 914076,
   "arv_hi": 914076,
   "recovered_pct": 23,
-  "sunk": 83780,
-  "breakeven": 1109297,
+  "sunk": 87301,
+  "breakeven": 1114011,
   "bath_op": null,
-  "fact_score": 43.6,
+  "fact_score": 48.8,
   "fact_parts": {
-   "size": 0,
+   "space": 5.0,
    "layout": 9,
    "baths": 13,
    "lot": 10.0,
    "location": 9.3,
-   "parking": 5
+   "parking": 5,
+   "condition": -0.0
   },
-  "grade": "C",
+  "grade": "C+",
   "verdict": "STOP",
   "verdict_notes": [
    "basement moisture confirmed"
@@ -794,7 +850,7 @@
   "hdr": "moderate",
   "evidence": "high",
   "evidence_notes": "",
-  "cash_to_close": 265263
+  "cash_to_close": 270351
  },
  "oak-2501-yarmouth": {
   "addr": "2501 Yarmouth Crescent, Oakville, ON L6L 2M9",
@@ -830,11 +886,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 2430,
+    "p": 0.42,
+    "exp": 6884,
     "lo": 11153,
     "hi": 22306,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -936,15 +992,22 @@
     "p": 0.4,
     "cost": 20000,
     "status": "possible"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.42,
+    "cost": 16000,
+    "status": "possible"
    }
   ],
   "reno_text": "kitchen $73k; main bath $26k; bath 2 $22k (unseen)",
   "reno_total": 121000,
-  "day1_p50": 18691,
-  "day1_p80": 33821,
-  "wish_p50": 127827,
-  "wish_p80": 149715,
-  "naive": 197440,
+  "day1_p50": 27095,
+  "day1_p80": 37527,
+  "wish_p50": 127863,
+  "wish_p80": 149068,
+  "naive": 203574,
   "reserve_monthly": 147,
   "near_term_5yr": 32770,
   "contingency_pct": 25,
@@ -959,19 +1022,20 @@
   "arv_mid": 1258865,
   "arv_hi": 1258865,
   "recovered_pct": 31,
-  "sunk": 126815,
-  "breakeven": 1481536,
+  "sunk": 129285,
+  "breakeven": 1484595,
   "bath_op": null,
-  "fact_score": 45.1,
+  "fact_score": 36.7,
   "fact_parts": {
-   "size": 2.0,
+   "space": 5.6,
    "layout": 9,
    "baths": 13,
    "lot": 6.4,
    "location": 6.7,
-   "parking": 8
+   "parking": 8,
+   "condition": -12.0
   },
-  "grade": "C",
+  "grade": "C-",
   "verdict": "SEE",
   "verdict_notes": [],
   "tax_mo": 458,
@@ -1058,7 +1122,7 @@
   "hdr": "moderate",
   "evidence": "high",
   "evidence_notes": "",
-  "cash_to_close": 315356
+  "cash_to_close": 319062
  },
  "oak-2221-wyandotte": {
   "addr": "2221 Wyandotte Drive, Oakville, ON L6L 2T4",
@@ -1094,11 +1158,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 2693,
+    "p": 0.42,
+    "exp": 7629,
     "lo": 12359,
     "hi": 24719,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -1197,15 +1261,22 @@
     "p": 0.42,
     "cost": 29000,
     "status": "possible"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.42,
+    "cost": 18000,
+    "status": "possible"
    }
   ],
   "reno_text": "bath 2 $22k (unseen)",
   "reno_total": 22000,
-  "day1_p50": 10941,
-  "day1_p80": 26233,
-  "wish_p50": 33136,
-  "wish_p80": 59533,
-  "naive": 64170,
+  "day1_p50": 21137,
+  "day1_p80": 31120,
+  "wish_p50": 32216,
+  "wish_p80": 59553,
+  "naive": 70968,
   "reserve_monthly": 212,
   "near_term_5yr": 55935,
   "contingency_pct": 25,
@@ -1220,19 +1291,20 @@
   "arv_mid": 1217785,
   "arv_hi": 1217785,
   "recovered_pct": 29,
-  "sunk": 60897,
-  "breakeven": 1385765,
+  "sunk": 64758,
+  "breakeven": 1390672,
   "bath_op": null,
-  "fact_score": 44.6,
+  "fact_score": 50.8,
   "fact_parts": {
-   "size": 3.9,
+   "space": 10.0,
    "layout": 13,
    "baths": 13,
    "lot": 3.8,
    "location": 8.7,
-   "parking": 5
+   "parking": 5,
+   "condition": -0.0
   },
-  "grade": "C",
+  "grade": "C+",
   "verdict": "SEE",
   "verdict_notes": [],
   "tax_mo": 455,
@@ -1290,7 +1362,7 @@
   "hdr": "none",
   "evidence": "medium",
   "evidence_notes": "only 21 photos; basement area estimated",
-  "cash_to_close": 308208
+  "cash_to_close": 313095
  },
  "oak-1177-grand": {
   "addr": "1177 GRAND Boulevard, Oakville, ON L6H 2V2",
@@ -1326,11 +1398,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 3694,
+    "p": 0.42,
+    "exp": 10467,
     "lo": 16957,
     "hi": 33914,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -1340,15 +1412,6 @@
     "lo": 6056,
     "hi": 10901,
     "basis": "ceiling=flat_painted"
-   },
-   {
-    "name": "basement",
-    "bucket": "wishlist",
-    "p": 0.7,
-    "exp": 40209,
-    "lo": 39550,
-    "hi": 79100,
-    "basis": "800 sqft bg"
    },
    {
     "name": "roof",
@@ -1395,15 +1458,6 @@
     "basis": "life 13y, age unstated"
    },
    {
-    "name": "waterproofing",
-    "bucket": "day1",
-    "p": 0.12,
-    "exp": 2429,
-    "lo": 11300,
-    "hi": 31075,
-    "basis": "below-grade base rate"
-   },
-   {
     "name": "driveway",
     "bucket": "wishlist",
     "p": 1.0,
@@ -1436,59 +1490,60 @@
     "status": "confirmed"
    },
    {
-    "name": "basement",
-    "bucket": "wishlist",
-    "p": 0.7,
-    "cost": 57000,
-    "status": "likely"
-   },
-   {
     "name": "powder",
     "bucket": "wishlist",
     "p": 0.7,
     "cost": 19000,
     "status": "likely, unseen"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.42,
+    "cost": 25000,
+    "status": "possible"
    }
   ],
-  "reno_text": "kitchen $73k; main bath $26k; driveway $12k; basement $57k; powder $19k (unseen)",
-  "reno_total": 187000,
-  "day1_p50": 11589,
-  "day1_p80": 31581,
-  "wish_p50": 185652,
-  "wish_p80": 207453,
-  "naive": 250011,
+  "reno_text": "kitchen $73k; main bath $26k; driveway $12k; powder $19k (unseen)",
+  "reno_total": 130000,
+  "day1_p50": 15021,
+  "day1_p80": 37430,
+  "wish_p50": 134118,
+  "wish_p80": 147929,
+  "naive": 200239,
   "reserve_monthly": 147,
   "near_term_5yr": 32770,
   "contingency_pct": 25,
   "era_p": 0.7,
   "yb": 1976,
   "yb_src": "mls",
-  "bg_est": true,
-  "usable": 2115,
-  "norm": 1670850,
-  "headroom": 370950,
-  "arv_lo": 1425564,
-  "arv_mid": 1455001,
-  "arv_hi": 1484438,
-  "recovered_pct": 65,
-  "sunk": 83933,
-  "breakeven": 1538934,
+  "bg_est": false,
+  "usable": 1715,
+  "norm": 1354850,
+  "headroom": 54950,
+  "arv_lo": 1354850,
+  "arv_mid": 1354850,
+  "arv_hi": 1354850,
+  "recovered_pct": 45,
+  "sunk": 102355,
+  "breakeven": 1485259,
   "bath_op": [
    16950,
    16950,
    21188
   ],
-  "fact_score": 62.8,
+  "fact_score": 53.9,
   "fact_parts": {
-   "size": 11.2,
+   "space": 14.3,
    "layout": 20,
    "baths": 7,
    "lot": 7.3,
    "location": 9.3,
-   "parking": 8
+   "parking": 8,
+   "condition": -12.0
   },
-  "grade": "B",
-  "verdict": "SEE FIRST",
+  "grade": "C+",
+  "verdict": "SEE",
   "verdict_notes": [],
   "tax_mo": 461,
   "taxes": 5531,
@@ -1554,8 +1609,8 @@
   "staging": "professionally_staged",
   "hdr": "none",
   "evidence": "medium",
-  "evidence_notes": "no basement frame; basement area estimated",
-  "cash_to_close": 313534
+  "evidence_notes": "no basement frame",
+  "cash_to_close": 319383
  },
  "bur-1280-aldridge": {
   "addr": "1280 ALDRIDGE Crescent, Burlington, ON L7M 1H9",
@@ -1591,11 +1646,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 2477,
+    "p": 0.42,
+    "exp": 7019,
     "lo": 11371,
     "hi": 22741,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -1660,6 +1715,24 @@
     "basis": "life 13y, age unstated"
    },
    {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "exp": 2531,
+    "lo": 3531,
+    "hi": 7062,
+    "basis": "pre-1970, panel not shown"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "exp": 3437,
+    "lo": 8475,
+    "hi": 19775,
+    "basis": "pre-1970 risk"
+   },
+   {
     "name": "waterproofing",
     "bucket": "day1",
     "p": 0.12,
@@ -1683,15 +1756,36 @@
     "p": 0.7,
     "cost": 22000,
     "status": "likely, unseen"
+   },
+   {
+    "name": "panel",
+    "bucket": "day1",
+    "p": 0.5,
+    "cost": 5000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.42,
+    "cost": 17000,
+    "status": "possible"
+   },
+   {
+    "name": "partial rewire",
+    "bucket": "day1",
+    "p": 0.25,
+    "cost": 14000,
+    "status": "possible"
    }
   ],
-  "reno_text": "main bath $26k; bath 2 $22k (unseen)",
-  "reno_total": 48000,
-  "day1_p50": 10686,
-  "day1_p80": 25617,
-  "wish_p50": 49939,
-  "wish_p80": 74552,
-  "naive": 84654,
+  "reno_text": "main bath $26k; bath 2 $22k (unseen); panel $5k (unseen)",
+  "reno_total": 53000,
+  "day1_p50": 27115,
+  "day1_p80": 38173,
+  "wish_p50": 51770,
+  "wish_p80": 73640,
+  "naive": 99383,
   "reserve_monthly": 147,
   "near_term_5yr": 32770,
   "contingency_pct": 25,
@@ -1705,18 +1799,19 @@
   "arv_lo": 1030320,
   "arv_mid": 1030320,
   "arv_hi": 1030320,
-  "recovered_pct": 33,
-  "sunk": 66791,
-  "breakeven": 1118969,
+  "recovered_pct": 31,
+  "sunk": 76725,
+  "breakeven": 1130613,
   "bath_op": null,
-  "fact_score": 43.4,
+  "fact_score": 45.2,
   "fact_parts": {
-   "size": 2.3,
+   "space": 8.0,
    "layout": 13,
    "baths": 13,
    "lot": 2.5,
    "location": 7.3,
-   "parking": 8
+   "parking": 8,
+   "condition": -4.0
   },
   "grade": "C",
   "verdict": "SEE",
@@ -1774,7 +1869,7 @@
   "hdr": "none",
   "evidence": "high",
   "evidence_notes": "build year estimated",
-  "cash_to_close": 245728
+  "cash_to_close": 258284
  },
  "bur-522-enfield": {
   "addr": "522 Enfield Road, Burlington, ON L7T 2X8",
@@ -1829,10 +1924,10 @@
     "name": "basement",
     "bucket": "wishlist",
     "p": 1.0,
-    "exp": 64622,
-    "lo": 44494,
-    "hi": 88987,
-    "basis": "906 sqft bg"
+    "exp": 32526,
+    "lo": 22395,
+    "hi": 44790,
+    "basis": "453 sqft bg"
    },
    {
     "name": "roof",
@@ -1844,17 +1939,6 @@
     "life": 22,
     "per_yr": 668,
     "basis": "life 22y, age unstated"
-   },
-   {
-    "name": "furnace",
-    "bucket": "reserve",
-    "p": 1.0,
-    "exp": 8098,
-    "lo": 5650,
-    "hi": 11300,
-    "life": 20,
-    "per_yr": 405,
-    "basis": "life 20y, age unstated"
    },
    {
     "name": "A/C",
@@ -1945,7 +2029,7 @@
     "name": "basement",
     "bucket": "wishlist",
     "p": 1.0,
-    "cost": 65000,
+    "cost": 33000,
     "status": "confirmed"
    },
    {
@@ -2005,40 +2089,41 @@
     "status": "possible"
    }
   ],
-  "reno_text": "kitchen $73k; basement $65k; main bath $26k; oil\u2192gas $20k; tank removal $8k; bath 2 $22k (unseen); flooring $19k; asbestos $11k (unseen); panel $5k (unseen)",
-  "reno_total": 249000,
+  "reno_text": "kitchen $73k; basement $33k; main bath $26k; oil\u2192gas $20k; tank removal $8k; bath 2 $22k (unseen); flooring $19k; asbestos $11k (unseen); panel $5k (unseen)",
+  "reno_total": 217000,
   "day1_p50": 70636,
   "day1_p80": 84179,
-  "wish_p50": 193829,
-  "wish_p80": 209610,
-  "naive": 339855,
-  "reserve_monthly": 147,
-  "near_term_5yr": 32770,
+  "wish_p50": 159167,
+  "wish_p80": 173784,
+  "naive": 295658,
+  "reserve_monthly": 114,
+  "near_term_5yr": 24672,
   "contingency_pct": 25,
   "era_p": 0.7,
   "yb": 1954,
   "yb_src": "mls",
   "bg_est": true,
-  "usable": 1748,
-  "norm": 1258560,
-  "headroom": 433560,
-  "arv_lo": 971099,
-  "arv_mid": 1006569,
-  "arv_hi": 1042039,
-  "recovered_pct": 62,
-  "sunk": 112220,
-  "breakeven": 1118789,
+  "usable": 1522,
+  "norm": 1095480,
+  "headroom": 270480,
+  "arv_lo": 955509,
+  "arv_mid": 987064,
+  "arv_hi": 1018620,
+  "recovered_pct": 63,
+  "sunk": 95899,
+  "breakeven": 1082963,
   "bath_op": null,
-  "fact_score": 60.3,
+  "fact_score": 50.6,
   "fact_parts": {
-   "size": 4.6,
+   "space": 6.9,
    "layout": 11,
    "baths": 13,
    "lot": 15,
    "location": 8.7,
-   "parking": 8
+   "parking": 8,
+   "condition": -12.0
   },
-  "grade": "B",
+  "grade": "C+",
   "verdict": "SEE",
   "verdict_notes": [
    "OIL TANK \u2014 buried? uncapped liability",
@@ -2176,15 +2261,6 @@
     "basis": "ceiling=flat_painted"
    },
    {
-    "name": "basement",
-    "bucket": "wishlist",
-    "p": 0.7,
-    "exp": 28247,
-    "lo": 27784,
-    "hi": 55568,
-    "basis": "562 sqft bg"
-   },
-   {
     "name": "roof",
     "bucket": "reserve",
     "p": 1.0,
@@ -2245,25 +2321,9 @@
     "lo": 8475,
     "hi": 19775,
     "basis": "pre-1970 risk"
-   },
-   {
-    "name": "waterproofing",
-    "bucket": "day1",
-    "p": 0.12,
-    "exp": 2429,
-    "lo": 11300,
-    "hi": 31075,
-    "basis": "below-grade base rate"
    }
   ],
   "reno": [
-   {
-    "name": "basement",
-    "bucket": "wishlist",
-    "p": 0.7,
-    "cost": 40000,
-    "status": "likely"
-   },
    {
     "name": "powder",
     "bucket": "wishlist",
@@ -2286,42 +2346,43 @@
     "status": "possible"
    }
   ],
-  "reno_text": "basement $40k; powder $10k (unseen); panel $5k (unseen)",
-  "reno_total": 55000,
-  "day1_p50": 18126,
-  "day1_p80": 32422,
-  "wish_p50": 47837,
-  "wish_p80": 63811,
-  "naive": 79413,
+  "reno_text": "powder $10k (unseen); panel $5k (unseen)",
+  "reno_total": 15000,
+  "day1_p50": 15778,
+  "day1_p80": 28386,
+  "wish_p50": 9863,
+  "wish_p80": 31323,
+  "naive": 36787,
   "reserve_monthly": 147,
   "near_term_5yr": 32770,
   "contingency_pct": 25,
   "era_p": 0.7,
   "yb": 1950,
   "yb_src": "est",
-  "bg_est": true,
-  "usable": 1486,
-  "norm": 1069920,
+  "bg_est": false,
+  "usable": 1205,
+  "norm": 867600,
   "headroom": 0,
-  "arv_lo": 1069920,
-  "arv_mid": 1069920,
-  "arv_hi": 1069920,
-  "recovered_pct": 25,
-  "sunk": 72163,
-  "breakeven": 1246133,
+  "arv_lo": 867600,
+  "arv_mid": 867600,
+  "arv_hi": 867600,
+  "recovered_pct": 26,
+  "sunk": 44092,
+  "breakeven": 1209609,
   "bath_op": [
    16950,
    16950,
    21188
   ],
-  "fact_score": 39.4,
+  "fact_score": 40.3,
   "fact_parts": {
-   "size": 3.2,
+   "space": 4.1,
    "layout": 11,
    "baths": 7,
    "lot": 1.2,
    "location": 12,
-   "parking": 5
+   "parking": 5,
+   "condition": -0.0
   },
   "grade": "C-",
   "verdict": "SEE",
@@ -2358,8 +2419,8 @@
   "staging": "professionally_staged",
   "hdr": "moderate",
   "evidence": "medium",
-  "evidence_notes": "no basement frame; build year estimated; basement area estimated",
-  "cash_to_close": 281375
+  "evidence_notes": "no basement frame; build year estimated",
+  "cash_to_close": 277339
  },
  "bur-395-lark": {
   "addr": "395 LARK Avenue, Burlington, ON L7T 2T1",
@@ -2395,11 +2456,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 2589,
+    "p": 0.42,
+    "exp": 7336,
     "lo": 11885,
     "hi": 23770,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -2518,6 +2579,13 @@
     "status": "likely, unseen"
    },
    {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.42,
+    "cost": 17000,
+    "status": "possible"
+   },
+   {
     "name": "partial rewire",
     "bucket": "day1",
     "p": 0.25,
@@ -2527,11 +2595,11 @@
   ],
   "reno_text": "bath 2 $22k (unseen); panel $5k (unseen)",
   "reno_total": 27000,
-  "day1_p50": 17251,
-  "day1_p80": 32084,
-  "wish_p50": 24250,
-  "wish_p80": 55685,
-  "naive": 64729,
+  "day1_p50": 26239,
+  "day1_p80": 38211,
+  "wish_p50": 24576,
+  "wish_p80": 56777,
+  "naive": 71265,
   "reserve_monthly": 192,
   "near_term_5yr": 48985,
   "contingency_pct": 25,
@@ -2546,19 +2614,20 @@
   "arv_mid": 1205640,
   "arv_hi": 1205640,
   "recovered_pct": 26,
-  "sunk": 65134,
-  "breakeven": 1336769,
+  "sunk": 70573,
+  "breakeven": 1343988,
   "bath_op": null,
-  "fact_score": 52.6,
+  "fact_score": 56.5,
   "fact_parts": {
-   "size": 3.2,
+   "space": 7.0,
    "layout": 9,
    "baths": 13,
    "lot": 11.1,
    "location": 9.3,
-   "parking": 7
+   "parking": 7,
+   "condition": -0.0
   },
-  "grade": "C+",
+  "grade": "B-",
   "verdict": "SEE",
   "verdict_notes": [],
   "tax_mo": 493,
@@ -2597,7 +2666,7 @@
   "hdr": "none",
   "evidence": "high",
   "evidence_notes": "build year estimated",
-  "cash_to_close": 302839
+  "cash_to_close": 308966
  },
  "bur-1453-mountain-grove": {
   "addr": "1453 Mountain Grove Avenue, Burlington, ON L7P 2H4",
@@ -2797,14 +2866,15 @@
   "sunk": 106254,
   "breakeven": 1222443,
   "bath_op": null,
-  "fact_score": 50.3,
+  "fact_score": 53.5,
   "fact_parts": {
-   "size": 0.5,
+   "space": 3.7,
    "layout": 11,
    "baths": 13,
    "lot": 10.8,
    "location": 10.0,
-   "parking": 5
+   "parking": 5,
+   "condition": -0.0
   },
   "grade": "C+",
   "verdict": "SEE",
@@ -3015,16 +3085,17 @@
   "sunk": 40457,
   "breakeven": 1282689,
   "bath_op": null,
-  "fact_score": 62.6,
+  "fact_score": 69.1,
   "fact_parts": {
-   "size": 10.9,
+   "space": 17.0,
    "layout": 15,
    "baths": 18,
    "lot": 6.0,
    "location": 8.7,
-   "parking": 8
+   "parking": 8,
+   "condition": -0.0
   },
-  "grade": "B",
+  "grade": "B+",
   "verdict": "SEE FIRST",
   "verdict_notes": [],
   "tax_mo": 482,
@@ -3240,14 +3311,15 @@
   "sunk": 39750,
   "breakeven": 1120095,
   "bath_op": null,
-  "fact_score": 52.8,
+  "fact_score": 51.9,
   "fact_parts": {
-   "size": 9.8,
+   "space": 15.6,
    "layout": 15,
    "baths": 15,
    "lot": 0,
    "location": 8.0,
-   "parking": 5
+   "parking": 5,
+   "condition": -6.7
   },
   "grade": "C+",
   "verdict": "SEE",
@@ -3403,6 +3475,17 @@
     "basis": "life 13y, age unstated"
    },
    {
+    "name": "pool carry",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3578,
+    "lo": 2260,
+    "hi": 5650,
+    "life": 1,
+    "per_yr": 3578,
+    "basis": "in-ground pool, annual carry"
+   },
+   {
     "name": "panel",
     "bucket": "day1",
     "p": 0.5,
@@ -3474,7 +3557,7 @@
   "wish_p50": 60016,
   "wish_p80": 85018,
   "naive": 107591,
-  "reserve_monthly": 147,
+  "reserve_monthly": 446,
   "near_term_5yr": 32770,
   "contingency_pct": 25,
   "era_p": 0.7,
@@ -3491,19 +3574,20 @@
   "sunk": 47804,
   "breakeven": 1198829,
   "bath_op": null,
-  "fact_score": 50.2,
+  "fact_score": 51.7,
   "fact_parts": {
-   "size": 8.1,
+   "space": 13.3,
    "layout": 9,
    "baths": 15,
    "lot": 3.0,
    "location": 11.3,
-   "parking": 7
+   "parking": 7,
+   "condition": -4.0
   },
   "grade": "C+",
   "verdict": "SEE",
   "verdict_notes": [
-   "POOL \u2014 in-ground, not priced"
+   "POOL \u2014 in-ground, annual carry priced in the reserve"
   ],
   "tax_mo": 414,
   "taxes": 4965,
@@ -3646,6 +3730,17 @@
     "basis": "life 13y, age unstated"
    },
    {
+    "name": "pool carry",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3578,
+    "lo": 2260,
+    "hi": 5650,
+    "life": 1,
+    "per_yr": 3578,
+    "basis": "in-ground pool, annual carry"
+   },
+   {
     "name": "panel",
     "bucket": "day1",
     "p": 0.5,
@@ -3726,7 +3821,7 @@
   "wish_p50": 64721,
   "wish_p80": 88087,
   "naive": 111335,
-  "reserve_monthly": 147,
+  "reserve_monthly": 446,
   "near_term_5yr": 32770,
   "contingency_pct": 25,
   "era_p": 0.7,
@@ -3743,19 +3838,20 @@
   "sunk": 56645,
   "breakeven": 1181398,
   "bath_op": null,
-  "fact_score": 41.5,
+  "fact_score": 44.0,
   "fact_parts": {
-   "size": 4.7,
+   "space": 11.0,
    "layout": 9,
    "baths": 13,
    "lot": 1.5,
    "location": 10.0,
-   "parking": 6
+   "parking": 6,
+   "condition": -4.0
   },
-  "grade": "C-",
+  "grade": "C",
   "verdict": "SEE",
   "verdict_notes": [
-   "POOL \u2014 in-ground, not priced"
+   "POOL \u2014 in-ground, annual carry priced in the reserve"
   ],
   "tax_mo": 380,
   "taxes": 4554,
@@ -4003,17 +4099,18 @@
   "sunk": 54567,
   "breakeven": 1337348,
   "bath_op": null,
-  "fact_score": 59.3,
+  "fact_score": 62.6,
   "fact_parts": {
-   "size": 6.3,
+   "space": 9.1,
    "layout": 9,
    "baths": 20,
    "lot": 10.5,
    "location": 9.3,
-   "parking": 8
+   "parking": 8,
+   "condition": -0.0
   },
-  "grade": "B-",
-  "verdict": "SEE",
+  "grade": "B",
+  "verdict": "SEE FIRST",
   "verdict_notes": [],
   "tax_mo": 415,
   "taxes": 4978.46,
@@ -4090,11 +4187,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 4360,
+    "p": 0.42,
+    "exp": 12352,
     "lo": 20012,
     "hi": 40023,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -4198,15 +4295,22 @@
     "p": 0.7,
     "cost": 9000,
     "status": "likely, unseen"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.42,
+    "cost": 29000,
+    "status": "possible"
    }
   ],
   "reno_text": "driveway $11k; bath 2 $20k (unseen); powder $9k (unseen)",
   "reno_total": 40000,
-  "day1_p50": 10502,
-  "day1_p80": 30372,
-  "wish_p50": 43637,
-  "wish_p80": 73072,
-  "naive": 81849,
+  "day1_p50": 21953,
+  "day1_p80": 42779,
+  "wish_p50": 43429,
+  "wish_p80": 72579,
+  "naive": 92855,
   "reserve_monthly": 147,
   "near_term_5yr": 32770,
   "contingency_pct": 18,
@@ -4217,21 +4321,22 @@
   "usable": 2558,
   "norm": 1841760,
   "headroom": 591860,
-  "arv_lo": 1293071,
-  "arv_mid": 1307258,
-  "arv_hi": 1321445,
+  "arv_lo": 1298405,
+  "arv_mid": 1313844,
+  "arv_hi": 1329283,
   "recovered_pct": 55,
-  "sunk": 46086,
-  "breakeven": 1353344,
+  "sunk": 51414,
+  "breakeven": 1365258,
   "bath_op": null,
-  "fact_score": 73.7,
+  "fact_score": 76.6,
   "fact_parts": {
-   "size": 17.9,
+   "space": 20.7,
    "layout": 20,
    "baths": 15,
    "lot": 4.2,
    "location": 8.7,
-   "parking": 8
+   "parking": 8,
+   "condition": -0.0
   },
   "grade": "A-",
   "verdict": "SEE FIRST",
@@ -4275,7 +4380,7 @@
   "hdr": "moderate",
   "evidence": "high",
   "evidence_notes": "",
-  "cash_to_close": 301325
+  "cash_to_close": 313732
  },
  "bur-5174-ravine": {
   "addr": "5174 Ravine Crescent, Burlington, ON L7L 6N2",
@@ -4320,11 +4425,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 3784,
+    "p": 0.3,
+    "exp": 7568,
     "lo": 17370,
     "hi": 34740,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -4389,6 +4494,17 @@
     "basis": "life 13y, age unstated"
    },
    {
+    "name": "pool carry",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3578,
+    "lo": 2260,
+    "hi": 5650,
+    "life": 1,
+    "per_yr": 3578,
+    "basis": "in-ground pool, annual carry"
+   },
+   {
     "name": "waterproofing",
     "bucket": "day1",
     "p": 0.12,
@@ -4407,6 +4523,13 @@
     "status": "confirmed"
    },
    {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.3,
+    "cost": 25000,
+    "status": "possible"
+   },
+   {
     "name": "bath 2",
     "bucket": "wishlist",
     "p": 0.45,
@@ -4423,12 +4546,12 @@
   ],
   "reno_text": "main bath $25k",
   "reno_total": 25000,
-  "day1_p50": 10416,
-  "day1_p80": 29704,
-  "wish_p50": 47957,
-  "wish_p80": 68796,
-  "naive": 81783,
-  "reserve_monthly": 147,
+  "day1_p50": 12481,
+  "day1_p80": 35923,
+  "wish_p50": 47551,
+  "wish_p80": 68119,
+  "naive": 86994,
+  "reserve_monthly": 446,
   "near_term_5yr": 32770,
   "contingency_pct": 18,
   "era_p": 0.45,
@@ -4438,26 +4561,27 @@
   "usable": 2141,
   "norm": 1541520,
   "headroom": 443520,
-  "arv_lo": 1145312,
-  "arv_mid": 1159468,
-  "arv_hi": 1173624,
+  "arv_lo": 1147722,
+  "arv_mid": 1162454,
+  "arv_hi": 1177186,
   "recovered_pct": 62,
-  "sunk": 37032,
-  "breakeven": 1196500,
+  "sunk": 39588,
+  "breakeven": 1202042,
   "bath_op": null,
-  "fact_score": 56.5,
+  "fact_score": 59.6,
   "fact_parts": {
-   "size": 13.5,
+   "space": 19.3,
    "layout": 15,
    "baths": 15,
    "lot": 0,
    "location": 8.0,
-   "parking": 5
+   "parking": 5,
+   "condition": -2.7
   },
   "grade": "B-",
   "verdict": "SEE",
   "verdict_notes": [
-   "POOL \u2014 in-ground, not priced"
+   "POOL \u2014 in-ground, annual carry priced in the reserve"
   ],
   "tax_mo": 478,
   "taxes": 5732.38,
@@ -4492,7 +4616,7 @@
   "hdr": "moderate",
   "evidence": "high",
   "evidence_notes": "build year estimated",
-  "cash_to_close": 267239
+  "cash_to_close": 273458
  },
  "bur-2120-cavendish": {
   "addr": "2120 Cavendish Drive, Burlington, ON L7P 1Z3",
@@ -4528,11 +4652,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 2369,
+    "p": 0.42,
+    "exp": 6713,
     "lo": 10876,
     "hi": 21752,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -4634,15 +4758,22 @@
     "p": 0.33,
     "cost": 26000,
     "status": "possible"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.42,
+    "cost": 16000,
+    "status": "possible"
    }
   ],
   "reno_text": "basement $65k; bath 2 $22k (unseen)",
   "reno_total": 87000,
-  "day1_p50": 10968,
-  "day1_p80": 25020,
-  "wish_p50": 97593,
-  "wish_p80": 125549,
-  "naive": 144959,
+  "day1_p50": 17182,
+  "day1_p80": 29271,
+  "wish_p50": 99517,
+  "wish_p80": 125003,
+  "naive": 150941,
   "reserve_monthly": 147,
   "near_term_5yr": 32770,
   "contingency_pct": 25,
@@ -4650,26 +4781,27 @@
   "yb": 1972,
   "yb_src": "est",
   "bg_est": false,
-  "usable": 1755,
-  "norm": 1263276,
-  "headroom": 293376,
-  "arv_lo": 1040015,
-  "arv_mid": 1058359,
-  "arv_hi": 1076703,
+  "usable": 1604,
+  "norm": 1154520,
+  "headroom": 184620,
+  "arv_lo": 1041595,
+  "arv_mid": 1060320,
+  "arv_hi": 1079045,
   "recovered_pct": 59,
-  "sunk": 62110,
-  "breakeven": 1120469,
+  "sunk": 63854,
+  "breakeven": 1124174,
   "bath_op": null,
-  "fact_score": 45.4,
+  "fact_score": 50.9,
   "fact_parts": {
-   "size": 1.6,
+   "space": 7.0,
    "layout": 9,
    "baths": 13,
    "lot": 8.5,
    "location": 9.3,
-   "parking": 4
+   "parking": 4,
+   "condition": -0.0
   },
-  "grade": "C",
+  "grade": "C+",
   "verdict": "SEE",
   "verdict_notes": [],
   "tax_mo": 398,
@@ -4706,7 +4838,7 @@
   "hdr": "moderate",
   "evidence": "medium",
   "evidence_notes": "build year estimated",
-  "cash_to_close": 234373
+  "cash_to_close": 238624
  },
  "bur-5180-bunton": {
   "addr": "5180 Bunton Crescent, Burlington, ON L7L 6J3",
@@ -4751,11 +4883,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 3534,
+    "p": 0.3,
+    "exp": 7068,
     "lo": 16222,
     "hi": 32444,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -4845,6 +4977,13 @@
     "status": "confirmed"
    },
    {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.3,
+    "cost": 24000,
+    "status": "possible"
+   },
+   {
     "name": "bath 2",
     "bucket": "wishlist",
     "p": 0.45,
@@ -4861,11 +5000,11 @@
   ],
   "reno_text": "kitchen $28k; main bath $25k",
   "reno_total": 53000,
-  "day1_p50": 10870,
-  "day1_p80": 29175,
-  "wish_p50": 73995,
-  "wish_p80": 92003,
-  "naive": 118269,
+  "day1_p50": 13063,
+  "day1_p80": 34872,
+  "wish_p50": 73698,
+  "wish_p80": 92376,
+  "naive": 123135,
   "reserve_monthly": 147,
   "near_term_5yr": 32770,
   "contingency_pct": 18,
@@ -4876,21 +5015,22 @@
   "usable": 2042,
   "norm": 1470240,
   "headroom": 420240,
-  "arv_lo": 1114791,
-  "arv_mid": 1130994,
-  "arv_hi": 1147196,
-  "recovered_pct": 67,
-  "sunk": 40184,
-  "breakeven": 1171178,
+  "arv_lo": 1117534,
+  "arv_mid": 1134422,
+  "arv_hi": 1151310,
+  "recovered_pct": 66,
+  "sunk": 42826,
+  "breakeven": 1177248,
   "bath_op": null,
-  "fact_score": 55.5,
+  "fact_score": 55.1,
   "fact_parts": {
-   "size": 11.5,
+   "space": 17.8,
    "layout": 15,
    "baths": 15,
    "lot": 0,
    "location": 8.0,
-   "parking": 6
+   "parking": 6,
+   "condition": -6.7
   },
   "grade": "B-",
   "verdict": "SEE",
@@ -4929,7 +5069,7 @@
   "hdr": "moderate",
   "evidence": "high",
   "evidence_notes": "basement area estimated",
-  "cash_to_close": 256150
+  "cash_to_close": 261847
  },
  "oak-506-pondview": {
   "addr": "506 PONDVIEW Place, Oakville, ON L6H 6S3",
@@ -5108,17 +5248,18 @@
   "sunk": 33565,
   "breakeven": 1386981,
   "bath_op": null,
-  "fact_score": 55.0,
+  "fact_score": 61.4,
   "fact_parts": {
-   "size": 12.0,
+   "space": 18.4,
    "layout": 11,
    "baths": 20,
    "lot": 0,
    "location": 6.0,
-   "parking": 6
+   "parking": 6,
+   "condition": -0.0
   },
-  "grade": "B-",
-  "verdict": "SEE",
+  "grade": "B",
+  "verdict": "SEE FIRST",
   "verdict_notes": [],
   "tax_mo": 530,
   "taxes": 6357.02,
@@ -5331,16 +5472,17 @@
   "sunk": 37245,
   "breakeven": 1198659,
   "bath_op": null,
-  "fact_score": 52.8,
+  "fact_score": 55.8,
   "fact_parts": {
-   "size": 9.5,
+   "space": 15.2,
    "layout": 15,
    "baths": 15,
    "lot": 0,
    "location": 7.3,
-   "parking": 6
+   "parking": 6,
+   "condition": -2.7
   },
-  "grade": "C+",
+  "grade": "B-",
   "verdict": "SEE",
   "verdict_notes": [],
   "tax_mo": 484,
@@ -5432,11 +5574,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 5281,
+    "p": 0.42,
+    "exp": 14962,
     "lo": 24240,
     "hi": 48480,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -5547,6 +5689,13 @@
     "status": "likely, unseen"
    },
    {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.42,
+    "cost": 35000,
+    "status": "possible"
+   },
+   {
     "name": "kitchen",
     "bucket": "wishlist",
     "p": 0.29,
@@ -5556,11 +5705,11 @@
   ],
   "reno_text": "basement $61k; bath 2 $20k; ceilings $12k; bath 3 $20k (unseen); powder $9k (unseen)",
   "reno_total": 122000,
-  "day1_p50": 23249,
-  "day1_p80": 42675,
-  "wish_p50": 120879,
-  "wish_p80": 141821,
-  "naive": 188383,
+  "day1_p50": 27105,
+  "day1_p80": 61599,
+  "wish_p50": 120556,
+  "wish_p80": 141246,
+  "naive": 201715,
   "reserve_monthly": 147,
   "near_term_5yr": 32770,
   "contingency_pct": 18,
@@ -5571,21 +5720,22 @@
   "usable": 3210,
   "norm": 2311560,
   "headroom": 1036561,
-  "arv_lo": 1361097,
-  "arv_mid": 1386101,
-  "arv_hi": 1411105,
+  "arv_lo": 1369328,
+  "arv_mid": 1396477,
+  "arv_hi": 1423626,
   "recovered_pct": 60,
-  "sunk": 73394,
-  "breakeven": 1459495,
+  "sunk": 81367,
+  "breakeven": 1477844,
   "bath_op": null,
-  "fact_score": 82.6,
+  "fact_score": 78.7,
   "fact_parts": {
-   "size": 25.0,
+   "space": 23.0,
    "layout": 20,
    "baths": 20,
    "lot": 3.0,
    "location": 6.7,
-   "parking": 8
+   "parking": 8,
+   "condition": -2.0
   },
   "grade": "A",
   "verdict": "SEE",
@@ -5630,7 +5780,7 @@
   "hdr": "moderate",
   "evidence": "medium",
   "evidence_notes": "virtual staging; build year estimated",
-  "cash_to_close": 319150
+  "cash_to_close": 338074
  },
  "bur-3212-pinemeadow": {
   "addr": "3212 Pinemeadow Drive, Burlington, ON L7M 2N7",
@@ -5807,14 +5957,15 @@
   "sunk": 46345,
   "breakeven": 1424593,
   "bath_op": null,
-  "fact_score": 74.9,
+  "fact_score": 74.6,
   "fact_parts": {
-   "size": 16.6,
+   "space": 20.3,
    "layout": 20,
    "baths": 15,
    "lot": 5.3,
    "location": 10.0,
-   "parking": 8
+   "parking": 8,
+   "condition": -4.0
   },
   "grade": "A-",
   "verdict": "SEE FIRST",
@@ -6060,14 +6211,15 @@
   "sunk": 74821,
   "breakeven": 1300685,
   "bath_op": null,
-  "fact_score": 54.2,
+  "fact_score": 57.3,
   "fact_parts": {
-   "size": 0.4,
+   "space": 3.5,
    "layout": 9,
    "baths": 15,
    "lot": 10.5,
    "location": 11.3,
-   "parking": 8
+   "parking": 8,
+   "condition": -0.0
   },
   "grade": "B-",
   "verdict": "SEE",
@@ -6307,26 +6459,27 @@
   "yb": 1965,
   "yb_src": "est",
   "bg_est": true,
-  "usable": 1728,
-  "norm": 1365396,
-  "headroom": 66396,
-  "arv_lo": 1349182,
-  "arv_mid": 1363951,
-  "arv_hi": 1365396,
-  "recovered_pct": 48,
-  "sunk": 70627,
+  "usable": 1636,
+  "norm": 1292045,
+  "headroom": 0,
+  "arv_lo": 1292045,
+  "arv_mid": 1292045,
+  "arv_hi": 1292045,
+  "recovered_pct": 28,
+  "sunk": 98111,
   "breakeven": 1434578,
   "bath_op": null,
-  "fact_score": 47.6,
+  "fact_score": 50.2,
   "fact_parts": {
-   "size": 5.1,
+   "space": 11.5,
    "layout": 11,
    "baths": 18,
    "lot": 1.2,
    "location": 7.3,
-   "parking": 8
+   "parking": 8,
+   "condition": -4.0
   },
-  "grade": "C",
+  "grade": "C+",
   "verdict": "SEE",
   "verdict_notes": [],
   "tax_mo": 447,
@@ -6544,14 +6697,15 @@
   "sunk": 36281,
   "breakeven": 1359430,
   "bath_op": null,
-  "fact_score": 63.1,
+  "fact_score": 63.8,
   "fact_parts": {
-   "size": 16.2,
+   "space": 20.2,
    "layout": 15,
    "baths": 15,
    "lot": 0.9,
    "location": 8.0,
-   "parking": 8
+   "parking": 8,
+   "condition": -3.3
   },
   "grade": "B",
   "verdict": "SEE FIRST",
@@ -6630,11 +6784,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 2180,
+    "p": 0.42,
+    "exp": 6176,
     "lo": 10006,
     "hi": 20012,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -6765,6 +6919,13 @@
     "status": "likely, unseen"
    },
    {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.42,
+    "cost": 15000,
+    "status": "possible"
+   },
+   {
     "name": "partial rewire",
     "bucket": "day1",
     "p": 0.25,
@@ -6774,11 +6935,11 @@
   ],
   "reno_text": "basement $54k; bath 2 $22k; asbestos $11k (unseen); panel $5k (unseen)",
   "reno_total": 92000,
-  "day1_p50": 27406,
-  "day1_p80": 40641,
-  "wish_p50": 84890,
-  "wish_p80": 106515,
-  "naive": 146827,
+  "day1_p50": 31414,
+  "day1_p80": 45489,
+  "wish_p50": 85464,
+  "wish_p80": 106916,
+  "naive": 152330,
   "reserve_monthly": 147,
   "near_term_5yr": 32770,
   "contingency_pct": 25,
@@ -6786,24 +6947,25 @@
   "yb": 1957,
   "yb_src": "mls",
   "bg_est": false,
-  "usable": 1500,
-  "norm": 1184605,
+  "usable": 1387,
+  "norm": 1095730,
   "headroom": 0,
-  "arv_lo": 1184605,
-  "arv_mid": 1184605,
-  "arv_hi": 1184605,
+  "arv_lo": 1095730,
+  "arv_mid": 1095730,
+  "arv_hi": 1095730,
   "recovered_pct": 25,
-  "sunk": 110505,
-  "breakeven": 1447155,
+  "sunk": 114447,
+  "breakeven": 1452404,
   "bath_op": null,
   "fact_score": 51.6,
   "fact_parts": {
-   "size": 0.2,
+   "space": 2.2,
    "layout": 13,
    "baths": 13,
    "lot": 10.7,
    "location": 8.7,
-   "parking": 6
+   "parking": 6,
+   "condition": -2.0
   },
   "grade": "C+",
   "verdict": "SEE",
@@ -6846,7 +7008,7 @@
   "hdr": "moderate",
   "evidence": "high",
   "evidence_notes": "only 22 photos",
-  "cash_to_close": 322616
+  "cash_to_close": 327464
  },
  "bur-5190-wood": {
   "addr": "5190 Wood Crescent, Burlington, ON L7L 6N3",
@@ -7016,16 +7178,17 @@
   "sunk": 40771,
   "breakeven": 1196111,
   "bath_op": null,
-  "fact_score": 47.9,
+  "fact_score": 49.6,
   "fact_parts": {
-   "size": 5.2,
+   "space": 9.6,
    "layout": 15,
    "baths": 15,
    "lot": 0,
    "location": 6.7,
-   "parking": 6
+   "parking": 6,
+   "condition": -2.7
   },
-  "grade": "C",
+  "grade": "C+",
   "verdict": "SEE",
   "verdict_notes": [],
   "tax_mo": 412,
@@ -7228,17 +7391,18 @@
   "sunk": 30005,
   "breakeven": 1271787,
   "bath_op": null,
-  "fact_score": 54.9,
+  "fact_score": 61.0,
   "fact_parts": {
-   "size": 11.2,
+   "space": 17.3,
    "layout": 15,
    "baths": 15,
    "lot": 0,
    "location": 8.7,
-   "parking": 5
+   "parking": 5,
+   "condition": -0.0
   },
-  "grade": "B-",
-  "verdict": "SEE",
+  "grade": "B",
+  "verdict": "SEE FIRST",
   "verdict_notes": [],
   "tax_mo": 453,
   "taxes": 5441,
@@ -7447,16 +7611,17 @@
   "sunk": 36830,
   "breakeven": 1146542,
   "bath_op": null,
-  "fact_score": 39.9,
+  "fact_score": 44.8,
   "fact_parts": {
-   "size": 6.9,
+   "space": 11.8,
    "layout": 2,
    "baths": 15,
    "lot": 0,
    "location": 10.0,
-   "parking": 6
+   "parking": 6,
+   "condition": -0.0
   },
-  "grade": "C-",
+  "grade": "C",
   "verdict": "SEE",
   "verdict_notes": [],
   "tax_mo": 408,
@@ -7659,16 +7824,17 @@
   "sunk": 43630,
   "breakeven": 1390597,
   "bath_op": null,
-  "fact_score": 50.9,
+  "fact_score": 56.8,
   "fact_parts": {
-   "size": 9.2,
+   "space": 14.8,
    "layout": 15,
    "baths": 15,
    "lot": 0,
    "location": 8.0,
-   "parking": 7
+   "parking": 7,
+   "condition": -0.0
   },
-  "grade": "C+",
+  "grade": "B-",
   "verdict": "SEE",
   "verdict_notes": [],
   "tax_mo": 410,
@@ -7811,6 +7977,17 @@
     "basis": "life 13y, age unstated"
    },
    {
+    "name": "pool carry",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3578,
+    "lo": 2260,
+    "hi": 5650,
+    "life": 1,
+    "per_yr": 3578,
+    "basis": "in-ground pool, annual carry"
+   },
+   {
     "name": "waterproofing",
     "bucket": "day1",
     "p": 0.12,
@@ -7836,7 +8013,7 @@
   "wish_p50": 23729,
   "wish_p80": 50770,
   "naive": 50810,
-  "reserve_monthly": 147,
+  "reserve_monthly": 446,
   "near_term_5yr": 32770,
   "contingency_pct": 25,
   "era_p": 0.7,
@@ -7853,18 +8030,21 @@
   "sunk": 54390,
   "breakeven": 1325258,
   "bath_op": null,
-  "fact_score": 50.0,
+  "fact_score": 54.1,
   "fact_parts": {
-   "size": 2.6,
+   "space": 6.3,
    "layout": 20,
    "baths": 13,
    "lot": 5.6,
    "location": 6.0,
-   "parking": 6
+   "parking": 6,
+   "condition": -0.0
   },
-  "grade": "C+",
+  "grade": "B-",
   "verdict": "SEE",
-  "verdict_notes": [],
+  "verdict_notes": [
+   "POOL \u2014 in-ground, annual carry priced in the reserve"
+  ],
   "tax_mo": 408,
   "taxes": 4899,
   "mech_stated": "Napoleon hybrid heat pump 2024; pool liner 2025; gazebo 2021; laundry 2024 (remarks only)",
@@ -8108,16 +8288,17 @@
   "sunk": 43964,
   "breakeven": 1394870,
   "bath_op": null,
-  "fact_score": 62.2,
+  "fact_score": 70.2,
   "fact_parts": {
-   "size": 9.7,
+   "space": 17.4,
    "layout": 15,
    "baths": 15,
    "lot": 9.9,
    "location": 8.7,
-   "parking": 8
+   "parking": 8,
+   "condition": -0.0
   },
-  "grade": "B",
+  "grade": "B+",
   "verdict": "SEE FIRST",
   "verdict_notes": [],
   "tax_mo": 595,
@@ -8339,16 +8520,17 @@
   "sunk": 68324,
   "breakeven": 1271439,
   "bath_op": null,
-  "fact_score": 37.5,
+  "fact_score": 42.8,
   "fact_parts": {
-   "size": 1.0,
+   "space": 6.2,
    "layout": 2,
    "baths": 13,
    "lot": 6.9,
    "location": 6.7,
-   "parking": 8
+   "parking": 8,
+   "condition": -0.0
   },
-  "grade": "C-",
+  "grade": "C",
   "verdict": "SEE",
   "verdict_notes": [],
   "tax_mo": 438,
@@ -8563,16 +8745,17 @@
   "sunk": 38899,
   "breakeven": 1302317,
   "bath_op": null,
-  "fact_score": 60.6,
+  "fact_score": 68.4,
   "fact_parts": {
-   "size": 10.2,
+   "space": 18.1,
    "layout": 15,
    "baths": 20,
    "lot": 0,
    "location": 7.3,
-   "parking": 8
+   "parking": 8,
+   "condition": -0.0
   },
-  "grade": "B",
+  "grade": "B+",
   "verdict": "SEE FIRST",
   "verdict_notes": [],
   "tax_mo": 405,
@@ -8646,11 +8829,11 @@
    {
     "name": "flooring",
     "bucket": "day1",
-    "p": 0.15,
-    "exp": 2199,
+    "p": 0.42,
+    "exp": 6231,
     "lo": 10095,
     "hi": 20190,
-    "basis": "floor=no_defect_seen"
+    "basis": "floor=no_defect_seen (partly concealed)"
    },
    {
     "name": "ceilings",
@@ -8772,6 +8955,13 @@
     "status": "likely, unseen"
    },
    {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.42,
+    "cost": 15000,
+    "status": "possible"
+   },
+   {
     "name": "partial rewire",
     "bucket": "day1",
     "p": 0.25,
@@ -8781,11 +8971,11 @@
   ],
   "reno_text": "kitchen $29k; main bath $26k; bath 2 $22k (unseen); panel $5k (unseen)",
   "reno_total": 82000,
-  "day1_p50": 18393,
-  "day1_p80": 31571,
-  "wish_p50": 81412,
-  "wish_p80": 95674,
-  "naive": 133313,
+  "day1_p50": 26008,
+  "day1_p80": 36114,
+  "wish_p50": 81789,
+  "wish_p80": 95437,
+  "naive": 138865,
   "reserve_monthly": 147,
   "near_term_5yr": 32770,
   "contingency_pct": 25,
@@ -8800,17 +8990,18 @@
   "arv_mid": 1089015,
   "arv_hi": 1089015,
   "recovered_pct": 29,
-  "sunk": 90243,
-  "breakeven": 1226245,
+  "sunk": 93533,
+  "breakeven": 1230551,
   "bath_op": null,
-  "fact_score": 47.8,
+  "fact_score": 42.9,
   "fact_parts": {
-   "size": 0.3,
+   "space": 5.4,
    "layout": 13,
    "baths": 13,
    "lot": 5.5,
    "location": 8.0,
-   "parking": 8
+   "parking": 8,
+   "condition": -10.0
   },
   "grade": "C",
   "verdict": "SEE",
@@ -8850,6 +9041,6 @@
   "hdr": "moderate",
   "evidence": "medium",
   "evidence_notes": "build year estimated; basement area estimated",
-  "cash_to_close": 269326
+  "cash_to_close": 273869
  }
 }

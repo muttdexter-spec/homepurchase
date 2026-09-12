@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Invariants the model must hold. Run after any change: python3 test_model.py"""
+"""Invariants the model must hold. Run after any change: python3 test_model.py
+v3.4 + rank v5: the second block is the invariants from the 2026-09-12 review, section 5.13,
+each one written so that it would have failed before the bug it guards was fixed."""
 import json, csv, os, sys
 R=os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0,R)
 import score as S
@@ -10,7 +12,7 @@ def chk(c,msg):
     if not c: fails.append(msg)
 chk(len(rows)==len(obs), "decision.csv row count != observations")
 for o in obs:
-    c=S.cost(o); fs,_=S.facts(o); v,notes=S.verdict(o,c,fs); rs=S.resale(o,c)
+    c=S.cost(o); fs,_=S.facts(o,c); v,notes=S.verdict(o,c,fs); rs=S.resale(o,c)
     chk(c['day1_p80']>=c['day1_p50'], f"{o['slug']}: p80 < p50")
     k=1+S.cont(S.eff_year(o)); hst=1+S.CFG['meta']['hst']; prem=1+S.CFG['multi_room_premium']
     ceiling=(sum(hi for _,b,_,lo,ml,hi,_ in c['items'] if b!='reserve')+S.CFG['soft_costs_day1']['high'])*k*prem*hst
@@ -27,4 +29,197 @@ chk(not S.dedupe_warnings(obs), "duplicate address across records")
 # the 20 listings with stated basement areas must not use the estimate
 for o in obs:
     if o.get('sqft_below'): chk(S.below_grade(o)[1] is False, f"{o['slug']}: estimate used despite stated area")
+
+# ------------------------------------------------------------------ review 5.13
+# Lines that are structure, envelope or mechanical. A finish read at any resolution may never
+# lower one of these: their evidence is age, MLS text or the component's own frame, not a photo
+# of a surface. (Review 2.7, second sentence.)
+MECH = ("panel","partial rewire","rewire","waterproofing","roof","furnace","A/C","water heater","windows")
+# Finish reads that feed prob(). Cleaning all of them must not move a MECH line.
+FINISH_READS = {"kitchen_sink_mount":"undermount","kitchen_counter_edge":"eased","kitchen_soffit":"absent",
+                "kitchen_door_profile":"flat_slab","bath_tub_type":"alcove","bath_tile_scale":"large_format",
+                "bath_vanity_top":"stone","floor_condition":"no_defect_seen","ceiling_main":"flat_painted",
+                "basement_ceiling":"drywall","basement_walls":"drywall"}
+for o in obs:
+    c = S.cost(o); b = str(o.get("basement") or "")
+    ps = {nm: p for nm,bk,p,lo,ml,hi,bs in c["items"]}
+    basis = {nm: bs for nm,bk,p,lo,ml,hi,bs in c["items"]}
+
+    # 5.1 basement text: "Unfinished" is not a finished basement
+    chk(S.usable(o)==(o.get("sqft_above") or 0) or "Unfinished" not in b,
+        f"{o['slug']}: usable counts below-grade area on an Unfinished basement")
+    chk(not S.below_grade(o)[1] or ("Finished" in b and "Unfinished" not in b),
+        f"{o['slug']}: below-grade area estimated on a basement string with no 'Finished'")
+    # 5.2 a partial finish is not a full one
+    if not o.get("sqft_below") and "Partially" in b:
+        chk(S.below_grade(o)[0] <= round(S.CFG["below_grade_estimate_factor_partial"]*(o.get("sqft_above") or 0)/1) + 1,
+            f"{o['slug']}: 'Partially Finished' estimated at the full-finish factor")
+    # 5.3 a Walk-Up is stairs, not daylight: it does not earn the walk-out weight
+    ag = o.get("sqft_above") or 0; bg = S.below_grade(o)[0]
+    if bg and "Walk-Up" in b and "Walk-Out" not in b and "Walkout" not in b:
+        chk(abs(S.usable(o) - (ag + S.CFG["below_grade_weight"]*bg)) < 1e-9,
+            f"{o['slug']}: Walk-Up basement given the walk-out weight")
+    # 5.4 a clean finish read may never lower a structure / envelope / mechanical line
+    o2 = dict(o); o2.update(FINISH_READS)
+    ps2 = {nm: p for nm,bk,p,lo,ml,hi,bs in S.cost(S.normalise(o2))["items"]}
+    for nm in MECH:
+        if nm in ps:
+            chk(nm in ps2 and ps2[nm] >= ps[nm] - 1e-9,
+                f"{o['slug']}: clean finish reads lowered the {nm} line")
+    # 5.4 a concealed floor cannot reach the observed floor
+    if S._floor_concealed(o) and "flooring" in ps:
+        chk(ps["flooring"] > S.CFG["observed_floor"] + 1e-9,
+            f"{o['slug']}: concealed floor read down to the observed floor")
+    # 5.5 unknown build year is worst case everywhere, electrical included
+    if not S.eff_year(o):
+        chk(S.era(S.eff_year(o))=="pre_1990", f"{o['slug']}: unknown year not treated as pre-1990")
+        if o.get("panel_type") in (None,"","not_shown","fuse"):
+            chk("panel" in ps, f"{o['slug']}: unknown year skipped the pre-1970 electrical block")
+    # 5.6 oil to gas already buys the furnace: no second furnace in the reserve
+    chk(not any(n=="oil→gas" for n in ps) or "furnace" not in ps,
+        f"{o['slug']}: furnace charged twice (oil→gas plus the furnace reserve)")
+    # 5.11 contingency is applied to day1 and wishlist, once, and never to reserve
+    chk(all(bk in ("day1","wishlist","reserve") for _,bk,*_ in c["items"]),
+        f"{o['slug']}: unknown cost bucket")
+
+# ------------------------------------------------------------------ rank v6
+# The v5 invariants about lambda, rank_value, fit_dollars_mo and the frontier ORDER are gone with
+# the rule they guarded. Overpay is still computed, so its internal consistency is still checked.
+COMP = S.COMP_KEYS
+HD = S.CFG["hold"]["years_default"]
+WS = S.weight_sets()
+ranked = [r for r in rows if r["rank"] != "-"]
+gated  = [r for r in rows if r["rank"] == "-"]
+chk(len(ranked)+len(gated)==len(rows), "ranked + gated != rows")
+chk(len(ranked)>0, "nothing ranked")
+
+# 6.1 the order is the score, descending, and rank is the row position
+for i,r in enumerate(ranked,1):
+    chk(int(r["rank"])==i, f"{r['address']}: rank column is not the row position")
+for a,b in zip(ranked, ranked[1:]):
+    chk(float(a["score"]) >= float(b["score"]) - 0.05,
+        f"decision.csv is not sorted on score descending at {a['address']} / {b['address']}")
+
+# 6.2 every component is on the absolute 0 to 100 scale
+for r in rows:
+    for k in COMP:
+        v = float(r["c_"+k])
+        chk(0.0 <= v <= 100.0, f"{r['address']}: component {k} out of [0,100]: {v}")
+
+# 6.3 the score is the weighted mean of the eight, docked only when the house is a split
+for r in ranked:
+    comp = {k: float(r["c_"+k]) for k in COMP}
+    w = WS["joint"]; expect = sum(w[k]*comp[k] for k in COMP)
+    if r["split_docked"] == "yes": expect *= S.CFG["split_dock"]
+    chk(abs(expect - float(r["score"])) <= 0.15,
+        f"{r['address']}: score {r['score']} is not the weighted mean of its components ({expect:.2f})")
+    chk((r["split_docked"]=="yes") == ("plit" in str(next(o for o in obs if o['address']==r['address']).get('style',''))),
+        f"{r['address']}: split dock flag does not match the style")
+
+# 6.4 PHOTOGRAPHS CANNOT REACH THE TOP OF THE CONDITION RANGE (v6 §3, bound 4).
+# Without a showing-record year or a _seen field, condition is capped by construction at about
+# 77: the observed floor is 0.15, not 0, and p_hold keeps the mechanicals in the sum.
+for r in rows:
+    if r["seen_evidence"] != "yes":
+        chk(float(r["c_condition"]) <= 80.0,
+            f"{r['address']}: condition {r['c_condition']} above 80 with no showing evidence (the photo cap is broken)")
+
+# 6.5 condition is the cost-weighted share of work NOT expected, and work_expected <= work_full
+for r in rows:
+    e, fl = float(r["work_expected"]), float(r["work_full"])
+    chk(e <= fl + 1, f"{r['address']}: expected work exceeds the every-job total")
+    chk(abs(100*(1 - e/fl) - float(r["c_condition"])) <= 0.6 if fl else True,
+        f"{r['address']}: c_condition is not 100 x (1 - expected / full)")
+
+# 6.6 SCORE IS MONOTONE IN EACH WEIGHT. Raising one weight by 10 (raw, before normalising) never
+# lowers the rank of the house that is best in the batch on that component.
+base = dict(S.CFG["weights"]["alex"])
+rowsm = S.prepare(os.path.join(R, "observations.json"))
+live = [x for x in rowsm if not x["gated"]]
+def order(wraw):
+    wn = S.norm_weights(wraw)
+    srt = sorted(live, key=lambda x: (-S.v6_score(x["comp"], wn, x["split"]), x["slug"]))
+    return {x["slug"]: i for i,x in enumerate(srt,1)}
+o0 = order(base)
+for k in COMP:
+    best = max(live, key=lambda x: (x["comp"][k], x["slug"]))
+    up = dict(base); up[k] = up[k] + 10
+    o1 = order(up)
+    chk(o1[best["slug"]] <= o0[best["slug"]],
+        f"raising the {k} weight lowered the rank of {best['o']['address']}, the batch's best on {k}")
+
+# 6.7 p_hold. A confirmed-original component is certain over any hold; a brand new one is H/life;
+# an annual carry is paid H times.
+chk(S.p_hold(5, 30, 5, confirmed_original=True) == 1.0, "p_hold: confirmed original is not 1.0")
+chk(abs(S.p_hold(0, 20, 5) - 0.25) < 1e-9, "p_hold: a new 20-year component over 5 years is not H/life")
+chk(S.p_hold(25, 20, 5) == 1.0, "p_hold: a component past due inside 1.5 lives is not 1.0")
+chk(abs(S.p_hold(60, 20, 5) - 0.25) < 1e-9, "p_hold: an old component is not uniform over the cycle")
+chk(S.p_hold(1, 1, 5) == 5.0, "p_hold: an annual carry is not paid H times")
+# and the review 5.7 case: Wyandotte's confirmed-original windows reach the money over the hold
+for o in obs:
+    if o.get("window_frame") in ("aluminum_original","wood_original","original"):
+        c = S.cost(o); meta = c["reserve_meta"]
+        chk(meta.get("windows", (0,0,False))[2] is True,
+            f"{o['slug']}: confirmed-original windows not marked confirmed")
+        hst = 1 + S.CFG["meta"]["hst"]
+        mean = next((lo+4*ml+hi)/6 for nm,b,p,lo,ml,hi,_ in c["items"] if nm=="windows")
+        chk(S.reserve_over_hold(c, 5) >= mean*hst - 1,
+            f"{o['slug']}: the window reserve does not reach full cost over a 5-year hold")
+
+# 6.8 the pool carry is a priced reserve line wherever a pool is detected, and the stamp survives
+for o in obs:
+    c = S.cost(o); names = [nm for nm,*_ in c["items"]]
+    chk(("pool carry" in names) == (S.pool_kind(o) == "in-ground"),
+        f"{o['slug']}: pool carry line does not match the pool detection")
+
+# 6.9 the cost of capital is derived, not asserted
+chk("cost_of_capital" not in S.CFG["hold"], "hold.cost_of_capital is still a free key in costs.yaml")
+d = S.CFG["hold"]["down_payment"]
+chk(abs(S.COST_OF_CAPITAL - ((1-d)*S.CFG["hold"]["mortgage_rate"] + d*S.CFG["hold"]["opportunity_rate"])) < 1e-12,
+    "COST_OF_CAPITAL is not derived from the mortgage and opportunity rates")
+
+# 6.10 the retired v5 columns and keys are gone
+for dead in ("rank_value","fit_dollars_mo"):
+    chk(dead not in rows[0], f"decision.csv still carries the retired column {dead}")
+chk("dollars_per_fit_point_mo" not in S.CFG.get("rank", {}),
+    "costs.yaml still carries rank.dollars_per_fit_point_mo")
+src = open(os.path.join(R,"score.py")).read()
+chk("dollars_per_fit_point_mo" not in src, "score.py still references dollars_per_fit_point_mo")
+
+# 6.11 gated rows carry '-' everywhere a rank would go, never a number above 90
+for r in gated:
+    for col in ("rank","score","rank_alex","band_lo","band_hi","rank_3","rank_10"):
+        chk(r[col] == "-", f"{r['address']}: gated row has {col}={r[col]}, expected '-'")
+for r in ranked:
+    chk(1 <= int(r["rank"]) <= len(ranked), f"{r['address']}: rank outside 1..n")
+    chk(int(r["band_lo"]) <= int(r["rank"]) <= int(r["band_hi"]),
+        f"{r['address']}: rank {r['rank']} outside its own band {r['band_lo']}-{r['band_hi']}")
+
+# 6.12 overpay is still computed and internally consistent, and is no longer the order
+for r in ranked:
+    if float(r["overpay_mo"]) == 0:
+        chk(r["dominated_by"] == "-", f"{r['address']}: overpay 0 but a dominating house is named")
+        chk(float(r["overpay_total"]) == 0, f"{r['address']}: overpay_mo 0 but overpay_total is not")
+    else:
+        chk(r["dominated_by"] not in ("-",""), f"{r['address']}: overpay > 0 with no dominating house")
+
+# 6.13 the hold-cost parts still sum to the hold cost
+for r in rows:
+    parts = sum(float(r["own_"+k]) for k in ("day1_sunk","capital","taxes","reserve","closing"))
+    chk(abs(parts/(12*float(r["hold_years"])) - float(r["own_mo"])) <= 1.0,
+        f"{r['address']}: hold-cost parts do not sum to the monthly figure")
+
+# 6.14 G4: a project is stamped, and only gated when the buyer said no projects
+share = S.CFG["gates"].get("project_share_of_ask", 0.15)
+for r in rows:
+    exp = float(r["work_expected"]); ask = float(r["ask"])
+    chk((r["project"] == "yes") == (exp > share*ask),
+        f"{r['address']}: Project stamp does not match work_expected / ask")
+    if r["project"] == "yes" and not S.CFG["gates"].get("no_projects"):
+        chk(r["rank"] != "-" or "STOP" in r["notes"] or r["verdict"] == "STOP",
+            f"{r['address']}: a project was excluded although no_projects is false")
+
+# 6.15 the photos_may_lower_p switch. With it off, a photographic read no longer moves a line.
+chk("photos_may_lower_p" in (S.CFG.get("condition") or {}), "condition.photos_may_lower_p is missing")
+
 print("PASS" if not fails else "FAIL"); [print(" -",f) for f in fails]; sys.exit(1 if fails else 0)
