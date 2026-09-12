@@ -209,7 +209,7 @@ def rooms_html(o, d):
     sp = "\n".join("              " + room_sp_row(lab, fp.get(k2, 0), mx) for k2, lab, mx in GPARTS[:3])
     h = ['<div class="roomswrap">',
          '          <div class="roomscore">',
-         f'            <div><span class="rh-lab">Room-driven score</span><span class="rs-num"><b>{rs:.0f}</b><i>/ 65</i></span><em>Size, layout and baths are scored from the rooms below, 65 of the grade\'s 100 points. Lot, location and parking are not in this table.</em></div>',
+         f'            <div><span class="rh-lab">From the room table</span><span class="rs-num"><b>{rs:.0f}</b><i>/ 65</i></span><em>The same space, layout and baths that are already in the score above, shown at their original scale, so nothing here is counted twice. The room table itself drives the layout number: a bedroom under 60 sq ft stops counting and a primary over 150 sq ft adds.</em></div>',
          '            <div class="sp-parts">', sp, '            </div>',
          '          </div>',
          '          <details class="rooms"><summary>Every room, as entered on MLS</summary>',
@@ -1193,6 +1193,7 @@ V6JS = r"""
 .roomscore .sp-parts{width:100%}
 @media (max-width:700px){ .roomscore{grid-template-columns:1fr !important} }
 .term dt{font-size:12px !important; letter-spacing:.085em !important}
+.live-row{grid-template-columns:repeat(auto-fit,minmax(128px,1fr)) !important; gap:8px 14px !important}
 .live-row dd.livenote{font-family:inherit; font-size:10.5px; font-weight:400; color:var(--muted);
   letter-spacing:0; line-height:1.35; margin-top:1px}
 .rooms>summary{cursor:pointer; font-family:var(--mono); font-size:10px; letter-spacing:.08em;

@@ -981,11 +981,10 @@ function recalc(){
         "<div><dt>Mortgage</dt><dd>"+money(loan)+"</dd></div>"+
         "<div><dt>Down payment</dt><dd>"+money(down)+"</dd></div>"+
         "<div><dt>Land transfer, net</dt><dd>"+money(ltt-rebate)+"</dd></div>"+
-        "<div><dt>Cost of the hold, a year</dt><dd>"+money(+live.dataset.peryear)+
-          "</dd><dd class='livenote'>what the price component reads</dd></div>"+
-        "<div><dt>Price component</dt><dd>"+live.dataset.pricescore+" / 100</dd>"+
-          "<dd class='livenote'>"+money(+live.dataset.anchorworst)+" a year scores 0, "+
-          money(+live.dataset.anchorbest)+" scores 100</dd></div>";
+        "<div><dt>Hold, a year</dt><dd>"+money(+live.dataset.peryear)+"</dd></div>"+
+        "<div><dt>Price</dt><dd>"+live.dataset.pricescore+" / 100</dd>"+
+          "<dd class='livenote'>0 at "+money(+live.dataset.anchorworst)+", 100 at "+
+          money(+live.dataset.anchorbest)+"</dd></div>";
     }
   });
   try{ localStorage.setItem("walk-shortlist-calc", JSON.stringify({dp:dp,rate:rate,yrs:yrs,ftb:ftb})); }catch(e){}
