@@ -377,61 +377,7 @@ Red flags: kitchen is 1997 builder-original: topmount double sink on post-form l
 
 Concealed in the photos: main bath tub behind a drawn curtain (photo 20) · basement slab under carpet (23-25) · roof condition: shingles visible at 2x in photo 0 but the pitch is too steep to read granule loss
 
-## 15. 1319 Bonnie Court — grade C+, $537/usable sq ft, SEE
-
-**Renovations needed:** kitchen $28k; main bath $25k — $53k if you do all of it. Possible: bath 2 $20k (45%), powder $9k (45%)
-Ask $999,900 · day-one p80 $28,973 · wish list p80 $91,222 · reserve $147/mo · year used 1996 (mls) · usable 1,915 sq ft (basement estimated) · tells settled 14/15 of 49 photos · evidence high (basement area estimated) · rank band - · cash to close at 20% $244,926
-
-| Bucket | Line | P(needed) | Expected | Low | High | Basis |
-|---|---|---|---|---|---|---|
-| wishlist | kitchen | 100% | $27,557 | $16,001 | $42,669 | 4/4 tells seen, defect=True |
-| wishlist | main bath | 100% | $24,890 | $16,001 | $37,335 | 3/3 tells seen |
-| wishlist | bath 2 | 45% | $9,200 | $13,334 | $29,335 | unobserved |
-| wishlist | powder | 45% | $4,050 | $4,667 | $14,667 | 1 half |
-| day1 | flooring | 15% | $3,314 | $15,214 | $30,428 | floor=no_defect_seen |
-| day1 | ceilings | 15% | $1,141 | $5,434 | $9,780 | ceiling=flat_painted |
-| wishlist | basement | 15% | $5,795 | $26,601 | $53,203 | 570 sqft bg |
-| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
-| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
-| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
-| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
-| day1 | waterproofing | 12% | $2,293 | $10,667 | $29,335 | below-grade base rate |
-
-Resale after the work $1,064,262 to $1,096,427 (mid $1,080,345); peer norm $1,378,800; recovered 67%; sunk $39,750; break-even $1,120,095.
-
-Red flags: kitchen is 1996 builder-original under fresh paint: topmount double sink on brown post-form laminate, small U footprint (11-12) · ensuite is 1996 original: corner jetted tub on a beige 4x4 platform, maple vanity with laminate top and drop-in sink, 4x4 tiled shower stall (27-28) · house is vacant and freshly painted; new LVP throughout hides the original subfloor · earlier pass listed 11 of 15 tells unread; this pass settles 14 and turns both the kitchen and ensuite from 'unverified' to confirmed jobs
-
-Concealed in the photos: basement slab under laminate (34-38) · no furnace, panel or water-heater frame in 49, 4 of them aerials · main 4pc bath never framed at readable size; only the ensuite (27-28) and the basement bath (39)
-
-## 16. 2105 Maplewood Drive — grade B, $798/usable sq ft, SEE FIRST
-
-**Renovations needed:** bath 2 $22k (unseen); powder $10k (unseen); panel $5k (unseen) — $37k if you do all of it. Possible: main bath $26k (33%), partial rewire $14k (25%)
-Ask $1,199,000 · day-one p80 $31,679 · wish list p80 $70,006 · reserve $147/mo · year used 1958 (est) · usable 1,542 sq ft · tells settled 13/15 of 50 photos · evidence high (build year estimated) · rank band - · cash to close at 20% $291,434
-
-| Bucket | Line | P(needed) | Expected | Low | High | Basis |
-|---|---|---|---|---|---|---|
-| wishlist | kitchen | 15% | $4,379 | $16,950 | $45,200 | 4/4 tells seen, defect=False |
-| wishlist | main bath | 33% | $8,789 | $16,950 | $39,550 | 2/3 tells seen |
-| wishlist | bath 2 | 70% | $15,161 | $14,125 | $31,075 | unobserved |
-| wishlist | powder | 70% | $6,674 | $4,944 | $15,537 | 1 half |
-| day1 | flooring | 15% | $2,208 | $10,135 | $20,269 | floor=no_defect_seen |
-| day1 | ceilings | 15% | $760 | $3,620 | $6,515 | ceiling=flat_painted |
-| wishlist | basement | 15% | $9,693 | $44,494 | $88,987 | 1033 sqft bg |
-| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
-| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
-| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
-| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
-| day1 | panel | 50% | $2,531 | $3,531 | $7,062 | pre-1970, panel not shown |
-| day1 | partial rewire | 25% | $3,437 | $8,475 | $19,775 | pre-1970 risk |
-| day1 | waterproofing | 12% | $2,429 | $11,300 | $31,075 | below-grade base rate |
-
-Resale after the work $1,109,880 to $1,109,880 (mid $1,109,880); peer norm $1,109,880; recovered 26%; sunk $74,821; break-even $1,300,685.
-
-Red flags: kitchen keeps a dark-painted bulkhead over new gloss slab uppers (18): the soffit was kept, not removed · 50 photos include 8 aerials and 6 of the swim spa; no mechanical frame despite three new mechanical claims · the swim spa, gazebo and heated garage are lifestyle items the model does not price either way · 1025 sqft above grade with the two secondary bedrooms at 110 and 95 sqft
-
-Concealed in the photos: no tub anywhere: main 3pc and both lower baths are showers (27, 36, 37) · basement slab under new LVP (28-37) · furnace, A/C and 200A panel are remarks claims (2024-25); none framed in 50 photos
-
-## 17. 1228 Pallatine Drive — grade B, $773/usable sq ft, SEE FIRST
+## 15. 1228 Pallatine Drive — grade B, $773/usable sq ft, SEE FIRST
 
 **Renovations needed:** bath 2 $22k (unseen); bath 3 $22k (unseen); powder $10k (unseen); panel $5k (unseen) — $59k if you do all of it. Possible: partial rewire $14k (25%)
 Ask $1,228,000 · day-one p80 $33,860 · wish list p80 $75,488 · reserve $147/mo · year used 1963 (mls) · usable 1,633 sq ft · tells settled 14/15 of 40 photos · evidence high · rank band - · cash to close at 20% $299,995
@@ -460,10 +406,36 @@ Red flags: 1963 sidesplit with every finish replaced: kitchen (slab doors, quart
 
 Concealed in the photos: furnace and panel out of frame in the utility/laundry photo (31); a tank water heater and a dryer vent are visible · basement slab under LVP and hex tile (28-31)
 
-## 18. 2265 Middlesmoor Crescent — grade C, $597/usable sq ft, SEE
+## 16. 1319 Bonnie Court — grade C+, $537/usable sq ft, SEE
 
-**Renovations needed:** bath 2 $22k (unseen); powder $10k (unseen) — $32k if you do all of it. Possible: main bath $26k (33%)
-Ask $1,049,900 · day-one p80 $28,855 · wish list p80 $67,787 · reserve $108/mo · year used 1979 (mls) · usable 1,808 sq ft · tells settled 13/15 of 39 photos · evidence high · rank band - · cash to close at 20% $255,808
+**Renovations needed:** kitchen $28k; main bath $25k — $53k if you do all of it. Possible: bath 2 $20k (45%), powder $9k (45%)
+Ask $999,900 · day-one p80 $28,973 · wish list p80 $91,222 · reserve $147/mo · year used 1996 (mls) · usable 1,915 sq ft (basement estimated) · tells settled 14/15 of 49 photos · evidence high (basement area estimated) · rank band - · cash to close at 20% $244,926
+
+| Bucket | Line | P(needed) | Expected | Low | High | Basis |
+|---|---|---|---|---|---|---|
+| wishlist | kitchen | 100% | $27,557 | $16,001 | $42,669 | 4/4 tells seen, defect=True |
+| wishlist | main bath | 100% | $24,890 | $16,001 | $37,335 | 3/3 tells seen |
+| wishlist | bath 2 | 45% | $9,200 | $13,334 | $29,335 | unobserved |
+| wishlist | powder | 45% | $4,050 | $4,667 | $14,667 | 1 half |
+| day1 | flooring | 15% | $3,314 | $15,214 | $30,428 | floor=no_defect_seen |
+| day1 | ceilings | 15% | $1,141 | $5,434 | $9,780 | ceiling=flat_painted |
+| wishlist | basement | 15% | $5,795 | $26,601 | $53,203 | 570 sqft bg |
+| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
+| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
+| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
+| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
+| day1 | waterproofing | 12% | $2,293 | $10,667 | $29,335 | below-grade base rate |
+
+Resale after the work $1,064,262 to $1,096,427 (mid $1,080,345); peer norm $1,378,800; recovered 67%; sunk $39,750; break-even $1,120,095.
+
+Red flags: kitchen is 1996 builder-original under fresh paint: topmount double sink on brown post-form laminate, small U footprint (11-12) · ensuite is 1996 original: corner jetted tub on a beige 4x4 platform, maple vanity with laminate top and drop-in sink, 4x4 tiled shower stall (27-28) · house is vacant and freshly painted; new LVP throughout hides the original subfloor · earlier pass listed 11 of 15 tells unread; this pass settles 14 and turns both the kitchen and ensuite from 'unverified' to confirmed jobs
+
+Concealed in the photos: basement slab under laminate (34-38) · no furnace, panel or water-heater frame in 49, 4 of them aerials · main 4pc bath never framed at readable size; only the ensuite (27-28) and the basement bath (39)
+
+## 17. 2105 Maplewood Drive — grade B, $798/usable sq ft, SEE FIRST
+
+**Renovations needed:** bath 2 $22k (unseen); powder $10k (unseen); panel $5k (unseen) — $37k if you do all of it. Possible: main bath $26k (33%), partial rewire $14k (25%)
+Ask $1,199,000 · day-one p80 $31,679 · wish list p80 $70,006 · reserve $147/mo · year used 1958 (est) · usable 1,542 sq ft · tells settled 13/15 of 50 photos · evidence high (build year estimated) · rank band - · cash to close at 20% $291,434
 
 | Bucket | Line | P(needed) | Expected | Low | High | Basis |
 |---|---|---|---|---|---|---|
@@ -471,50 +443,24 @@ Ask $1,049,900 · day-one p80 $28,855 · wish list p80 $67,787 · reserve $108/m
 | wishlist | main bath | 33% | $8,789 | $16,950 | $39,550 | 2/3 tells seen |
 | wishlist | bath 2 | 70% | $15,161 | $14,125 | $31,075 | unobserved |
 | wishlist | powder | 70% | $6,674 | $4,944 | $15,537 | 1 half |
-| day1 | flooring | 15% | $3,102 | $14,238 | $28,476 | floor=no_defect_seen |
-| day1 | ceilings | 15% | $1,068 | $5,085 | $9,153 | ceiling=flat_painted |
-| wishlist | basement | 15% | $7,927 | $36,386 | $72,772 | 736 sqft bg |
-| reserve | roof | 30% | $4,407 | $10,170 | $19,210 | metal roof in MLS/photo, long life |
-| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
-| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
-| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
-| day1 | waterproofing | 12% | $2,429 | $11,300 | $31,075 | below-grade base rate |
-
-Resale after the work $1,096,147 to $1,123,277 (mid $1,109,712); peer norm $1,301,760; recovered 62%; sunk $36,830; break-even $1,146,542.
-
-Red flags: photos are heavily brightened; whites clip in every bath frame, so bath tile and fixture wear cannot be read · the 41 sqft 'bedroom' (8.3 x 5.0 ft) is a closet-sized room; treat the house as a 2-bed plus office · metal roof claim is consistent with the photo (metal shingle profile at the eave in 0); ask for the install date, it removes the roof reserve line · 1979 house with a full cosmetic flip: every surface renewed, nothing behind it visible
-
-Concealed in the photos: tub in the main bath never framed; only the subway surround (22-23) · basement slab under new LVP (29-32) · no furnace, panel or water heater frame; laundry (11) is a stacked unit in a closet
-
-## 19. 395 LARK Avenue — grade B-, $769/usable sq ft, SEE
-
-**Renovations needed:** bath 2 $22k (unseen); panel $5k (unseen) — $27k if you do all of it. Possible: flooring $17k (42%), partial rewire $14k (25%)
-Ask $1,249,000 · day-one p80 $38,211 · wish list p80 $56,777 · reserve $192/mo · year used 1958 (est) · usable 1,674 sq ft · tells settled 13/15 of 50 photos · evidence high (build year estimated) · rank band - · cash to close at 20% $308,966
-
-| Bucket | Line | P(needed) | Expected | Low | High | Basis |
-|---|---|---|---|---|---|---|
-| wishlist | kitchen | 15% | $4,379 | $16,950 | $45,200 | 4/4 tells seen, defect=False |
-| wishlist | main bath | 15% | $3,955 | $16,950 | $39,550 | 3/3 tells seen |
-| wishlist | bath 2 | 70% | $15,161 | $14,125 | $31,075 | unobserved |
-| day1 | flooring | 42% | $7,336 | $11,885 | $23,770 | floor=no_defect_seen (partly concealed) |
-| day1 | ceilings | 15% | $891 | $4,245 | $7,640 | ceiling=flat_painted |
-| wishlist | basement | 15% | $9,693 | $44,494 | $88,987 | 945 sqft bg |
+| day1 | flooring | 15% | $2,208 | $10,135 | $20,269 | floor=no_defect_seen |
+| day1 | ceilings | 15% | $760 | $3,620 | $6,515 | ceiling=flat_painted |
+| wishlist | basement | 15% | $9,693 | $44,494 | $88,987 | 1033 sqft bg |
 | reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
 | reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
 | reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
 | reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
-| reserve | windows | 70% | $16,215 | $16,950 | $31,640 | frame not shown |
 | day1 | panel | 50% | $2,531 | $3,531 | $7,062 | pre-1970, panel not shown |
 | day1 | partial rewire | 25% | $3,437 | $8,475 | $19,775 | pre-1970 risk |
 | day1 | waterproofing | 12% | $2,429 | $11,300 | $31,075 | below-grade base rate |
 
-Resale after the work $1,205,640 to $1,205,640 (mid $1,205,640); peer norm $1,205,640; recovered 26%; sunk $70,573; break-even $1,343,988.
+Resale after the work $1,109,880 to $1,109,880 (mid $1,109,880); peer norm $1,109,880; recovered 26%; sunk $74,821; break-even $1,300,685.
 
-Red flags: design-grade renovation with no mechanical evidence: for a 1958 bungalow the panel, plumbing and drainage are the money and none of it is shown · front window frames unresolved; if original wood in a 1958 house the full window reserve applies · dropped off the buyer's saved search (ITSO); confirm status · asphalt drive is older but sound (2)
+Red flags: kitchen keeps a dark-painted bulkhead over new gloss slab uppers (18): the soffit was kept, not removed · 50 photos include 8 aerials and 6 of the swim spa; no mechanical frame despite three new mechanical claims · the swim spa, gazebo and heated garage are lifestyle items the model does not price either way · 1025 sqft above grade with the two secondary bedrooms at 110 and 95 sqft
 
-Concealed in the photos: window frames: front units sit deep behind planting and read as dark-framed at 2x (2); could be original wood or new black vinyl, not settled · basement slab under LVP (26-33) · no furnace, panel or water-heater frame in 50; two floor plans included
+Concealed in the photos: no tub anywhere: main 3pc and both lower baths are showers (27, 36, 37) · basement slab under new LVP (28-37) · furnace, A/C and 200A panel are remarks claims (2024-25); none framed in 50 photos
 
-## 20. 3490 Rexway Drive — grade C+, $596/usable sq ft, SEE
+## 18. 3490 Rexway Drive — grade C+, $596/usable sq ft, SEE
 
 **Renovations needed:** main bath $26k; bath 2 $22k (unseen); powder $10k (unseen); panel $5k (unseen) — $63k if you do all of it. Possible: partial rewire $14k (25%)
 Ask $1,079,000 · day-one p80 $34,811 · wish list p80 $85,018 · reserve $446/mo · year used 1968 (est) · usable 1,870 sq ft (basement estimated) · tells settled 13/15 of 48 photos · evidence medium (build year estimated; basement area estimated) · rank band - · cash to close at 20% $268,166
@@ -544,6 +490,60 @@ Verdict notes: POOL — in-ground, annual carry priced in the reserve
 Red flags: second full bath is a mid-2000s job in 12x12 beige tile with a glass-mosaic border around an alcove tub (34): dated, functional · in-ground pool: liner, heater and closing costs the model does not price; 11 photos are of it · house is vacant; every room is empty so floors are fully visible, and the hardwood shows no defects at 1x · no year built on MLS; late-1960s backsplit sets the 25% contingency
 
 Concealed in the photos: no vanity top framed at readable size in either full bath (26, 34) · basement slab under hardwood and tile (28-32) · laundry room ceiling is drop-tile (35); the rest of the lower level is drywall · no furnace, panel or water heater frame in 48, 11 of which are of the pool
+
+## 19. 395 LARK Avenue — grade B-, $769/usable sq ft, SEE
+
+**Renovations needed:** bath 2 $22k (unseen); panel $5k (unseen) — $27k if you do all of it. Possible: flooring $17k (42%), partial rewire $14k (25%)
+Ask $1,249,000 · day-one p80 $38,211 · wish list p80 $56,777 · reserve $192/mo · year used 1958 (est) · usable 1,674 sq ft · tells settled 13/15 of 50 photos · evidence high (build year estimated) · rank band - · cash to close at 20% $308,966
+
+| Bucket | Line | P(needed) | Expected | Low | High | Basis |
+|---|---|---|---|---|---|---|
+| wishlist | kitchen | 15% | $4,379 | $16,950 | $45,200 | 4/4 tells seen, defect=False |
+| wishlist | main bath | 15% | $3,955 | $16,950 | $39,550 | 3/3 tells seen |
+| wishlist | bath 2 | 70% | $15,161 | $14,125 | $31,075 | unobserved |
+| day1 | flooring | 42% | $7,336 | $11,885 | $23,770 | floor=no_defect_seen (partly concealed) |
+| day1 | ceilings | 15% | $891 | $4,245 | $7,640 | ceiling=flat_painted |
+| wishlist | basement | 15% | $9,693 | $44,494 | $88,987 | 945 sqft bg |
+| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
+| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
+| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
+| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
+| reserve | windows | 70% | $16,215 | $16,950 | $31,640 | frame not shown |
+| day1 | panel | 50% | $2,531 | $3,531 | $7,062 | pre-1970, panel not shown |
+| day1 | partial rewire | 25% | $3,437 | $8,475 | $19,775 | pre-1970 risk |
+| day1 | waterproofing | 12% | $2,429 | $11,300 | $31,075 | below-grade base rate |
+
+Resale after the work $1,205,640 to $1,205,640 (mid $1,205,640); peer norm $1,205,640; recovered 26%; sunk $70,573; break-even $1,343,988.
+
+Red flags: design-grade renovation with no mechanical evidence: for a 1958 bungalow the panel, plumbing and drainage are the money and none of it is shown · front window frames unresolved; if original wood in a 1958 house the full window reserve applies · dropped off the buyer's saved search (ITSO); confirm status · asphalt drive is older but sound (2)
+
+Concealed in the photos: window frames: front units sit deep behind planting and read as dark-framed at 2x (2); could be original wood or new black vinyl, not settled · basement slab under LVP (26-33) · no furnace, panel or water-heater frame in 50; two floor plans included
+
+## 20. 2265 Middlesmoor Crescent — grade C, $597/usable sq ft, SEE
+
+**Renovations needed:** bath 2 $22k (unseen); powder $10k (unseen) — $32k if you do all of it. Possible: main bath $26k (33%)
+Ask $1,049,900 · day-one p80 $28,855 · wish list p80 $67,787 · reserve $108/mo · year used 1979 (mls) · usable 1,808 sq ft · tells settled 13/15 of 39 photos · evidence high · rank band - · cash to close at 20% $255,808
+
+| Bucket | Line | P(needed) | Expected | Low | High | Basis |
+|---|---|---|---|---|---|---|
+| wishlist | kitchen | 15% | $4,379 | $16,950 | $45,200 | 4/4 tells seen, defect=False |
+| wishlist | main bath | 33% | $8,789 | $16,950 | $39,550 | 2/3 tells seen |
+| wishlist | bath 2 | 70% | $15,161 | $14,125 | $31,075 | unobserved |
+| wishlist | powder | 70% | $6,674 | $4,944 | $15,537 | 1 half |
+| day1 | flooring | 15% | $3,102 | $14,238 | $28,476 | floor=no_defect_seen |
+| day1 | ceilings | 15% | $1,068 | $5,085 | $9,153 | ceiling=flat_painted |
+| wishlist | basement | 15% | $7,927 | $36,386 | $72,772 | 736 sqft bg |
+| reserve | roof | 30% | $4,407 | $10,170 | $19,210 | metal roof in MLS/photo, long life |
+| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
+| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
+| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
+| day1 | waterproofing | 12% | $2,429 | $11,300 | $31,075 | below-grade base rate |
+
+Resale after the work $1,096,147 to $1,123,277 (mid $1,109,712); peer norm $1,301,760; recovered 62%; sunk $36,830; break-even $1,146,542.
+
+Red flags: photos are heavily brightened; whites clip in every bath frame, so bath tile and fixture wear cannot be read · the 41 sqft 'bedroom' (8.3 x 5.0 ft) is a closet-sized room; treat the house as a 2-bed plus office · metal roof claim is consistent with the photo (metal shingle profile at the eave in 0); ask for the install date, it removes the roof reserve line · 1979 house with a full cosmetic flip: every surface renewed, nothing behind it visible
+
+Concealed in the photos: tub in the main bath never framed; only the subway surround (22-23) · basement slab under new LVP (29-32) · no furnace, panel or water heater frame; laundry (11) is a stacked unit in a closet
 
 ## 21. 1333 Woodvale Place — grade B, $673/usable sq ft, SEE
 
@@ -658,58 +658,7 @@ Red flags: kitchen is old boxes repainted navy with new hardware: raised-panel d
 
 Concealed in the photos: main 4pc bath tub never framed; only the tiled shower stall (17) and basement shower (33) · STR furnishings in every room: floors mostly under rugs and beds · no panel or water-heater frame; furnace partly visible behind boxes (34)
 
-## 25. 5190 Wood Crescent — grade C, $693/usable sq ft, SEE
-
-**Renovations needed:** main bath $25k — $25k if you do all of it. Possible: bath 2 $20k (45%), powder $9k (45%)
-Ask $1,099,900 · day-one p80 $26,338 · wish list p80 $69,873 · reserve $147/mo · year used 1999 (est) · usable 1,625 sq ft · tells settled 14/15 of 33 photos · evidence high (build year estimated) · rank band - · cash to close at 20% $264,291
-
-| Bucket | Line | P(needed) | Expected | Low | High | Basis |
-|---|---|---|---|---|---|---|
-| wishlist | kitchen | 15% | $4,134 | $16,001 | $42,669 | 4/4 tells seen, defect=False |
-| wishlist | main bath | 100% | $24,890 | $16,001 | $37,335 | 3/3 tells seen |
-| wishlist | bath 2 | 45% | $9,200 | $13,334 | $29,335 | unobserved |
-| wishlist | powder | 45% | $4,050 | $4,667 | $14,667 | 1 half |
-| day1 | flooring | 15% | $2,709 | $12,433 | $24,865 | floor=no_defect_seen |
-| day1 | ceilings | 15% | $932 | $4,440 | $7,992 | ceiling=flat_painted |
-| wishlist | basement | 15% | $5,958 | $27,348 | $54,696 | 586 sqft bg |
-| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
-| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
-| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
-| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
-| day1 | waterproofing | 12% | $2,293 | $10,667 | $29,335 | below-grade base rate |
-
-Resale after the work $1,142,551 to $1,168,130 (mid $1,155,340); peer norm $1,170,000; recovered 58%; sunk $40,771; break-even $1,196,111.
-
-Red flags: main 4pc bath is builder-original behind a renovated kitchen: dark wood vanity, green post-form laminate top with a drop-in sink, dark green 4x4 tub surround (18) · 'extensively renovated' applies to the main floor and basement bath; the upstairs bath was skipped · above-ground pool: a removal or maintenance cost the model does not price · MLS says sump pump; the basement is fully finished so the slab and walls cannot be inspected · kitchen is 7 x 7 ft (52 sqft) per the room table; small for a 3-bed
-
-Concealed in the photos: main-bath tub behind a drawn curtain (18) · basement slab under new LVP (20-23) · no furnace, panel, water heater or sump frame; the outdoor heat-pump unit is visible at the side of the house (0)
-
-## 26. 493 CROSBY Avenue — grade C-, $978/usable sq ft, SEE
-
-**Renovations needed:** powder $10k (unseen); panel $5k (unseen) — $15k if you do all of it. Possible: partial rewire $14k (25%)
-Ask $1,149,900 · day-one p80 $28,386 · wish list p80 $31,323 · reserve $147/mo · year used 1950 (est) · usable 1,205 sq ft · tells settled 11/15 of 33 photos · evidence medium (no basement frame; build year estimated) · rank band - · cash to close at 20% $277,339
-
-| Bucket | Line | P(needed) | Expected | Low | High | Basis |
-|---|---|---|---|---|---|---|
-| wishlist | kitchen | 15% | $4,379 | $16,950 | $45,200 | 4/4 tells seen, defect=False |
-| wishlist | main bath | 15% | $3,955 | $16,950 | $39,550 | 3/3 tells seen |
-| wishlist | powder | 70% | $6,674 | $4,944 | $15,537 | 1 half |
-| day1 | flooring | 15% | $2,596 | $11,914 | $23,829 | floor=no_defect_seen |
-| day1 | ceilings | 15% | $894 | $4,255 | $7,659 | ceiling=flat_painted |
-| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
-| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
-| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
-| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
-| day1 | panel | 50% | $2,531 | $3,531 | $7,062 | pre-1970, panel not shown |
-| day1 | partial rewire | 25% | $3,437 | $8,475 | $19,775 | pre-1970 risk |
-
-Resale after the work $867,600 to $867,600 (mid $867,600); peer norm $867,600; recovered 26%; sunk $44,092; break-even $1,209,609.
-
-Red flags: a full flip that shows nothing below grade: in a 1950 house the basement is where the cost is, and it is not in the set · EV charger on the side wall (3) implies a panel upgrade; ask for the ESA certificate · 1.5-storey brick with parged block at grade (0, 3); parging looks fresh, which hides as much as it shows · listing has dropped off the buyer's saved search (ITSO board): confirm status before scheduling
-
-Concealed in the photos: NO basement photo of any kind in 33 frames; the lower level is entirely unread · no furnace, panel or water-heater frame · new concrete driveway and a bare-soil rear yard: the grading around the house is fresh and any settlement is months away
-
-## 27. 1280 ALDRIDGE Crescent — grade C, $739/usable sq ft, SEE
+## 25. 1280 ALDRIDGE Crescent — grade C, $739/usable sq ft, SEE
 
 **Renovations needed:** main bath $26k; bath 2 $22k (unseen); panel $5k (unseen) — $53k if you do all of it. Possible: flooring $17k (42%), partial rewire $14k (25%)
 Ask $1,018,800 · day-one p80 $38,173 · wish list p80 $73,640 · reserve $147/mo · year used  (none) · usable 1,431 sq ft · tells settled 12/15 of 30 photos · evidence high (build year estimated) · rank band - · cash to close at 20% $258,284
@@ -738,7 +687,7 @@ Concealed in the photos: kitchen counter under a staged cutting board and knife 
 
 Claim vs evidence: No outright contradiction. The claimed 2023 kitchen is consistent with what is visible, though photos cannot confirm quartz or the date. The 'updated' framing does not extend to the upper bathroom, which retains an integrated cultured-marble vanity and small-format tile.
 
-## 28. 1218 Oxlow Drive — grade B-, $888/usable sq ft, SEE
+## 26. 1218 Oxlow Drive — grade B-, $888/usable sq ft, SEE
 
 **Renovations needed:** bath 2 $22k (unseen) — $22k if you do all of it
 Ask $1,249,999 · day-one p80 $24,489 · wish list p80 $50,770 · reserve $446/mo · year used 1972 (mls) · usable 1,436 sq ft (basement estimated) · tells settled 14/15 of 42 photos · evidence high (basement area estimated) · rank band - · cash to close at 20% $295,464
@@ -768,6 +717,57 @@ Concealed in the photos: lower-level slab under LVP (26-32) · no furnace, panel
 
 Claim vs evidence: remarks say 'in-ground swimming pool with built-in deck'; photos 38-40 show an above-ground pool with a deck built around it
 
+## 27. 5190 Wood Crescent — grade C, $693/usable sq ft, SEE
+
+**Renovations needed:** main bath $25k — $25k if you do all of it. Possible: bath 2 $20k (45%), powder $9k (45%)
+Ask $1,099,900 · day-one p80 $26,338 · wish list p80 $69,873 · reserve $147/mo · year used 1999 (est) · usable 1,625 sq ft · tells settled 14/15 of 33 photos · evidence high (build year estimated) · rank band - · cash to close at 20% $264,291
+
+| Bucket | Line | P(needed) | Expected | Low | High | Basis |
+|---|---|---|---|---|---|---|
+| wishlist | kitchen | 15% | $4,134 | $16,001 | $42,669 | 4/4 tells seen, defect=False |
+| wishlist | main bath | 100% | $24,890 | $16,001 | $37,335 | 3/3 tells seen |
+| wishlist | bath 2 | 45% | $9,200 | $13,334 | $29,335 | unobserved |
+| wishlist | powder | 45% | $4,050 | $4,667 | $14,667 | 1 half |
+| day1 | flooring | 15% | $2,709 | $12,433 | $24,865 | floor=no_defect_seen |
+| day1 | ceilings | 15% | $932 | $4,440 | $7,992 | ceiling=flat_painted |
+| wishlist | basement | 15% | $5,958 | $27,348 | $54,696 | 586 sqft bg |
+| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
+| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
+| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
+| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
+| day1 | waterproofing | 12% | $2,293 | $10,667 | $29,335 | below-grade base rate |
+
+Resale after the work $1,142,551 to $1,168,130 (mid $1,155,340); peer norm $1,170,000; recovered 58%; sunk $40,771; break-even $1,196,111.
+
+Red flags: main 4pc bath is builder-original behind a renovated kitchen: dark wood vanity, green post-form laminate top with a drop-in sink, dark green 4x4 tub surround (18) · 'extensively renovated' applies to the main floor and basement bath; the upstairs bath was skipped · above-ground pool: a removal or maintenance cost the model does not price · MLS says sump pump; the basement is fully finished so the slab and walls cannot be inspected · kitchen is 7 x 7 ft (52 sqft) per the room table; small for a 3-bed
+
+Concealed in the photos: main-bath tub behind a drawn curtain (18) · basement slab under new LVP (20-23) · no furnace, panel, water heater or sump frame; the outdoor heat-pump unit is visible at the side of the house (0)
+
+## 28. 493 CROSBY Avenue — grade C-, $978/usable sq ft, SEE
+
+**Renovations needed:** powder $10k (unseen); panel $5k (unseen) — $15k if you do all of it. Possible: partial rewire $14k (25%)
+Ask $1,149,900 · day-one p80 $28,386 · wish list p80 $31,323 · reserve $147/mo · year used 1950 (est) · usable 1,205 sq ft · tells settled 11/15 of 33 photos · evidence medium (no basement frame; build year estimated) · rank band - · cash to close at 20% $277,339
+
+| Bucket | Line | P(needed) | Expected | Low | High | Basis |
+|---|---|---|---|---|---|---|
+| wishlist | kitchen | 15% | $4,379 | $16,950 | $45,200 | 4/4 tells seen, defect=False |
+| wishlist | main bath | 15% | $3,955 | $16,950 | $39,550 | 3/3 tells seen |
+| wishlist | powder | 70% | $6,674 | $4,944 | $15,537 | 1 half |
+| day1 | flooring | 15% | $2,596 | $11,914 | $23,829 | floor=no_defect_seen |
+| day1 | ceilings | 15% | $894 | $4,255 | $7,659 | ceiling=flat_painted |
+| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
+| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
+| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
+| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
+| day1 | panel | 50% | $2,531 | $3,531 | $7,062 | pre-1970, panel not shown |
+| day1 | partial rewire | 25% | $3,437 | $8,475 | $19,775 | pre-1970 risk |
+
+Resale after the work $867,600 to $867,600 (mid $867,600); peer norm $867,600; recovered 26%; sunk $44,092; break-even $1,209,609.
+
+Red flags: a full flip that shows nothing below grade: in a 1950 house the basement is where the cost is, and it is not in the set · EV charger on the side wall (3) implies a panel upgrade; ask for the ESA certificate · 1.5-storey brick with parged block at grade (0, 3); parging looks fresh, which hides as much as it shows · listing has dropped off the buyer's saved search (ITSO board): confirm status before scheduling
+
+Concealed in the photos: NO basement photo of any kind in 33 frames; the lower level is entirely unread · no furnace, panel or water-heater frame · new concrete driveway and a bare-soil rear yard: the grading around the house is fresh and any settlement is months away
+
 ## 29. 28 Osborne Crescent — grade C+, $815/usable sq ft, SEE
 
 **Renovations needed:** main bath $26k; bath 2 $22k (unseen); bath 3 $22k (unseen); panel $5k (unseen) — $75k if you do all of it. Possible: kitchen $29k (29%), partial rewire $14k (25%)
@@ -796,7 +796,33 @@ Red flags: main hall bath is a 2000s beige 12x12 job with a listello border arou
 
 Concealed in the photos: kitchen sink never framed at readable size (12-16) · basement slab under laminate (33-37) · laundry (40) shows machines and a sink; furnace and panel out of frame · the 'large crawl space storage' is never shown
 
-## 30. 1453 Mountain Grove Avenue — grade B-, $796/usable sq ft, SEE
+## 30. 1177 GRAND Boulevard — grade B-, $780/usable sq ft, SEE
+
+**Renovations needed:** kitchen $73k; main bath $26k; driveway $12k; powder $19k (unseen) — $130k if you do all of it. Possible: flooring $25k (42%)
+Ask $1,299,900 · day-one p80 $37,430 · wish list p80 $147,929 · reserve $147/mo · year used 1976 (mls) · usable 1,715 sq ft · tells settled 9/15 of 31 photos · evidence medium (no basement frame) · rank band - · cash to close at 20% $319,383
+
+| Bucket | Line | P(needed) | Expected | Low | High | Basis |
+|---|---|---|---|---|---|---|
+| wishlist | kitchen | 100% | $72,979 | $49,437 | $105,937 | 4/4 tells seen, defect=True |
+| wishlist | main bath | 100% | $26,367 | $16,950 | $39,550 | 1/3 tells seen |
+| wishlist | powder | 70% | $13,348 | $9,887 | $31,075 | 2 half |
+| day1 | flooring | 42% | $10,467 | $16,957 | $33,914 | floor=no_defect_seen (partly concealed) |
+| day1 | ceilings | 15% | $1,272 | $6,056 | $10,901 | ceiling=flat_painted |
+| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
+| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
+| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
+| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
+| wishlist | driveway | 100% | $11,535 | $7,062 | $16,950 | cracked, confirmed |
+
+Resale after the work $1,354,850 to $1,354,850 (mid $1,354,850); peer norm $1,354,850; recovered 45%; sunk $102,355; break-even $1,485,259.
+
+Red flags: no basement photos at all despite a full unfinished basement, so moisture, foundation, mechanicals and panel are entirely unverifiable · the only full bathroom in the house is never photographed · one full bath and two powder rooms serving four bedrooms · no mechanical, furnace or panel photo · no floor plan · roof claimed 2017, not confirmable at close range
+
+Concealed in the photos: living room hardwood mostly under a large area rug (photo 5) · family room hardwood under an area rug (photo 15)
+
+Claim vs evidence: 'Updated eat-in kitchen with granite' is contradicted on two tells: a retained soffit and a rolled bullnose edge, plus mismatched appliance finishes. Hardwood and upper-level broadloom claims are supported. Roof 2017 is unverifiable.
+
+## 31. 1453 Mountain Grove Avenue — grade B-, $796/usable sq ft, SEE
 
 **Renovations needed:** basement $52k; bath 2 $22k (unseen); panel $5k (unseen) — $79k if you do all of it. Possible: kitchen $29k (29%), main bath $26k (33%), partial rewire $14k (25%)
 Ask $1,079,000 · day-one p80 $31,597 · wish list p80 $111,846 · reserve $147/mo · year used 1958 (mls) · usable 1,394 sq ft (basement estimated) · tells settled 12/15 of 49 photos · evidence high (basement area estimated) · rank band - · cash to close at 20% $264,952
@@ -822,32 +848,6 @@ Resale after the work $1,004,040 to $1,004,040 (mid $1,004,040); peer norm $1,00
 Red flags: basement rec room has a drop-tile grid ceiling (31): the lower level was refreshed with LVP and paint, not rebuilt · carport, not a garage; parking_spots 5 counts the driveway · two of three main-floor bedrooms are under 100 sqft (98 and 72) · 'updated roof' and 'newer' mechanicals carry no dates
 
 Concealed in the photos: main-bath tub behind a drawn curtain (27-28) · kitchen sink hidden behind the island in every kitchen frame · basement slab under new LVP (31-36) · no furnace, panel or water-heater frame; laundry (40) is new cabinetry and machines despite 'newer furnace and A/C' in the remarks
-
-## 31. 1177 GRAND Boulevard — grade B-, $780/usable sq ft, SEE
-
-**Renovations needed:** kitchen $73k; main bath $26k; driveway $12k; powder $19k (unseen) — $130k if you do all of it. Possible: flooring $25k (42%)
-Ask $1,299,900 · day-one p80 $37,430 · wish list p80 $147,929 · reserve $147/mo · year used 1976 (mls) · usable 1,715 sq ft · tells settled 9/15 of 31 photos · evidence medium (no basement frame) · rank band - · cash to close at 20% $319,383
-
-| Bucket | Line | P(needed) | Expected | Low | High | Basis |
-|---|---|---|---|---|---|---|
-| wishlist | kitchen | 100% | $72,979 | $49,437 | $105,937 | 4/4 tells seen, defect=True |
-| wishlist | main bath | 100% | $26,367 | $16,950 | $39,550 | 1/3 tells seen |
-| wishlist | powder | 70% | $13,348 | $9,887 | $31,075 | 2 half |
-| day1 | flooring | 42% | $10,467 | $16,957 | $33,914 | floor=no_defect_seen (partly concealed) |
-| day1 | ceilings | 15% | $1,272 | $6,056 | $10,901 | ceiling=flat_painted |
-| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
-| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
-| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
-| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
-| wishlist | driveway | 100% | $11,535 | $7,062 | $16,950 | cracked, confirmed |
-
-Resale after the work $1,354,850 to $1,354,850 (mid $1,354,850); peer norm $1,354,850; recovered 45%; sunk $102,355; break-even $1,485,259.
-
-Red flags: no basement photos at all despite a full unfinished basement, so moisture, foundation, mechanicals and panel are entirely unverifiable · the only full bathroom in the house is never photographed · one full bath and two powder rooms serving four bedrooms · no mechanical, furnace or panel photo · no floor plan · roof claimed 2017, not confirmable at close range
-
-Concealed in the photos: living room hardwood mostly under a large area rug (photo 5) · family room hardwood under an area rug (photo 15)
-
-Claim vs evidence: 'Updated eat-in kitchen with granite' is contradicted on two tells: a retained soffit and a rolled bullnose edge, plus mismatched appliance finishes. Hardwood and upper-level broadloom claims are supported. Roof 2017 is unverifiable.
 
 ## 32. 2221 Wyandotte Drive — grade C+, $864/usable sq ft, SEE
 
@@ -877,32 +877,7 @@ Concealed in the photos: kitchen floor under a black runner (photo 3) · living 
 
 Claim vs evidence: 'Large waterfall granite island' reads as quartz or marble-look rather than granite. 'Engineered hardwood on upper, main and lower levels' cannot be verified because every photo showing those floors has them majority-concealed by rugs and runners. The stated basement separate entrance has no photo evidence either way.
 
-## 33. 2120 Cavendish Drive — grade C+, $623/usable sq ft, SEE
-
-**Renovations needed:** basement $65k; bath 2 $22k (unseen) — $87k if you do all of it. Possible: kitchen $29k (29%), main bath $26k (33%), flooring $16k (42%)
-Ask $969,900 · day-one p80 $29,271 · wish list p80 $125,003 · reserve $147/mo · year used 1972 (est) · usable 1,604 sq ft · tells settled 11/15 of 45 photos · evidence medium (build year estimated) · rank band - · cash to close at 20% $238,624
-
-| Bucket | Line | P(needed) | Expected | Low | High | Basis |
-|---|---|---|---|---|---|---|
-| wishlist | kitchen | 29% | $8,393 | $16,950 | $45,200 | 3/4 tells seen, defect=False |
-| wishlist | main bath | 33% | $8,789 | $16,950 | $39,550 | 2/3 tells seen |
-| wishlist | bath 2 | 70% | $15,161 | $14,125 | $31,075 | unobserved |
-| day1 | flooring | 42% | $6,713 | $10,876 | $21,752 | floor=no_defect_seen (partly concealed) |
-| day1 | ceilings | 15% | $816 | $3,884 | $6,992 | ceiling=flat_painted |
-| wishlist | basement | 100% | $64,622 | $44,494 | $88,987 | 1007 sqft bg |
-| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
-| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
-| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
-| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
-| day1 | waterproofing | 12% | $2,429 | $11,300 | $31,075 | below-grade base rate |
-
-Resale after the work $1,041,595 to $1,079,045 (mid $1,060,320); peer norm $1,154,520; recovered 59%; sunk $63,854; break-even $1,124,174.
-
-Red flags: basement has a drop-tile ceiling grid in every rec-room frame (28-32): the lower level was refreshed, not rebuilt · no photo of the furnace, panel, or water heater in 45 frames; laundry (35) shows only cabinetry · new LVP throughout is the classic pre-sale cover; what is under it is unknown · MLS says 700-1100 sqft above grade for a 3+1 sidesplit: the 1755 usable figure in the model leans on the finished lower levels
-
-Concealed in the photos: kitchen sink hidden behind the counter angle in every kitchen frame (4-9) · original subfloor under new wide-plank LVP on every level · basement slab under wall-to-wall carpet (28-34) · driveway never framed; only the front walk (0-2)
-
-## 34. 3202 Centennial Drive E — grade C-, $682/usable sq ft, SEE
+## 33. 3202 Centennial Drive E — grade C-, $682/usable sq ft, SEE
 
 **Renovations needed:** main bath $26k; driveway $12k; bath 2 $22k (unseen); panel $5k (unseen) — $65k if you do all of it. Possible: partial rewire $14k (25%)
 Ask $1,059,900 · day-one p80 $33,411 · wish list p80 $88,087 · reserve $446/mo · year used 1968 (est) · usable 1,604 sq ft (basement estimated) · tells settled 14/15 of 42 photos · evidence medium (build year estimated; basement area estimated) · rank band - · cash to close at 20% $262,564
@@ -933,7 +908,60 @@ Red flags: main bath is a 2000s black-tile job around a corner jetted tub on a p
 
 Concealed in the photos: photo source is 680px wide, the lowest in the set; every read is at reduced resolution · basement slab under LVP (27-31) · no furnace, panel or water-heater frame in 42, 9 of them of the pool
 
-## 35. 568 Weir Avenue — grade B-, $970/usable sq ft, SEE
+## 34. 2120 Cavendish Drive — grade C+, $623/usable sq ft, SEE
+
+**Renovations needed:** basement $65k; bath 2 $22k (unseen) — $87k if you do all of it. Possible: kitchen $29k (29%), main bath $26k (33%), flooring $16k (42%)
+Ask $969,900 · day-one p80 $29,271 · wish list p80 $125,003 · reserve $147/mo · year used 1972 (est) · usable 1,604 sq ft · tells settled 11/15 of 45 photos · evidence medium (build year estimated) · rank band - · cash to close at 20% $238,624
+
+| Bucket | Line | P(needed) | Expected | Low | High | Basis |
+|---|---|---|---|---|---|---|
+| wishlist | kitchen | 29% | $8,393 | $16,950 | $45,200 | 3/4 tells seen, defect=False |
+| wishlist | main bath | 33% | $8,789 | $16,950 | $39,550 | 2/3 tells seen |
+| wishlist | bath 2 | 70% | $15,161 | $14,125 | $31,075 | unobserved |
+| day1 | flooring | 42% | $6,713 | $10,876 | $21,752 | floor=no_defect_seen (partly concealed) |
+| day1 | ceilings | 15% | $816 | $3,884 | $6,992 | ceiling=flat_painted |
+| wishlist | basement | 100% | $64,622 | $44,494 | $88,987 | 1007 sqft bg |
+| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
+| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
+| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
+| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
+| day1 | waterproofing | 12% | $2,429 | $11,300 | $31,075 | below-grade base rate |
+
+Resale after the work $1,041,595 to $1,079,045 (mid $1,060,320); peer norm $1,154,520; recovered 59%; sunk $63,854; break-even $1,124,174.
+
+Red flags: basement has a drop-tile ceiling grid in every rec-room frame (28-32): the lower level was refreshed, not rebuilt · no photo of the furnace, panel, or water heater in 45 frames; laundry (35) shows only cabinetry · new LVP throughout is the classic pre-sale cover; what is under it is unknown · MLS says 700-1100 sqft above grade for a 3+1 sidesplit: the 1755 usable figure in the model leans on the finished lower levels
+
+Concealed in the photos: kitchen sink hidden behind the counter angle in every kitchen frame (4-9) · original subfloor under new wide-plank LVP on every level · basement slab under wall-to-wall carpet (28-34) · driveway never framed; only the front walk (0-2)
+
+## 35. 2379 Duncaster Drive — grade C+, $715/usable sq ft, SEE
+
+**Renovations needed:** main bath $26k; driveway $12k; ceilings $6k; bath 2 $22k (unseen); bath 3 $22k (unseen); flooring $17k; powder $10k (unseen) — $115k if you do all of it. Possible: basement $65k (42%), kitchen $29k (29%)
+Ask $1,169,000 · day-one p80 $38,036 · wish list p80 $159,918 · reserve $147/mo · year used 1978 (mls) · usable 1,688 sq ft · tells settled 10/15 of 34 photos · evidence medium · rank band - · cash to close at 20% $291,191
+
+| Bucket | Line | P(needed) | Expected | Low | High | Basis |
+|---|---|---|---|---|---|---|
+| wishlist | kitchen | 29% | $8,393 | $16,950 | $45,200 | 3/4 tells seen, defect=False |
+| wishlist | main bath | 100% | $26,367 | $16,950 | $39,550 | 3/3 tells seen |
+| wishlist | bath 2 | 70% | $15,161 | $14,125 | $31,075 | unobserved |
+| wishlist | bath 3 | 70% | $15,161 | $14,125 | $31,075 | unobserved |
+| wishlist | powder | 70% | $6,674 | $4,944 | $15,537 | 1 half |
+| day1 | flooring | 70% | $12,123 | $11,924 | $23,849 | floor=not_shown |
+| day1 | ceilings | 100% | $5,962 | $4,259 | $7,666 | ceiling=stipple_popcorn |
+| wishlist | basement | 42% | $27,464 | $44,494 | $88,987 | 964 sqft bg |
+| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
+| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
+| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
+| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
+| day1 | waterproofing | 12% | $2,429 | $11,300 | $31,075 | below-grade base rate |
+| wishlist | driveway | 100% | $11,535 | $7,062 | $16,950 | cracked, confirmed |
+
+Resale after the work $1,215,360 to $1,215,360 (mid $1,215,360); peer norm $1,215,360; recovered 36%; sunk $125,922; break-even $1,366,954.
+
+Red flags: BEDROOM CEILINGS ARE STIPPLE (15) while the main floor is flat: recorded as stipple_popcorn per the Tania and Pinemeadow precedent, so the ceiling line carries across the above-grade area · the concrete driveway is CRACKED across its width (0) · the 4pc 'ensuite' is a stone-platform soaker tub standing open in the mid-level bedroom, not a separate room: a taste item and a resale question, and the platform is newly built so it should NOT be read as a 1980s garden tub · above-grade area is 1,206 sq ft, below the 1,300 cramped floor, and $969 per above-grade square foot is the highest in the batch · block foundation on a 1978 house and no roof year stated · backsplit: carries the 5% style dock
+
+Concealed in the photos: no basement or lower-level wall base is readable in any frame; both wall-base reads landed on furnishings · no furnace, no electrical panel, no water heater, no laundry and no utility-room frame in 34 photos, despite the remarks claiming a 2022 panel, 2021 furnace and A/C and a 2021 tankless heater · main-floor flooring never read at full resolution · the kitchen soffit junction is not shown
+
+## 36. 568 Weir Avenue — grade B-, $970/usable sq ft, SEE
 
 **Renovations needed:** basement $54k; bath 2 $22k; asbestos $11k (unseen); panel $5k (unseen) — $92k if you do all of it. Possible: flooring $15k (42%), partial rewire $14k (25%)
 Ask $1,299,999 · day-one p80 $45,489 · wish list p80 $106,916 · reserve $147/mo · year used 1957 (mls) · usable 1,387 sq ft · tells settled 14/15 of 22 photos · evidence high (only 22 photos) · rank band - · cash to close at 20% $327,464
@@ -962,34 +990,6 @@ Verdict notes: TENANTED
 Red flags: basement 3pc bath is 1957-original: blue 4x4 wall tile, cultured-marble integrated top, curtain (18); the '2021 full renovation' skipped it · basement ceiling is a painted tile grid at 1.4x (15): drop-tile or glued tile, either way an older basement finish; 9-inch or 12-inch tile in a 1957 house is an asbestos suspect until checked · tenanted at $57,000/yr: vacant possession and the Ontario N12 timeline are a purchase condition, not a detail · only 22 photos and no main-floor bedroom among them
 
 Concealed in the photos: tenant's belongings throughout; main-floor bedrooms not shown at all (22 photos, none of a main-floor bedroom) · basement slab under LVP (15-17) · no furnace, panel or water-heater frame · the 'walk-up' separate entrance is never framed
-
-## 36. 2379 Duncaster Drive — grade C+, $715/usable sq ft, SEE
-
-**Renovations needed:** main bath $26k; driveway $12k; ceilings $6k; bath 2 $22k (unseen); bath 3 $22k (unseen); flooring $17k; powder $10k (unseen) — $115k if you do all of it. Possible: basement $65k (42%), kitchen $29k (29%)
-Ask $1,169,000 · day-one p80 $38,036 · wish list p80 $159,918 · reserve $147/mo · year used 1978 (mls) · usable 1,688 sq ft · tells settled 10/15 of 34 photos · evidence medium · rank band - · cash to close at 20% $291,191
-
-| Bucket | Line | P(needed) | Expected | Low | High | Basis |
-|---|---|---|---|---|---|---|
-| wishlist | kitchen | 29% | $8,393 | $16,950 | $45,200 | 3/4 tells seen, defect=False |
-| wishlist | main bath | 100% | $26,367 | $16,950 | $39,550 | 3/3 tells seen |
-| wishlist | bath 2 | 70% | $15,161 | $14,125 | $31,075 | unobserved |
-| wishlist | bath 3 | 70% | $15,161 | $14,125 | $31,075 | unobserved |
-| wishlist | powder | 70% | $6,674 | $4,944 | $15,537 | 1 half |
-| day1 | flooring | 70% | $12,123 | $11,924 | $23,849 | floor=not_shown |
-| day1 | ceilings | 100% | $5,962 | $4,259 | $7,666 | ceiling=stipple_popcorn |
-| wishlist | basement | 42% | $27,464 | $44,494 | $88,987 | 964 sqft bg |
-| reserve | roof | 100% | $14,690 | $10,170 | $19,210 | life 22y, age unstated |
-| reserve | furnace | 100% | $8,098 | $5,650 | $11,300 | life 20y, age unstated |
-| reserve | A/C | 100% | $6,968 | $5,085 | $9,605 | life 15y, age unstated |
-| reserve | water heater | 100% | $3,013 | $2,034 | $4,294 | life 13y, age unstated |
-| day1 | waterproofing | 12% | $2,429 | $11,300 | $31,075 | below-grade base rate |
-| wishlist | driveway | 100% | $11,535 | $7,062 | $16,950 | cracked, confirmed |
-
-Resale after the work $1,215,360 to $1,215,360 (mid $1,215,360); peer norm $1,215,360; recovered 36%; sunk $125,922; break-even $1,366,954.
-
-Red flags: BEDROOM CEILINGS ARE STIPPLE (15) while the main floor is flat: recorded as stipple_popcorn per the Tania and Pinemeadow precedent, so the ceiling line carries across the above-grade area · the concrete driveway is CRACKED across its width (0) · the 4pc 'ensuite' is a stone-platform soaker tub standing open in the mid-level bedroom, not a separate room: a taste item and a resale question, and the platform is newly built so it should NOT be read as a 1980s garden tub · above-grade area is 1,206 sq ft, below the 1,300 cramped floor, and $969 per above-grade square foot is the highest in the batch · block foundation on a 1978 house and no roof year stated · backsplit: carries the 5% style dock
-
-Concealed in the photos: no basement or lower-level wall base is readable in any frame; both wall-base reads landed on furnishings · no furnace, no electrical panel, no water heater, no laundry and no utility-room frame in 34 photos, despite the remarks claiming a 2022 panel, 2021 furnace and A/C and a 2021 tankless heater · main-floor flooring never read at full resolution · the kitchen soffit junction is not shown
 
 ## 37. 2501 Yarmouth Crescent — grade C-, $838/usable sq ft, SEE
 

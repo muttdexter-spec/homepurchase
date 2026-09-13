@@ -106,13 +106,30 @@ for r in rows:
         v = float(r["c_"+k])
         chk(0.0 <= v <= 100.0, f"{r['address']}: component {k} out of [0,100]: {v}")
 
-# 6.3 the score is the weighted mean of the eight, docked only when the house is a split
+# 6.3 the score. PRICE-REFRAME (2026-09-15): with the reframe on, `quality` is the weighted mean
+# of the SEVEN non-price components renormalised over those seven and docked for a split, and
+# `score` is that quality minus the dial's share of the cost penalty. The dock applies to quality
+# only: it is a statement about the house, not about the mortgage payment.
 for r in ranked:
     comp = {k: float(r["c_"+k]) for k in COMP}
-    w = WS["joint"]; expect = sum(w[k]*comp[k] for k in COMP)
-    if r["split_docked"] == "yes": expect *= S.CFG["split_dock"]
-    chk(abs(expect - float(r["score"])) <= 0.15,
-        f"{r['address']}: score {r['score']} is not the weighted mean of its components ({expect:.2f})")
+    w = WS["joint"]
+    if S.reframed():
+        q7 = [k for k in COMP if k != "price"]
+        t = sum(w[k] for k in q7) or 1.0
+        expect_q = sum(w[k]*comp[k] for k in q7) / t
+        if r["split_docked"] == "yes": expect_q *= S.CFG["split_dock"]
+        chk(abs(expect_q - float(r["quality"])) <= 0.15,
+            f"{r['address']}: quality {r['quality']} is not the weighted mean of the seven ({expect_q:.2f})")
+        expect = expect_q - float(r["dial"]) * float(r["cost_pen"]) / 100.0
+        chk(abs(expect - float(r["score"])) <= 0.15,
+            f"{r['address']}: score {r['score']} is not quality minus the dial's share of the cost penalty ({expect:.2f})")
+        chk(abs(float(r["cost_pts"]) - float(r["dial"])*float(r["cost_pen"])/100.0) <= 0.15,
+            f"{r['address']}: cost_pts does not equal dial x cost_pen / 100")
+    else:
+        expect = sum(w[k]*comp[k] for k in COMP)
+        if r["split_docked"] == "yes": expect *= S.CFG["split_dock"]
+        chk(abs(expect - float(r["score"])) <= 0.15,
+            f"{r['address']}: score {r['score']} is not the weighted mean of its components ({expect:.2f})")
     chk((r["split_docked"]=="yes") == ("plit" in str(next(o for o in obs if o['address']==r['address']).get('style',''))),
         f"{r['address']}: split dock flag does not match the style")
 
@@ -221,5 +238,101 @@ for r in rows:
 
 # 6.15 the photos_may_lower_p switch. With it off, a photographic read no longer moves a line.
 chk("photos_may_lower_p" in (S.CFG.get("condition") or {}), "condition.photos_may_lower_p is missing")
+
+
+# ================================================= PRICE-REFRAME.md, 2026-09-15
+# 6.16 the reframe identity. Ranking on `quality - dial * cost_pen / 100` differs from the old
+# eight-component weighted mean only by an affine transform, so with the style dock neutralised
+# the two orders must be identical. With the dock live they may differ, and that difference is
+# deliberate: the dock applies to quality only and no longer discounts the mortgage payment.
+if S.reframed():
+    _rows = S.prepare("observations.json")
+    _WS = S.weight_sets(); _HD = S.CFG["hold"]["years_default"]
+    _live = [r for r in _rows if not r["gated"]]
+    for r in _live: r["comp"] = r["comps"][_HD]
+    _old = [r["slug"] for r in sorted(_live, key=lambda r: (-S.v6_score(r["comp"], _WS["joint"], False), r["slug"]))]
+    _new = [r["slug"] for r in sorted(_live, key=lambda r: (-S.value_of(r["comp"], _WS["joint"], False, r["cost_pen"]), r["slug"]))]
+    chk(_old == _new, "the price reframe changes the order even with the style dock neutralised; "
+                      "dial should be 100 * w_price / (100 - w_price)")
+    # and the dock-live difference must stay small and confined to splits and their neighbours
+    _o2 = [r["slug"] for r in sorted(_live, key=lambda r: (-S.v6_score(r["comp"], _WS["joint"], r["split"]), r["slug"]))]
+    _n2 = [r["slug"] for r in sorted(_live, key=lambda r: (-S.value_of(r["comp"], _WS["joint"], r["split"], r["cost_pen"]), r["slug"]))]
+    _po = {s2: i for i, s2 in enumerate(_o2, 1)}; _pn = {s2: i for i, s2 in enumerate(_n2, 1)}
+    chk(max(abs(_po[s2]-_pn[s2]) for s2 in _po) <= 3,
+        "the style dock moving out of the cost term displaces a house by more than three places")
+
+# 6.17 the cost penalty and the old price component are the same number, complemented
+for r in rows:
+    if r["rank"] == "-": continue
+    chk(abs((100.0 - float(r["cost_pen"])) - float(r["c_price"])) < 0.05,
+        f"{r['address']}: cost_pen and c_price disagree; they must be complements")
+
+# 6.18 nothing may carry "/mo" except the monthly payment, and the payment must be its parts
+for r in rows:
+    p_ = float(r["pay_pi"]) + float(r["pay_tax"]) + float(r["pay_upkeep"])
+    chk(abs(p_ - float(r["pay_mo"])) <= 1.5,
+        f"{r['address']}: monthly payment does not equal P&I + tax + upkeep")
+
+# 6.19 the dial must be declared provisional while no choices are on file
+_P = S.CFG.get("price") or {}
+if S.reframed() and not (S.CFG.get("choices") or {}).get("alex"):
+    chk(_P.get("dial_provisional") is True,
+        "the dial is not marked provisional although no pairwise choices are on file")
+
+
+# ============================== SCORING-EXPLANATION-FINAL.md §1, 2026-09-15
+# 6.20 ONE SOURCE. Every number the card prints and every sentence the glossary prints about a
+# scale must come from explain_<component>(), and explain_<component>() must reproduce exactly
+# what components() scores. This is the check that would have caught the 14 September build,
+# where Barberry printed price 100 under a sentence describing the $54k/$84k band (which gives
+# 37) and lot 23 under a sentence saying 4,000 sq ft scores 0 (which gives 0).
+_obs = [S.normalise(o) for o in json.load(open(os.path.join(R, "observations.json")))]
+for _o in _obs:
+    _c = S.cost(_o)
+    _comp, _fs2, _p2, _e2 = S.components(_o, _c, S.CFG["hold"]["years_default"])
+    _ex = S.explain_all(_o, _c)
+    for _k in ("space", "layout", "baths", "parking", "lot", "location", "condition", "price"):
+        chk(abs(_ex[_k]["score"] - _comp[_k]) < 0.15,
+            f"{_o['address']}: explain_{_k} says {_ex[_k]['score']} but components() says {_comp[_k]:.1f}")
+        chk(bool(_ex[_k]["fact"]) and bool(_ex[_k]["scale"]),
+            f"{_o['address']}: explain_{_k} returned an empty fact or scale")
+
+# 6.21 the scale sentences must quote the anchors that are live in costs.yaml right now. A scale
+# text that has drifted from the config is the exact failure mode this pair of tests exists for.
+_o0 = _obs[0]; _ex0 = S.explain_all(_o0, S.cost(_o0))
+def _has(txt, n): return f"{n:,}" in txt or str(n) in txt
+_L = S.CFG.get("lot") or {}
+if _L.get("matters", True):
+    chk(_has(_ex0["lot"]["scale"], _L["floor_sqft"]) and _has(_ex0["lot"]["scale"], _L["cap_sqft"]),
+        "the lot scale sentence does not quote lot.floor_sqft and lot.cap_sqft")
+_sp = S.CFG["fit_weights"]["space"]
+chk(_has(_ex0["space"]["scale"], _sp["floor_sqft"]) and _has(_ex0["space"]["scale"], _sp["knee_sqft"]),
+    "the space scale sentence does not quote fit_weights.space floor and knee")
+_P2 = S.CFG["price"]
+chk(_has(_ex0["price"]["scale"], _P2["comfortable_mo"]) and _has(_ex0["price"]["scale"], _P2["max_mo"]),
+    "the price scale sentence does not quote price.comfortable_mo and price.max_mo")
+chk("54,000" not in _ex0["price"]["scale"] and "84,000" not in _ex0["price"]["scale"],
+    "the price scale sentence still quotes the old search-band anchors")
+chk("4,000" not in _ex0["lot"]["scale"] or _L.get("floor_sqft") == 4000,
+    "the lot scale sentence still quotes the old 4,000 sq ft floor")
+
+
+# 6.22 the condition block. The clean scenario cannot be worse than today and the defect scenario
+# cannot be better, because resolving an unseen tell clean can only lower a probability and
+# resolving it as a defect can only raise one. A house with no unseen tells has no swing.
+for _o in _obs:
+    _cb = S.condition_block(_o)
+    chk(_cb["if_clean"] >= _cb["score"] - 0.15,
+        f"{_o['address']}: the clean showing scenario scores below today's condition")
+    chk(_cb["if_defect"] <= _cb["score"] + 0.15,
+        f"{_o['address']}: the defect showing scenario scores above today's condition")
+    if not _cb["unseen"]:
+        chk(abs(_cb["if_clean"] - _cb["if_defect"]) < 0.15,
+            f"{_o['address']}: no unseen tells but the two showing scenarios differ")
+    chk(sum(b["total"] for b in _cb["buckets"]) > 0 or _cb["expected"] == 0,
+        f"{_o['address']}: condition buckets are empty but work is expected")
+    # the defect scenario must never manufacture a hard stop
+    chk("efflorescence" not in S.DEFECT_READ.values(),
+        "the defect scenario uses efflorescence, which is a hard STOP")
 
 print("PASS" if not fails else "FAIL"); [print(" -",f) for f in fails]; sys.exit(1 if fails else 0)

@@ -38,6 +38,13 @@ for o in obs:
         "arv_lo": rs["arv_lo"], "arv_mid": rs["arv_mid"], "arv_hi": rs["arv_hi"],
         "recovered_pct": rs["recovered_pct"], "sunk": rs["sunk"], "breakeven": rs["breakeven"],
         "bath_op": rs["bath_op"],
+        # SCORING-EXPLANATION-FINAL §1: the ONE source of every number and every scale sentence.
+        # The card prints explain[k].fact, the glossary prints explain[k].scale. Nothing about a
+        # scale is typed into a template.
+        "explain": S.explain_all(o, c),
+        # SCORING-EXPLANATION-FINAL §2: the three cost-model buckets, the unseen tells, and
+        # what a showing is worth in the score's own units (two more runs of cost()).
+        "condition_block": S.condition_block(o, c),
         "fact_score": fs, "fact_parts": {a: round(b, 1) for a, b in parts.items()},
         "grade": S.grade(fs), "verdict": v, "verdict_notes": notes,
         "tax_mo": round((o.get("annual_taxes") or 0)/12),

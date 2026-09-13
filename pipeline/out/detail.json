@@ -204,6 +204,105 @@
   "sunk": 70341,
   "breakeven": 1412982,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 78.2,
+    "fact": "1,824 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 100.0,
+    "fact": "4 bedrooms above grade, primary 181 sq ft, ensuite",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 100.0,
+    "fact": "3 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "2 garage, 4 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 56.3,
+    "fact": "52 x 100 ft, 5,252 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 69.9,
+    "fact": "Commute 17 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 15 of 25 \u00b7 School 9 of 15 \u00b7 Green 8 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 17.29,
+      "max": 30,
+      "detail": "3.4 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "1304m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 15.0,
+      "max": 25,
+      "detail": "walk 50 + transit 40 = 90"
+     },
+     "school": {
+      "pts": 9.3,
+      "max": 15,
+      "detail": "nearest school 0.63 km, rating not looked up"
+     },
+     "green": {
+      "pts": 8.29,
+      "max": 10,
+      "detail": "756m to Ireland Park (23.4ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 40.5,
+    "fact": "$137k of $231k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,965 /mo, made of $5,332 P&I, $486 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 40.5,
+   "expected": 137352,
+   "full": 230704,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 21315,
+     "top": "flooring, ceilings"
+    },
+    {
+     "bucket": "optional",
+     "total": 107192,
+     "top": "basement, main bath"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 40.5,
+   "if_defect": 40.5,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 80.4,
   "fact_parts": {
    "space": 19.6,
@@ -490,6 +589,107 @@
   "sunk": 48457,
   "breakeven": 1109738,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 22.7,
+    "fact": "1,317 sq ft above grade, finished basement, separate entrance",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 54.8,
+    "fact": "3 bedrooms above grade, primary 160 sq ft, ensuite unknown, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 87.5,
+    "fact": "1 garage, 4 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 28.0,
+    "fact": "33 x 126 ft, 4,118 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 64.4,
+    "fact": "Commute 24 of 30 \u00b7 Quiet 7 of 20 \u00b7 Walk 18 of 25 \u00b7 School 11 of 15 \u00b7 Green 4 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 23.59,
+      "max": 30,
+      "detail": "2.5 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 7.1,
+      "max": 20,
+      "detail": "282m to the nearest of the QEW, 403, 407 or the rail, crescent"
+     },
+     "walk": {
+      "pts": 18.33,
+      "max": 25,
+      "detail": "walk 60 + transit 40 = 100"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.33 km, rating not looked up"
+     },
+     "green": {
+      "pts": 4.15,
+      "max": 10,
+      "detail": "1377m to Central Park (21.1ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 61.7,
+    "fact": "$84k of $220k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$4,788 /mo, made of $4,269 P&I, $372 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 61.7,
+   "expected": 84222,
+   "full": 219901,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 17412,
+     "top": "flooring, partial rewire"
+    },
+    {
+     "bucket": "optional",
+     "total": 57965,
+     "top": "main bath, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "bath_tub_type",
+    "panel_type",
+    "basement_moisture"
+   ],
+   "if_clean": 64.4,
+   "if_defect": 46.5,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 46.6,
   "fact_parts": {
    "space": 5.7,
@@ -764,6 +964,107 @@
   "sunk": 87301,
   "breakeven": 1114011,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 20.0,
+    "fact": "953 sq ft above grade, finished basement, separate entrance",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 44.8,
+    "fact": "3 bedrooms above grade, primary 136 sq ft, ensuite unknown, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 62.5,
+    "fact": "0 garage, 5 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 100.0,
+    "fact": "65 x 113 ft, 7,345 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 78.3,
+    "fact": "Commute 28 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 12 of 25 \u00b7 School 11 of 15 \u00b7 Green 8 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 27.65,
+      "max": 30,
+      "detail": "1.9 km to Appleby GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "1794m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 11.67,
+      "max": 25,
+      "detail": "walk 50 + transit 30 = 80"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.16 km, rating not looked up"
+     },
+     "green": {
+      "pts": 7.71,
+      "max": 10,
+      "detail": "843m to park (5.2ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 60.5,
+    "fact": "$80k of $202k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$4,918 /mo, made of $4,317 P&I, $454 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 60.5,
+   "expected": 79989,
+   "full": 202407,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 32737,
+     "top": "waterproofing, flooring"
+    },
+    {
+     "bucket": "optional",
+     "total": 38408,
+     "top": "bath 2, main bath"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "bath_tub_type",
+    "bath_vanity_top",
+    "panel_type"
+   ],
+   "if_clean": 68.2,
+   "if_defect": 37.7,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 53.5,
   "fact_parts": {
    "space": 5.0,
@@ -1025,6 +1326,106 @@
   "sunk": 129285,
   "breakeven": 1484595,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 12.0,
+    "fact": "1,128 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 44.8,
+    "fact": "3 bedrooms above grade, primary 137 sq ft, ensuite unknown, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "2 garage, 6 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 78.6,
+    "fact": "61 x 101 ft, 6,142 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 75.9,
+    "fact": "Commute 27 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 8 of 25 \u00b7 School 10 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 27.11,
+      "max": 30,
+      "detail": "1.9 km to Bronte GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "976m to the nearest of the QEW, 403, 407 or the rail, crescent"
+     },
+     "walk": {
+      "pts": 8.33,
+      "max": 25,
+      "detail": "walk 40 + transit 30 = 70"
+     },
+     "school": {
+      "pts": 10.5,
+      "max": 15,
+      "detail": "nearest school 0.55 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "478m to park (10ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 42.8,
+    "fact": "$149k of $260k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 79.2,
+    "fact": "$6,208 /mo, made of $5,604 P&I, $458 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 42.8,
+   "expected": 148864,
+   "full": 260417,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 15819,
+     "top": "waterproofing, flooring"
+    },
+    {
+     "bucket": "optional",
+     "total": 124200,
+     "top": "kitchen, main bath"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "bath_tub_type",
+    "panel_type"
+   ],
+   "if_clean": 42.8,
+   "if_defect": 42.8,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 41.9,
   "fact_parts": {
    "space": 3.0,
@@ -1294,6 +1695,107 @@
   "sunk": 64758,
   "breakeven": 1390672,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 20.0,
+    "fact": "1,250 sq ft above grade, finished basement, separate entrance",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 64.8,
+    "fact": "3 bedrooms above grade, ensuite unknown",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 62.5,
+    "fact": "1 garage, 2 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 57.0,
+    "fact": "52 x 101 ft, 5,280 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 78.9,
+    "fact": "Commute 30 of 30 \u00b7 Quiet 19 of 20 \u00b7 Walk 8 of 25 \u00b7 School 11 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 30.0,
+      "max": 30,
+      "detail": "0.8 km to Bronte GO"
+     },
+     "quiet": {
+      "pts": 19.35,
+      "max": 20,
+      "detail": "587m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 8.33,
+      "max": 25,
+      "detail": "walk 40 + transit 30 = 70"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.38 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "357m to park (10ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 63.2,
+    "fact": "$81k of $219k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 72.1,
+    "fact": "$6,279 /mo, made of $5,612 P&I, $455 tax and $212 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 63.2,
+   "expected": 80797,
+   "full": 219388,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 10985,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 37801,
+     "top": "bath 2, kitchen"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 32010,
+     "top": "windows, roof"
+    }
+   ],
+   "unseen": [
+    "kitchen_sink_mount",
+    "kitchen_soffit",
+    "panel_type"
+   ],
+   "if_clean": 66.8,
+   "if_defect": 35.6,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 51.3,
   "fact_parts": {
    "space": 5.0,
@@ -1532,6 +2034,110 @@
    16950,
    21188
   ],
+  "explain": {
+   "space": {
+    "score": 64.3,
+    "fact": "1,715 sq ft above grade",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 90.0,
+    "fact": "4 bedrooms above grade, primary 156 sq ft, no ensuite",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 35.0,
+    "fact": "1 full and 2 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "2 garage, 6 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 85.5,
+    "fact": "58 x 110 ft, 6,420 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 73.0,
+    "fact": "Commute 21 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 12 of 25 \u00b7 School 11 of 15 \u00b7 Green 9 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 21.12,
+      "max": 30,
+      "detail": "2.8 km to Oakville GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "998m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 11.67,
+      "max": 25,
+      "detail": "walk 50 + transit 30 = 80"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.14 km, rating not looked up"
+     },
+     "green": {
+      "pts": 8.99,
+      "max": 10,
+      "detail": "652m to Iroquois Shoreline Woods Park (39.6ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 26.1,
+    "fact": "$145k of $196k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 78.0,
+    "fact": "$6,220 /mo, made of $5,612 P&I, $461 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 26.1,
+   "expected": 144813,
+   "full": 195827,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 11739,
+     "top": "flooring, ceilings"
+    },
+    {
+     "bucket": "optional",
+     "total": 124229,
+     "top": "kitchen, main bath"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "bath_tub_type",
+    "bath_tile_scale",
+    "panel_type",
+    "basement_ceiling",
+    "basement_walls",
+    "basement_moisture"
+   ],
+   "if_clean": 26.1,
+   "if_defect": 26.1,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 58.7,
   "fact_parts": {
    "space": 16.1,
@@ -1803,6 +2409,107 @@
   "sunk": 76725,
   "breakeven": 1130613,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 20.0,
+    "fact": "1,150 sq ft above grade, finished basement, separate entrance",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 64.8,
+    "fact": "3 bedrooms above grade, primary 121 sq ft, ensuite unknown",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "1 garage, 5 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 45.5,
+    "fact": "48 x 100 ft, 4,821 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 68.6,
+    "fact": "Commute 23 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 12 of 25 \u00b7 School 11 of 15 \u00b7 Green 3 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 22.79,
+      "max": 30,
+      "detail": "2.6 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "700m to the nearest of the QEW, 403, 407 or the rail, crescent"
+     },
+     "walk": {
+      "pts": 11.67,
+      "max": 25,
+      "detail": "walk 50 + transit 30 = 80"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.5 km, rating not looked up"
+     },
+     "green": {
+      "pts": 2.91,
+      "max": 10,
+      "detail": "1564m to Mountainside Park (10.2ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 63.6,
+    "fact": "$77k of $212k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$4,967 /mo, made of $4,398 P&I, $421 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 63.6,
+   "expected": 77073,
+   "full": 211595,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 16269,
+     "top": "flooring, partial rewire"
+    },
+    {
+     "bucket": "optional",
+     "total": 51959,
+     "top": "main bath, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "bath_tub_type",
+    "panel_type",
+    "basement_moisture"
+   ],
+   "if_clean": 66.4,
+   "if_defect": 47.8,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 47.3,
   "fact_parts": {
    "space": 5.0,
@@ -2113,6 +2820,106 @@
   "sunk": 95899,
   "breakeven": 1082963,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 4.0,
+    "fact": "1,295 sq ft above grade, part-finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 54.8,
+    "fact": "3 bedrooms above grade, primary 167 sq ft, ensuite unknown, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "1 garage, 6 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 100.0,
+    "fact": "59 x 155 ft, 9,154 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 52.4,
+    "fact": "Commute 29 of 30 \u00b7 Quiet 0 of 20 \u00b7 Walk 8 of 25 \u00b7 School 11 of 15 \u00b7 Green 4 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 28.95,
+      "max": 30,
+      "detail": "1.7 km to Aldershot GO"
+     },
+     "quiet": {
+      "pts": 0.0,
+      "max": 20,
+      "detail": "91m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 8.33,
+      "max": 25,
+      "detail": "walk 30 + transit 40 = 70"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.36 km, rating not looked up"
+     },
+     "green": {
+      "pts": 3.83,
+      "max": 10,
+      "detail": "1426m to Bayview Park (14.8ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 25.0,
+    "fact": "$211k of $281k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$4,127 /mo, made of $3,562 P&I, $451 tax and $114 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 25.0,
+   "expected": 210670,
+   "full": 280983,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 56817,
+     "top": "oil\u2192gas, flooring"
+    },
+    {
+     "bucket": "optional",
+     "total": 147033,
+     "top": "kitchen, basement"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 6820,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "floor_condition",
+    "panel_type"
+   ],
+   "if_clean": 29.0,
+   "if_defect": 11.1,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 42.2,
   "fact_parts": {
    "space": 1.0,
@@ -2374,6 +3181,108 @@
    16950,
    21188
   ],
+  "explain": {
+   "space": {
+    "score": 0.0,
+    "fact": "1,205 sq ft above grade",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 54.8,
+    "fact": "3 bedrooms above grade, primary 176 sq ft, no ensuite, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 35.0,
+    "fact": "1 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 62.5,
+    "fact": "0 garage, 5 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 35.0,
+    "fact": "40 x 110 ft, 4,400 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 95.8,
+    "fact": "Commute 30 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 25 of 25 \u00b7 School 11 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 29.55,
+      "max": 30,
+      "detail": "1.6 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "1547m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 25.0,
+      "max": 25,
+      "detail": "walk 70 + transit 50 = 120"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.46 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "403m to Central Park (21.1ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 76.2,
+    "fact": "$33k of $140k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,528 /mo, made of $4,964 P&I, $417 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 76.2,
+   "expected": 33310,
+   "full": 139934,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 9457,
+     "top": "partial rewire, flooring"
+    },
+    {
+     "bucket": "optional",
+     "total": 15008,
+     "top": "powder, kitchen"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "panel_type",
+    "basement_ceiling",
+    "basement_walls",
+    "basement_moisture"
+   ],
+   "if_clean": 80.5,
+   "if_defect": 52.3,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 39.7,
   "fact_parts": {
    "space": 0.0,
@@ -2617,6 +3526,106 @@
   "sunk": 70573,
   "breakeven": 1343988,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 12.0,
+    "fact": "1,202 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 44.8,
+    "fact": "3 bedrooms above grade, primary 144 sq ft, ensuite unknown, 2 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 87.5,
+    "fact": "1 garage, 4 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 100.0,
+    "fact": "74 x 104 ft, 7,696 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 79.4,
+    "fact": "Commute 30 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 12 of 25 \u00b7 School 11 of 15 \u00b7 Green 6 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 30.0,
+      "max": 30,
+      "detail": "1.5 km to Aldershot GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "700m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 11.67,
+      "max": 25,
+      "detail": "walk 40 + transit 40 = 80"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.41 km, rating not looked up"
+     },
+     "green": {
+      "pts": 6.49,
+      "max": 10,
+      "detail": "1027m to the water"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 76.4,
+    "fact": "$61k of $260k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 92.2,
+    "fact": "$6,078 /mo, made of $5,392 P&I, $493 tax and $192 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 76.4,
+   "expected": 61360,
+   "full": 260033,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 16625,
+     "top": "flooring, partial rewire"
+    },
+    {
+     "bucket": "optional",
+     "total": 33188,
+     "top": "bath 2, basement"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 11548,
+     "top": "roof, windows"
+    }
+   ],
+   "unseen": [
+    "window_frame",
+    "panel_type"
+   ],
+   "if_clean": 79.7,
+   "if_defect": 55.7,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 56.5,
   "fact_parts": {
    "space": 3.0,
@@ -2866,6 +3875,107 @@
   "sunk": 106254,
   "breakeven": 1222443,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 12.0,
+    "fact": "1,033 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 54.8,
+    "fact": "3 bedrooms above grade, primary 158 sq ft, no ensuite, 2 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 62.5,
+    "fact": "0 garage, 5 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 100.0,
+    "fact": "50 x 152 ft, 7,600 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 80.1,
+    "fact": "Commute 26 of 30 \u00b7 Quiet 18 of 20 \u00b7 Walk 15 of 25 \u00b7 School 11 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 25.54,
+      "max": 30,
+      "detail": "2.2 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 18.35,
+      "max": 20,
+      "detail": "567m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 15.0,
+      "max": 25,
+      "detail": "walk 50 + transit 40 = 90"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.24 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "196m to Mountainside Park (10.2ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 52.7,
+    "fact": "$104k of $221k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,244 /mo, made of $4,658 P&I, $439 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 52.7,
+   "expected": 104489,
+   "full": 220896,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 11388,
+     "top": "partial rewire, panel"
+    },
+    {
+     "bucket": "optional",
+     "total": 84255,
+     "top": "basement, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "kitchen_sink_mount",
+    "bath_tub_type",
+    "panel_type"
+   ],
+   "if_clean": 59.4,
+   "if_defect": 20.2,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 56.6,
   "fact_parts": {
    "space": 3.0,
@@ -3085,6 +4195,107 @@
   "sunk": 40457,
   "breakeven": 1282689,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 76.0,
+    "fact": "1,700 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 70.0,
+    "fact": "4 bedrooms above grade, primary 141 sq ft, ensuite, 2 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 90.0,
+    "fact": "3 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "1 garage, 5 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 75.3,
+    "fact": "54 x 111 ft, 6,013 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 75.0,
+    "fact": "Commute 19 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 18 of 25 \u00b7 School 11 of 15 \u00b7 Green 7 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 18.69,
+      "max": 30,
+      "detail": "3.2 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "1432m to the nearest of the QEW, 403, 407 or the rail, court"
+     },
+     "walk": {
+      "pts": 18.33,
+      "max": 25,
+      "detail": "walk 50 + transit 50 = 100"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.5 km, rating not looked up"
+     },
+     "green": {
+      "pts": 6.74,
+      "max": 10,
+      "detail": "989m to Ireland Park (23.4ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 70.6,
+    "fact": "$65k of $221k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,702 /mo, made of $5,072 P&I, $482 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 70.6,
+   "expected": 65179,
+   "full": 221327,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 7352,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 48982,
+     "top": "bath 2, bath 3"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "bath_tub_type",
+    "panel_type",
+    "driveway"
+   ],
+   "if_clean": 72.7,
+   "if_defect": 57.4,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 75.3,
   "fact_parts": {
    "space": 19.0,
@@ -3311,6 +4522,105 @@
   "sunk": 39750,
   "breakeven": 1120095,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 64.8,
+    "fact": "1,630 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 74.8,
+    "fact": "3 bedrooms above grade, primary 338 sq ft, ensuite unknown",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 62.5,
+    "fact": "1 garage, 2 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 0.0,
+    "fact": "24 x 95 ft, 2,269 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 61.8,
+    "fact": "Commute 30 of 30 \u00b7 Quiet 3 of 20 \u00b7 Walk 15 of 25 \u00b7 School 4 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 30.0,
+      "max": 30,
+      "detail": "1.2 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 3.0,
+      "max": 20,
+      "detail": "171m to the nearest of the QEW, 403, 407 or the rail, court"
+     },
+     "walk": {
+      "pts": 15.0,
+      "max": 25,
+      "detail": "walk 50 + transit 40 = 90"
+     },
+     "school": {
+      "pts": 3.75,
+      "max": 15,
+      "detail": "nearest school 1.37 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "367m to Leighland Park (5.6ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 48.3,
+    "fact": "$105k of $202k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$4,818 /mo, made of $4,317 P&I, $354 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 48.3,
+   "expected": 104512,
+   "full": 202114,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 6749,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 71493,
+     "top": "kitchen, main bath"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 26270,
+     "top": "roof, furnace"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 48.3,
+   "if_defect": 48.3,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 51.9,
   "fact_parts": {
    "space": 16.2,
@@ -3574,6 +4884,106 @@
   "sunk": 47804,
   "breakeven": 1198829,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 46.6,
+    "fact": "1,516 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 44.8,
+    "fact": "3 bedrooms above grade, primary 147 sq ft, ensuite unknown, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 87.5,
+    "fact": "1 garage, 4 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 50.0,
+    "fact": "50 x 100 ft, 5,000 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 81.2,
+    "fact": "Commute 20 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 22 of 25 \u00b7 School 11 of 15 \u00b7 Green 8 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 20.17,
+      "max": 30,
+      "detail": "3.0 km to Appleby GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "745m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 21.67,
+      "max": 25,
+      "detail": "walk 60 + transit 50 = 110"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.43 km, rating not looked up"
+     },
+     "green": {
+      "pts": 8.11,
+      "max": 10,
+      "detail": "784m to Nelson Park (24.5ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 61.1,
+    "fact": "$100k of $256k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,518 /mo, made of $4,658 P&I, $414 tax and $446 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 61.1,
+   "expected": 99719,
+   "full": 256498,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 12787,
+     "top": "partial rewire, flooring"
+    },
+    {
+     "bucket": "optional",
+     "total": 60195,
+     "top": "main bath, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 26737,
+     "top": "pool carry, roof"
+    }
+   ],
+   "unseen": [
+    "bath_vanity_top",
+    "panel_type"
+   ],
+   "if_clean": 63.4,
+   "if_defect": 48.1,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 52.9,
   "fact_parts": {
    "space": 11.6,
@@ -3838,6 +5248,105 @@
   "sunk": 56645,
   "breakeven": 1181398,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 20.0,
+    "fact": "1,300 sq ft above grade, finished basement, separate entrance",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 44.8,
+    "fact": "3 bedrooms above grade, primary 135 sq ft, ensuite unknown, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 75.0,
+    "fact": "1 garage, 3 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 37.6,
+    "fact": "38 x 118 ft, 4,503 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 71.5,
+    "fact": "Commute 21 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 15 of 25 \u00b7 School 11 of 15 \u00b7 Green 5 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 20.7,
+      "max": 30,
+      "detail": "2.9 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "1207m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 15.0,
+      "max": 25,
+      "detail": "walk 50 + transit 40 = 90"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.26 km, rating not looked up"
+     },
+     "green": {
+      "pts": 4.54,
+      "max": 10,
+      "detail": "1319m to Ireland Park (23.4ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 58.4,
+    "fact": "$103k of $247k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,401 /mo, made of $4,576 P&I, $380 tax and $446 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 58.4,
+   "expected": 102878,
+   "full": 247149,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 12162,
+     "top": "partial rewire, flooring"
+    },
+    {
+     "bucket": "optional",
+     "total": 63979,
+     "top": "main bath, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 26737,
+     "top": "pool carry, roof"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 60.8,
+   "if_defect": 44.8,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 40.8,
   "fact_parts": {
    "space": 5.0,
@@ -4099,6 +5608,105 @@
   "sunk": 54567,
   "breakeven": 1337348,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 20.5,
+    "fact": "1,403 sq ft above grade, part-finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 54.8,
+    "fact": "3 bedrooms above grade, primary 107 sq ft, ensuite, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 100.0,
+    "fact": "3 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "1 garage, 5 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 100.0,
+    "fact": "125 x 60 ft, 7,500 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 79.5,
+    "fact": "Commute 30 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 12 of 25 \u00b7 School 11 of 15 \u00b7 Green 7 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 30.0,
+      "max": 30,
+      "detail": "1.5 km to Oakville GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "864m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 11.67,
+      "max": 25,
+      "detail": "walk 50 + transit 30 = 80"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.28 km, rating not looked up"
+     },
+     "green": {
+      "pts": 6.59,
+      "max": 10,
+      "detail": "1012m to park (23.7ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 70.2,
+    "fact": "$72k of $240k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,863 /mo, made of $5,302 P&I, $415 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 70.2,
+   "expected": 71589,
+   "full": 240348,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 12460,
+     "top": "partial rewire, flooring"
+    },
+    {
+     "bucket": "optional",
+     "total": 50284,
+     "top": "bath 2, bath 3"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 72.7,
+   "if_defect": 56.3,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 65.2,
   "fact_parts": {
    "space": 5.1,
@@ -4328,6 +5936,105 @@
   "sunk": 51414,
   "breakeven": 1365258,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 83.9,
+    "fact": "2,144 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 90.0,
+    "fact": "4 bedrooms above grade, primary 375 sq ft, ensuite unknown",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "2 garage, 6 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 59.9,
+    "fact": "54 x 100 ft, 5,396 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 88.8,
+    "fact": "Commute 30 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 18 of 25 \u00b7 School 11 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 29.59,
+      "max": 30,
+      "detail": "1.6 km to Appleby GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "1163m to the nearest of the QEW, 403, 407 or the rail, court"
+     },
+     "walk": {
+      "pts": 18.33,
+      "max": 25,
+      "detail": "walk 50 + transit 50 = 100"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.5 km, rating not looked up"
+     },
+     "green": {
+      "pts": 9.66,
+      "max": 10,
+      "detail": "551m to Nelson Park (24.5ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 69.7,
+    "fact": "$73k of $240k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 85.3,
+    "fact": "$6,147 /mo, made of $5,396 P&I, $604 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 69.7,
+   "expected": 72779,
+   "full": 239858,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 16147,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 47787,
+     "top": "bath 2, driveway"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 69.7,
+   "if_defect": 69.7,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 81.6,
   "fact_parts": {
    "space": 21.0,
@@ -4568,6 +6275,106 @@
   "sunk": 39588,
   "breakeven": 1202042,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 78.9,
+    "fact": "1,861 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 74.8,
+    "fact": "3 bedrooms above grade, primary 187 sq ft, ensuite unknown",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 62.5,
+    "fact": "1 garage, 2 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 0.0,
+    "fact": "34 x 80 ft, 2,708 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 40.6,
+    "fact": "Commute 12 of 30 \u00b7 Quiet 3 of 20 \u00b7 Walk 5 of 25 \u00b7 School 11 of 15 \u00b7 Green 9 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 11.99,
+      "max": 30,
+      "detail": "4.2 km to Appleby GO"
+     },
+     "quiet": {
+      "pts": 3.0,
+      "max": 20,
+      "detail": "122m to the nearest of the QEW, 403, 407 or the rail, crescent"
+     },
+     "walk": {
+      "pts": 5.0,
+      "max": 25,
+      "detail": "walk 40 + transit 20 = 60"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.42 km, rating not looked up"
+     },
+     "green": {
+      "pts": 9.38,
+      "max": 10,
+      "detail": "593m to Millcroft Park (13.5ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 53.8,
+    "fact": "$103k of $224k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,664 /mo, made of $4,740 P&I, $478 tax and $446 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 53.8,
+   "expected": 103294,
+   "full": 223537,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 11165,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 47968,
+     "top": "main bath, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 44162,
+     "top": "pool carry, roof"
+    }
+   ],
+   "unseen": [
+    "panel_type",
+    "driveway"
+   ],
+   "if_clean": 53.8,
+   "if_defect": 48.9,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 56.8,
   "fact_parts": {
    "space": 19.7,
@@ -4791,6 +6598,108 @@
   "sunk": 63854,
   "breakeven": 1124174,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 20.0,
+    "fact": "1,100 sq ft above grade, finished basement, separate entrance",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 44.8,
+    "fact": "3 bedrooms above grade, primary 137 sq ft, ensuite unknown, 2 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 50.0,
+    "fact": "0 garage, 4 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 96.1,
+    "fact": "59 x 116 ft, 6,844 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 66.7,
+    "fact": "Commute 22 of 30 \u00b7 Quiet 12 of 20 \u00b7 Walk 12 of 25 \u00b7 School 11 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 21.51,
+      "max": 30,
+      "detail": "2.8 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 12.25,
+      "max": 20,
+      "detail": "445m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 11.67,
+      "max": 25,
+      "detail": "walk 50 + transit 30 = 80"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.33 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "145m to Cavendish Park (5.7ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 46.4,
+    "fact": "$116k of $216k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$4,733 /mo, made of $4,187 P&I, $398 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 46.4,
+   "expected": 115768,
+   "full": 216089,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 9959,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 96964,
+     "top": "basement, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "kitchen_sink_mount",
+    "bath_vanity_top",
+    "panel_type",
+    "driveway"
+   ],
+   "if_clean": 50.5,
+   "if_defect": 23.3,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 53.4,
   "fact_parts": {
    "space": 5.0,
@@ -5022,6 +6931,105 @@
   "sunk": 42826,
   "breakeven": 1177248,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 76.7,
+    "fact": "1,738 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 74.8,
+    "fact": "3 bedrooms above grade, primary 217 sq ft, ensuite unknown",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 75.0,
+    "fact": "1 garage, 3 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 22.7,
+    "fact": "81 x 48 ft, 3,909 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 43.8,
+    "fact": "Commute 15 of 30 \u00b7 Quiet 3 of 20 \u00b7 Walk 5 of 25 \u00b7 School 11 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 14.51,
+      "max": 30,
+      "detail": "3.8 km to Appleby GO"
+     },
+     "quiet": {
+      "pts": 3.0,
+      "max": 20,
+      "detail": "162m to the nearest of the QEW, 403, 407 or the rail, crescent"
+     },
+     "walk": {
+      "pts": 5.0,
+      "max": 25,
+      "detail": "walk 40 + transit 20 = 60"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.13 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "293m to Millcroft Park (13.5ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 47.4,
+    "fact": "$109k of $207k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,165 /mo, made of $4,533 P&I, $485 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 47.4,
+   "expected": 108728,
+   "full": 206658,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 10578,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 71879,
+     "top": "kitchen, main bath"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 26270,
+     "top": "roof, furnace"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 47.4,
+   "if_defect": 47.4,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 57.1,
   "fact_parts": {
    "space": 19.2,
@@ -5248,6 +7256,105 @@
   "sunk": 33565,
   "breakeven": 1386981,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 77.2,
+    "fact": "1,770 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 64.8,
+    "fact": "3 bedrooms above grade, primary 169 sq ft, ensuite, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 100.0,
+    "fact": "3 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 75.0,
+    "fact": "1 garage, 3 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 9.3,
+    "fact": "32 x 105 ft, 3,371 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 55.2,
+    "fact": "Commute 12 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 5 of 25 \u00b7 School 8 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 12.06,
+      "max": 30,
+      "detail": "4.2 km to Oakville GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "2782m to the nearest of the QEW, 403, 407 or the rail, place"
+     },
+     "walk": {
+      "pts": 5.0,
+      "max": 25,
+      "detail": "walk 40 + transit 20 = 60"
+     },
+     "school": {
+      "pts": 8.1,
+      "max": 15,
+      "detail": "nearest school 0.71 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "300m to park (14.8ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 69.4,
+    "fact": "$70k of $228k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 71.5,
+    "fact": "$6,285 /mo, made of $5,608 P&I, $530 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 69.4,
+   "expected": 70024,
+   "full": 228500,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 7132,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 36622,
+     "top": "bath 2, bath 3"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 26270,
+     "top": "roof, furnace"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 69.4,
+   "if_defect": 69.4,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 66.3,
   "fact_parts": {
    "space": 19.3,
@@ -5472,6 +7579,107 @@
   "sunk": 37245,
   "breakeven": 1198659,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 61.4,
+    "fact": "1,609 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 74.8,
+    "fact": "3 bedrooms above grade, primary 172 sq ft, ensuite unknown",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 75.0,
+    "fact": "1 garage, 3 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 4.4,
+    "fact": "40 x 79 ft, 3,176 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 65.4,
+    "fact": "Commute 18 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 12 of 25 \u00b7 School 7 of 15 \u00b7 Green 9 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 17.73,
+      "max": 30,
+      "detail": "3.3 km to Bronte GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "2602m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 11.67,
+      "max": 25,
+      "detail": "walk 50 + transit 30 = 80"
+     },
+     "school": {
+      "pts": 6.6,
+      "max": 15,
+      "detail": "nearest school 0.81 km, rating not looked up"
+     },
+     "green": {
+      "pts": 9.39,
+      "max": 10,
+      "detail": "592m to park (6.1ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 58.7,
+    "fact": "$83k of $201k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,372 /mo, made of $4,740 P&I, $484 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 58.7,
+   "expected": 83027,
+   "full": 201257,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 6692,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 50065,
+     "top": "main bath, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 26270,
+     "top": "roof, furnace"
+    }
+   ],
+   "unseen": [
+    "kitchen_door_profile",
+    "bath_tub_type",
+    "panel_type"
+   ],
+   "if_clean": 59.8,
+   "if_defect": 48.1,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 57.1,
   "fact_parts": {
    "space": 15.4,
@@ -5727,6 +7935,106 @@
   "sunk": 81367,
   "breakeven": 1477844,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 91.9,
+    "fact": "2,597 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 100.0,
+    "fact": "4 bedrooms above grade, primary 316 sq ft, ensuite",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 100.0,
+    "fact": "3 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "2 garage, 4 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 50.0,
+    "fact": "50 x 100 ft, 5,002 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 49.4,
+    "fact": "Commute 8 of 30 \u00b7 Quiet 16 of 20 \u00b7 Walk 8 of 25 \u00b7 School 7 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 8.19,
+      "max": 30,
+      "detail": "4.8 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 15.95,
+      "max": 20,
+      "detail": "459m to the nearest of the QEW, 403, 407 or the rail, crescent"
+     },
+     "walk": {
+      "pts": 8.33,
+      "max": 25,
+      "detail": "walk 40 + transit 30 = 70"
+     },
+     "school": {
+      "pts": 6.9,
+      "max": 15,
+      "detail": "nearest school 0.79 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "215m to Ireland Park (23.4ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 42.1,
+    "fact": "$152k of $263k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 79.1,
+    "fact": "$6,209 /mo, made of $5,505 P&I, $558 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 42.1,
+   "expected": 151938,
+   "full": 262549,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 29376,
+     "top": "flooring, ceilings"
+    },
+    {
+     "bucket": "optional",
+     "total": 113717,
+     "top": "basement, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "kitchen_sink_mount",
+    "panel_type"
+   ],
+   "if_clean": 43.6,
+   "if_defect": 34.7,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 82.4,
   "fact_parts": {
    "space": 23.0,
@@ -5957,6 +8265,108 @@
   "sunk": 46345,
   "breakeven": 1424593,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 82.5,
+    "fact": "2,063 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 90.0,
+    "fact": "4 bedrooms above grade, primary 222 sq ft, ensuite unknown",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "2 garage, 4 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 69.4,
+    "fact": "51 x 113 ft, 5,775 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 72.1,
+    "fact": "Commute 16 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 15 of 25 \u00b7 School 11 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 15.89,
+      "max": 30,
+      "detail": "3.6 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "842m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 15.0,
+      "max": 25,
+      "detail": "walk 50 + transit 40 = 90"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.39 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "476m to Ireland Park (23.4ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 62.8,
+    "fact": "$82k of $220k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 71.6,
+    "fact": "$6,284 /mo, made of $5,612 P&I, $525 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 62.8,
+   "expected": 81938,
+   "full": 220307,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 16116,
+     "top": "ceilings, flooring"
+    },
+    {
+     "bucket": "optional",
+     "total": 56977,
+     "top": "main bath, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "bath_tub_type",
+    "bath_tile_scale",
+    "panel_type",
+    "driveway"
+   ],
+   "if_clean": 62.8,
+   "if_defect": 57.9,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 76.7,
   "fact_parts": {
    "space": 20.6,
@@ -6211,6 +8621,106 @@
   "sunk": 74821,
   "breakeven": 1300685,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 12.0,
+    "fact": "1,025 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 54.8,
+    "fact": "3 bedrooms above grade, primary 122 sq ft, ensuite, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "1.5 garage, 5 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 100.0,
+    "fact": "75 x 100 ft, 7,500 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 75.4,
+    "fact": "Commute 30 of 30 \u00b7 Quiet 7 of 20 \u00b7 Walk 22 of 25 \u00b7 School 11 of 15 \u00b7 Green 6 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 30.0,
+      "max": 30,
+      "detail": "0.4 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 6.75,
+      "max": 20,
+      "detail": "335m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 21.67,
+      "max": 25,
+      "detail": "walk 60 + transit 50 = 110"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.35 km, rating not looked up"
+     },
+     "green": {
+      "pts": 5.73,
+      "max": 10,
+      "detail": "1141m to Central Park (21.1ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 73.3,
+    "fact": "$65k of $243k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,896 /mo, made of $5,176 P&I, $573 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 73.3,
+   "expected": 64906,
+   "full": 242985,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 11365,
+     "top": "partial rewire, panel"
+    },
+    {
+     "bucket": "optional",
+     "total": 44696,
+     "top": "bath 2, basement"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "bath_tub_type",
+    "panel_type"
+   ],
+   "if_clean": 77.7,
+   "if_defect": 52.3,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 61.0,
   "fact_parts": {
    "space": 3.0,
@@ -6469,6 +8979,107 @@
   "sunk": 98111,
   "breakeven": 1434578,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 24.2,
+    "fact": "1,326 sq ft above grade, finished basement, separate entrance",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 64.8,
+    "fact": "3 bedrooms above grade, primary 274 sq ft, ensuite, 2 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 90.0,
+    "fact": "3 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "1 garage, 5 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 35.3,
+    "fact": "44 x 100 ft, 4,412 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 76.8,
+    "fact": "Commute 28 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 12 of 25 \u00b7 School 11 of 15 \u00b7 Green 6 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 28.19,
+      "max": 30,
+      "detail": "1.8 km to Oakville GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "1078m to the nearest of the QEW, 403, 407 or the rail, crescent"
+     },
+     "walk": {
+      "pts": 11.67,
+      "max": 25,
+      "detail": "walk 40 + transit 40 = 80"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.5 km, rating not looked up"
+     },
+     "green": {
+      "pts": 5.67,
+      "max": 10,
+      "detail": "1149m to park (23.7ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 61.4,
+    "fact": "$93k of $241k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 79.8,
+    "fact": "$6,202 /mo, made of $5,608 P&I, $447 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 61.4,
+   "expected": 92830,
+   "full": 240743,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 12237,
+     "top": "partial rewire, flooring"
+    },
+    {
+     "bucket": "optional",
+     "total": 71748,
+     "top": "main bath, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "kitchen_sink_mount",
+    "bath_vanity_top",
+    "panel_type"
+   ],
+   "if_clean": 65.6,
+   "if_defect": 38.9,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 52.5,
   "fact_parts": {
    "space": 6.0,
@@ -6697,6 +9308,105 @@
   "sunk": 36281,
   "breakeven": 1359430,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 81.9,
+    "fact": "2,034 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 84.8,
+    "fact": "3 bedrooms above grade, primary 228 sq ft, ensuite",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "2 garage, 4 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 32.8,
+    "fact": "47 x 92 ft, 4,314 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 57.5,
+    "fact": "Commute 3 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 15 of 25 \u00b7 School 9 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 3.49,
+      "max": 30,
+      "detail": "5.5 km to Appleby GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "769m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 15.0,
+      "max": 25,
+      "detail": "walk 50 + transit 40 = 90"
+     },
+     "school": {
+      "pts": 9.0,
+      "max": 15,
+      "detail": "nearest school 0.65 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "328m to park (9.2ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 51.1,
+    "fact": "$102k of $210k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 90.6,
+    "fact": "$6,094 /mo, made of $5,397 P&I, $550 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 51.1,
+   "expected": 102465,
+   "full": 209627,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 7454,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 62241,
+     "top": "kitchen, main bath"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 32770,
+     "top": "roof, furnace"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 51.1,
+   "if_defect": 51.1,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 69.0,
   "fact_parts": {
    "space": 20.5,
@@ -6957,6 +9667,105 @@
   "sunk": 114447,
   "breakeven": 1452404,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 8.0,
+    "fact": "1,012 sq ft above grade, separate entrance",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 64.8,
+    "fact": "3 bedrooms above grade, ensuite unknown",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 75.0,
+    "fact": "0 garage, 6 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 100.0,
+    "fact": "70 x 108 ft, 7,571 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 64.4,
+    "fact": "Commute 26 of 30 \u00b7 Quiet 11 of 20 \u00b7 Walk 8 of 25 \u00b7 School 11 of 15 \u00b7 Green 8 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 25.79,
+      "max": 30,
+      "detail": "2.1 km to Bronte GO"
+     },
+     "quiet": {
+      "pts": 11.15,
+      "max": 20,
+      "detail": "423m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 8.33,
+      "max": 25,
+      "detail": "walk 40 + transit 30 = 70"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.33 km, rating not looked up"
+     },
+     "green": {
+      "pts": 7.89,
+      "max": 10,
+      "detail": "816m to park (5.9ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 50.9,
+    "fact": "$114k of $233k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 82.4,
+    "fact": "$6,176 /mo, made of $5,612 P&I, $416 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 50.9,
+   "expected": 114440,
+   "full": 233141,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 21751,
+     "top": "asbestos, flooring"
+    },
+    {
+     "bucket": "optional",
+     "total": 83844,
+     "top": "basement, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 53.5,
+   "if_defect": 36.6,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 54.7,
   "fact_parts": {
    "space": 2.0,
@@ -7178,6 +9987,105 @@
   "sunk": 40771,
   "breakeven": 1196111,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 17.1,
+    "fact": "1,332 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 74.8,
+    "fact": "3 bedrooms above grade, primary 192 sq ft, no ensuite",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 75.0,
+    "fact": "1 garage, 3 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 20.9,
+    "fact": "51 x 75 ft, 3,836 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 42.0,
+    "fact": "Commute 11 of 30 \u00b7 Quiet 3 of 20 \u00b7 Walk 8 of 25 \u00b7 School 11 of 15 \u00b7 Green 8 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 11.33,
+      "max": 30,
+      "detail": "4.3 km to Appleby GO"
+     },
+     "quiet": {
+      "pts": 3.0,
+      "max": 20,
+      "detail": "174m to the nearest of the QEW, 403, 407 or the rail, crescent"
+     },
+     "walk": {
+      "pts": 8.33,
+      "max": 25,
+      "detail": "walk 50 + transit 20 = 70"
+     },
+     "school": {
+      "pts": 10.95,
+      "max": 15,
+      "detail": "nearest school 0.52 km, rating not looked up"
+     },
+     "green": {
+      "pts": 8.43,
+      "max": 10,
+      "detail": "736m to Millcroft Park (13.5ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 59.3,
+    "fact": "$80k of $198k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,308 /mo, made of $4,749 P&I, $412 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 59.3,
+   "expected": 80437,
+   "full": 197768,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 5934,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 48232,
+     "top": "main bath, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 26270,
+     "top": "roof, furnace"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 59.3,
+   "if_defect": 59.3,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 45.7,
   "fact_parts": {
    "space": 4.3,
@@ -7391,6 +10299,105 @@
   "sunk": 30005,
   "breakeven": 1271787,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 76.3,
+    "fact": "1,717 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 84.8,
+    "fact": "3 bedrooms above grade, primary 179 sq ft, ensuite",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 62.5,
+    "fact": "1 garage, 2 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 0.0,
+    "fact": "31 x 85 ft, 2,644 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 62.9,
+    "fact": "Commute 13 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 8 of 25 \u00b7 School 11 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 13.32,
+      "max": 30,
+      "detail": "4.0 km to Appleby GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "804m to the nearest of the QEW, 403, 407 or the rail, crescent"
+     },
+     "walk": {
+      "pts": 8.33,
+      "max": 25,
+      "detail": "walk 40 + transit 30 = 70"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.3 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "363m to Orchard Community Park (7.9ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 71.0,
+    "fact": "$61k of $209k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,759 /mo, made of $5,159 P&I, $453 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 71.0,
+   "expected": 60502,
+   "full": 208711,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 6632,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 27600,
+     "top": "bath 2, basement"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 26270,
+     "top": "roof, furnace"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 71.0,
+   "if_defect": 71.0,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 63.6,
   "fact_parts": {
    "space": 19.1,
@@ -7611,6 +10618,106 @@
   "sunk": 36830,
   "breakeven": 1146542,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 34.4,
+    "fact": "1,440 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 20.4,
+    "fact": "2 bedrooms above grade, primary 137 sq ft, ensuite, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 75.0,
+    "fact": "1 garage, 3 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 18.9,
+    "fact": "31 x 120 ft, 3,755 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 68.4,
+    "fact": "Commute 12 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 15 of 25 \u00b7 School 11 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 12.19,
+      "max": 30,
+      "detail": "4.2 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "924m to the nearest of the QEW, 403, 407 or the rail, crescent"
+     },
+     "walk": {
+      "pts": 15.0,
+      "max": 25,
+      "detail": "walk 50 + transit 40 = 90"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.45 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "500m to Brant Hills Park (13.8ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 74.6,
+    "fact": "$56k of $220k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,048 /mo, made of $4,533 P&I, $408 tax and $108 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 74.6,
+   "expected": 56037,
+   "full": 220411,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 6599,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 42929,
+     "top": "bath 2, main bath"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 6508,
+     "top": "A/C, furnace"
+    }
+   ],
+   "unseen": [
+    "bath_tub_type",
+    "panel_type"
+   ],
+   "if_clean": 76.8,
+   "if_defect": 66.6,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 44.7,
   "fact_parts": {
    "space": 8.6,
@@ -7824,6 +10931,105 @@
   "sunk": 43630,
   "breakeven": 1390597,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 58.1,
+    "fact": "1,588 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 74.8,
+    "fact": "3 bedrooms above grade, primary 161 sq ft, no ensuite",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 87.5,
+    "fact": "1 garage, 4 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 10.5,
+    "fact": "37 x 92 ft, 3,420 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 67.3,
+    "fact": "Commute 25 of 30 \u00b7 Quiet 10 of 20 \u00b7 Walk 15 of 25 \u00b7 School 8 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 25.01,
+      "max": 30,
+      "detail": "2.2 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 9.8,
+      "max": 20,
+      "detail": "336m to the nearest of the QEW, 403, 407 or the rail, court"
+     },
+     "walk": {
+      "pts": 15.0,
+      "max": 25,
+      "detail": "walk 50 + transit 40 = 90"
+     },
+     "school": {
+      "pts": 7.5,
+      "max": 15,
+      "detail": "nearest school 0.75 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "433m to Kerns Park (5.3ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 75.4,
+    "fact": "$52k of $212k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 83.0,
+    "fact": "$6,170 /mo, made of $5,612 P&I, $410 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 75.4,
+   "expected": 52310,
+   "full": 212211,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 7028,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 36437,
+     "top": "bath 2, powder"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 75.4,
+   "if_defect": 75.4,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 58.1,
   "fact_parts": {
    "space": 14.5,
@@ -8030,6 +11236,105 @@
   "sunk": 54390,
   "breakeven": 1325258,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 12.0,
+    "fact": "1,164 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 90.0,
+    "fact": "4 bedrooms above grade, primary 161 sq ft, ensuite unknown",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 75.0,
+    "fact": "1 garage, 3 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 71.8,
+    "fact": "52 x 113 ft, 5,872 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 66.1,
+    "fact": "Commute 27 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 5 of 25 \u00b7 School 8 of 15 \u00b7 Green 7 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 26.96,
+      "max": 30,
+      "detail": "2.0 km to Oakville GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "868m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 5.0,
+      "max": 25,
+      "detail": "walk 30 + transit 30 = 60"
+     },
+     "school": {
+      "pts": 7.5,
+      "max": 15,
+      "detail": "nearest school 0.75 km, rating not looked up"
+     },
+     "green": {
+      "pts": 6.68,
+      "max": 10,
+      "detail": "998m to park (23.7ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 70.5,
+    "fact": "$62k of $210k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 74.9,
+    "fact": "$6,251 /mo, made of $5,397 P&I, $408 tax and $446 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 70.5,
+   "expected": 61880,
+   "full": 209583,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 5800,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 29343,
+     "top": "bath 2, basement"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 26737,
+     "top": "pool carry, roof"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 70.5,
+   "if_defect": 70.5,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 55.8,
   "fact_parts": {
    "space": 3.0,
@@ -8288,6 +11593,106 @@
   "sunk": 43964,
   "breakeven": 1394870,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 70.9,
+    "fact": "1,618 sq ft above grade, finished basement, separate entrance",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 74.8,
+    "fact": "3 bedrooms above grade, primary 182 sq ft, ensuite unknown",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "2 garage, 4 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 100.0,
+    "fact": "62 x 118 ft, 7,298 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 64.4,
+    "fact": "Commute 21 of 30 \u00b7 Quiet 14 of 20 \u00b7 Walk 8 of 25 \u00b7 School 11 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 21.09,
+      "max": 30,
+      "detail": "2.8 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 13.75,
+      "max": 20,
+      "detail": "475m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 8.33,
+      "max": 25,
+      "detail": "walk 40 + transit 30 = 70"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.32 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "473m to the water"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 76.0,
+    "fact": "$61k of $253k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 60.1,
+    "fact": "$6,399 /mo, made of $5,612 P&I, $595 tax and $192 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 76.0,
+   "expected": 60787,
+   "full": 252898,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 13082,
+     "top": "flooring, partial rewire"
+    },
+    {
+     "bucket": "optional",
+     "total": 36157,
+     "top": "bath 2, powder"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 11548,
+     "top": "roof, windows"
+    }
+   ],
+   "unseen": [
+    "window_frame",
+    "panel_type"
+   ],
+   "if_clean": 79.4,
+   "if_defect": 54.6,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 74.5,
   "fact_parts": {
    "space": 17.7,
@@ -8520,6 +11925,106 @@
   "sunk": 68324,
   "breakeven": 1271439,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 20.0,
+    "fact": "1,061 sq ft above grade, finished basement, separate entrance",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 10.4,
+    "fact": "2 bedrooms above grade, primary 143 sq ft, ensuite unknown, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "1.5 garage, 5 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 82.5,
+    "fact": "60 x 105 ft, 6,300 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 73.1,
+    "fact": "Commute 26 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 8 of 25 \u00b7 School 10 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 25.55,
+      "max": 30,
+      "detail": "2.2 km to Appleby GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "1961m to the nearest of the QEW, 403, 407 or the rail, crescent"
+     },
+     "walk": {
+      "pts": 8.33,
+      "max": 25,
+      "detail": "walk 40 + transit 30 = 70"
+     },
+     "school": {
+      "pts": 9.6,
+      "max": 15,
+      "detail": "nearest school 0.61 km, rating not looked up"
+     },
+     "green": {
+      "pts": 9.59,
+      "max": 10,
+      "detail": "562m to Creekpath Woods Park (10.2ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 75.1,
+    "fact": "$58k of $234k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,675 /mo, made of $5,090 P&I, $438 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 75.1,
+   "expected": 58336,
+   "full": 234146,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 11470,
+     "top": "partial rewire, panel"
+    },
+    {
+     "bucket": "optional",
+     "total": 38022,
+     "top": "bath 2, basement"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "bath_tub_type",
+    "panel_type"
+   ],
+   "if_clean": 79.7,
+   "if_defect": 53.3,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 49.2,
   "fact_parts": {
    "space": 5.0,
@@ -8745,6 +12250,105 @@
   "sunk": 38899,
   "breakeven": 1302317,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 76.8,
+    "fact": "1,655 sq ft above grade, finished basement, separate entrance",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 84.8,
+    "fact": "3 bedrooms above grade, primary 189 sq ft, ensuite",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 100.0,
+    "fact": "3 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "1 garage, 5 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 23.2,
+    "fact": "33 x 120 ft, 3,929 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 66.0,
+    "fact": "Commute 20 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 12 of 25 \u00b7 School 7 of 15 \u00b7 Green 7 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 20.0,
+      "max": 30,
+      "detail": "3.0 km to Bronte GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "1517m to the nearest of the QEW, 403, 407 or the rail, green"
+     },
+     "walk": {
+      "pts": 11.67,
+      "max": 25,
+      "detail": "walk 50 + transit 30 = 80"
+     },
+     "school": {
+      "pts": 7.05,
+      "max": 15,
+      "detail": "nearest school 0.78 km, rating not looked up"
+     },
+     "green": {
+      "pts": 7.31,
+      "max": 10,
+      "detail": "903m to park (6.1ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 71.5,
+    "fact": "$65k of $228k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,728 /mo, made of $5,176 P&I, $405 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 71.5,
+   "expected": 65042,
+   "full": 228302,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 6817,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 49379,
+     "top": "bath 2, bath 3"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "panel_type"
+   ],
+   "if_clean": 71.5,
+   "if_defect": 71.5,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 75.6,
   "fact_parts": {
    "space": 19.2,
@@ -8993,6 +12597,107 @@
   "sunk": 93533,
   "breakeven": 1230551,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 20.0,
+    "fact": "1,021 sq ft above grade, finished basement, separate entrance",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 64.8,
+    "fact": "3 bedrooms above grade, ensuite unknown",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "2 garage, 6 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 70.6,
+    "fact": "56 x 104 ft, 5,824 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 81.2,
+    "fact": "Commute 30 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 15 of 25 \u00b7 School 9 of 15 \u00b7 Green 7 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 30.0,
+      "max": 30,
+      "detail": "0.9 km to Bronte GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "797m to the nearest of the QEW, 403, 407 or the rail, place"
+     },
+     "walk": {
+      "pts": 15.0,
+      "max": 25,
+      "detail": "walk 50 + transit 40 = 90"
+     },
+     "school": {
+      "pts": 9.15,
+      "max": 15,
+      "detail": "nearest school 0.64 km, rating not looked up"
+     },
+     "green": {
+      "pts": 7.05,
+      "max": 10,
+      "detail": "942m to park (5.9ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 53.4,
+    "fact": "$103k of $220k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,322 /mo, made of $4,745 P&I, $430 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 53.4,
+   "expected": 102651,
+   "full": 220090,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 15386,
+     "top": "flooring, partial rewire"
+    },
+    {
+     "bucket": "optional",
+     "total": 78420,
+     "top": "kitchen, main bath"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "bath_tub_type",
+    "bath_vanity_top",
+    "panel_type"
+   ],
+   "if_clean": 56.1,
+   "if_defect": 38.2,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 49.3,
   "fact_parts": {
    "space": 5.0,
@@ -9231,6 +12936,109 @@
   "sunk": 43297,
   "breakeven": 1383847,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 77.3,
+    "fact": "1,773 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 60.0,
+    "fact": "5 bedrooms above grade, primary 128 sq ft, no ensuite, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 65.0,
+    "fact": "2 full, no powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 50.0,
+    "fact": "0 garage, 4 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 51.5,
+    "fact": "51 x 100 ft, 5,060 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 76.8,
+    "fact": "Commute 24 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 15 of 25 \u00b7 School 11 of 15 \u00b7 Green 6 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 24.44,
+      "max": 30,
+      "detail": "2.3 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "950m to the nearest of the QEW, 403, 407 or the rail, place"
+     },
+     "walk": {
+      "pts": 15.0,
+      "max": 25,
+      "detail": "walk 50 + transit 40 = 90"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.19 km, rating not looked up"
+     },
+     "green": {
+      "pts": 6.11,
+      "max": 10,
+      "detail": "1084m to park (8.1ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 57.9,
+    "fact": "$96k of $228k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 61.8,
+    "fact": "$6,382 /mo, made of $5,483 P&I, $408 tax and $491 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 57.9,
+   "expected": 96264,
+   "full": 228420,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 7563,
+     "top": "flooring, waterproofing"
+    },
+    {
+     "bucket": "optional",
+     "total": 59261,
+     "top": "basement, bath 2"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 29439,
+     "top": "pool carry, roof"
+    }
+   ],
+   "unseen": [
+    "kitchen_sink_mount",
+    "kitchen_soffit",
+    "bath_tub_type",
+    "window_frame",
+    "panel_type"
+   ],
+   "if_clean": 64.7,
+   "if_defect": 14.7,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 62.0,
   "fact_parts": {
    "space": 19.3,
@@ -9514,6 +13322,109 @@
   "sunk": 125922,
   "breakeven": 1366954,
   "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 12.0,
+    "fact": "1,206 sq ft above grade, finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 54.8,
+    "fact": "3 bedrooms above grade, primary 157 sq ft, no ensuite, 1 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 100.0,
+    "fact": "3 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 75.0,
+    "fact": "1 garage, 3 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 60.0,
+    "fact": "45 x 120 ft, 5,400 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 65.0,
+    "fact": "Commute 12 of 30 \u00b7 Quiet 20 of 20 \u00b7 Walk 12 of 25 \u00b7 School 11 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 12.07,
+      "max": 30,
+      "detail": "4.2 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 20.0,
+      "max": 20,
+      "detail": "1124m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 11.67,
+      "max": 25,
+      "detail": "walk 40 + transit 40 = 80"
+     },
+     "school": {
+      "pts": 11.25,
+      "max": 15,
+      "detail": "nearest school 0.3 km, rating not looked up"
+     },
+     "green": {
+      "pts": 10.0,
+      "max": 10,
+      "detail": "220m to Brant Hills Park (13ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 46.3,
+    "fact": "$140k of $261k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 100.0,
+    "fact": "$5,673 /mo, made of $5,047 P&I, $479 tax and $147 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 46.3,
+   "expected": 140114,
+   "full": 260863,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 20515,
+     "top": "flooring, ceilings"
+    },
+    {
+     "bucket": "optional",
+     "total": 110755,
+     "top": "basement, main bath"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 8845,
+     "top": "roof, A/C"
+    }
+   ],
+   "unseen": [
+    "kitchen_soffit",
+    "floor_condition",
+    "panel_type",
+    "basement_walls",
+    "basement_moisture"
+   ],
+   "if_clean": 56.5,
+   "if_defect": 5.3,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
   "fact_score": 49.9,
   "fact_parts": {
    "space": 3.0,

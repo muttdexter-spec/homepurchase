@@ -315,6 +315,32 @@ price:
   comfortable_mo: 6000        # at or under this, price scores 100
   max_mo: 7000                # at this payment price scores 0
   gate_at_max: false          # REFINED 2026-09-15 (Alex): "allow for those to be ranked".
+
+  # ---------------------------------------------------------- PRICE-REFRAME.md, 2026-09-15
+  # Price is no longer the eighth component. Quality is the seven non-price components on the
+  # buyer's weights; cost is a penalty in quality points applied through a visible dial:
+  #   cost_pen = 0                                             if payment <= comfortable_mo
+  #            = 100 (payment - comfortable_mo)/(max_mo - comfortable_mo)   between
+  #            = 100, clamped                                   above max_mo
+  #   value    = quality - dial * cost_pen / 100
+  # The dial is fitted from the pairs: a choice between a better dearer house and a lesser
+  # cheaper one is exactly this trade. Until the fifteen choices exist it is PROVISIONAL and is
+  # derived from the provisional weights so the order is unchanged by the reframe alone:
+  #   dial = 100 * w_price / (sum of the other seven weights) = 100 * 15.22 / 84.78 = 17.95
+  # The identity is exact EXCEPT for the style dock, and the exception is the point. Ranking on
+  # `quality - (100 w_price / W7) * cost_pen / 100` differs from the old eight-component weighted
+  # mean only by an affine transform, so with split_dock neutralised the two orders are identical;
+  # test_model.py asserts that.
+  # With the dock live they differ, because the dock now applies to QUALITY ONLY and no longer
+  # discounts the payment. A 5% style dock is a statement about the house, not about the mortgage,
+  # so the old behaviour was wrong. The effect is small and entirely predictable: six split levels
+  # (Pallatine, Rexway, Aldridge, Oxlow, Centennial, Duncaster) rise by up to two places and the
+  # non-splits immediately below them fall by one. Maximum displacement across the batch is 2.
+  reframe: true               # false restores price as the eighth component
+  dial: 17.95                 # quality points taken off by a full cost swing
+  dial_provisional: true      # derived from weights.alex, not fitted from choices
+  dial_method: "PROVISIONAL. 100 * weights.alex.price / (100 - weights.alex.price). Not fitted
+                from pairwise choices; there are none on file. Replaced by fit_choices.py."
   # V6.1 §3 made max_mo a hard G3 gate. It is now a soft ceiling: a house above max_mo scores 0
   # on price, stays in the rank, and carries an `Over your maximum` stamp naming the payment and
   # the overage. Set gate_at_max: true to restore the hard exclusion.

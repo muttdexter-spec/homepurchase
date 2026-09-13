@@ -44,6 +44,14 @@ PROVISIONAL = S.PROVISIONAL
 W_JOINT = {k: WS["joint"][k] * 100 for k in S.COMP_KEYS}
 # the score panel is ordered by weight, heaviest first (USABILITY-SPEC section 6)
 COMP_ORDER = sorted(S.COMP_KEYS, key=lambda k: -W_JOINT[k])
+# PRICE-REFRAME.md: the panel shows QUALITY, which is the seven non-price components. Price is
+# not a bar; it is the cost penalty applied through the dial, shown in the rank line and the
+# money block. QUAL_ORDER is the panel order, COMP_ORDER stays for anything that still needs all
+# eight (the table's component columns, the compare view).
+REFRAMED = S.reframed()
+DIAL = S.dial()
+QUAL_ORDER = [k for k in COMP_ORDER if k != "price"] if REFRAMED else COMP_ORDER
+W_QUAL = {k: (W_JOINT[k] / sum(W_JOINT[j] for j in QUAL_ORDER) * 100) for k in QUAL_ORDER}
 COMP_LABEL = {"space": "Space", "layout": "Layout", "baths": "Baths", "parking": "Parking",
               "lot": "Lot", "location": "Location", "condition": "Condition", "price": "Price"}
 MORT_RATE = S.CFG["hold"]["mortgage_rate"] * 100
@@ -236,11 +244,122 @@ def why_lines(o, d, row):
                     f"{money(int(a['worst']))} a year scores 0 and {money(int(a['best']))} scores 100.")
     return out
 
+
+# ============================ V6.1 §4 + SCORING-EXPLANATION-FINAL: the why block ============
+# Replaces the "Why each score" prose entirely. Nothing here is typed: every number and every
+# sentence comes from detail.json's `explain` and `condition_block`, which score.py builds from
+# costs.yaml. The scale sentences live once, in the glossary.
+
+BATCH_RANGE = {}
+def _batch_ranges():
+    for k in S.COMP_KEYS:
+        vals = [num(r, "c_" + k) for r in ROWS if not is_gated(r)]
+        if vals: BATCH_RANGE[k] = (min(vals), max(vals))
+
+def rangebar(k, v):
+    """The .scorecol mini-bar with the batch minimum and maximum as ticks and this house as the dot."""
+    lo, hi = BATCH_RANGE.get(k, (0.0, 100.0))
+    if hi <= lo: hi = lo + 1
+    pos = max(0.0, min(100.0, 100.0 * (v - lo) / (hi - lo)))
+    return (f'<span class="rngbar" title="the batch runs {lo:.0f} to {hi:.0f}">'
+            f'<s class="tick" style="left:0"></s><s class="tick" style="left:100%"></s>'
+            f'<i class="dot" style="left:{pos:.1f}%"></i></span>'
+            f'<u class="rnglab">{lo:.0f} to {hi:.0f}</u>')
+
+def contrib_bar(row):
+    """V6.1 §4.1: where the quality number comes from, and what is left on the table."""
+    c = comp(row)
+    segs, got, left = [], [], []
+    for k in QUAL_ORDER:
+        w = W_QUAL[k] if REFRAMED else W_JOINT[k]
+        pts = w * c[k] / 100.0
+        segs.append(f'<i class="cseg" style="width:{pts:.2f}%" title="{COMP_LABEL[k]} {pts:.0f}"></i>')
+        got.append((COMP_LABEL[k], pts))
+        gap = w - pts
+        if gap >= 0.5: left.append((COMP_LABEL[k], gap))
+    q = num(row, "quality" if REFRAMED else "score")
+    line1 = " &middot; ".join(f"{n.lower()} {p:.0f}" for n, p in got if p >= 0.5)
+    left.sort(key=lambda t: -t[1])
+    line2 = " &middot; ".join(f"{n.lower()} {p:.0f}" for n, p in left[:6])
+    cost_line = ""
+    if REFRAMED:
+        cp = num(row, "cost_pts")
+        cost_line = (f'<p class="whyline cost">And the payment takes off <b>{cp:.1f}</b>'
+                     f'{" (nothing: you are at or under your comfortable payment)" if cp < 0.05 else ""}'
+                     f', so the rank sorts on <b>{num(row,"score"):.1f}</b>.</p>')
+    return (f'<div class="contrib"><div class="cbar">{"".join(segs)}</div>'
+            f'<p class="whyline"><b>{q:.0f}</b> = {line1}</p>'
+            + (f'<p class="whyline left">Left on the table: {line2}</p>' if line2 else "")
+            + cost_line + '</div>')
+
+def loc_parts_html(d):
+    """SCORING-EXPLANATION-FINAL §3: location is five parts and the reader needs to see which."""
+    lp = ((d.get("explain") or {}).get("location") or {}).get("parts") or {}
+    if not lp: return ""
+    rows = []
+    for k, v in lp.items():
+        w = 100.0 * v["pts"] / v["max"] if v["max"] else 0
+        rows.append(f'<div class="lp"><em>{k.capitalize()}</em>'
+                    f'<span><i style="width:{w:.0f}%"></i></span>'
+                    f'<b>{v["pts"]:.0f}<s> of {v["max"]}</s></b>'
+                    f'<u>{esc(v["detail"])}</u></div>')
+    return '<div class="locparts">' + "".join(rows) + "</div>"
+
+def condition_html(d):
+    """SCORING-EXPLANATION-FINAL §2: say what the work is."""
+    cb = d.get("condition_block")
+    if not cb: return ""
+    rows = "".join(
+        f'<div class="cbk"><em>{esc(b["bucket"])}</em><b>{money10(b["total"])}</b>'
+        f'<u>{esc(b["top"])}</u></div>' for b in cb["buckets"])
+    unseen = ", ".join(x.replace("_", " ") for x in cb["unseen"])
+    urow = (f'<div class="cbk"><em>unseen</em><b></b><u>{esc(unseen)} &middot; on your showing list</u></div>'
+            if unseen else '<div class="cbk"><em>unseen</em><b></b><u>nothing the model prices</u></div>')
+    swing = ""
+    if abs(cb["if_clean"] - cb["if_defect"]) >= 0.15:
+        swing = (f'<p class="cswing">A showing could move this to <b>{cb["if_clean"]:.0f}</b> if everything '
+                 f'reads clean, or <b>{cb["if_defect"]:.0f}</b> if it does not.</p>')
+    else:
+        swing = '<p class="cswing">A showing would not move this: nothing unseen here is priced by the model.</p>'
+    return '<div class="condblock">' + rows + urow + swing + "</div>"
+
+def why_block(o, d, row):
+    """The whole why, under the panel. V6.1 §4.2 one line and a range per component, plus the
+    condition block and the location parts."""
+    c = comp(row); ex = (d.get("explain") or {})
+    out = []
+    for k in QUAL_ORDER:
+        w = W_QUAL[k] if REFRAMED else W_JOINT[k]
+        pts = w * c[k] / 100.0
+        fact = (ex.get(k) or {}).get("fact", "")
+        out.append(
+            f'<div class="wl"><em>{COMP_LABEL[k]}</em><b class="v">{c[k]:.0f}</b>'
+            f'{rangebar(k, c[k])}'
+            f'<span class="wf">{esc(fact)}</span>'
+            f'<u class="adds">adds {pts:.0f} of {w:.0f}</u></div>')
+        if k == "location": out.append(loc_parts_html(d))
+        if k == "condition": out.append(condition_html(d))
+    return ('<div class="whyblock">' + contrib_bar(row) + "".join(out) +
+            '<p class="sp-foot">Every scale is defined once, in <a href="#gloss-scales">How the scales work</a>.</p>'
+            '</div>')
+
+
+def rank_line(row, n_ranked):
+    """SCORING-EXPLANATION-FINAL §4. Once quality and cost are separated the reader will see a 74
+    ranked under a 71 and ask why. This answers it on every card, in score units."""
+    if is_gated(row) or not REFRAMED: return ""
+    cp = num(row, "cost_pts")
+    band = band_txt(row)
+    return (f'<p class="ranknote">Rank <b>{row["rank"]}</b> of {n_ranked} &middot; quality '
+            f'<b>{num(row,"quality"):.0f}</b> &middot; cost <b>{"0" if cp < 0.05 else f"&minus;{cp:.0f}"}</b> '
+            f'at the current dial &middot; band {band}</p>')
+
 def scorepanel(o, d, row):
     c = comp(row); g = row["grade"]; sc = score(row)
-    why = why_lines(o, d, row)
-    rows = "\n".join("                " + sp_row(COMP_LABEL[k], c[k], W_JOINT[k], why.get(k, ""))
-                     for k in COMP_ORDER)
+    ex = (d.get("explain") or {})
+    rows = "\n".join("                " + sp_row(COMP_LABEL[k], c[k], W_QUAL[k] if REFRAMED else W_JOINT[k],
+                                                 (ex.get(k) or {}).get("fact", ""))
+                     for k in QUAL_ORDER)
     dock = ""
     if row.get("split_docked") == "yes":
         pc = round(100 * (1 - S.CFG["split_dock"]))
@@ -251,8 +370,8 @@ def scorepanel(o, d, row):
     return f"""<aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
-                <span class="big" title="{esc(SCORE_TIP)}"><b>{"—" if sc is None else f"{sc:.0f}"}</b><i>/ 100</i></span>
-                <em>Score · your weights, heaviest first</em>
+                <span class="big" title="{esc(SCORE_TIP)}"><b>{"—" if sc is None else (f'{num(row,"quality"):.0f}' if REFRAMED else f"{sc:.0f}")}</b><i>/ 100</i></span>
+                <em>{"Quality &middot; the seven things that are not price, your weights, heaviest first" if REFRAMED else "Score &middot; your weights, heaviest first"}</em>
               </div>
             </div>
             <div class="sp-parts">
@@ -441,6 +560,9 @@ def card_data(o, row, d):
             f' data-muni="{esc(o.get("municipality") or "")}" data-dom="{dom_days(o)}"'
             f' data-status="{esc(status_of(o))}" data-cond="{num(row, "c_condition"):.0f}"'
             f' data-score="{"" if is_gated(row) else row["score"]}"'
+            f' data-wish="{d["wish_p80"]}"'
+            f' data-quality="{"" if is_gated(row) else row.get("quality","")}"'
+            f' data-costpts="{"" if is_gated(row) else row.get("cost_pts","")}"'
             f' data-bandlo="{"" if is_gated(row) else row["band_lo"]}"'
             f' data-rank="{99 if is_gated(row) else int(row["rank"])}"'
             + (' data-gated="1"' if is_gated(row) else ""))
@@ -531,10 +653,7 @@ def card(rank, row, o, d, n_ranked):
     # record is the last thing on the card and the only section that starts closed.
     why = why_lines(o, d, row)
     cmp_ = comp(row)
-    sec_why = details_wrap("Why each score", '<dl class="whylist">' + "".join(
-        f'<div><dt>{COMP_LABEL[kk]}<b>{cmp_[kk]:.0f} / 100</b>'
-        f'<u>{W_JOINT[kk]:.0f}% of the score</u></dt><dd>{esc(why.get(kk, ""))}</dd></div>'
-        for kk in COMP_ORDER) + "</dl>")
+    sec_why = why_block(o, d, row)      # V6.1 §4: replaces the "Why each score" prose entirely
     sec_reno  = reno_html(o, d, row)
     sec_split = ('<div class="split">'
                  '<section class="known"><h3>Settled by the photos</h3><ul>' + known_html + "</ul></section>"
@@ -547,7 +666,7 @@ def card(rank, row, o, d, n_ranked):
     return f"""
     <article class="lot" id="sr-lot-{k}" data-slug="{k}"{card_data(o, row, d)}{grey}>
       <div class="rail"><div class="rank">{"—" if gated else rank}</div>
-        <div class="psf" title="{esc(SCORE_TIP)}"><b>{"—" if gated else f'{num(row,"score"):.0f}'}</b><span>Score</span></div>
+        <div class="psf" title="{esc(SCORE_TIP)}"><b>{"—" if gated else f'{num(row,"quality" if REFRAMED else "score"):.0f}'}</b><span>{"Quality" if REFRAMED else "Score"}</span></div>
         <div class="psf">{pay_cell(o, big=True)}<span>Monthly payment</span></div>
         <div class="psf"><b>{band_txt(row)}</b><span>Band</span></div></div>
       <div class="body">
@@ -559,14 +678,21 @@ def card(rank, row, o, d, n_ranked):
           <h2><a href="{esc(url)}" target="_blank" rel="noopener">{esc(o['address'].split(',')[0].title().replace("Mls","MLS"))}</a></h2>
           <p class="where">{where_line(o, d)}</p>
           {gated_line(row)}
+          {rank_line(row, n_ranked)}
           <div class="tags">{''.join(stamps_for(row, o, d, url))}</div>
           <dl class="money">
           <div class="hero"><dt>Monthly payment</dt><dd>{pay_cell(o)}</dd>
-            <dd class="paysub" data-paysub="{k}"></dd></div>
-          <div><dt>Day-one work</dt><dd>{money(d['day1_p80'])}</dd></div>
-          <div><dt>Wish list</dt><dd>{money(d['wish_p80'])}</dd></div>
-          <div><dt>{HOLD_DEF}-year cost</dt><dd>{money(num(row, "cost_hold"))}</dd></div>
-          <div><dt>Cash on closing day</dt><dd><span class="cashline" data-k="{k}">—</span></dd></div>
+            <dd class="paysub msub" data-paysub="{k}"></dd></div>
+          <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="{k}">—</span></dd>
+            <dd class="msub cashsub" data-cashsub="{k}"></dd></div>
+          <div><dt>All-in cash</dt><dd><span class="allincash" data-k="{k}">—</span></dd>
+            <dd class="msub">cash on closing plus the {money(d['wish_p80'])} wish list, if you do it</dd></div>
+          <div><dt>Day-one work</dt><dd>{money(d['day1_p80'])}</dd>
+            <dd class="msub">p80, before you move in</dd></div>
+          <div><dt>Wish list</dt><dd>{money(d['wish_p80'])}</dd>
+            <dd class="msub">p80, kitchen, baths, basement, if you choose</dd></div>
+          <div><dt>Net cost of owning</dt><dd>{money(num(row, "cost_hold"))}</dd>
+            <dd class="msub">over {HOLD_DEF} years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
           {scorepanel(o, d, row)}
@@ -593,6 +719,7 @@ SLUG_OF = {r["address"]: next(sl for sl, o in OBS.items() if o["address"] == r["
 SLUG_SHORT = {a: short(s) for a, s in SLUG_OF.items()}
 BYSLUG = {SLUG_OF[r["address"]]: r for r in ROWS}
 
+_batch_ranges()      # V6.1 §4.2: the batch min and max behind every component mini-bar
 cards = []; houses_js = []; reserve_js = {}; show_js = {}; compare_js = {}
 for r in ROWS:
     slug = SLUG_OF[r["address"]]; o = OBS[slug]; d = DET[slug]
@@ -795,9 +922,29 @@ CALIBRATION = """
     <div id="cal-body"></div>
   </div>"""
 
+
+# ---- V6.1 §4.3: the scales go to ONE place. Built from explain_*(), never typed. ----
+def scales_box():
+    """One line per component with its 0, its 100 and where the number comes from, generated from
+    costs.yaml through explain_<component>(). Never repeated on a card."""
+    probe = OBS[SLUG_OF[ROWS[0]["address"]]]
+    ex = S.explain_all(probe, S.cost(probe))
+    order = QUAL_ORDER + (["price"] if REFRAMED else [])
+    rows = "".join(
+        f'<div class="term"><dt>{COMP_LABEL[k]}{"" if k != "price" else " (the cost side)"}</dt>'
+        f'<dd>{esc(ex[k]["scale"])}</dd></div>' for k in order)
+    head = ('<div class="term" id="gloss-scales"><dt>How the scales work</dt>'
+            '<dd>Every component is 0 to 100 on an <b>absolute</b> scale, so a house scored today '
+            'compares to one scored in March. These are the anchors, and they are the only place '
+            'they are written down: the cards print facts, not scales.</dd></div>')
+    return head + rows
+
 GLOSSARY = f"""
-    <div class="term"><dt>Score</dt>
-      <dd>The one number this page is sorted on: eight components, each 0 to 100 on an absolute scale, combined with <b>your weights</b>. Higher is better. <b>It is not the letter.</b> Change a weight and every score moves.</dd></div>
+{scales_box()}
+    <div class="term"><dt>Quality</dt>
+      <dd>The seven things that are not price, each 0 to 100 on an absolute scale, combined with <b>your weights</b>. Higher is better. It says how good the house is, and says nothing about what it costs.</dd></div>
+    <div class="term"><dt>Cost, and the dial</dt>
+      <dd>Price is not one of the seven. It is a penalty in quality points: nothing at or under your comfortable payment, rising to the full penalty at your maximum. The <b>dial</b> is how many quality points that full penalty is worth, and the list is sorted on quality minus the dial's share of it. At a dial of 0 the list is quality only. The dial is fitted from the fifteen pairwise choices, because a choice between a better dearer house and a lesser cheaper one is exactly this trade.</dd></div>
     <div class="term"><dt>Condition</dt>
       <dd>The share of this house's work that is <b>not</b> expected, cost-weighted, 0 to 100. The dollars behind it are under Renovations. Photographs alone cannot push it past about 77; the rest needs somebody standing in the house.</dd></div>
     <div class="term"><dt>Monthly payment</dt>
@@ -872,11 +1019,25 @@ V6JS = r"""
     document.querySelectorAll("[data-paysub]").forEach(function(s){
       var src = SRC[s.dataset.paysub]; if(!src) return;
       var p = parts(src);
-      s.textContent = money(p.pi) + " P&I · " + money(p.tax) + " tax · " + money(p.up) + " upkeep";
+      s.textContent = money(p.pi) + " P&I · " + money(p.tax) + " tax · " + money(p.up) +
+        " upkeep · at " + S.rate.toFixed(2) + "%, " + S.dp + "% down";
     });
     document.querySelectorAll(".cashline").forEach(function(s){
       var src = SRC[s.dataset.k]; if(!src) return;
       s.textContent = money(cashToClose(src));
+    });
+    /* PRICE-REFRAME §6: the cash sub-line and the all-in cash cell. Both move with the dial
+       settings, so both are written here rather than baked into the card. */
+    document.querySelectorAll("[data-cashsub]").forEach(function(s){
+      var src = SRC[s.dataset.cashsub]; if(!src) return;
+      var ask = +src.dataset.ask, d1 = +src.dataset.day1;
+      s.textContent = money(ask * (S.dp/100)) + " down · " +
+        money(Math.max(0, ltt(ask) - 4000)) + " land transfer · " +
+        money(CFG.closing) + " closing · " + money(d1) + " day-one work";
+    });
+    document.querySelectorAll(".allincash").forEach(function(s){
+      var src = SRC[s.dataset.k]; if(!src) return;
+      s.textContent = money(cashToClose(src) + (+src.dataset.wish || 0));
     });
     document.querySelectorAll(".paydiff").forEach(function(s){
       var a = SRC[s.dataset.a], b = SRC[s.dataset.b]; if(!a || !b) return;
@@ -1329,12 +1490,19 @@ V6JS = r"""
 .body .reno .maybe,.body .byo li,.body .reno .none{font-size:13.5px; line-height:1.55}
 .body .take{font-size:15px; line-height:1.62}
 
+/* V6.1 §6: the money cells carry a sub-line saying what the number is made of. That is the
+   point of the block: cash on closing shows its parts, so mortgage and down payment need no
+   cells of their own. One size, one colour, never a money figure. */
+.body .money .msub{font-size:10.5px; line-height:1.45; color:var(--muted); margin-top:1px;
+  font-family:var(--mono); letter-spacing:.01em}
+
 /* One panel shape. Tinted panels are derived numbers, bordered panels are the record. */
 .body .live-row,.body .ask,.body .reno{border-radius:10px; padding:14px 16px}
-.body .live-row{row-gap:12px !important}
-.body .live-row::before{content:"Price and financing"; grid-column:1/-1;
-  font-family:var(--mono); font-size:9.5px; letter-spacing:.09em; text-transform:uppercase;
-  color:var(--accent); opacity:.75; margin-bottom:-2px}
+/* V6.1 §6 / PRICE-REFRAME §6: the "Price and financing" strip is gone. The asking price is in
+   the header line, the mortgage and down payment are in the cash-on-closing sub-line, the land
+   transfer is there too, and the price scale lives once in the glossary. The live-row element
+   stays as the hook the calculator writes into, but it renders nothing. */
+.body .live-row{display:none !important}
 
 /* One disclosure treatment: same caret, same colour, on every collapsible section. */
 .body .v6sec>summary,.body .rooms>summary,.body details.costs>summary{
@@ -1440,13 +1608,14 @@ FIELDS = {
             f"{MORT_RATE:.2f}%, {DOWN_PCT:.0f}% down, {HOLD_DEF} years · {n} listings, "
             f"{N_RANKED} ranked, {n - N_RANKED} gated",
   "CHANGES": changes_line(),
-  "STANDFIRST": f"""Every house on both saved searches, {n} in all, on one score out of 100 built from eight things about the house and the weights the two of you set.
+  "STANDFIRST": f"""Every house on both saved searches, {n} in all. Quality is seven things about the house out of 100 on the weights the two of you set; the payment is separate, and counts against quality through a dial you can see and move. {"Sorted by quality; cost counts as " + f"{DIAL:.0f}" if REFRAMED else "Sorted by score"}.
       Every one has had its photos read at full resolution. Each card lists what the photos settled, what only a person standing in the room can
       settle, every room with its real dimensions, and every renovation line with what it costs and how likely it is to be needed.""",
   "MASTMETA": f"""
       <span>{n} of {n} photo-graded</span>
       <span>{len(see_first)} marked See First</span>
-      <span>One score, eight components</span>
+      <span>{"Quality: seven components &middot; cost counts as " + f"{DIAL:.0f}" if REFRAMED else "One score, eight components"}</span>
+      <span>{"Dial provisional" if (S.CFG.get("price") or {}).get("dial_provisional") else "Dial fitted from the choices"}</span>
       <span>Weights {"provisional" if PROVISIONAL else "set from fifteen choices each"}</span>
       <span>{HOLD_DEF}-year hold</span>
       <span>Model v3.4 · rank v6</span>

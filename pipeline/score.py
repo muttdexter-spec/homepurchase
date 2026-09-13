@@ -671,7 +671,11 @@ def monthly_payment(o, c):
     agree by construction."""
     HH = CFG["hold"]
     principal = o["list_price"] * (1 - HH["down_payment"])
-    i = HH["mortgage_rate"] / 12.0
+    # Canadian mortgages compound SEMI-ANNUALLY, not monthly. This is the page's own pAndI()
+    # formula, character for character, because the model's payment and the page's payment must
+    # be the same number: the cost penalty, the calculator and the ceiling all read it. A simple
+    # monthly rate was 0.4% high, which put $20 a month between the two generators on Barberry.
+    i = (1 + HH["mortgage_rate"] / 2.0) ** (1.0/6.0) - 1.0
     n = HH["amortization"] * 12
     pi = principal * i / (1 - (1 + i) ** (-n)) if i else principal / n
     tax = (o.get("annual_taxes") or 0) / 12.0
@@ -939,6 +943,253 @@ def v6_score(comp, wn, split):
     s = sum(wn[k]*comp[k] for k in COMP_KEYS)
     return s * (CFG["split_dock"] if split else 1.0)
 
+# ====================================== SCORING-EXPLANATION-FINAL.md §1, 2026-09-15
+# ONE SOURCE for every number and every sentence about a scale.
+#
+# The bug this closes: the 14 September build printed Barberry at price 100 under a sentence
+# saying $84,000 scores 0 and $54,000 scores 100 (which gives 37), and lot 23 under a sentence
+# saying 4,000 sq ft scores 0 (which gives 0). Two generators, one of them stale.
+#
+# Rule: every component returns (score, fact, scale) from ONE function that reads costs.yaml.
+# The card prints `fact`. The glossary prints `scale`. Nothing about a scale is typed into a
+# template, ever. test_model.py recomputes each component from the facts the page prints and
+# fails the build on any drift.
+
+def _fmt(n, p=0):
+    return f"{n:,.{p}f}"
+
+def explain_space(o, cfg=None):
+    cfg = cfg or CFG; sp = cfg["fit_weights"]["space"]
+    pts = space_pts(o); score = 100.0 * pts / sp["pts"]
+    ag = o.get("sqft_above") or 0
+    fin, part, sep = basement_flags(o)
+    bits = [f"{_fmt(ag)} sq ft above grade"]
+    if fin: bits.append("finished basement")
+    elif part: bits.append("part-finished basement")
+    if sep: bits.append("separate entrance")
+    scale = (f"0 below {_fmt(sp['floor_sqft'])} sq ft above grade, most of the points by "
+             f"{_fmt(sp['knee_sqft'])}, the rest to {_fmt(sp['cap_sqft'])}. "
+             f"A finished basement adds {sp['basement_finished']} of {sp['pts']}, "
+             f"a separate entrance {sp['basement_exterior_access']}.")
+    return round(score, 1), ", ".join(bits), scale
+
+def explain_layout(o, cfg=None):
+    cfg = cfg or CFG; L = cfg.get("layout") or {}
+    pts, est = layout_pts(o); score = 100.0 * pts / cfg["fact_weights"]["layout"]["pts"]
+    b = o.get("beds_effective") if o.get("beds_effective") is not None else (o.get("beds_ag") or 0)
+    ens, basis = ensuite_with_basis(o)
+    bits = [f"{b} bedrooms above grade"]
+    pb = o.get("primary_bed_sqft") or 0
+    if pb: bits.append(f"primary {_fmt(pb)} sq ft")
+    bits.append("ensuite" if ens else ("no ensuite" if ens is False else "ensuite unknown"))
+    if (o.get("beds_under_100sqft") or 0) > 0:
+        bits.append(f"{o['beds_under_100sqft']} bedroom under 100 sq ft")
+    if L.get("ensuite_matters"):
+        scale = (f"Bedrooms carry {L['bedroom_pts']} of 100, a primary over 150 sq ft adds "
+                 f"{L['primary_over_150_pts']}, an ensuite adds {L['ensuite_pts']}, and any bedroom "
+                 f"under 100 sq ft costs 20. The ensuite is read from the room table where there is "
+                 f"one and inferred from the bath count where there is not; the card says which.")
+    else:
+        scale = "Bedroom count, with a small bonus for a primary over 150 sq ft and a penalty for a bedroom under 100."
+    return round(score, 1), ", ".join(bits), scale
+
+def explain_baths(o, cfg=None):
+    cfg = cfg or CFG; w = cfg["fact_weights"]["baths"]["pts"]
+    nf, nh = o.get("baths_full") or 0, o.get("baths_half") or 0
+    pts = min(w, {0:0,1:5,2:13,3:18}.get(nf,20) + (2 if nh else 0))
+    fact = f"{nf} full" + (f" and {nh} powder" if nh else ", no powder")
+    scale = ("One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. "
+             "Counts only; nothing here is about condition.")
+    return round(100.0*pts/w, 1), fact, scale
+
+def explain_parking(o, cfg=None):
+    cfg = cfg or CFG; w = cfg["fact_weights"]["parking"]["pts"]
+    g, s = o.get("garage_spaces") or 0, o.get("parking_spots") or 0
+    pts = min(w, g*3 + s)
+    fact = f"{g} garage, {s} on the drive"
+    scale = f"Each garage space counts 3 and each driveway spot 1, capped at {w}, so {w} or more scores 100."
+    return round(100.0*pts/w, 1), fact, scale
+
+def explain_lot(o, cfg=None):
+    cfg = cfg or CFG; w = cfg["fact_weights"]["lot"]["pts"]; L = cfg.get("lot") or {}
+    lot = (o.get("lot_frontage_ft") or 0)*(o.get("lot_depth_ft") or 0)
+    if L and not L.get("matters", True):
+        return 50.0, f"{_fmt(lot)} sq ft lot", "A yard does not matter to you, so every house scores 50 and the pairs will give lot a low weight."
+    f_, c_ = L.get("floor_sqft", cfg["fact_weights"]["lot"]["floor_sqft"]), L.get("cap_sqft", cfg["fact_weights"]["lot"]["ceiling_sqft"])
+    pts = w*max(0, min(1, (lot-f_)/(c_-f_)))
+    fr, dp = o.get("lot_frontage_ft") or 0, o.get("lot_depth_ft") or 0
+    fact = f"{_fmt(fr,0)} x {_fmt(dp,0)} ft, {_fmt(lot)} sq ft"
+    scale = f"{_fmt(f_)} sq ft scores 0 and {_fmt(c_)} scores 100, straight line between. Your numbers for small and plenty."
+    return round(100.0*pts/w, 1), fact, scale
+
+def explain_location(o, cfg=None):
+    cfg = cfg or CFG
+    parts, total, flags = location_parts(o)
+    P = cfg["location"]["parts"]
+    fact = " · ".join(f"{k.capitalize()} {p['pts']:.0f} of {p['max']}" for k, p in parts.items())
+    scale = ("Five parts out of 100. "
+             f"Commute {P['commute']['pts']}: 0 at {P['commute']['zero_m']/1000:.0f} km from the nearest GO station, 100 at {P['commute']['full_m']/1000:.1f} km. "
+             f"Quiet {P['quiet']['pts']}: 0 within {P['quiet']['zero_m']} m of the QEW, 403, 407 or the rail corridor, 100 beyond {P['quiet']['full_m']} m, "
+             "with a bonus for a court or crescent and a cap for a named arterial. "
+             f"Walk and transit {P['walk']['pts']}: 0 at {P['walk']['zero']} between them, 100 at {P['walk']['full']}. "
+             f"School {P['school']['pts']}: 0 with none within {P['school']['zero_km']} km, 100 within {P['school']['full_km']} km. "
+             f"Green and water {P['green']['pts']}: 0 beyond {P['green']['zero_m']/1000:.0f} km from the shore and every park over 5 ha, 100 within {P['green']['full_m']} m of either.")
+    return round(total, 1), fact, scale, parts, flags
+
+def explain_condition(o, c=None, H=None, cfg=None):
+    cfg = cfg or CFG; c = c if c is not None else cost(o); H = H or cfg["hold"]["years_default"]
+    exp, full, exp_day1 = work_expected(o, c, H)
+    score = condition_from(exp, full)
+    fact = f"${_fmt(exp/1000,0)}k of ${_fmt(full/1000,0)}k of possible work expected"
+    scale = ("The cost-weighted share of this house's possible work that is NOT expected, from the "
+             "cost model's own probabilities. 100 means nothing is expected; 0 means every line "
+             "lands. Mechanicals are aged, so a component at the end of its life counts more. "
+             "Nobody has stood in any of these houses, so photographs alone cannot take a house "
+             "much above 80.")
+    return round(score, 1), fact, scale
+
+def explain_price(o, c=None, cfg=None):
+    """Under the reframe this is the COST side, not a component. Returned in the same shape so
+    one loop can render all of them."""
+    cfg = cfg or CFG; c = c if c is not None else cost(o)
+    P = cfg["price"]; pay, parts = monthly_payment(o, c)
+    pen = cost_penalty(o, c)
+    fact = f"${_fmt(pay)} /mo, made of ${_fmt(parts['pi'])} P&I, ${_fmt(parts['tax'])} tax and ${_fmt(parts['upkeep'])} upkeep"
+    scale = (f"No penalty at or under ${_fmt(P['comfortable_mo'])} a month, your comfortable payment, "
+             f"rising in a straight line to the full penalty at ${_fmt(P['max_mo'])}, your maximum. "
+             f"Above the maximum it holds at the full penalty. At the dial the page is set to, the "
+             f"full penalty costs {dial():.0f} quality points.")
+    return round(100.0 - pen, 1), fact, scale
+
+# ------------------------------- SCORING-EXPLANATION-FINAL.md §2: say what the work is
+# "$65,042 expected against $228,302" is right and tells the reader nothing to act on. These are
+# the cost model's own three buckets, the unseen tells, and what a showing is worth in the score's
+# own units. No new model: the scenarios are two more runs of cost().
+
+CLEAN_READ = {"kitchen_sink_mount":"undermount", "kitchen_counter_edge":"square_eased",
+  "kitchen_soffit":"removed", "kitchen_door_profile":"crisp_shaker", "bath_tub_type":"alcove_tiled",
+  "bath_tile_scale":"large_format", "bath_vanity_top":"undermount_stone",
+  "floor_condition":"no_defect_seen", "ceiling_main":"flat_painted", "window_frame":"vinyl",
+  "panel_type":"breaker_200", "basement_ceiling":"drywall", "basement_walls":"drywall",
+  "basement_moisture":"none_visible", "driveway":"sound"}
+# The defect read deliberately uses `fresh_paint_low_only` rather than `efflorescence` for
+# moisture: efflorescence is a hard STOP, and a scenario must not manufacture one.
+DEFECT_READ = {"kitchen_sink_mount":"topmount", "kitchen_counter_edge":"rolled_bullnose",
+  "kitchen_soffit":"present", "kitchen_door_profile":"soft_raised_panel",
+  "bath_tub_type":"corner_garden_platform", "bath_tile_scale":"small_4x4",
+  "bath_vanity_top":"integrated_cultured_marble", "floor_condition":"uneven_stain",
+  "ceiling_main":"stipple_popcorn", "window_frame":"aluminum_original", "panel_type":"fuse",
+  "basement_ceiling":"drop_tile", "basement_walls":"bare_block",
+  "basement_moisture":"fresh_paint_low_only", "driveway":"cracked"}
+
+def _resolved_condition(o, table, H, full_today=None):
+    """Condition with every unseen tell resolved the same way. Two runs of cost(), no new model.
+
+    The denominator is HELD AT TODAY'S `full`, and that choice is load-bearing. Resolving a tell
+    can remove a line from the cost model altogether (a pre-1970 house with an unseen panel
+    carries panel at p=0.5 and a partial rewire at p=0.25; read the panel as a modern breaker and
+    both lines vanish). A vanished line leaves the numerator AND the denominator, and because
+    condition is 1 - exp/full, dropping a line whose probability was below the house's overall
+    ratio makes the ratio worse and the score fall. Four houses did exactly that before this fix:
+    Centennial, Weir, Cherrywood and Samford all scored LOWER after a perfectly clean read.
+
+    That is an artefact of the denominator, not a fact about the house, and it makes the line
+    unreadable ("a showing could move this to 58 if everything reads clean" when it is 60 today).
+    Holding `full` fixed answers the question the reader is actually asking: of the work this
+    house might need today, how much would the visit rule in or out. It also makes the two ends
+    monotone by construction, which test_model.py asserts."""
+    o2 = dict(o)
+    for f in TELLS:
+        if o2.get(f) in (None, "", "not_shown"): o2[f] = table.get(f, o2.get(f))
+    c2 = cost(o2)
+    exp, full, _d = work_expected(o2, c2, H)
+    return round(condition_from(exp, full_today if full_today else full), 1)
+
+def condition_block(o, c=None, H=None):
+    """The four-line condition block: three buckets with their two largest expected lines, the
+    unseen tells, and the two showing scenarios."""
+    c = c if c is not None else cost(o); H = H or CFG["hold"]["years_default"]
+    exp, full, _d = work_expected(o, c, H)
+    hst = 1 + CFG["meta"]["hst"]; k = 1 + cont(eff_year(o))
+    buckets = {"must do": [], "optional": [], "mechanicals": []}
+    for nm, b, p, lo, ml, hi, _bs in c["items"]:
+        mean = (lo + 4*ml + hi)/6
+        if b == "reserve":
+            life = CAT_life(nm)
+            a, life2, conf = (c.get("reserve_meta") or {}).get(nm, (60, life, False))
+            e = p * p_hold(a, life2, H, conf) * mean * hst
+            buckets["mechanicals"].append((nm, e))
+        elif b == "day1":
+            buckets["must do"].append((nm, p*mean*k*hst))
+        else:
+            buckets["optional"].append((nm, p*mean*k*hst))
+    out = []
+    for name in ("must do", "optional", "mechanicals"):
+        rows = sorted(buckets[name], key=lambda t: -t[1])
+        tot = sum(e for _n, e in rows)
+        top = ", ".join(n for n, _e in rows[:2] if _e > 0) or "nothing expected"
+        out.append({"bucket": name, "total": round(tot), "top": top})
+    unseen = [f for f in TELLS if o.get(f) in (None, "", "not_shown")]
+    return {"score": round(condition_from(exp, full), 1),
+            "expected": round(exp), "full": round(full),
+            "buckets": out, "unseen": unseen,
+            "if_clean": _resolved_condition(o, CLEAN_READ, H, full),
+            "if_defect": _resolved_condition(o, DEFECT_READ, H, full),
+            "denominator": "held at today's possible work; see _resolved_condition",
+            "photo_cap": not has_showing_evidence(o)}
+
+EXPLAINERS = {"space": explain_space, "layout": explain_layout, "baths": explain_baths,
+              "parking": explain_parking, "lot": explain_lot}
+
+def explain_all(o, c=None, H=None, cfg=None):
+    """{component: {score, fact, scale}} for all eight, from one place."""
+    cfg = cfg or CFG; c = c if c is not None else cost(o)
+    out = {}
+    for k, fn in EXPLAINERS.items():
+        s_, f_, sc = fn(o, cfg); out[k] = {"score": s_, "fact": f_, "scale": sc}
+    s_, f_, sc, parts, flags = explain_location(o, cfg)
+    out["location"] = {"score": s_, "fact": f_, "scale": sc,
+                       "parts": {k: {"pts": p["pts"], "max": p["max"], "detail": p["detail"]} for k, p in parts.items()},
+                       "estimated": flags}
+    s_, f_, sc = explain_condition(o, c, H, cfg); out["condition"] = {"score": s_, "fact": f_, "scale": sc}
+    s_, f_, sc = explain_price(o, c, cfg);        out["price"]     = {"score": s_, "fact": f_, "scale": sc}
+    return out
+
+# ============================================================ PRICE-REFRAME.md, 2026-09-15
+# Quality is the seven non-price components. Cost is a penalty in quality points through a dial.
+QUAL_KEYS = tuple(k for k in COMP_KEYS if k != "price")
+
+def reframed():
+    return bool((CFG.get("price") or {}).get("reframe"))
+
+def dial():
+    """Quality points taken off by a full cost swing. Fitted from the pairs when they exist;
+    otherwise the provisional value in costs.yaml, which is derived from the provisional price
+    weight so the reframe alone does not move the order."""
+    return float((CFG.get("price") or {}).get("dial", 0.0))
+
+def quality(comp, wn, split):
+    """0 to 100 on the seven non-price components, renormalised over those seven so the number
+    keeps the same meaning whatever weight price carries."""
+    t = sum(wn[k] for k in QUAL_KEYS) or 1.0
+    s = sum(wn[k]*comp[k] for k in QUAL_KEYS) / t
+    return s * (CFG["split_dock"] if split else 1.0)
+
+def cost_penalty(o, c):
+    """0 at or under the comfortable payment, 100 at the maximum, clamped above it.
+    Clamping is what keeps the scale absolute; the cost of it is that every house above the
+    maximum ties at 100 and the seven quality components order them."""
+    P = CFG["price"]; pay, _ = monthly_payment(o, c)
+    comf, mx = float(P["comfortable_mo"]), float(P["max_mo"])
+    if pay <= comf: return 0.0
+    if mx <= comf:  return 100.0
+    return max(0.0, min(100.0, 100.0 * (pay - comf) / (mx - comf)))
+
+def value_of(comp, wn, split, pen, d=None):
+    """quality minus the dial's share of the cost penalty. This is what the rank sorts on."""
+    q = quality(comp, wn, split)
+    return q - (dial() if d is None else d) * pen / 100.0
+
 def is_split(o): return "plit" in str(o.get("style", ""))
 
 HOLDS = (3, 5, 10)      # the three holds the page toggles between
@@ -977,6 +1228,9 @@ def prepare(obs_path):
                      "split": is_split(o),
                      "gated": gates(o, c, fs, v, extra["work_exp"]), "hold": hold_flags(notes),
                      "true_cost": o["list_price"] + c["day1_p80"],
+                     "cost_pen": cost_penalty(o, c),              # PRICE-REFRAME
+                     "pay_mo": monthly_payment(o, c)[0],
+                     "pay_parts": monthly_payment(o, c)[1],
                      "ppsf": round((o["list_price"] + c["day1_p80"])/u)})
     return rows
 
@@ -992,7 +1246,11 @@ def comp_at(r, H, cvar):
 def order_under(rows, wn, H, cvar="point"):
     """{slug: position} for the ungated rows under one weight set, one hold, one condition end."""
     live = [r for r in rows if not r["gated"]]
-    scored = sorted(live, key=lambda r: (-v6_score(comp_at(r, H, cvar), wn, r["split"]), r["slug"]))
+    if reframed():
+        key = lambda r: (-value_of(comp_at(r, H, cvar), wn, r["split"], r["cost_pen"]), r["slug"])
+    else:
+        key = lambda r: (-v6_score(comp_at(r, H, cvar), wn, r["split"]), r["slug"])
+    scored = sorted(live, key=key)
     return {r["slug"]: i for i, r in enumerate(scored, 1)}
 
 def run(obs_path, out):
@@ -1014,9 +1272,16 @@ def run(obs_path, out):
             for who in WS: r[f"rank_{who}"] = "-"
             for H in HOLDS: r[f"rank_{H}"] = "-"
             continue
-        r["score"] = round(v6_score(r["comp"], WS["joint"], r["split"]), 1)
+        # PRICE-REFRAME: `quality` is the seven-component number the panel shows, `cost_pts` is
+        # what the payment takes off at the current dial, and `score` is what the rank sorts on.
+        r["quality"] = round(quality(r["comp"], WS["joint"], r["split"]), 1)
+        r["cost_pts"] = round(dial() * r["cost_pen"] / 100.0, 1) if reframed() else 0.0
+        r["score"] = (round(value_of(r["comp"], WS["joint"], r["split"], r["cost_pen"]), 1)
+                      if reframed() else round(v6_score(r["comp"], WS["joint"], r["split"]), 1))
         for who in WS:
-            r[f"score_{who}"] = round(v6_score(r["comp"], WS[who], r["split"]), 1)
+            r[f"quality_{who}"] = round(quality(r["comp"], WS[who], r["split"]), 1)
+            r[f"score_{who}"] = (round(value_of(r["comp"], WS[who], r["split"], r["cost_pen"]), 1)
+                                 if reframed() else round(v6_score(r["comp"], WS[who], r["split"]), 1))
             r[f"rank_{who}"] = orders[(who, HD, "point")][r["slug"]]
         for H in HOLDS:
             r[f"rank_{H}"] = orders[("joint", H, "point")][r["slug"]]
@@ -1052,6 +1317,7 @@ def run(obs_path, out):
             "work_expected","work_full","cost_hold","cost_hold_per_year",
             "c_condition_low","c_condition_high","weights_provisional",
             "rank_alex","rank_partner","score_alex","score_partner","band_lo","band_hi","disagree",
+            "quality","cost_pen","cost_pts","pay_mo","pay_pi","pay_tax","pay_upkeep","dial",
             "project","hold_flags","seen_evidence","split_docked",
             "fit_score","space","layout","baths","lot","location","parking","condition",
             "condition_why",
@@ -1091,6 +1357,12 @@ def run(obs_path, out):
                 (DASH if gate or not partner_in else r["score_partner"]),
                 (DASH if gate else r["band_lo"]), (DASH if gate else r["band_hi"]),
                 ("yes" if (not gate and r.get("disagree")) else DASH),
+                # PRICE-REFRAME: quality, the cost penalty, what it costs at the dial, and the
+                # payment broken into the three parts the money block prints.
+                (DASH if gate else r.get("quality", DASH)), round(r["cost_pen"], 1),
+                (DASH if gate else r.get("cost_pts", DASH)),
+                round(r["pay_mo"]), round(r["pay_parts"]["pi"]), round(r["pay_parts"]["tax"]),
+                round(r["pay_parts"]["upkeep"]), (dial() if reframed() else 0),
                 ("yes" if r["project"] else DASH), "; ".join(r["hold"]) or DASH,
                 ("yes" if r["seen_evidence"] else DASH), ("yes" if r["split"] else DASH),
                 r["fs"], *[round(r["parts"][k], 1) for k in
