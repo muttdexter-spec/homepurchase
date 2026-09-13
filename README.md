@@ -15,10 +15,10 @@ The weights are **provisional** until both buyers have answered the fifteen pair
 | `index.html` | Entry point. Routes phones to the mobile build, everything else to the full build. `?v=full` or `?v=mobile` forces a version. |
 | `full.html` | Walking the Shortlist, desktop build |
 | `mobile.html` | Walking the Shortlist, phone build |
-| `pipeline/` | Crawlers, scoring model (`score.py`), cost assumptions (`costs.yaml`), report builders, and the input data they read (`observations.json`, `rooms_legacy.json`, `live_*.json`) |
+| `pipeline/` | Crawlers, scoring model (`score.py`), cost assumptions (`costs.yaml`), report builders, and the input data they read (`observations.json`, `geo.json`, `rooms_legacy.json`, `live_*.json`) |
 | `pipeline/out/` | Generated outputs: decision CSV, detail JSON, score report, agent questions |
 | `deliverables/` | Where `build_cost_detail.py` writes `renovation-cost-detail.md`. Only this README is kept in the repo. |
-| `docs/` | Start here: `HANDOFF-START-HERE.md`. Then `ranking-system-v6.md` (how the order is computed), `RANK-V6-DECISION.md` (why v5 was replaced), `USABILITY-SPEC.md` (what each number on the page is and where it sits), `ELICITATION.md` (how the weights are obtained, and what happened on 13 and 14 September), `QA-PASS-2026-09-14.md` (what changed), `BACKLOG-optimizations.md` (what is next). Plus the operating manual, the grading and photo methodology, the search harvest notes and the per-line renovation costs. `superseded/` holds v4 and v5. |
+| `docs/` | Start here: `HANDOFF-START-HERE.md`. Then `ranking-system-v6.md` (how the order is computed), `RANK-V6-DECISION.md` (why v5 was replaced), `USABILITY-SPEC.md` (what each number on the page is and where it sits), `ELICITATION.md` (how the weights are obtained, and what happened on 13 and 14 September), `QA-PASS-2026-09-15.md` then `QA-PASS-2026-09-14.md` (what changed), `V6.1-REFINEMENTS.md` and `USABILITY-ADDENDUM.md` (the current spec), `BACKLOG-optimizations.md` (what is next). Plus the operating manual, the grading and photo methodology, the search harvest notes and the per-line renovation costs. `superseded/` holds v4 and v5. |
 | `CHANGELOG.md` | One entry per model or page version |
 
 ## Pipeline

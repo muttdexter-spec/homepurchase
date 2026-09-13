@@ -1,5 +1,55 @@
 # Changelog
 
+## 15 September 2026: v6.1, the buyer anchors, location rebuilt, two new listings
+
+**Four anchors that were the assistant's are now the buyer's**, recorded verbatim in `costs.yaml`
+under `buyer_answers` before anything was computed. Payment: comfortable $6,000 a month, maximum
+$7,000. Space: cramped below 1,300 sq ft, enough at 1,700. Yard: matters, small 3,000, plenty
+7,000. Ensuite: he answered "unsure, do what you think is best", so `layout.ensuite_matters: true`
+is the ASSISTANT'S choice and `buyer_answers.note_ensuite` says so in those words. Do not restate
+it as elicited, for the same reason `weights.method.alex` exists.
+
+**Price is anchored on the monthly payment, not the search band.** `price_component()` scores 100
+at or under the comfortable payment and falls linearly to 0 at the maximum. `monthly_payment()` is
+the single source of the "/mo" figure (P&I + tax + upkeep at the `costs.yaml` financing defaults),
+so the component, the page calculator and the ceiling agree by construction. The old
+`hold.price_anchor_per_year` path is still there and fires only if the `price:` block is removed.
+
+**The payment maximum is a soft ceiling, not a gate.** `price.gate_at_max: false`. A house above it
+scores 0 on price, stays in the rank, and carries an `Over your maximum` stamp naming the payment
+and the overage. Set it true to restore the G3 exclusion. The consequence is recorded in
+`costs.yaml`: price clamps at 0, so every house above the maximum ties there and the other seven
+components order them. The alternatives were rejected because they make price relative to the
+batch, and the eight absolute anchors exist so a house scored today compares to one scored in March.
+
+**Location rebuilt on five parts** (`location.version: v61`): commute 30 to the nearest of five GO
+stations, quiet 20 on the nearest of the QEW, 403, 407 and the rail corridor with a cul-de-sac
+bonus and an arterial cap, walk and transit 25 unchanged, school 15, green and water 10. All of it
+from geocoded addresses cached in `pipeline/geo.json`, which also records the geocoder, the
+Overpass queries and the caveats. 39 of 39 geocoded to an exact house number. Spread widens from
+50-100 to 41-96. The assigned-school lookup has NOT been done: the rating half sits at its midpoint
+under `location.assigned_school_done: false`.
+
+**Space, lot and layout on the buyer's numbers.** Space floor 1,000 to 1,300 and knee 1,800 to
+1,700. Lot moves out of `fact_weights` into its own block at 3,000 and 7,000, which takes houses
+scoring zero on lot from 10 of 37 to 3 of 39. Layout becomes bedrooms 0-80, primary over 150 sq ft
++10, ensuite +10, so a 4-bed with no ensuite no longer scores 100. `ensuite_with_basis()` reads the
+room table where there is one and falls back to the bath count where there is not, and the card
+says which decided it. Coverage is 11 yes, 7 no, 21 unknown.
+
+**Two listings added, both with a full stage-2 photo pass.** 1333 Woodvale Place (rank 21) and 2379
+Duncaster Drive (rank 36). The batch is 39.
+
+**Fixed:** `mobile.html` scrolled horizontally at 360 px because `.sr-ctl` used a -16px negative
+margin against an 11px parent padding. Both pages now render clean at 1280 and 360.
+
+**Unchanged:** no catalog cost, recovery band, era prior or contingency moved. No CSS variable and
+no card section order changed. The letter grade is still computed, still in `decision.csv` and
+`detail.json`, and still rendered nowhere.
+
+**Still open:** zero of the fifteen pairwise choices are on file for either person, so the weights
+remain provisional. See `docs/QA-PASS-2026-09-15.md` section 7.
+
 ## 14 September 2026: rank v6, page v6
 
 **Ranking, v5 to v6.** One score per house, 0 to 100, higher is better. Eight components, each on
