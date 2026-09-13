@@ -145,12 +145,13 @@ def where_line(o, d):
 # ---------- the score panel: eight .sp rows in weight order (USABILITY-SPEC section 6) ----------
 SCORE_TIP = "Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."
 
-def sp_row(label, value, weight):
+def sp_row(label, value, weight, why=""):
     """One .sp row. The bar is the component out of 100; the right-hand figure is the component
     and the weight it carries. Same .sp element and the same amber and red thresholds as v5."""
     w = max(0.0, min(100.0, value))
     cls = "sp bad" if w < 30 else ("sp weak" if w < 50 else "sp")
-    return (f'<div class="{cls}"><em>{label}<u class="spw">{weight:.0f}%</u></em>'
+    t = f' title="{esc(why)}"' if why else ""
+    return (f'<div class="{cls}"{t}><em>{label}<u class="spw">{weight:.0f}%</u></em>'
             f'<span><i style="width:{w:.0f}%"></i></span>'
             f'<b>{w:.0f}<s> / 100</s></b></div>')
 
@@ -164,9 +165,82 @@ def strongest_weakest(c):
     by = sorted(S.COMP_KEYS, key=lambda k: -c.get(k, 0))
     return [COMP_LABEL[k].lower() for k in by[:2]], [COMP_LABEL[k].lower() for k in by[-2:]]
 
+def gated_line(row):
+    """A gated house still needs its reason under the address. A ranked one does not need a
+    summary line: the eight rows and the commentary under them say it better."""
+    if not is_gated(row): return ""
+    reason = row["notes"] if row["notes"] != "-" else "a rule"
+    return f'<p class="where why" style="margin-top:5px">Not ranked · {esc(reason)} · still costed</p>'
+
+def why_lines(o, d, row):
+    """Why each component scores what it does, for THIS house, in its own numbers.
+
+    Every sentence names the measurement that produced the number and the anchor it is measured
+    against, so a reader can check the model rather than take it. Nothing here is a restatement of
+    the bar."""
+    fw = S.CFG["fit_weights"]["space"]; W = S.CFG["fact_weights"]
+    c = comp(row); out = {}
+
+    ag = o.get("sqft_above") or 0
+    fin, part, sep = S.basement_flags(o)
+    bg, bg_est = S.below_grade(o)
+    bits = [f"{ag:,} sq ft above grade"]
+    if fin: bits.append("a finished basement")
+    elif part: bits.append("a partly finished basement")
+    else: bits.append("no finished basement")
+    if sep: bits.append("with its own entrance")
+    out["space"] = (", ".join(bits) + f". The scale saturates at {fw['knee_sqft']:,} sq ft and caps at "
+                    f"{fw['cap_sqft']:,}; a finished basement adds, an exterior entrance adds again.")
+
+    beds = o.get("beds_effective") if o.get("beds_effective") is not None else (o.get("beds_ag") or 0)
+    raw = o.get("beds_ag") or 0
+    pb = o.get("primary_bed_sqft") or 0
+    lay = [f"{beds} bedroom{'s' if beds != 1 else ''} above grade"]
+    if beds != raw: lay.append(f"{raw} on MLS, but {raw - beds} is under 60 sq ft and does not count")
+    if pb: lay.append(f"primary {pb:,} sq ft" + (", over the 150 that earns the bonus" if pb >= 150 else ", under the 150 that earns the bonus"))
+    if (o.get("beds_under_100sqft") or 0): lay.append(f"{o['beds_under_100sqft']} bedroom under 100 sq ft, which costs points")
+    if not (o.get("rooms_raw") or LEGROOMS.get(short(o["slug"]))):
+        lay.append("no room table on this listing, so the tiny-bedroom rule cannot fire")
+    out["layout"] = ". ".join(x[0].upper() + x[1:] for x in lay) + ". Four bedrooms with a large primary is full marks."
+
+    nf, nh = o.get("baths_full") or 0, o.get("baths_half") or 0
+    out["baths"] = (f"{nf} full bath{'s' if nf != 1 else ''}"
+                    + (f" and {nh} powder room{'s' if nh != 1 else ''}" if nh else " and no powder room")
+                    + ". Three full plus a powder is full marks.")
+
+    g, sp = o.get("garage_spaces") or 0, o.get("parking_spots") or 0
+    out["parking"] = (("No garage" if not g else f"{g}-car garage")
+                      + f" and {sp} parking spot{'s' if sp != 1 else ''}."
+                      + " A double garage plus two spots is full marks.")
+
+    fr, dp = o.get("lot_frontage_ft") or 0, o.get("lot_depth_ft") or 0
+    area = round(fr * dp)
+    out["lot"] = (f"{fr:g} by {dp:g} ft, about {area:,} sq ft."
+                  f" {W['lot']['floor_sqft']:,} sq ft scores 0 and {W['lot']['ceiling_sqft']:,} scores 100.")
+
+    wk, tr = o.get("walk") or 0, o.get("transit") or 0
+    sch = o.get("nearest_school_km")
+    out["location"] = (f"Walk {wk} and transit {tr}, {wk + tr} between them."
+                       + (f" Nearest school {sch:g} km." if sch is not None else " No school distance on file.")
+                       + " Full marks is 120 between the two scores with a school inside 500 m.")
+
+    exp, full = num(row, "work_expected"), num(row, "work_full")
+    lo, hi = num(row, "c_condition_low"), num(row, "c_condition_high")
+    out["condition"] = (f"{money(round(exp))} of work expected against {money(round(full))} if every job on "
+                        f"this house were needed. {'A showing has set a mechanical date, so the photo cap is lifted.' if row.get('seen_evidence') == 'yes' else 'Nobody has stood in it yet, so this cannot pass about 80 on photographs alone.'}"
+                        f" On its own day-one uncertainty it runs {lo:.0f} to {hi:.0f}.")
+
+    a = S.CFG["hold"]["price_anchor_per_year"]
+    out["price"] = (f"{money(round(num(row, 'cost_hold_per_year')))} a year to hold, before any day-one work: "
+                    f"financing and opportunity cost, commission out, land transfer, closing, tax and upkeep. "
+                    f"{money(int(a['worst']))} a year scores 0 and {money(int(a['best']))} scores 100.")
+    return out
+
 def scorepanel(o, d, row):
     c = comp(row); g = row["grade"]; sc = score(row)
-    rows = "\n".join("                " + sp_row(COMP_LABEL[k], c[k], W_JOINT[k]) for k in COMP_ORDER)
+    why = why_lines(o, d, row)
+    rows = "\n".join("                " + sp_row(COMP_LABEL[k], c[k], W_JOINT[k], why.get(k, ""))
+                     for k in COMP_ORDER)
     dock = ""
     if row.get("split_docked") == "yes":
         pc = round(100 * (1 - S.CFG["split_dock"]))
@@ -455,13 +529,18 @@ def card(rank, row, o, d, n_ranked):
     # Always on the card: renovations (with the line-by-line detail folded inside it), then what
     # the photos settled and what to check, side by side, then the room-driven score. The showing
     # record is the last thing on the card and the only section that starts closed.
+    why = why_lines(o, d, row)
+    cmp_ = comp(row)
+    sec_why = details_wrap("Why each score", '<dl class="whylist">' + "".join(
+        f'<div><dt>{COMP_LABEL[kk]}<b>{cmp_[kk]:.0f} / 100</b>'
+        f'<u>{W_JOINT[kk]:.0f}% of the score</u></dt><dd>{esc(why.get(kk, ""))}</dd></div>'
+        for kk in COMP_ORDER) + "</dl>")
     sec_reno  = reno_html(o, d, row)
     sec_split = ('<div class="split">'
                  '<section class="known"><h3>Settled by the photos</h3><ul>' + known_html + "</ul></section>"
                  '<section class="check"><h3>' + CHECK_TITLE + "</h3><ul>" + check_html + "</ul></section>"
                  "</div>"
                  '<p class="ask"><span>Ask before you go</span>' + esc(ask_line(o)) + "</p>")
-    sec_rooms = (rooms_html(o, d) or '<p class="maybe"><i>?</i>No room table on this listing.</p>')
     sec_rec   = details_wrap("Showing record", SH.record_html(k, o, d, checks) + before_you_offer(row, o, d),
                              open_when_showing=True)
     sec_costs = ""
@@ -479,7 +558,7 @@ def card(rank, row, o, d, n_ranked):
           <div class="lh-text">
           <h2><a href="{esc(url)}" target="_blank" rel="noopener">{esc(o['address'].split(',')[0].title().replace("Mls","MLS"))}</a></h2>
           <p class="where">{where_line(o, d)}</p>
-          <p class="where why" style="margin-top:5px">{under_address(row, o, n_ranked)}</p>
+          {gated_line(row)}
           <div class="tags">{''.join(stamps_for(row, o, d, url))}</div>
           <dl class="money">
           <div class="hero"><dt>Monthly payment</dt><dd>{pay_cell(o)}</dd>
@@ -492,6 +571,7 @@ def card(rank, row, o, d, n_ranked):
           </div>
           {scorepanel(o, d, row)}
         </div>
+        {sec_why}
         <dl class="live-row" data-live="{k}" data-ask="{o['list_price']}"
             data-peryear="{round(num(row, 'cost_hold_per_year'))}"
             data-pricescore="{num(row, 'c_price'):.0f}"
@@ -499,7 +579,6 @@ def card(rank, row, o, d, n_ranked):
             data-anchorworst="{int(S.CFG['hold']['price_anchor_per_year']['worst'])}"></dl>
         <p class="take">{take}{d1_txt}</p>
         {sec_reno}
-        {sec_rooms}
         {sec_split}
         {sec_rec}{sec_costs}
       </div>
@@ -1208,6 +1287,14 @@ V6JS = r"""
 .live-row{grid-template-columns:repeat(auto-fit,minmax(128px,1fr)) !important; gap:8px 14px !important}
 .live-row dd.livenote{font-family:inherit; font-size:10.5px; font-weight:400; color:var(--muted);
   letter-spacing:0; line-height:1.35; margin-top:1px}
+.whylist{margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:12px 26px}
+.whylist div{display:flex; flex-direction:column; gap:3px; padding-bottom:10px;
+  border-bottom:1px solid var(--rule-soft)}
+.whylist dt{display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;
+  font-family:var(--mono); font-size:10px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted)}
+.whylist dt b{font-size:13px; letter-spacing:0; color:var(--ink); font-weight:500}
+.whylist dt u{text-decoration:none; font-size:9px; color:var(--muted)}
+.whylist dd{margin:0; font-size:12.5px; line-height:1.5; color:var(--ink)}
 .rooms>summary{cursor:pointer; font-family:var(--mono); font-size:10px; letter-spacing:.08em;
   text-transform:uppercase; color:var(--muted); padding:8px 0}
 .stamp.sat.on,.stamp.cmp.on{border-color:var(--accent); color:var(--accent)}
