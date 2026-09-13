@@ -571,12 +571,12 @@ def card(rank, row, o, d, n_ranked):
           </div>
           {scorepanel(o, d, row)}
         </div>
-        {sec_why}
         <dl class="live-row" data-live="{k}" data-ask="{o['list_price']}"
             data-peryear="{round(num(row, 'cost_hold_per_year'))}"
             data-pricescore="{num(row, 'c_price'):.0f}"
             data-anchorbest="{int(S.CFG['hold']['price_anchor_per_year']['best'])}"
             data-anchorworst="{int(S.CFG['hold']['price_anchor_per_year']['worst'])}"></dl>
+        {sec_why}
         <p class="take">{take}{d1_txt}</p>
         {sec_reno}
         {sec_split}
@@ -1299,6 +1299,65 @@ V6JS = r"""
   text-transform:uppercase; color:var(--muted); padding:8px 0}
 .stamp.sat.on,.stamp.cmp.on{border-color:var(--accent); color:var(--accent)}
 @media print{ body.printsat .lot:not([data-sat-on]){display:none} }
+
+/* ---------- cohesion pass, 13 September ----------
+   No new content and no colour variable. What changes is that the card had six label sizes
+   (8, 8.5, 9, 9.5, 10, 10.5), four figure sizes and four different shapes for what are
+   really peer sections. This collapses each of those to one scale. */
+
+/* One label scale: every eyebrow, summary and dt on the card is the same mono size. */
+.body .money dt,.body .live-row dt,.body .renofigs .rf-lab,.body .split h3,
+.body .reno h3,.body .v6sec>summary,.body .byo h4,.body .rooms>summary,
+.body .ask span,.body .whylist dt,.body .reno h3 b{
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.09em;
+  text-transform:uppercase; font-weight:500}
+.body .whylist dt b{font-size:13px; letter-spacing:0; text-transform:none}
+.body .whylist dt u{font-size:9.5px; letter-spacing:.09em; text-transform:uppercase}
+.body .reno h3 b{color:var(--ink)}
+.body .check h3 .ck-prog{font-size:9.5px; letter-spacing:.09em}
+
+/* One figure scale: 17px for every money figure on the card, whatever panel it sits in. */
+.body .money dd,.body .live-row dd,.body .renofigs .rf-val{
+  font-family:var(--mono); font-size:17px; font-weight:500;
+  font-variant-numeric:tabular-nums; letter-spacing:-.02em; line-height:1.2}
+.body .live-row dd.livenote,.body .renofigs .rf-note{
+  font-family:inherit; font-size:10.5px; font-weight:400; letter-spacing:0;
+  line-height:1.4; color:var(--muted); margin-top:2px}
+
+/* One body size for prose inside a card. */
+.body .whylist dd,.body .known li,.body .check li label,.body .ask,
+.body .reno .maybe,.body .byo li,.body .reno .none{font-size:13.5px; line-height:1.55}
+.body .take{font-size:15px; line-height:1.62}
+
+/* One panel shape. Tinted panels are derived numbers, bordered panels are the record. */
+.body .live-row,.body .ask,.body .reno{border-radius:10px; padding:14px 16px}
+.body .live-row{row-gap:12px !important}
+.body .live-row::before{content:"Price and financing"; grid-column:1/-1;
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--accent); opacity:.75; margin-bottom:-2px}
+
+/* One disclosure treatment: same caret, same colour, on every collapsible section. */
+.body .v6sec>summary,.body .rooms>summary,.body details.costs>summary{
+  color:var(--accent); list-style:none; display:flex; align-items:center; gap:7px}
+.body .v6sec>summary::-webkit-details-marker,
+.body .rooms>summary::-webkit-details-marker{display:none}
+.body .v6sec>summary::before,.body .rooms>summary::before{
+  content:"▸"; font-size:11px; line-height:1; transition:transform .15s}
+.body .v6sec[open]>summary::before,.body .rooms[open]>summary::before{transform:rotate(90deg)}
+.body .v6sec>summary:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+
+/* The caveat under "Before you offer" had no styling of its own and rendered as a bare
+   exclamation mark against the text. Same treatment as the one inside Renovations. */
+.body .byo .maybe{display:flex; gap:8px; align-items:baseline; margin:8px 0 0;
+  font-size:12.5px; line-height:1.5; color:var(--muted)}
+.body .byo .maybe i{flex:none; font-style:normal; font-family:var(--mono); font-size:9px;
+  letter-spacing:.1em; color:var(--muted); padding:2px 6px; border:1px solid var(--rule);
+  border-radius:4px; background:var(--accent-soft); position:relative; top:-1px}
+.body .byo ul{display:flex; flex-direction:column; gap:4px}
+.body .sr-head h3{font-size:9.5px; letter-spacing:.09em; font-weight:500}
+/* "100 / 100" was wrapping to two lines in the score panel on a phone. */
+.sp b{white-space:nowrap}
+@media (max-width:520px){ .sp{grid-template-columns:58px minmax(0,1fr) 58px} }
 </style>"""
 
 def v6js():

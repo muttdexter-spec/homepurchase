@@ -235,7 +235,7 @@ def record_html(k, o, d, checks):
     return f"""
         <section class="sr" data-rec="{k}">
           <div class="sr-head">
-            <h3>Showing record</h3>
+            <h3>Notes and verdict</h3>
             <button type="button" class="sr-visit" data-kind="visited" data-h="{k}">Mark as visited</button>
             <span class="sr-meta" data-meta="{k}"></span>
           </div>
