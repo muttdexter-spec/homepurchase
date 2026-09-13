@@ -4420,5 +4420,357 @@
   },
   "notes": "1950s West Oakville bungalow run as a short-term rental: repainted raised-panel kitchen with topmount sink, 2000s beige-tile bath, basement suite under a coffered LED ceiling with LVP, unfinished utility corner with furnace and open joists. Vinyl windows, concrete drive, carport. Staged for STR. Lot-value street.",
   "stage2_date": "2026-09-12"
+ },
+ {
+  "slug": "bur-1333-woodvale",
+  "board": "TRREB",
+  "stage": 2,
+  "listing_id": "aotf~1190643564~TRREB",
+  "mls": "W13776436",
+  "address": "1333 Woodvale Place, Burlington, ON L7M 1R2",
+  "list_price": 1269900,
+  "est_monthly": 6363,
+  "dom": 1,
+  "year_built": 1973,
+  "year_built_details": "31-50",
+  "style": "Sidesplit",
+  "storeys": 1.5,
+  "sqft_above": 1773,
+  "sqft_below": 319,
+  "size_range": "1500-2000",
+  "beds_ag": 5,
+  "beds_bg": 1,
+  "baths_total": 2,
+  "baths_full": 2,
+  "baths_half": 0,
+  "lot_frontage_ft": 50.6,
+  "lot_depth_ft": 100.0,
+  "annual_taxes": 4897,
+  "tax_year": 2025,
+  "neighbourhood": "Palmer",
+  "municipality": "Burlington",
+  "basement": "Finished",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "Concrete",
+  "construction": "Brick, Vinyl Siding",
+  "direction_faces": "North",
+  "parking_spots": 4,
+  "garage_spaces": 0,
+  "brokerage": "ROYAL LEPAGE SIGNATURE REALTY",
+  "pool": "In Ground",
+  "primary_bed_sqft": 128,
+  "min_secondary_bed_sqft": 87,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 161,
+  "main_living_sqft": 191,
+  "n_4pc": 0,
+  "n_3pc": 2,
+  "n_2pc": 0,
+  "lower_kitchen": false,
+  "ensuite": false,
+  "walk": 50,
+  "bike": 60,
+  "transit": 40,
+  "nearest_school_km": 0.19,
+  "schools_1km": 3,
+  "mech_ages_stated": "SELLER CLAIMS IN REMARKS, NOT VERIFIED: kitchen 2021, full bathrooms 2021, electrical panel 2021, ceiling insulation 2021, front bedroom windows 2021, furnace 2023, in-ground pool renovation with gas heater 2024, fencing 2024, deck 2024. Roof, A/C and water heater years NOT stated.",
+  "badge": "New Listing",
+  "remarks": "Palmer sidesplit on a cul-de-sac. 5+1 beds but only 2 full baths and no powder. Renovated open-concept main floor, kitchen 2021, custom feature wall with electric fireplace, family room over the back yard. Main-floor bedroom with side entrance; sixth bedroom in the finished basement; In-Law Floorplan noted. Heated in-ground pool fully renovated 2024 with gas heater, two depths; new deck and fencing 2024; triple-wide driveway; two sheds; crawl space. Walk to Sycamore Park. Open house Sep 19.",
+  "rooms_raw": [
+   [
+    "Main",
+    "Bedroom",
+    174
+   ],
+   [
+    "Main",
+    "Family",
+    191
+   ],
+   [
+    "Upper",
+    "3pc bath"
+   ],
+   [
+    "2nd",
+    "Dining",
+    133
+   ],
+   [
+    "2nd",
+    "Kitchen",
+    161
+   ],
+   [
+    "2nd",
+    "Living",
+    123
+   ],
+   [
+    "3rd",
+    "Bedroom",
+    87
+   ],
+   [
+    "3rd",
+    "Bedroom",
+    115
+   ],
+   [
+    "3rd",
+    "Bedroom",
+    102
+   ],
+   [
+    "3rd",
+    "Primary",
+    128
+   ],
+   [
+    "Bsmt",
+    "3pc bath"
+   ],
+   [
+    "Bsmt",
+    "Bedroom",
+    148
+   ]
+  ],
+  "room_dims_present": true,
+  "notes_stage1": "MLS says Garage Spaces 0 but also Attached Garage: Yes and Garage/Parking Features 'Built In, Garage'. Taken as 0 per the stated count, which is the conservative read and matches the Mountain Grove carport precedent. If there is a real built-in garage the parking component rises from 4 to 7. ASK THE AGENT.",
+  "red_flags": [
+   "the basement rec room is under a DROP-TILE grid ceiling (26): the lower level was refreshed, not rebuilt, and the ceiling line carries at p=1",
+   "IN-GROUND POOL: HOLD, plus the annual pool carry reserve",
+   "two full baths and no powder on a 5+1 bedroom $1.27M house: the worst bath provision in the batch at this price",
+   "MLS Garage Spaces 0 contradicts Attached Garage: Yes and 'Built In, Garage'",
+   "every mechanical year in the remarks is a seller claim; nothing mechanical is photographed; roof, A/C and water heater carry no year at all",
+   "sidesplit: carries the 5% style dock"
+  ],
+  "photos_total": 44,
+  "notes": "Kitchen reads current at full resolution: crisp shaker doors, square-eased stone edge, integrated hood. Both baths read current: large-format tile, undermount stone, walk-in shower. Main-floor and bedroom ceilings are flat. Against that, the basement is under a drop-tile grid, the kitchen sink rim is unread, and nothing mechanical appears in 44 frames.",
+  "stage1_date": "2026-09-15",
+  "source": "OneHome portal listing supplied by Alex 2026-09-15",
+  "kitchen_sink_mount": "not_shown",
+  "kitchen_counter_edge": "square_eased",
+  "kitchen_soffit": "not_shown",
+  "kitchen_door_profile": "crisp_shaker",
+  "bath_tub_type": "not_shown",
+  "bath_tile_scale": "large_format",
+  "bath_vanity_top": "undermount_stone",
+  "floor_condition": "no_defect_seen",
+  "ceiling_main": "flat_painted",
+  "window_frame": "not_shown",
+  "panel_type": "not_shown",
+  "basement_ceiling": "drop_tile",
+  "basement_walls": "drywall",
+  "basement_moisture": "none_visible",
+  "driveway": "sound",
+  "kitchen_verdict": "unverified",
+  "bath_verdict": "unverified",
+  "asbestos_suspect": false,
+  "virtual_staging_lang": false,
+  "concealed_surfaces": [
+   "the kitchen sink is never readable: it sits in the island under the pendants and no frame shows the rim, so the highest-signal kitchen tell is unread",
+   "the top of the upper cabinets is not shown in any frame, so whether a soffit was removed is unknown",
+   "no furnace, no electrical panel, no water heater and no utility-room frame in 44 photos, despite the remarks claiming a 2021 panel and a 2023 furnace",
+   "no window frame readable at full resolution; the only close window read landed on the slat feature wall",
+   "no tub in any frame: both baths shown are showers, consistent with 2 x 3pc"
+  ],
+  "stage2_date": "2026-09-15",
+  "staging": "professionally_staged",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 5,
+   "living_dining": 6,
+   "kitchen": 5,
+   "stairs_hall": 4,
+   "bed": 11,
+   "bath": 3,
+   "basement": 3,
+   "yard_pool": 12,
+   "aerial": 3,
+   "floor_plan": 2
+  }
+ },
+ {
+  "slug": "bur-2379-duncaster",
+  "board": "TRREB",
+  "stage": 2,
+  "listing_id": "aotf~1190584932~TRREB",
+  "mls": "W13775344",
+  "address": "2379 Duncaster Drive, Burlington, ON L7P 3V9",
+  "list_price": 1169000,
+  "est_monthly": 5953,
+  "dom": 2,
+  "year_built": 1978,
+  "year_built_details": "31-50",
+  "style": "Backsplit",
+  "storeys": 1.5,
+  "sqft_above": 1206,
+  "sqft_below": 964,
+  "size_range": "1100-1500",
+  "beds_ag": 3,
+  "beds_bg": 1,
+  "baths_total": 4,
+  "baths_full": 3,
+  "baths_half": 1,
+  "lot_frontage_ft": 45.0,
+  "lot_depth_ft": 120.0,
+  "annual_taxes": 5745,
+  "tax_year": 2025,
+  "neighbourhood": "Brant Hills",
+  "municipality": "Burlington",
+  "basement": "Finished",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "Block",
+  "construction": "Aluminum Siding, Brick",
+  "direction_faces": "East",
+  "parking_spots": 3,
+  "garage_spaces": 1,
+  "brokerage": "CENTURY 21 HERITAGE GROUP LTD.",
+  "pool": "None",
+  "primary_bed_sqft": 157,
+  "min_secondary_bed_sqft": 81,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 114,
+  "main_living_sqft": 187,
+  "n_4pc": 2,
+  "n_3pc": 1,
+  "n_2pc": 1,
+  "lower_kitchen": false,
+  "ensuite": false,
+  "walk": 40,
+  "bike": 50,
+  "transit": 40,
+  "nearest_school_km": 0.3,
+  "schools_1km": 3,
+  "mech_ages_stated": "SELLER CLAIMS IN REMARKS, NOT VERIFIED: electrical panel 2022, retaining wall 2022, deck 2023, A/C and furnace 2021, tankless water heater 2021. Roof year NOT stated.",
+  "badge": "New Listing",
+  "remarks": "Brant Hills four-level backsplit on a 45x120 pool-sized lot. Open-concept main floor, quartz kitchen with island and gas stove, sunroom off the kitchen to the garage and new deck. Mid-level family room currently set up as a primary suite with a 4pc bath (soaker tub and separate shower), walk-in closet and above-grade windows. Lower level family room plus office or games room. Three fireplaces. Central vac, tankless water heater.",
+  "rooms_raw": [
+   [
+    "Main",
+    "Dining",
+    95
+   ],
+   [
+    "Main",
+    "Kitchen",
+    114
+   ],
+   [
+    "Main",
+    "Living",
+    187
+   ],
+   [
+    "Main",
+    "SunRoom",
+    123
+   ],
+   [
+    "2nd",
+    "4pc bath"
+   ],
+   [
+    "2nd",
+    "Bedroom",
+    81
+   ],
+   [
+    "2nd",
+    "Bedroom",
+    100
+   ],
+   [
+    "2nd",
+    "Primary",
+    157
+   ],
+   [
+    "Lower",
+    "3pc bath"
+   ],
+   [
+    "Lower",
+    "Games",
+    220
+   ],
+   [
+    "Lower",
+    "Office",
+    115
+   ],
+   [
+    "Other",
+    "4pc bath"
+   ],
+   [
+    "Other",
+    "2pc bath"
+   ],
+   [
+    "Other",
+    "Bedroom",
+    240
+   ]
+  ],
+  "room_dims_present": true,
+  "notes_stage1": "The 16.0x15.0 ft bedroom with a walk-in closet and its own 4pc bath sits under 'Other Rooms', not as the MLS Primary. ensuite recorded as False against the MLS primary (14.3x11.0 on the second level, whose 4pc bath is a shared level bath). If that mid-level suite is what a buyer would actually use as the primary, ensuite is effectively True and layout gains 10. ASK THE AGENT / CONFIRM AT THE SHOWING.",
+  "red_flags": [
+   "BEDROOM CEILINGS ARE STIPPLE (15) while the main floor is flat: recorded as stipple_popcorn per the Tania and Pinemeadow precedent, so the ceiling line carries across the above-grade area",
+   "the concrete driveway is CRACKED across its width (0)",
+   "the 4pc 'ensuite' is a stone-platform soaker tub standing open in the mid-level bedroom, not a separate room: a taste item and a resale question, and the platform is newly built so it should NOT be read as a 1980s garden tub",
+   "above-grade area is 1,206 sq ft, below the 1,300 cramped floor, and $969 per above-grade square foot is the highest in the batch",
+   "block foundation on a 1978 house and no roof year stated",
+   "backsplit: carries the 5% style dock"
+  ],
+  "photos_total": 34,
+  "notes": "Kitchen reads current at full resolution: undermount composite sink, square-eased stone, crisp shaker, black hardware. Baths read current: hex and large-format tile, undermount stone, light slab vanity. Windows are modern dark-framed replacements. Against that, bedroom ceilings are stippled, the driveway is cracked, no wall base is readable anywhere, and nothing mechanical appears in 34 frames.",
+  "stage1_date": "2026-09-15",
+  "source": "OneHome portal listing supplied by Alex 2026-09-15",
+  "kitchen_sink_mount": "undermount",
+  "kitchen_counter_edge": "square_eased",
+  "kitchen_soffit": "not_shown",
+  "kitchen_door_profile": "crisp_shaker",
+  "bath_tub_type": "corner_garden_platform",
+  "bath_tile_scale": "large_format",
+  "bath_vanity_top": "undermount_stone",
+  "floor_condition": "not_shown",
+  "ceiling_main": "stipple_popcorn",
+  "window_frame": "vinyl",
+  "panel_type": "not_shown",
+  "basement_ceiling": "drywall",
+  "basement_walls": "not_shown",
+  "basement_moisture": "not_shown",
+  "driveway": "cracked",
+  "kitchen_verdict": "unverified",
+  "bath_verdict": "unverified",
+  "asbestos_suspect": false,
+  "virtual_staging_lang": false,
+  "concealed_surfaces": [
+   "no basement or lower-level wall base is readable in any frame; both wall-base reads landed on furnishings",
+   "no furnace, no electrical panel, no water heater, no laundry and no utility-room frame in 34 photos, despite the remarks claiming a 2022 panel, 2021 furnace and A/C and a 2021 tankless heater",
+   "main-floor flooring never read at full resolution",
+   "the kitchen soffit junction is not shown"
+  ],
+  "stage2_date": "2026-09-15",
+  "staging": "professionally_staged",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 5,
+   "living_dining": 6,
+   "kitchen": 5,
+   "sunroom": 2,
+   "stairs_hall": 2,
+   "bed": 6,
+   "bath": 5,
+   "lower": 2,
+   "yard_deck": 5
+  }
  }
 ]

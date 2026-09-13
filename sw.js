@@ -1,4 +1,4 @@
-var VERSION = "5a424319acf6";
+var VERSION = "00e32445a180";
 var C = "walk-" + VERSION;
 var FILES = ["index.html", "full.html", "mobile.html", "manifest.json"];
 

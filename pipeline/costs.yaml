@@ -123,7 +123,7 @@ fact_weights:
   size:     {pts: 25, floor_sqft: 1000, ceiling_sqft: 2600}
   layout:   {pts: 20}
   baths:    {pts: 20}
-  lot:      {pts: 15, floor_sqft: 4000, ceiling_sqft: 9000}
+  lot:      {pts: 15, floor_sqft: 4000, ceiling_sqft: 9000}   # SUPERSEDED by the `lot:` block (v6.1 §5 Q3). facts() reads lot.floor_sqft / lot.cap_sqft.
   location: {pts: 12}
   parking:  {pts: 8}
 split_dock: 0.95   # ELICITED 2026-09-14 (Alex): asked yes/no on 0.94, answered "mark to 5%". Splits are docked 5%, not 6%.
@@ -170,7 +170,8 @@ gates:                         # non-compensatory, in order. PREFERENCES except 
   project_share_of_ask: 0.15   # G4: work_expected above this share of ask earns a Project stamp (ranked, not excluded).
 
 fit_weights:                   # replaces fact_weights.size; layout / baths / lot / location / parking unchanged
-  space: {pts: 25, floor_sqft: 1000, knee_sqft: 1800, cap_sqft: 2600, pts_to_knee: 16, pts_knee_to_cap: 4,
+  # v6.1 §5 Q2, ELICITED 2026-09-15 (Alex): floor 1000 -> 1300, knee 1800 -> 1700. Cap unchanged at 2600.
+  space: {pts: 25, floor_sqft: 1300, knee_sqft: 1700, cap_sqft: 2600, pts_to_knee: 16, pts_knee_to_cap: 4,
           basement_finished: 3, basement_partial: 1, basement_exterior_access: 2}
   # space saturates at the knee: a couple gets most of the value of a 3-bed house by 1,800 sq ft
   # above grade. Below grade is a discrete amenity from MLS text, never an estimated area.
@@ -224,5 +225,115 @@ pairs:
 location:
   municipality_bonus: {}   # ELICITED 2026-09-14 (Alex): "both are fine". No municipality term.
 
+  # ============================================================ v6.1 §2: location rebuilt
+  # Five parts summing to 100. Every part is computed from the address once it is geocoded.
+  # No listing site is opened. The per-house distances live in pipeline/geo.json, which also
+  # records the geocoder, the Overpass queries and what each column means, so the component is
+  # reproducible without a web call. Set version: v6 to restore the old walk+transit+school term.
+  version: v61
+  parts:
+    commute:   {pts: 30, zero_m: 6000, full_m: 1500}   # straight line to the nearest of the five GO stations
+    quiet:     {pts: 20, zero_m: 200,  full_m: 600}    # to the NEAREST of the QEW, 403, 407 and the rail corridor
+    walk:      {pts: 25, zero: 45, full: 120}          # walk + transit, unchanged from v6
+    school:    {pts: 15, zero_km: 1.0, full_km: 0.5}
+    green:     {pts: 10, zero_m: 2000, full_m: 500}    # to the NEARER of the lake and any park over 5 ha
+
+  # Quiet: a house on a named arterial cannot score above this, whatever its distance to a
+  # highway. A house on a court, crescent, place or green gets the street_bonus.
+  quiet_street_bonus: 0.15        # fraction of the quiet points added for a cul-de-sac street type
+  quiet_arterial_cap: 0.40        # fraction of the quiet points a house on an arterial can reach
+  quiet_street_types_calm: [Court, Crescent, Place, Green, Close, Terrace, Gate, Way]
+
+  # School: the assigned-school lookup (HDSB / HCDSB locators) and the Fraser rating have NOT
+  # been done. Until they are, the distance half scores on nearest_school_km from the record and
+  # the rating half scores at its midpoint, and the page carries ONE `School rating not looked up`
+  # line in the mast rather than 37 card stamps. Set assigned_school_done: true when the lookup
+  # lands and the midpoint goes away.
+  school_rating_midpoint: 0.5
+  assigned_school_done: false
+
+  # OSM highway=primary or secondary with a name, inside the search box (43.28 to 43.52 N,
+  # -79.90 to -79.66 W). 75 names. Source: Overpass, 2026-09-15. This is a FACT table, not a
+  # preference: it is what Halton signs as an arterial, not a judgement about noise.
+  arterials: ["Appleby Line","Avonsyde Boulevard","Brant Street","Britannia Road","Bronte Road",
+    "Bronte Street South","Burloak Drive","Burnhamthorpe Road West","Cornwall Road","Derry Road",
+    "Derry Road West","Dorval Drive","Dundas Street","Dundas Street East","Dundas Street West",
+    "East Service Road","Eastport Drive","Fairview Street","Ford Drive","Fourth Line",
+    "Great Lakes Boulevard","Guelph Line","Hamilton Street","Hamilton Street North",
+    "Harvester Road","Iroquois Shore Road","James Snow Parkway South","James Street","Kerr Street",
+    "King Road","LaSalle Park Road","Lakeshore Road","Lakeshore Road East","Lakeshore Road West",
+    "Leighland Avenue","Louis St. Laurent Avenue","Lower Baseline East","Main Street East",
+    "Main Street West","Maple Avenue","Mill Street North","Mill Street South","New Street",
+    "Neyagawa Boulevard","Ninth Line","No. 2 Side Road","North Service Road",
+    "North Service Road West","North Shore Boulevard East","Ontario Street North",
+    "Ontario Street South","Parkside Drive","Plains Road East","Plains Road West","Queensway Drive",
+    "Rebecca Street","Regional Road 25","Royal Windsor Drive","Speers Road","Steeles Avenue East",
+    "Steeles Avenue West","Third Line","Thompson Road South","Trafalgar Road","Tremaine Road",
+    "Upper Middle Road","Upper Middle Road East","Upper Middle Road West","Walkers Line",
+    "Waterdown Road","West Service Road","William Halton Parkway East",
+    "William Halton Parkway West","Winston Churchill Boulevard","York Boulevard"]
+
+  # The five GO stations named in V6.1 §2. Coordinates from OSM railway=station, GO Transit.
+  go_stations:
+    Aldershot:  [43.31330, -79.85559]
+    Burlington: [43.34085, -79.80970]
+    Appleby:    [43.37915, -79.76135]
+    Bronte:     [43.41716, -79.72235]
+    Oakville:   [43.45521, -79.68209]
+
 condition:
   photos_may_lower_p: true  # v6 §3. false restores the demote-only rule of v5.
+
+# ============================================================== v6.1 §5: the four buyer anchors
+# ELICITED 2026-09-15 (Alex), in answer to the four questions of V6.1-REFINEMENTS.md §5.
+# These replace four anchors the assistant asserted. They are NOT weights; the pairs do the
+# weights. Recorded here verbatim before anything was computed, per COWORK-PROMPT-v6.1 §1.
+buyer_answers:
+  asked: "2026-09-15"
+  payment: "comfortable $6,000 a month, maximum $7,000 a month (P&I + tax + upkeep)"
+  space:   "cramped below 1300, small at 1400, enough at 1700"
+  yard:    "matters: small is 3,000 sq ft, plenty is 7,000"
+  ensuite: "unsure, do what you think is best"
+  note_space: >
+    The answer carries three numbers and the space ramp takes two. floor_sqft = 1300 and
+    knee_sqft = 1700 are his first and third. The middle number, "small at 1400", has no slot in
+    a two-anchor linear ramp; at 1400 sq ft the ramp pays 4 of the 16 points to the knee, which
+    is consistent with "small" but is an artefact of the shape, not his number. Recorded here so
+    it is not lost. If the ramp is ever made piecewise, 1400 is the point to bend it at.
+  note_ensuite: >
+    ASSISTANT'S CHOICE, NOT THE BUYER'S. Asked whether a primary ensuite matters he answered
+    "unsure, do what you think is best". The assistant set ensuite_matters: true, on the ground
+    that the flaw it fixes is real (a 4-bed with no ensuite scored layout 100) and that the
+    weight on layout is set by the pairs either way, so the cost of the choice being wrong is
+    bounded. This note exists for the same reason weights.method.alex exists: do not restate
+    this as an elicited preference.
+
+price:
+  # v6.1 §3. The price component is the monthly payment against these two anchors, at the
+  # costs.yaml financing defaults (20% down, 4.25%, 25y), so the component, the page calculator
+  # and the gate agree by construction.
+  comfortable_mo: 6000        # at or under this, price scores 100
+  max_mo: 7000                # at this payment price scores 0
+  gate_at_max: false          # REFINED 2026-09-15 (Alex): "allow for those to be ranked".
+  # V6.1 §3 made max_mo a hard G3 gate. It is now a soft ceiling: a house above max_mo scores 0
+  # on price, stays in the rank, and carries an `Over your maximum` stamp naming the payment and
+  # the overage. Set gate_at_max: true to restore the hard exclusion.
+  # CONSEQUENCE, stated because it is a real loss: price is clamped at 0, so every house above
+  # max_mo ties at 0 on price and the other seven components decide the order among them. The
+  # alternative, letting the ramp run negative or rescaling to the batch, was rejected because
+  # it would make the price component relative to the batch, and the whole point of the eight
+  # absolute anchors is that a house scored today compares to one scored in March.
+  # Batch context at the time of the answer: 37 houses run $5,211/mo to $7,201/mo, median $6,537.
+
+lot:
+  # v6.1 §5 Q3. Replaces fact_weights.lot.floor_sqft / ceiling_sqft, which zeroed 10 of 37.
+  matters: true
+  floor_sqft: 3000            # scores 0
+  cap_sqft: 7000              # scores 100
+
+layout:
+  # v6.1 §5 Q4. bedrooms 0-80, primary over 150 sq ft +10, ensuite +10.
+  ensuite_matters: true       # see buyer_answers.note_ensuite: this is the assistant's choice
+  bedroom_pts: 80
+  primary_over_150_pts: 10
+  ensuite_pts: 10

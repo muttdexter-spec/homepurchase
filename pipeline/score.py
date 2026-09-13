@@ -9,6 +9,17 @@ CFG = yaml.safe_load(open(os.path.join(R, "costs.yaml")))
 CAT, NOW, N = CFG["catalog"], 2026, 4000
 random.seed(7)
 
+# ---------------------------------------------------------------- v6.1 §2: geocode cache
+# pipeline/geo.json holds one entry per slug: lat, lon, the straight-line distance in metres to
+# the nearest GO station, to the QEW / 403 / 407 / rail corridor, to the nearest park of 5 ha or
+# more and to Lake Ontario, plus the street name and type. Its _meta block records the geocoder,
+# the Overpass queries and the caveats. Built once; a rebuild does not re-query the web.
+try:
+    GEO = json.load(open(os.path.join(R, "geo.json")))
+except Exception as _e:
+    print(f"WARNING geo.json unreadable ({_e}); location falls back to v6", file=sys.stderr)
+    GEO = {}
+
 def pert(lo, ml, hi):
     """Beta-PERT draw. Standard construction-estimating distribution."""
     if hi <= lo: return ml
@@ -403,22 +414,104 @@ def condition_demote(o, c):
     dem = min(dem, cd["cap"]) * cd["era_scale"][era(eff_year(o))]
     return round(dem, 1), why
 
+def _ramp(v, zero, full):
+    """0 at `zero`, 1 at `full`, linear between, clamped. Works in either direction."""
+    if zero == full: return 1.0
+    return clamp((v - zero) / (full - zero))
+
+def location_parts(o):
+    """v6.1 §2. Five parts on absolute anchors, each 0 to 1, returned with their point values so
+    the card can show the breakdown. Returns (parts, total_0_100, estimated_flags).
+
+    Every distance is straight line, from pipeline/geo.json. Where a part cannot be computed it
+    scores its midpoint and names itself in the returned flags, which is what puts the
+    `Location partly estimated` stamp on the card."""
+    L = CFG["location"]; P = L["parts"]
+    g = GEO.get(o.get("slug")) or {}
+    parts, flags = {}, []
+
+    def part(key, frac, detail):
+        parts[key] = {"frac": round(frac, 4), "pts": round(P[key]["pts"] * frac, 2),
+                      "max": P[key]["pts"], "detail": detail}
+
+    # --- commute: nearest of the five Lakeshore West GO stations
+    if g.get("go_m") is not None:
+        f = _ramp(g["go_m"], P["commute"]["zero_m"], P["commute"]["full_m"])
+        part("commute", f, f"{g['go_m']/1000:.1f} km to {g.get('go')} GO")
+    else:
+        part("commute", 0.5, "GO distance unknown, midpoint"); flags.append("commute")
+
+    # --- quiet: distance to the NEAREST of the QEW, 403, 407 and the rail corridor, then the
+    #     street type, then the arterial cap. Minimum over the line features, not a sum: what
+    #     makes a street loud is the nearest source of noise, not how many there are.
+    ds = [g.get(k) for k in ("qew_m", "h403_m", "h407_m", "rail_m") if g.get(k) is not None]
+    if ds:
+        near = min(ds)
+        f = _ramp(near, P["quiet"]["zero_m"], P["quiet"]["full_m"])
+        st_type = (g.get("street_type") or "")
+        calm = st_type in L["quiet_street_types_calm"]
+        if calm: f = min(1.0, f + L["quiet_street_bonus"])
+        arterial = (g.get("street") or "") in set(L.get("arterials") or [])
+        if arterial: f = min(f, L["quiet_arterial_cap"])
+        bits = [f"{near}m to the nearest of the QEW, 403, 407 or the rail"]
+        if calm: bits.append(st_type.lower())
+        if arterial: bits.append("on an arterial")
+        part("quiet", f, ", ".join(bits))
+    else:
+        part("quiet", 0.5, "highway and rail distances unknown, midpoint"); flags.append("quiet")
+
+    # --- walk and transit: unchanged from v6
+    wt = (o.get("walk") or 0) + (o.get("transit") or 0)
+    part("walk", _ramp(wt, P["walk"]["zero"], P["walk"]["full"]), f"walk {o.get('walk')} + transit {o.get('transit')} = {wt}")
+
+    # --- school: distance half from the record; the assigned school and its Fraser rating have
+    #     not been looked up, so the rating half sits at its midpoint.
+    km = o.get("nearest_school_km")
+    if km is None:
+        part("school", 0.5, "no school distance on file, midpoint"); flags.append("school")
+    else:
+        d = _ramp(km, P["school"]["zero_km"], P["school"]["full_km"])
+        if L.get("assigned_school_done"):
+            part("school", d, f"nearest school {km} km")
+        else:
+            m = L["school_rating_midpoint"]
+            part("school", 0.5*d + 0.5*m, f"nearest school {km} km, rating not looked up")
+
+    # --- green and lake: the NEARER of the shore and any park of 5 ha or more. "Shore" is
+    #     Lake Ontario including Burlington Bay; see geo.json _meta.features.lake_m.
+    gs = [g.get("lake_m"), g.get("park_m")]
+    gs = [x for x in gs if x is not None]
+    if gs:
+        near = min(gs)
+        which = "the water" if g.get("lake_m") == near else (g.get("park") or "a park")
+        part("green", _ramp(near, P["green"]["zero_m"], P["green"]["full_m"]), f"{near}m to {which}")
+    else:
+        part("green", 0.5, "lake and park distances unknown, midpoint"); flags.append("green")
+
+    total = sum(p["pts"] for p in parts.values())
+    return parts, round(min(100.0, max(0.0, total)), 1), flags
+
 def facts(o, c=None):
     """v5 fit: absolute 0-100, facts only, no price. Same component maxima as v3
     (25/20/20/15/12/8) so the grade bands stay comparable. Condition subtracts, never adds."""
     w, p = CFG["fact_weights"], {}
     p["space"] = space_pts(o)
-    b = o.get("beds_effective") if o.get("beds_effective") is not None else (o.get("beds_ag") or 0)
-    lay = {0:0,1:2,2:6,3:13,4:19}.get(b,20)
-    if (o.get("beds_under_100sqft") or 0) > 0: lay -= 4
-    if (o.get("primary_bed_sqft") or 0) >= 150: lay += 2
-    p["layout"] = max(0,min(w["layout"]["pts"],lay))
+    p["layout"], _lay_est = layout_pts(o)             # v6.1 §5 Q4
     nf,nh = o.get("baths_full") or 0, o.get("baths_half") or 0
     p["baths"] = min(w["baths"]["pts"], {0:0,1:5,2:13,3:18}.get(nf,20) + (2 if nh else 0))
     lot = (o.get("lot_frontage_ft") or 0)*(o.get("lot_depth_ft") or 0)
-    p["lot"] = w["lot"]["pts"]*max(0,min(1,(lot-w["lot"]["floor_sqft"])/(w["lot"]["ceiling_sqft"]-w["lot"]["floor_sqft"])))
-    p["location"] = min(w["location"]["pts"], ((o.get("walk") or 0)+(o.get("transit") or 0))/15
-                        + (4 if (o.get("nearest_school_km") or 9) < .5 else 2))
+    _L = CFG.get("lot") or {}                          # v6.1 §5 Q3
+    if _L and not _L.get("matters", True):
+        p["lot"] = w["lot"]["pts"] * 0.50              # yard does not matter: fixed at 50 for every house
+    else:
+        _f = _L.get("floor_sqft", w["lot"]["floor_sqft"]); _c = _L.get("cap_sqft", w["lot"]["ceiling_sqft"])
+        p["lot"] = w["lot"]["pts"]*max(0,min(1,(lot-_f)/(_c-_f)))
+    if (CFG.get("location") or {}).get("version") == "v61":
+        _lp, _l100, _lflags = location_parts(o)          # v6.1 §2
+        p["location"] = w["location"]["pts"] * _l100 / 100.0
+    else:
+        p["location"] = min(w["location"]["pts"], ((o.get("walk") or 0)+(o.get("transit") or 0))/15
+                            + (4 if (o.get("nearest_school_km") or 9) < .5 else 2))
     p["parking"] = min(w["parking"]["pts"], (o.get("garage_spaces") or 0)*3 + (o.get("parking_spots") or 0))
     s = sum(p.values())
     if "plit" in str(o.get("style","")): s *= CFG["split_dock"]
@@ -571,6 +664,97 @@ def day1_draws(o):
         out.append(acc["day1"] * k * prem * (1+CFG["meta"]["hst"]))
     return c, out
 
+def monthly_payment(o, c):
+    """v6.1 §3. The page's Monthly payment at the costs.yaml financing defaults: principal and
+    interest on the mortgage, plus property tax, plus the upkeep reserve. This is the ONE "/mo"
+    number, and the price component, the page calculator and the ceiling all read it, so they
+    agree by construction."""
+    HH = CFG["hold"]
+    principal = o["list_price"] * (1 - HH["down_payment"])
+    i = HH["mortgage_rate"] / 12.0
+    n = HH["amortization"] * 12
+    pi = principal * i / (1 - (1 + i) ** (-n)) if i else principal / n
+    tax = (o.get("annual_taxes") or 0) / 12.0
+    upkeep = c["reserve_monthly"]
+    return pi + tax + upkeep, {"pi": pi, "tax": tax, "upkeep": upkeep}
+
+def price_component(o, c):
+    """v6.1 §3, refined 2026-09-15. 100 at or below the comfortable payment, falling linearly to
+    0 at the maximum, clamped at 0 above it.
+
+    Alex asked on 2026-09-15 that houses above the maximum still be ranked, so max_mo is a soft
+    ceiling (price.gate_at_max: false) rather than a G3 gate. The clamp means every house above
+    the maximum ties at 0 on price and the other seven components order them; that is a real loss
+    and it is the price of keeping the scale absolute. Returns (0-100, payment, over_by)."""
+    P = CFG["price"]; pay, _parts = monthly_payment(o, c)
+    comf, mx = float(P["comfortable_mo"]), float(P["max_mo"])
+    if pay <= comf: v = 100.0
+    elif mx > comf: v = 100.0 * (mx - pay) / (mx - comf)
+    else:           v = 0.0
+    return max(0.0, min(100.0, v)), pay, max(0.0, pay - mx)
+
+def over_maximum(o, c):
+    """The `Over your maximum` stamp: the fact that replaced the gate."""
+    _v, pay, over = price_component(o, c)
+    if over <= 0: return None
+    return f"Over your maximum: ${pay:,.0f}/mo, ${over:,.0f} over ${CFG['price']['max_mo']:,}"
+
+def ensuite_state(o):
+    """v6.1 §5 Q4. Returns True, False or None (unknown -> `Layout partly estimated`).
+
+    An MLS room table does not label an ensuite. The rule: find the level the Primary is on; if
+    that level carries two or more bathrooms, one of them is the primary's; if it carries exactly
+    one bathroom and two or more bedrooms, that bath is shared and there is no ensuite. Anything
+    else is unknown and says so rather than guessing."""
+    if o.get("ensuite") is not None: return bool(o["ensuite"])
+    rooms = o.get("rooms_raw") or []
+    if not rooms: return None
+    lvl = None
+    for r in rooms:
+        if len(r) >= 2 and str(r[1]).lower().startswith("primary"): lvl = r[0]; break
+    if lvl is None: return None
+    baths = sum(1 for r in rooms if r[0] == lvl and "bath" in str(r[1]).lower())
+    beds  = sum(1 for r in rooms if r[0] == lvl and str(r[1]).lower().startswith(("bedroom", "primary")))
+    if baths >= 2: return True
+    if baths == 1 and beds >= 2: return False
+    return None
+
+def ensuite_with_basis(o):
+    """ensuite_state, then a second-tier fallback on the bath count for the 23 records that carry
+    no room table. Returns (True/False/None, basis string). The two tiers are kept apart on
+    purpose: tier 1 is read off the room table, tier 2 is an INFERENCE from how many full baths a
+    three-or-more-bedroom house of this stock has, and the card says which one it used."""
+    v = ensuite_state(o)
+    if v is not None:
+        return v, ("stated in the record" if o.get("ensuite") is not None else "read from the room table")
+    nf = o.get("baths_full") or 0
+    beds = o.get("beds_effective") if o.get("beds_effective") is not None else (o.get("beds_ag") or 0)
+    if nf <= 1: return False, f"inferred: {nf} full bath in the house, so nothing is private to the primary"
+    if nf >= 3 and beds >= 3: return True, f"inferred: {nf} full baths on {beds} bedrooms"
+    return None, "no room table and the bath count does not settle it"
+
+def layout_pts(o):
+    """v6.1 §5 Q4. bedrooms 0-80, primary over 150 sq ft +10, ensuite +10, on a 0-100 scale, then
+    rescaled to fact_weights.layout.pts. The tiny-bedroom rule survives from v5 as a 20-point
+    penalty on the 100 scale (it was 4 of 20). Returns (points_on_fact_scale, estimated)."""
+    L = CFG.get("layout") or {}
+    W = CFG["fact_weights"]["layout"]["pts"]
+    if not L.get("ensuite_matters"):
+        b = o.get("beds_effective") if o.get("beds_effective") is not None else (o.get("beds_ag") or 0)
+        lay = {0:0,1:2,2:6,3:13,4:19}.get(b,20)
+        if (o.get("beds_under_100sqft") or 0) > 0: lay -= 4
+        if (o.get("primary_bed_sqft") or 0) >= 150: lay += 2
+        return max(0, min(W, lay)), False
+    b = o.get("beds_effective") if o.get("beds_effective") is not None else (o.get("beds_ag") or 0)
+    bed_scale = {0:0.0, 1:0.12, 2:0.38, 3:0.81, 4:1.0}
+    v = L["bedroom_pts"] * bed_scale.get(b, 1.0)
+    if (o.get("primary_bed_sqft") or 0) >= 150: v += L["primary_over_150_pts"]
+    ens, _basis = ensuite_with_basis(o)
+    if ens: v += L["ensuite_pts"]
+    if (o.get("beds_under_100sqft") or 0) > 0: v -= 20
+    v = max(0.0, min(100.0, v))
+    return W * v / 100.0, (ens is None)
+
 def is_project(o, work_exp):
     """G4. Expected work above project_share_of_ask of the ask. Ranked with a Project stamp
     unless the buyer said no projects, in which case it is a gate."""
@@ -588,6 +772,12 @@ def gates(o, c, fs, v, work_exp=None):
     if g["max_cash_to_close"] and cash_to_close(o["list_price"], c["day1_p80"]) > g["max_cash_to_close"]: out.append("cash to close")
     if g.get("no_projects") and work_exp is not None and is_project(o, work_exp):
         out.append(f"project: work is {work_exp/o['list_price']:.0%} of ask")
+    # v6.1 §3, G3 on the monthly payment. OFF by default since 2026-09-15: Alex asked that houses
+    # above his maximum still be ranked, so the ceiling is a stamp (over_maximum) not a gate.
+    P = CFG.get("price") or {}
+    if P.get("gate_at_max"):
+        _v, pay, over = price_component(o, c)
+        if over > 0: out.append(f"payment ${pay:,.0f}/mo over the ${P['max_mo']:,} maximum")
     return out
 
 def hold_flags(notes):
@@ -687,8 +877,11 @@ def components(o, c, H):
     comp["condition"] = condition_from(exp, full)
     own, op = own_cost(o, c, c["day1_p80"], H)
     per_yr = (own - op["day1_sunk"]) / H          # day-one lives in condition, never counted twice
-    a = CFG["hold"]["price_anchor_per_year"]
-    comp["price"] = 100 * clamp((a["worst"] - per_yr) / (a["worst"] - a["best"]))
+    if CFG.get("price"):                          # v6.1 §3: buyer-anchored, on the monthly payment
+        comp["price"], _pay, _over = price_component(o, c)
+    else:
+        a = CFG["hold"]["price_anchor_per_year"]
+        comp["price"] = 100 * clamp((a["worst"] - per_yr) / (a["worst"] - a["best"]))
     for k in comp: comp[k] = max(0.0, min(100.0, comp[k]))
     return comp, fs, parts, {"work_exp": exp, "work_full": full, "work_exp_day1": exp_day1,
                              "own": own, "oparts": op,
