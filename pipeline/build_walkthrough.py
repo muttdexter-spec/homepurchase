@@ -261,10 +261,10 @@ def rangebar(k, v):
     lo, hi = BATCH_RANGE.get(k, (0.0, 100.0))
     if hi <= lo: hi = lo + 1
     pos = max(0.0, min(100.0, 100.0 * (v - lo) / (hi - lo)))
-    return (f'<span class="rngbar" title="the batch runs {lo:.0f} to {hi:.0f}">'
-            f'<s class="tick" style="left:0"></s><s class="tick" style="left:100%"></s>'
-            f'<i class="dot" style="left:{pos:.1f}%"></i></span>'
-            f'<u class="rnglab">{lo:.0f} to {hi:.0f}</u>')
+    return (f'<span class="w6-rngbar" title="the batch runs {lo:.0f} to {hi:.0f}">'
+            f'<s class="w6-tick" style="left:0"></s><s class="w6-tick" style="left:100%"></s>'
+            f'<i class="w6-dot" style="left:{pos:.1f}%"></i></span>'
+            f'<u class="w6-rnglab">{lo:.0f} to {hi:.0f}</u>')
 
 def contrib_bar(row):
     """V6.1 §4.1: where the quality number comes from, and what is left on the table."""
@@ -273,7 +273,7 @@ def contrib_bar(row):
     for k in QUAL_ORDER:
         w = W_QUAL[k] if REFRAMED else W_JOINT[k]
         pts = w * c[k] / 100.0
-        segs.append(f'<i class="cseg" style="width:{pts:.2f}%" title="{COMP_LABEL[k]} {pts:.0f}"></i>')
+        segs.append(f'<i class="w6-cseg" style="width:{pts:.2f}%" title="{COMP_LABEL[k]} {pts:.0f}"></i>')
         got.append((COMP_LABEL[k], pts))
         gap = w - pts
         if gap >= 0.5: left.append((COMP_LABEL[k], gap))
@@ -284,12 +284,12 @@ def contrib_bar(row):
     cost_line = ""
     if REFRAMED:
         cp = num(row, "cost_pts")
-        cost_line = (f'<p class="whyline cost">And the payment takes off <b>{cp:.1f}</b>'
+        cost_line = (f'<p class="w6-whyline cost">And the payment takes off <b>{cp:.1f}</b>'
                      f'{" (nothing: you are at or under your comfortable payment)" if cp < 0.05 else ""}'
                      f', so the rank sorts on <b>{num(row,"score"):.1f}</b>.</p>')
-    return (f'<div class="contrib"><div class="cbar">{"".join(segs)}</div>'
-            f'<p class="whyline"><b>{q:.0f}</b> = {line1}</p>'
-            + (f'<p class="whyline left">Left on the table: {line2}</p>' if line2 else "")
+    return (f'<div class="w6-contrib"><div class="w6-cbar">{"".join(segs)}</div>'
+            f'<p class="w6-whyline"><b>{q:.0f}</b> = {line1}</p>'
+            + (f'<p class="w6-whyline left">Left on the table: {line2}</p>' if line2 else "")
             + cost_line + '</div>')
 
 def loc_parts_html(d):
@@ -299,29 +299,29 @@ def loc_parts_html(d):
     rows = []
     for k, v in lp.items():
         w = 100.0 * v["pts"] / v["max"] if v["max"] else 0
-        rows.append(f'<div class="lp"><em>{k.capitalize()}</em>'
+        rows.append(f'<div class="w6-lp"><em>{k.capitalize()}</em>'
                     f'<span><i style="width:{w:.0f}%"></i></span>'
                     f'<b>{v["pts"]:.0f}<s> of {v["max"]}</s></b>'
                     f'<u>{esc(v["detail"])}</u></div>')
-    return '<div class="locparts">' + "".join(rows) + "</div>"
+    return '<div class="w6-locparts">' + "".join(rows) + "</div>"
 
 def condition_html(d):
     """SCORING-EXPLANATION-FINAL §2: say what the work is."""
     cb = d.get("condition_block")
     if not cb: return ""
     rows = "".join(
-        f'<div class="cbk"><em>{esc(b["bucket"])}</em><b>{money10(b["total"])}</b>'
+        f'<div class="w6-cbk"><em>{esc(b["bucket"])}</em><b>{money10(b["total"])}</b>'
         f'<u>{esc(b["top"])}</u></div>' for b in cb["buckets"])
     unseen = ", ".join(x.replace("_", " ") for x in cb["unseen"])
-    urow = (f'<div class="cbk"><em>unseen</em><b></b><u>{esc(unseen)} &middot; on your showing list</u></div>'
-            if unseen else '<div class="cbk"><em>unseen</em><b></b><u>nothing the model prices</u></div>')
+    urow = (f'<div class="w6-cbk"><em>unseen</em><b></b><u>{esc(unseen)} &middot; on your showing list</u></div>'
+            if unseen else '<div class="w6-cbk"><em>unseen</em><b></b><u>nothing the model prices</u></div>')
     swing = ""
     if abs(cb["if_clean"] - cb["if_defect"]) >= 0.15:
-        swing = (f'<p class="cswing">A showing could move this to <b>{cb["if_clean"]:.0f}</b> if everything '
+        swing = (f'<p class="w6-cswing">A showing could move this to <b>{cb["if_clean"]:.0f}</b> if everything '
                  f'reads clean, or <b>{cb["if_defect"]:.0f}</b> if it does not.</p>')
     else:
-        swing = '<p class="cswing">A showing would not move this: nothing unseen here is priced by the model.</p>'
-    return '<div class="condblock">' + rows + urow + swing + "</div>"
+        swing = '<p class="w6-cswing">A showing would not move this: nothing unseen here is priced by the model.</p>'
+    return '<div class="w6-condblock">' + rows + urow + swing + "</div>"
 
 def why_block(o, d, row):
     """The whole why, under the panel. V6.1 §4.2 one line and a range per component, plus the
@@ -333,13 +333,13 @@ def why_block(o, d, row):
         pts = w * c[k] / 100.0
         fact = (ex.get(k) or {}).get("fact", "")
         out.append(
-            f'<div class="wl"><em>{COMP_LABEL[k]}</em><b class="v">{c[k]:.0f}</b>'
+            f'<div class="w6-wl"><em>{COMP_LABEL[k]}</em><b class="v">{c[k]:.0f}</b>'
             f'{rangebar(k, c[k])}'
-            f'<span class="wf">{esc(fact)}</span>'
-            f'<u class="adds">adds {pts:.0f} of {w:.0f}</u></div>')
+            f'<span class="w6-wf">{esc(fact)}</span>'
+            f'<u class="w6-adds">adds {pts:.0f} of {w:.0f}</u></div>')
         if k == "location": out.append(loc_parts_html(d))
         if k == "condition": out.append(condition_html(d))
-    return ('<div class="whyblock">' + contrib_bar(row) + "".join(out) +
+    return ('<div class="w6-whyblock">' + contrib_bar(row) + "".join(out) +
             '<p class="sp-foot">Every scale is defined once, in <a href="#gloss-scales">How the scales work</a>.</p>'
             '</div>')
 
@@ -350,7 +350,7 @@ def rank_line(row, n_ranked):
     if is_gated(row) or not REFRAMED: return ""
     cp = num(row, "cost_pts")
     band = band_txt(row)
-    return (f'<p class="ranknote">Rank <b>{row["rank"]}</b> of {n_ranked} &middot; quality '
+    return (f'<p class="w6-ranknote">Rank <b>{row["rank"]}</b> of {n_ranked} &middot; quality '
             f'<b>{num(row,"quality"):.0f}</b> &middot; cost <b>{"0" if cp < 0.05 else f"&minus;{cp:.0f}"}</b> '
             f'at the current dial &middot; band {band}</p>')
 
