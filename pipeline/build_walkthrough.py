@@ -610,6 +610,17 @@ def stamps_for(row, o, d, url):
             st.append(f'<span class="stamp unseen">HOLD · {HOLD_WORD[nn.split(" ")[0]]}</span>')
         elif "virtually" in nn:
             st.append(f'<span class="stamp unseen">{esc(nn.split(" — ")[0])}</span>')
+    # Three-tier triage. First in the row because deciding whether a house is still in the running
+    # comes before adding it to a list. Clicking the tier a house already has clears it back to
+    # unrated, so there is always a way out of a decision.
+    _kk = esc(short(o["slug"]))
+    st.append('<span class="tiers" role="group" aria-label="Shortlist tier">'
+              + "".join(f'<button type="button" class="tier t-{v}" data-tier="{_kk}" data-v="{v}"'
+                        f' title="{t}">{lab}</button>'
+                        for v, lab, t in (("remove", "Remove", "Out of consideration"),
+                                          ("mid",    "Mid",    "Still in, not a favourite"),
+                                          ("top",    "Top",    "Top of the list")))
+              + "</span>")
     st.append(f'<button type="button" class="stamp sat" data-sat="{esc(short(o["slug"]))}">Add to View List</button>')
     st.append(f'<button type="button" class="stamp cmp" data-cmp="{esc(short(o["slug"]))}">Compare</button>')
     # the label is repainted by the page script so it reads "Comparing, remove" once it is on
@@ -660,7 +671,11 @@ def card(rank, row, o, d, n_ranked):
     # record is the last thing on the card and the only section that starts closed.
     why = why_lines(o, d, row)
     cmp_ = comp(row)
-    sec_why = why_block(o, d, row)      # V6.1 §4: replaces the "Why each score" prose entirely
+    # V6.1 §4: replaces the "Why each score" prose. Collapsed by default like every other section
+    # below the money block (USABILITY-SPEC 4.1); the panel already carries the headline number.
+    _q = num(row, "quality" if REFRAMED else "score")
+    _why_title = ("Why quality is " + f"{_q:.0f}") if not gated else "Why each component scores what it does"
+    sec_why = details_wrap(_why_title, why_block(o, d, row))
     sec_reno  = reno_html(o, d, row)
     sec_split = ('<div class="split">'
                  '<section class="known"><h3>Settled by the photos</h3><ul>' + known_html + "</ul></section>"
@@ -856,6 +871,13 @@ FILTERS = f"""
     <label class="sr-jump"><span>Picks</span><select id="g-picks"><option value="">All</option>
       <option value="mine">My picks</option><option value="partner">Partner's picks</option>
       <option value="both">Both</option><option value="either">Either</option></select></label>
+    <label class="sr-jump"><span>Shortlist</span><select id="g-tier">
+      <option value="live">In consideration</option>
+      <option value="top">Top only</option>
+      <option value="topmid">Top and mid</option>
+      <option value="unrated">Not yet triaged</option>
+      <option value="removed">Removed only</option>
+      <option value="">Everything</option></select><b class="tiercount" id="tiercount"></b></label>
 """
 
 HOLD_BTNS = ("\n    <div class=\"sr-modes\" id=\"holdmodes\" style=\"margin-left:auto\">"
@@ -981,6 +1003,7 @@ V6JS = r"""
    reads it: the rail, the money block, the table and the calculator. Nothing else carries "/mo". */
 (function(){
   var CFG = __CFG__;
+  var TKEY = "walk-v6-tiers";      /* {slug: "top"|"mid"|"remove"}, per device, like the picks */
   var KEY = "walk-v6-settings", PKEY = "walk-v6-picks", SKEY = "walk-v6-saturday",
       CKEY = "walk-v6-compare", QKEY = "walk-v6-choices";
   function load(k, d){ try{ return JSON.parse(localStorage.getItem(k)) || d; }catch(e){ return d; } }
@@ -1065,9 +1088,18 @@ V6JS = r"""
     var sort = (document.getElementById("g-sort")||{}).value || "score";
     var picksel = (document.getElementById("g-picks")||{}).value || "";
     var picks = load(PKEY, {});
+    var tiersel = (document.getElementById("g-tier")||{}).value;
+    if(tiersel === undefined) tiersel = "live";
+    var tstate = tiers();
     function visible(el){
       if(muni && el.dataset.muni !== muni) return false;
       if(maxask && +el.dataset.ask > maxask) return false;
+      var tv = tstate[el.dataset.slug] || "";
+      if(tiersel === "live"    && tv === "remove") return false;
+      if(tiersel === "top"     && tv !== "top") return false;
+      if(tiersel === "topmid"  && !(tv === "top" || tv === "mid")) return false;
+      if(tiersel === "unrated" && tv !== "") return false;
+      if(tiersel === "removed" && tv !== "remove") return false;
       if(picksel){
         var p = picks[el.dataset.slug] || {};
         if(picksel === "mine" && !p.alex) return false;
@@ -1098,6 +1130,25 @@ V6JS = r"""
         return (A && B) ? key(A) - key(B) : 0; });
       opts.forEach(function(o){ jb.appendChild(o); });
     }
+  }
+
+  /* ---------- three-tier triage: Remove / Mid / Top ---------- */
+  function tiers(){ return load(TKEY, {}); }
+  function paintTiers(){
+    var t = tiers();
+    document.querySelectorAll("button.tier").forEach(function(b){
+      b.classList.toggle("on", t[b.dataset.tier] === b.dataset.v);
+      b.setAttribute("aria-pressed", t[b.dataset.tier] === b.dataset.v ? "true" : "false");
+    });
+    /* stamp the tier onto every row that carries this slug, so the card, the table and the
+       mini table can all be filtered and coloured from one attribute. */
+    document.querySelectorAll("[data-slug]").forEach(function(el){
+      var v = t[el.dataset.slug];
+      if(v) el.setAttribute("data-tier-state", v); else el.removeAttribute("data-tier-state");
+    });
+    var n = 0, k; for(k in t){ if(t[k] === "remove") n++; }
+    var c = document.getElementById("tiercount");
+    if(c) c.textContent = n ? n + " removed" : "";
   }
 
   /* ---------- Saturday plan ---------- */
@@ -1228,7 +1279,7 @@ V6JS = r"""
         paintPayments();
       });
     });
-    ["g-muni","g-maxask","g-sort","g-picks"].forEach(function(id){
+    ["g-muni","g-maxask","g-sort","g-picks","g-tier"].forEach(function(id){
       var el = document.getElementById(id); if(el) el.addEventListener("change", applyView);
       if(el) el.addEventListener("input", applyView);
     });
@@ -1241,6 +1292,13 @@ V6JS = r"""
     });
     document.addEventListener("click", function(e){
       var s = e.target.closest("[data-sat]");
+      var tb = e.target.closest ? e.target.closest("button.tier") : null;
+      if(tb){
+        var t = tiers(), cur = t[tb.dataset.tier];
+        if(cur === tb.dataset.v) delete t[tb.dataset.tier];   /* clicking the current tier clears it */
+        else t[tb.dataset.tier] = tb.dataset.v;
+        save(TKEY, t); paintTiers(); applyView(); return;
+      }
       if(s){ var plan = load(SKEY, []), i = plan.indexOf(s.dataset.sat);
              if(i >= 0) plan.splice(i,1); else plan.push(s.dataset.sat);
              save(SKEY, plan); paintSat(); return; }
@@ -1318,7 +1376,7 @@ V6JS = r"""
       showMode(b.dataset.v !== "all");
     });
 
-    paintPayments(); applyView(); paintSat(); paintCmp(); paintPairs(); calibration();
+    paintPayments(); paintTiers(); applyView(); paintSat(); paintCmp(); paintPairs(); calibration();
     if("serviceWorker" in navigator){
       try{
         navigator.serviceWorker.register("sw.js", {updateViaCache: "none"}).then(function(reg){
@@ -1429,6 +1487,28 @@ V6JS = r"""
 .lot[data-grey="1"]{opacity:.55}
 [hidden]{display:none !important}
 .stamp.sat,.stamp.cmp{cursor:pointer; font:inherit; background:none; border:1px solid var(--rule)}
+/* Three-tier triage. One segmented control, the same height and type scale as the stamps beside
+   it so the button row still reads as one row. Colour only on the chosen tier: an unrated house
+   must not look like a decision. */
+.tiers{display:inline-flex; border:1px solid var(--rule); border-radius:999px; overflow:hidden}
+.tiers .tier{cursor:pointer; font:inherit; font-family:var(--mono); font-size:9.5px;
+  letter-spacing:.08em; text-transform:uppercase; background:none; border:0;
+  border-right:1px solid var(--rule); padding:5px 11px; color:var(--muted); line-height:1.5}
+.tiers .tier:last-child{border-right:0}
+.tiers .tier:hover{color:var(--ink); background:var(--rule-soft)}
+.tiers .tier.on{color:#fff; background:var(--accent)}
+.tiers .tier.t-remove.on{background:var(--flag)}
+.tiers .tier:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
+/* A removed house stays on the page when you ask to see it, but reads as set aside. */
+[data-tier-state="remove"]{opacity:.55}
+[data-tier-state="remove"] .lot-head h2 a{text-decoration:line-through}
+tr[data-tier-state="remove"] td:first-child,
+[data-tier-state="top"] .rank{position:relative}
+[data-tier-state="top"] .rail .rank::after{content:"TOP"; position:absolute; left:50%;
+  transform:translateX(-50%); top:100%; font-family:var(--mono); font-size:8.5px;
+  letter-spacing:.1em; color:var(--accent)}
+.tiercount{font-family:var(--mono); font-size:9.5px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--flag); font-weight:400; margin-left:7px; white-space:nowrap}
 .payhero,.pay{white-space:nowrap}
 .tablewrap table.big td.n,.tablewrap table.big th.n{text-align:center}
 .tablewrap table.big td.n .pay{font-weight:400}
