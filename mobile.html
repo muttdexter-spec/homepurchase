@@ -5561,6 +5561,41 @@
     if(c) c.textContent = n ? n + " removed" : "";
   }
 
+  var undoTimer = null;
+  function offerUndo(slug, prev){
+    var el = document.getElementById("tier-undo");
+    if(!el){
+      el = document.createElement("div");
+      el.id = "tier-undo"; el.setAttribute("role", "status");
+      document.body.appendChild(el);
+    }
+    var full = (CFG.addr && CFG.addr[slug]) || "";
+    var name = full ? full.split(",")[0] : "That house";
+    el.innerHTML = "";
+    var span = document.createElement("span");
+    span.textContent = name + " removed from consideration.";
+    var btn = document.createElement("button");
+    btn.type = "button"; btn.className = "tu-undo"; btn.textContent = "Undo";
+    btn.addEventListener("click", function(){
+      var t = tiers();
+      if(prev) t[slug] = prev; else delete t[slug];
+      save(TKEY, t); paintTiers(); applyView(); hideUndo();
+    });
+    var close = document.createElement("button");
+    close.type = "button"; close.className = "tu-x"; close.textContent = "\u00d7";
+    close.setAttribute("aria-label", "Dismiss");
+    close.addEventListener("click", hideUndo);
+    el.appendChild(span); el.appendChild(btn); el.appendChild(close);
+    el.setAttribute("data-on", "1");
+    if(undoTimer) clearTimeout(undoTimer);
+    undoTimer = setTimeout(hideUndo, 9000);
+  }
+  function hideUndo(){
+    var el = document.getElementById("tier-undo");
+    if(el) el.removeAttribute("data-on");
+    if(undoTimer){ clearTimeout(undoTimer); undoTimer = null; }
+  }
+
   /* ---------- Saturday plan ---------- */
   function paintSat(){
     var plan = load(SKEY, []), box = document.getElementById("satbox");
@@ -5704,10 +5739,14 @@
       var s = e.target.closest("[data-sat]");
       var tb = e.target.closest ? e.target.closest("button.tier") : null;
       if(tb){
-        var t = tiers(), cur = t[tb.dataset.tier];
-        if(cur === tb.dataset.v) delete t[tb.dataset.tier];   /* clicking the current tier clears it */
-        else t[tb.dataset.tier] = tb.dataset.v;
-        save(TKEY, t); paintTiers(); applyView(); return;
+        var t = tiers(), slug = tb.dataset.tier, prev = t[slug] || "";
+        if(prev === tb.dataset.v) delete t[slug];             /* clicking the current tier clears it */
+        else t[slug] = tb.dataset.v;
+        save(TKEY, t); paintTiers(); applyView();
+        /* Removing a house takes it out of the default view immediately, so an accidental click
+           loses the card with nothing on screen to undo it. Offer the undo for a few seconds. */
+        if(t[slug] === "remove") offerUndo(slug, prev);
+        return;
       }
       if(s){ var plan = load(SKEY, []), i = plan.indexOf(s.dataset.sat);
              if(i >= 0) plan.splice(i,1); else plan.push(s.dataset.sat);
@@ -5919,6 +5958,23 @@ tr[data-tier-state="remove"] td:first-child,
   letter-spacing:.1em; color:var(--accent)}
 .tiercount{font-family:var(--mono); font-size:9.5px; letter-spacing:.06em; text-transform:uppercase;
   color:var(--flag); font-weight:400; margin-left:7px; white-space:nowrap}
+/* The undo for an accidental Remove. Fixed so it is reachable wherever you are on the page, and
+   it takes itself away after nine seconds so it never becomes furniture. */
+#tier-undo{position:fixed; left:50%; bottom:18px; transform:translateX(-50%) translateY(8px);
+  z-index:90; display:none; align-items:center; gap:12px; padding:10px 12px 10px 16px;
+  background:var(--ink); color:#fff; border-radius:999px; font-size:13px; line-height:1.3;
+  box-shadow:0 6px 24px rgba(15,23,42,.28); max-width:calc(100vw - 32px); opacity:0;
+  transition:opacity .18s ease, transform .18s ease}
+#tier-undo[data-on]{display:flex; opacity:1; transform:translateX(-50%) translateY(0)}
+#tier-undo .tu-undo{cursor:pointer; font:inherit; font-weight:600; color:#fff; background:none;
+  border:1px solid rgba(255,255,255,.45); border-radius:999px; padding:3px 13px}
+#tier-undo .tu-undo:hover{background:rgba(255,255,255,.14)}
+#tier-undo .tu-x{cursor:pointer; font:inherit; font-size:17px; line-height:1; color:#fff;
+  background:none; border:0; opacity:.65; padding:0 3px}
+#tier-undo .tu-x:hover{opacity:1}
+@media (max-width:560px){ #tier-undo{left:12px; right:12px; transform:none; max-width:none;
+  border-radius:12px; justify-content:space-between}
+  #tier-undo[data-on]{transform:none} }
 .payhero,.pay{white-space:nowrap}
 .tablewrap table.big td.n,.tablewrap table.big th.n{text-align:center}
 .tablewrap table.big td.n .pay{font-weight:400}
