@@ -108,8 +108,8 @@
   .stamp.link{background:var(--accent-soft); color:var(--accent); text-decoration:none}
   .stamp.link:hover{background:var(--accent); color:var(--card)}
 
-  .money{display:grid; grid-template-columns:repeat(auto-fit,minmax(112px,1fr));
-         gap:14px 10px; margin:0; padding:14px 0; border-block:1px solid var(--rule-soft)}
+  .money{display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr));
+         gap:14px 22px; margin:0; padding:14px 0; border-block:1px solid var(--rule-soft)}
   .money div{display:flex; flex-direction:column; gap:2px; min-width:0}
   .money dt{font-family:var(--mono); font-size:9.5px; letter-spacing:.08em;
             text-transform:uppercase; color:var(--muted)}
@@ -352,7 +352,10 @@
   .legend i{width:9px; height:9px; border-radius:50%; flex:none}
 
   /* ---------- prominent score ---------- */
-  .lot-head{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr)); gap:18px 22px; align-items:start}
+  /* The score panel is 7 short bars and needs about 340px; everything else it was given
+     came out of the money block, which then wrapped its sub-lines three deep and left
+     dead space under the panel. Text takes the remainder. */
+  .lot-head{display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:18px 24px; align-items:start}
   .lh-text{min-width:0}
   .scorepanel{border:1px solid var(--rule); border-radius:8px; background:var(--paper);
     padding:13px 15px 12px; display:flex; flex-direction:column; gap:12px; min-width:0}
@@ -815,7 +818,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="barberry">—</span></dd>
             <dd class="msub cashsub" data-cashsub="barberry"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="barberry">—</span></dd>
-            <dd class="msub">cash on closing plus the $74,831 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $74,831 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$28,486</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$74,831</dd>
@@ -925,7 +928,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="delaney">—</span></dd>
             <dd class="msub cashsub" data-cashsub="delaney"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="delaney">—</span></dd>
-            <dd class="msub">cash on closing plus the $72,579 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $72,579 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$42,779</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$72,579</dd>
@@ -1035,7 +1038,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="seton">—</span></dd>
             <dd class="msub cashsub" data-cashsub="seton"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="seton">—</span></dd>
-            <dd class="msub">cash on closing plus the $50,675 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $50,675 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$26,212</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$50,675</dd>
@@ -1145,7 +1148,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="clinton">—</span></dd>
             <dd class="msub cashsub" data-cashsub="clinton"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="clinton">—</span></dd>
-            <dd class="msub">cash on closing plus the $77,237 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $77,237 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$30,552</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$77,237</dd>
@@ -1255,7 +1258,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="pinemeadow">—</span></dd>
             <dd class="msub cashsub" data-cashsub="pinemeadow"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="pinemeadow">—</span></dd>
-            <dd class="msub">cash on closing plus the $83,849 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $83,849 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$40,844</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$83,849</dd>
@@ -1365,7 +1368,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="hazelwood">—</span></dd>
             <dd class="msub cashsub" data-cashsub="hazelwood"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="hazelwood">—</span></dd>
-            <dd class="msub">cash on closing plus the $131,773 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $131,773 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$46,209</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$131,773</dd>
@@ -1475,7 +1478,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="tania">—</span></dd>
             <dd class="msub cashsub" data-cashsub="tania"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="tania">—</span></dd>
-            <dd class="msub">cash on closing plus the $141,246 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $141,246 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$61,599</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$141,246</dd>
@@ -1585,7 +1588,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="pondview">—</span></dd>
             <dd class="msub cashsub" data-cashsub="pondview"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="pondview">—</span></dd>
-            <dd class="msub">cash on closing plus the $59,671 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $59,671 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$28,310</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$59,671</dd>
@@ -1695,7 +1698,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="columbus">—</span></dd>
             <dd class="msub cashsub" data-cashsub="columbus"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="columbus">—</span></dd>
-            <dd class="msub">cash on closing plus the $80,193 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $80,193 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$29,237</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$80,193</dd>
@@ -1805,7 +1808,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="cherrywood">—</span></dd>
             <dd class="msub cashsub" data-cashsub="cherrywood"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="cherrywood">—</span></dd>
-            <dd class="msub">cash on closing plus the $60,250 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $60,250 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$34,621</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$60,250</dd>
@@ -1915,7 +1918,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="ravine">—</span></dd>
             <dd class="msub cashsub" data-cashsub="ravine"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="ravine">—</span></dd>
-            <dd class="msub">cash on closing plus the $68,119 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $68,119 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$35,923</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$68,119</dd>
@@ -2025,7 +2028,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="stillmeadow">—</span></dd>
             <dd class="msub cashsub" data-cashsub="stillmeadow"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="stillmeadow">—</span></dd>
-            <dd class="msub">cash on closing plus the $72,843 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $72,843 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$27,816</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$72,843</dd>
@@ -2135,7 +2138,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="christina">—</span></dd>
             <dd class="msub cashsub" data-cashsub="christina"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="christina">—</span></dd>
-            <dd class="msub">cash on closing plus the $60,847 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $60,847 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$29,850</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$60,847</dd>
@@ -2245,7 +2248,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="bunton">—</span></dd>
             <dd class="msub cashsub" data-cashsub="bunton"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="bunton">—</span></dd>
-            <dd class="msub">cash on closing plus the $92,376 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $92,376 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$34,872</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$92,376</dd>
@@ -2355,7 +2358,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="pallatine">—</span></dd>
             <dd class="msub cashsub" data-cashsub="pallatine"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="pallatine">—</span></dd>
-            <dd class="msub">cash on closing plus the $75,488 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $75,488 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$33,860</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$75,488</dd>
@@ -2465,7 +2468,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="bonnie">—</span></dd>
             <dd class="msub cashsub" data-cashsub="bonnie"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="bonnie">—</span></dd>
-            <dd class="msub">cash on closing plus the $91,222 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $91,222 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$28,973</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$91,222</dd>
@@ -2575,7 +2578,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="maplewood">—</span></dd>
             <dd class="msub cashsub" data-cashsub="maplewood"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="maplewood">—</span></dd>
-            <dd class="msub">cash on closing plus the $70,006 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $70,006 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$31,679</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$70,006</dd>
@@ -2685,7 +2688,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="rexway">—</span></dd>
             <dd class="msub cashsub" data-cashsub="rexway"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="rexway">—</span></dd>
-            <dd class="msub">cash on closing plus the $85,018 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $85,018 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$34,811</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$85,018</dd>
@@ -2795,7 +2798,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="lark">—</span></dd>
             <dd class="msub cashsub" data-cashsub="lark"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="lark">—</span></dd>
-            <dd class="msub">cash on closing plus the $56,777 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $56,777 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$38,211</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$56,777</dd>
@@ -2905,7 +2908,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="middlesmoor">—</span></dd>
             <dd class="msub cashsub" data-cashsub="middlesmoor"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="middlesmoor">—</span></dd>
-            <dd class="msub">cash on closing plus the $67,787 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $67,787 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$28,855</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$67,787</dd>
@@ -3015,7 +3018,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="woodvale">—</span></dd>
             <dd class="msub cashsub" data-cashsub="woodvale"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="woodvale">—</span></dd>
-            <dd class="msub">cash on closing plus the $83,776 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $83,776 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$30,171</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$83,776</dd>
@@ -3125,7 +3128,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="kent">—</span></dd>
             <dd class="msub cashsub" data-cashsub="kent"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="kent">—</span></dd>
-            <dd class="msub">cash on closing plus the $61,142 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $61,142 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$31,297</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$61,142</dd>
@@ -3235,7 +3238,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="caplan">—</span></dd>
             <dd class="msub cashsub" data-cashsub="caplan"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="caplan">—</span></dd>
-            <dd class="msub">cash on closing plus the $80,598 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $80,598 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$40,340</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$80,598</dd>
@@ -3345,7 +3348,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="samford">—</span></dd>
             <dd class="msub cashsub" data-cashsub="samford"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="samford">—</span></dd>
-            <dd class="msub">cash on closing plus the $95,437 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $95,437 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$36,114</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$95,437</dd>
@@ -3455,7 +3458,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="aldridge">—</span></dd>
             <dd class="msub cashsub" data-cashsub="aldridge"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="aldridge">—</span></dd>
-            <dd class="msub">cash on closing plus the $73,640 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $73,640 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$38,173</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$73,640</dd>
@@ -3565,7 +3568,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="oxlow">—</span></dd>
             <dd class="msub cashsub" data-cashsub="oxlow"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="oxlow">—</span></dd>
-            <dd class="msub">cash on closing plus the $50,770 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $50,770 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$24,489</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$50,770</dd>
@@ -3675,7 +3678,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="wood">—</span></dd>
             <dd class="msub cashsub" data-cashsub="wood"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="wood">—</span></dd>
-            <dd class="msub">cash on closing plus the $69,873 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $69,873 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$26,338</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$69,873</dd>
@@ -3785,7 +3788,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="crosby">—</span></dd>
             <dd class="msub cashsub" data-cashsub="crosby"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="crosby">—</span></dd>
-            <dd class="msub">cash on closing plus the $31,323 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $31,323 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$28,386</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$31,323</dd>
@@ -3895,7 +3898,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="osborne">—</span></dd>
             <dd class="msub cashsub" data-cashsub="osborne"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="osborne">—</span></dd>
-            <dd class="msub">cash on closing plus the $101,793 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $101,793 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$33,785</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$101,793</dd>
@@ -4005,7 +4008,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="grand">—</span></dd>
             <dd class="msub cashsub" data-cashsub="grand"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="grand">—</span></dd>
-            <dd class="msub">cash on closing plus the $147,929 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $147,929 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$37,430</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$147,929</dd>
@@ -4115,7 +4118,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="mountain-grove">—</span></dd>
             <dd class="msub cashsub" data-cashsub="mountain-grove"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="mountain-grove">—</span></dd>
-            <dd class="msub">cash on closing plus the $111,846 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $111,846 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$31,597</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$111,846</dd>
@@ -4225,7 +4228,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="wyandotte">—</span></dd>
             <dd class="msub cashsub" data-cashsub="wyandotte"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="wyandotte">—</span></dd>
-            <dd class="msub">cash on closing plus the $59,553 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $59,553 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$31,120</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$59,553</dd>
@@ -4335,7 +4338,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="centennial">—</span></dd>
             <dd class="msub cashsub" data-cashsub="centennial"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="centennial">—</span></dd>
-            <dd class="msub">cash on closing plus the $88,087 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $88,087 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$33,411</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$88,087</dd>
@@ -4445,7 +4448,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="cavendish">—</span></dd>
             <dd class="msub cashsub" data-cashsub="cavendish"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="cavendish">—</span></dd>
-            <dd class="msub">cash on closing plus the $125,003 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $125,003 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$29,271</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$125,003</dd>
@@ -4555,7 +4558,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="duncaster">—</span></dd>
             <dd class="msub cashsub" data-cashsub="duncaster"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="duncaster">—</span></dd>
-            <dd class="msub">cash on closing plus the $159,918 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $159,918 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$38,036</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$159,918</dd>
@@ -4665,7 +4668,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="weir">—</span></dd>
             <dd class="msub cashsub" data-cashsub="weir"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="weir">—</span></dd>
-            <dd class="msub">cash on closing plus the $106,916 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $106,916 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$45,489</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$106,916</dd>
@@ -4775,7 +4778,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="yarmouth">—</span></dd>
             <dd class="msub cashsub" data-cashsub="yarmouth"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="yarmouth">—</span></dd>
-            <dd class="msub">cash on closing plus the $149,068 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $149,068 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$37,527</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$149,068</dd>
@@ -4885,7 +4888,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="enfield">—</span></dd>
             <dd class="msub cashsub" data-cashsub="enfield"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="enfield">—</span></dd>
-            <dd class="msub">cash on closing plus the $173,784 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $173,784 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$84,179</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$173,784</dd>
@@ -4995,7 +4998,7 @@
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="sidesplit">—</span></dd>
             <dd class="msub cashsub" data-cashsub="sidesplit"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="sidesplit">—</span></dd>
-            <dd class="msub">cash on closing plus the $59,713 wish list, if you do it</dd></div>
+            <dd class="msub">plus the $59,713 wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>$54,398</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>$59,713</dd>
@@ -5722,7 +5725,8 @@
 .payhero,.pay{white-space:nowrap}
 .tablewrap table.big td.n,.tablewrap table.big th.n{text-align:center}
 .tablewrap table.big td.n .pay{font-weight:400}
-.money .hero{grid-column:span 2}
+.money .hero{grid-column:span 1}   /* six cells in two columns fill three rows exactly; a
+   spanning hero left the last row two-thirds empty, which was the dead space on the left */
 @media (max-width:520px){ .money .hero{grid-column:span 1} }
 .money .hero dd{color:var(--ink)}
 .money .hero dd .pay,.money .hero dd .payhero{font-weight:500; color:var(--ink)}

@@ -693,7 +693,7 @@ def card(rank, row, o, d, n_ranked):
           <div><dt>Cash on closing</dt><dd><span class="cashline" data-k="{k}">—</span></dd>
             <dd class="msub cashsub" data-cashsub="{k}"></dd></div>
           <div><dt>All-in cash</dt><dd><span class="allincash" data-k="{k}">—</span></dd>
-            <dd class="msub">cash on closing plus the {money(d['wish_p80'])} wish list, if you do it</dd></div>
+            <dd class="msub">plus the {money(d['wish_p80'])} wish list, if you do it</dd></div>
           <div><dt>Day-one work</dt><dd>{money(d['day1_p80'])}</dd>
             <dd class="msub">p80, before you move in</dd></div>
           <div><dt>Wish list</dt><dd>{money(d['wish_p80'])}</dd>
@@ -1432,7 +1432,8 @@ V6JS = r"""
 .payhero,.pay{white-space:nowrap}
 .tablewrap table.big td.n,.tablewrap table.big th.n{text-align:center}
 .tablewrap table.big td.n .pay{font-weight:400}
-.money .hero{grid-column:span 2}
+.money .hero{grid-column:span 1}   /* six cells in two columns fill three rows exactly; a
+   spanning hero left the last row two-thirds empty, which was the dead space on the left */
 @media (max-width:520px){ .money .hero{grid-column:span 1} }
 .money .hero dd{color:var(--ink)}
 .money .hero dd .pay,.money .hero dd .payhero{font-weight:500; color:var(--ink)}

@@ -108,8 +108,8 @@
   .stamp.link{background:var(--accent-soft); color:var(--accent); text-decoration:none}
   .stamp.link:hover{background:var(--accent); color:var(--card)}
 
-  .money{display:grid; grid-template-columns:repeat(auto-fit,minmax(112px,1fr));
-         gap:14px 10px; margin:0; padding:14px 0; border-block:1px solid var(--rule-soft)}
+  .money{display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr));
+         gap:14px 22px; margin:0; padding:14px 0; border-block:1px solid var(--rule-soft)}
   .money div{display:flex; flex-direction:column; gap:2px; min-width:0}
   .money dt{font-family:var(--mono); font-size:9.5px; letter-spacing:.08em;
             text-transform:uppercase; color:var(--muted)}
@@ -350,7 +350,7 @@
   .legend i{width:9px; height:9px; border-radius:50%; flex:none}
 
   /* ---------- prominent score ---------- */
-  .lot-head{display:grid; grid-template-columns:repeat(auto-fit,minmax(272px,1fr)); gap:18px 22px; align-items:start}
+  .lot-head{display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:18px 24px; align-items:start}
   .lh-text{min-width:0}
   .scorepanel{border:1px solid var(--rule); border-radius:8px; background:var(--paper);
     padding:13px 15px 12px; display:flex; flex-direction:column; gap:12px; min-width:0}
@@ -561,7 +561,9 @@
     .scorepanel{padding:12px 13px}
     .sp{grid-template-columns:52px minmax(0,1fr) 46px; gap:8px}
     .sp-num b,.rh-total b,.rh-num b{font-size:26px}
-    .money{grid-template-columns:1fr 1fr; gap:12px 10px}
+    /* One column on a phone. Two 160px cells cannot hold a 17px money figure and a
+       sub-line saying what it is made of without wrapping it to three lines. */
+    .money{grid-template-columns:1fr; gap:13px 0}
     .money dd{font-size:16px}
     .take{font-size:14.5px}
     .reno{padding:13px 14px}
