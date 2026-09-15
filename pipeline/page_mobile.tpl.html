@@ -352,6 +352,19 @@
   /* ---------- prominent score ---------- */
   .lot-head{display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:18px 24px; align-items:start}
   .lh-text{min-width:0}
+  /* The asking price, under the score panel. It is the one number the card did not carry:
+     V6.1 §6 dropped the "Price and financing" strip believing the ask was in the header line,
+     and it was not. Same type scale as a money cell so it reads as one of them. */
+  .lh-side{display:flex; flex-direction:column; gap:14px; min-width:0}
+  .askbox{display:flex; flex-direction:column; gap:2px; padding:12px 15px;
+          border:1px solid var(--rule); border-radius:10px; min-width:0}
+  .askbox dt{font-family:var(--mono); font-size:9.5px; letter-spacing:.08em;
+             text-transform:uppercase; color:var(--muted)}
+  .askbox dd{margin:0; font-family:var(--mono); font-size:22px; font-weight:500;
+             font-variant-numeric:tabular-nums; letter-spacing:-.02em; color:var(--ink)}
+  .askbox dd.msub{font-size:10.5px; font-weight:400; letter-spacing:.01em; color:var(--muted);
+                  line-height:1.45; margin-top:1px}
+
   .scorepanel{border:1px solid var(--rule); border-radius:8px; background:var(--paper);
     padding:13px 15px 12px; display:flex; flex-direction:column; gap:12px; min-width:0}
   .sp-top{display:flex; align-items:center; gap:13px}
@@ -454,7 +467,13 @@
     background:var(--rule-soft); overflow:hidden; flex:none}
   .scorecol .bar i{display:block; height:100%}
   th.scoreth{color:var(--accent)!important}
-  @media (max-width:640px){ .lot-head{grid-template-columns:1fr} }
+  @media (max-width:640px){
+    .lot-head{grid-template-columns:1fr}
+    /* display:contents lets the two side pieces be ordered independently once the
+       head stacks, so the ask lands above the panel rather than below everything. */
+    .lh-side{display:contents}
+    .lh-text{order:1} .askbox{order:2} .scorepanel{order:3}
+  }
 
   /* ---------- renovations needed, reworked ---------- */
   .reno{padding:14px 16px 12px}

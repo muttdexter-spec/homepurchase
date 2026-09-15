@@ -652,6 +652,25 @@ def details_wrap(summary, inner, open_when_showing=False):
     cls = ' class="v6sec showopen"' if open_when_showing else ' class="v6sec"'
     return f'<details{cls}><summary>{esc(summary)}</summary>{inner}</details>'
 
+
+def ask_box(o, row, d):
+    """The asking price. It was the one number missing from the card: V6.1 §6 removed the
+    "Price and financing" strip on the understanding that the ask was in the header line, and it
+    was not. It sits under the score panel, which is the only empty space on the head, with the
+    two facts that give it scale: what it works out to per above-grade foot, and how long it has
+    been sitting."""
+    ask = o["list_price"]
+    ag = o.get("sqft_above") or 0
+    bits = []
+    if ag: bits.append(f"{money(ask/ag)} per sq ft above grade")
+    dm = dom_days(o)
+    if dm: bits.append(f"{dm} day{'s' if dm != 1 else ''} on market")
+    st = status_of(o)
+    if st in ("sold", "delisted"): bits.append(st)
+    return (f'<div class="askbox"><dt>Asking</dt><dd>{money(ask)}</dd>'
+            + (f'<dd class="msub">{" &middot; ".join(esc(x) for x in bits)}</dd>' if bits else "")
+            + "</div>")
+
 def card(rank, row, o, d, n_ranked):
     slug = o["slug"]; k = short(slug)
     url = URLT.replace("{ID}", o["listing_id"])
@@ -717,7 +736,7 @@ def card(rank, row, o, d, n_ranked):
             <dd class="msub">over {HOLD_DEF} years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          {scorepanel(o, d, row)}
+          <div class="lh-side">{scorepanel(o, d, row)}{ask_box(o, row, d)}</div>
         </div>
         <dl class="live-row" data-live="{k}" data-ask="{o['list_price']}"
             data-peryear="{round(num(row, 'cost_hold_per_year'))}"

@@ -357,6 +357,19 @@
      dead space under the panel. Text takes the remainder. */
   .lot-head{display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:18px 24px; align-items:start}
   .lh-text{min-width:0}
+  /* The asking price, under the score panel. It is the one number the card did not carry:
+     V6.1 §6 dropped the "Price and financing" strip believing the ask was in the header line,
+     and it was not. Same type scale as a money cell so it reads as one of them. */
+  .lh-side{display:flex; flex-direction:column; gap:14px; min-width:0}
+  .askbox{display:flex; flex-direction:column; gap:2px; padding:12px 15px;
+          border:1px solid var(--rule); border-radius:10px; min-width:0}
+  .askbox dt{font-family:var(--mono); font-size:9.5px; letter-spacing:.08em;
+             text-transform:uppercase; color:var(--muted)}
+  .askbox dd{margin:0; font-family:var(--mono); font-size:22px; font-weight:500;
+             font-variant-numeric:tabular-nums; letter-spacing:-.02em; color:var(--ink)}
+  .askbox dd.msub{font-size:10.5px; font-weight:400; letter-spacing:.01em; color:var(--muted);
+                  line-height:1.45; margin-top:1px}
+
   .scorepanel{border:1px solid var(--rule); border-radius:8px; background:var(--paper);
     padding:13px 15px 12px; display:flex; flex-direction:column; gap:12px; min-width:0}
   .sp-top{display:flex; align-items:center; gap:13px}
@@ -460,7 +473,13 @@
     background:var(--rule-soft); overflow:hidden; flex:none}
   .scorecol .bar i{display:block; height:100%}
   th.scoreth{color:var(--accent)!important}
-  @media (max-width:640px){ .lot-head{grid-template-columns:1fr} }
+  @media (max-width:640px){
+    .lot-head{grid-template-columns:1fr}
+    /* display:contents lets the two side pieces be ordered independently once the
+       head stacks, so the ask lands above the panel rather than below everything. */
+    .lh-side{display:contents}
+    .lh-text{order:1} .askbox{order:2} .scorepanel{order:3}
+  }
 
   /* ---------- renovations needed, reworked ---------- */
   .reno{padding:14px 16px 12px}
@@ -835,7 +854,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>76</b><i>/ 100</i></span>
@@ -852,7 +871,7 @@
                 <div class="sp" title="1 garage, 5 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,199,000</dd><dd class="msub">$724 per sq ft above grade &middot; 66 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="barberry" data-ask="1199000"
             data-peryear="72906"
@@ -945,7 +964,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>78</b><i>/ 100</i></span>
@@ -962,7 +981,7 @@
                 <div class="sp" title="2 garage, 6 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,249,900</dd><dd class="msub">$583 per sq ft above grade &middot; 1 day on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="delaney" data-ask="1249900"
             data-peryear="78669"
@@ -1055,7 +1074,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>71</b><i>/ 100</i></span>
@@ -1072,7 +1091,7 @@
                 <div class="sp" title="1 garage, 2 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:62%"></i></span><b>62<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,194,900</dd><dd class="msub">$696 per sq ft above grade &middot; 16 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="seton" data-ask="1194900"
             data-peryear="76658"
@@ -1165,7 +1184,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>71</b><i>/ 100</i></span>
@@ -1182,7 +1201,7 @@
                 <div class="sp" title="1 garage, 5 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             <p class="sp-foot" style="border-top:none; padding-top:4px">A split-level plan is docked 5%, which is already in the score above.</p>
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,174,900</dd><dd class="msub">$691 per sq ft above grade</dd></div></div>
         </div>
         <dl class="live-row" data-live="clinton" data-ask="1174900"
             data-peryear="72593"
@@ -1275,7 +1294,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>74</b><i>/ 100</i></span>
@@ -1292,7 +1311,7 @@
                 <div class="sp" title="2 garage, 4 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,299,900</dd><dd class="msub">$630 per sq ft above grade &middot; 1 day on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="pinemeadow" data-ask="1299900"
             data-peryear="80387"
@@ -1385,7 +1404,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>67</b><i>/ 100</i></span>
@@ -1402,7 +1421,7 @@
                 <div class="sp" title="2 garage, 4 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,235,000</dd><dd class="msub">$677 per sq ft above grade &middot; 1 day on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="hazelwood" data-ask="1235000"
             data-peryear="76575"
@@ -1495,7 +1514,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>70</b><i>/ 100</i></span>
@@ -1512,7 +1531,7 @@
                 <div class="sp" title="2 garage, 4 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,274,999</dd><dd class="msub">$491 per sq ft above grade &middot; 1 day on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="tania" data-ask="1274999"
             data-peryear="80244"
@@ -1605,7 +1624,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>70</b><i>/ 100</i></span>
@@ -1622,7 +1641,7 @@
                 <div class="sp" title="1 garage, 3 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:75%"></i></span><b>75<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,299,000</dd><dd class="msub">$734 per sq ft above grade &middot; 1 day on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="pondview" data-ask="1299000"
             data-peryear="83383"
@@ -1715,7 +1734,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>66</b><i>/ 100</i></span>
@@ -1732,7 +1751,7 @@
                 <div class="sp" title="2 garage, 4 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,250,000</dd><dd class="msub">$615 per sq ft above grade &middot; 19 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="columbus" data-ask="1250000"
             data-peryear="82270"
@@ -1825,7 +1844,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>71</b><i>/ 100</i></span>
@@ -1842,7 +1861,7 @@
                 <div class="sp" title="2 garage, 4 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             <p class="sp-foot" style="border-top:none; padding-top:4px">A split-level plan is docked 5%, which is already in the score above.</p>
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,299,999</dd><dd class="msub">$803 per sq ft above grade &middot; 31 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="cherrywood" data-ask="1299999"
             data-peryear="81527"
@@ -1935,7 +1954,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>62</b><i>/ 100</i></span>
@@ -1952,7 +1971,7 @@
                 <div class="sp" title="1 garage, 2 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:62%"></i></span><b>62<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,098,000</dd><dd class="msub">$590 per sq ft above grade &middot; 1 day on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="ravine" data-ask="1098000"
             data-peryear="75587"
@@ -2045,7 +2064,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>62</b><i>/ 100</i></span>
@@ -2062,7 +2081,7 @@
                 <div class="sp" title="1 garage, 3 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:75%"></i></span><b>75<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,098,000</dd><dd class="msub">$682 per sq ft above grade &middot; 1 day on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="stillmeadow" data-ask="1098000"
             data-peryear="71764"
@@ -2155,7 +2174,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>65</b><i>/ 100</i></span>
@@ -2172,7 +2191,7 @@
                 <div class="sp" title="1 garage, 4 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:88%"></i></span><b>88<s> / 100</s></b></div>
             </div>
             <p class="sp-foot" style="border-top:none; padding-top:4px">A split-level plan is docked 5%, which is already in the score above.</p>
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,299,900</dd><dd class="msub">$819 per sq ft above grade &middot; 30 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="christina" data-ask="1299900"
             data-peryear="78578"
@@ -2265,7 +2284,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>60</b><i>/ 100</i></span>
@@ -2282,7 +2301,7 @@
                 <div class="sp" title="1 garage, 3 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:75%"></i></span><b>75<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,050,000</dd><dd class="msub">$604 per sq ft above grade</dd></div></div>
         </div>
         <dl class="live-row" data-live="bunton" data-ask="1050000"
             data-peryear="69412"
@@ -2375,7 +2394,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>58</b><i>/ 100</i></span>
@@ -2392,7 +2411,7 @@
                 <div class="sp" title="1 garage, 5 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             <p class="sp-foot" style="border-top:none; padding-top:4px">A split-level plan is docked 5%, which is already in the score above.</p>
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,228,000</dd><dd class="msub">$875 per sq ft above grade &middot; 65 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="pallatine" data-ask="1228000"
             data-peryear="74837"
@@ -2485,7 +2504,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>58</b><i>/ 100</i></span>
@@ -2502,7 +2521,7 @@
                 <div class="sp" title="1 garage, 2 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:62%"></i></span><b>62<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$999,900</dd><dd class="msub">$613 per sq ft above grade</dd></div></div>
         </div>
         <dl class="live-row" data-live="bonnie" data-ask="999900"
             data-peryear="64848"
@@ -2595,7 +2614,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>57</b><i>/ 100</i></span>
@@ -2612,7 +2631,7 @@
                 <div class="sp" title="1.5 garage, 5 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,199,000</dd><dd class="msub">$1,170 per sq ft above grade &middot; 25 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="maplewood" data-ask="1199000"
             data-peryear="75050"
@@ -2705,7 +2724,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>55</b><i>/ 100</i></span>
@@ -2722,7 +2741,7 @@
                 <div class="sp" title="1 garage, 4 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:88%"></i></span><b>88<s> / 100</s></b></div>
             </div>
             <p class="sp-foot" style="border-top:none; padding-top:4px">A split-level plan is docked 5%, which is already in the score above.</p>
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,079,000</dd><dd class="msub">$712 per sq ft above grade</dd></div></div>
         </div>
         <dl class="live-row" data-live="rexway" data-ask="1079000"
             data-peryear="70245"
@@ -2815,7 +2834,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>56</b><i>/ 100</i></span>
@@ -2832,7 +2851,7 @@
                 <div class="sp" title="1 garage, 4 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:88%"></i></span><b>88<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,249,000</dd><dd class="msub">$1,039 per sq ft above grade &middot; delisted</dd></div></div>
         </div>
         <dl class="live-row" data-live="lark" data-ask="1249000"
             data-peryear="77647"
@@ -2925,7 +2944,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>55</b><i>/ 100</i></span>
@@ -2942,7 +2961,7 @@
                 <div class="sp" title="1 garage, 3 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:75%"></i></span><b>75<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,049,900</dd><dd class="msub">$729 per sq ft above grade &middot; 24 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="middlesmoor" data-ask="1049900"
             data-peryear="64288"
@@ -3035,7 +3054,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>61</b><i>/ 100</i></span>
@@ -3052,7 +3071,7 @@
                 <div class="sp" title="0 garage, 4 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:50%"></i></span><b>50<s> / 100</s></b></div>
             </div>
             <p class="sp-foot" style="border-top:none; padding-top:4px">A split-level plan is docked 5%, which is already in the score above.</p>
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,269,900</dd><dd class="msub">$716 per sq ft above grade &middot; 1 day on market &middot; delisted</dd></div></div>
         </div>
         <dl class="live-row" data-live="woodvale" data-ask="1269900"
             data-peryear="81031"
@@ -3145,7 +3164,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>52</b><i>/ 100</i></span>
@@ -3162,7 +3181,7 @@
                 <div class="sp" title="1.5 garage, 5 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,179,000</dd><dd class="msub">$1,111 per sq ft above grade &middot; 38 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="kent" data-ask="1179000"
             data-peryear="72320"
@@ -3255,7 +3274,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>52</b><i>/ 100</i></span>
@@ -3272,7 +3291,7 @@
                 <div class="sp" title="1 garage, 4 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:88%"></i></span><b>88<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$988,800</dd><dd class="msub">$751 per sq ft above grade &middot; 1 day on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="caplan" data-ask="988800"
             data-peryear="61431"
@@ -3365,7 +3384,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>51</b><i>/ 100</i></span>
@@ -3382,7 +3401,7 @@
                 <div class="sp" title="2 garage, 6 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,099,000</dd><dd class="msub">$1,076 per sq ft above grade &middot; 72 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="samford" data-ask="1099000"
             data-peryear="68012"
@@ -3475,7 +3494,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>50</b><i>/ 100</i></span>
@@ -3492,7 +3511,7 @@
                 <div class="sp" title="1 garage, 5 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             <p class="sp-foot" style="border-top:none; padding-top:4px">A split-level plan is docked 5%, which is already in the score above.</p>
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,018,800</dd><dd class="msub">$886 per sq ft above grade &middot; 8 days on market &middot; delisted</dd></div></div>
         </div>
         <dl class="live-row" data-live="aldridge" data-ask="1018800"
             data-peryear="63581"
@@ -3585,7 +3604,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>55</b><i>/ 100</i></span>
@@ -3602,7 +3621,7 @@
                 <div class="sp" title="1 garage, 3 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:75%"></i></span><b>75<s> / 100</s></b></div>
             </div>
             <p class="sp-foot" style="border-top:none; padding-top:4px">A split-level plan is docked 5%, which is already in the score above.</p>
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,249,999</dd><dd class="msub">$1,074 per sq ft above grade &middot; 29 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="oxlow" data-ask="1249999"
             data-peryear="79171"
@@ -3695,7 +3714,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>50</b><i>/ 100</i></span>
@@ -3712,7 +3731,7 @@
                 <div class="sp" title="1 garage, 3 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:75%"></i></span><b>75<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,099,900</dd><dd class="msub">$826 per sq ft above grade &middot; 15 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="wood" data-ask="1099900"
             data-peryear="70942"
@@ -3805,7 +3824,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>50</b><i>/ 100</i></span>
@@ -3822,7 +3841,7 @@
                 <div class="sp" title="0 garage, 5 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:62%"></i></span><b>62<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,149,900</dd><dd class="msub">$954 per sq ft above grade &middot; delisted</dd></div></div>
         </div>
         <dl class="live-row" data-live="crosby" data-ask="1149900"
             data-peryear="70348"
@@ -3915,7 +3934,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>53</b><i>/ 100</i></span>
@@ -3932,7 +3951,7 @@
                 <div class="sp" title="1 garage, 5 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             <p class="sp-foot" style="border-top:none; padding-top:4px">A split-level plan is docked 5%, which is already in the score above.</p>
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,299,000</dd><dd class="msub">$980 per sq ft above grade &middot; 46 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="osborne" data-ask="1299000"
             data-peryear="79122"
@@ -4025,7 +4044,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>52</b><i>/ 100</i></span>
@@ -4042,7 +4061,7 @@
                 <div class="sp" title="2 garage, 6 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,299,900</dd><dd class="msub">$758 per sq ft above grade &middot; 1 day on market &middot; delisted</dd></div></div>
         </div>
         <dl class="live-row" data-live="grand" data-ask="1299900"
             data-peryear="79487"
@@ -4135,7 +4154,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>48</b><i>/ 100</i></span>
@@ -4152,7 +4171,7 @@
                 <div class="sp" title="0 garage, 5 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:62%"></i></span><b>62<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,079,000</dd><dd class="msub">$1,045 per sq ft above grade &middot; 2 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="mountain-grove" data-ask="1079000"
             data-peryear="66842"
@@ -4245,7 +4264,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>51</b><i>/ 100</i></span>
@@ -4262,7 +4281,7 @@
                 <div class="sp" title="1 garage, 2 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:62%"></i></span><b>62<s> / 100</s></b></div>
             </div>
             <p class="sp-foot" style="border-top:none; padding-top:4px">A split-level plan is docked 5%, which is already in the score above.</p>
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,299,999</dd><dd class="msub">$1,040 per sq ft above grade &middot; 3 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="wyandotte" data-ask="1299999"
             data-peryear="83797"
@@ -4355,7 +4374,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>45</b><i>/ 100</i></span>
@@ -4372,7 +4391,7 @@
                 <div class="sp" title="1 garage, 3 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:75%"></i></span><b>75<s> / 100</s></b></div>
             </div>
             <p class="sp-foot" style="border-top:none; padding-top:4px">A split-level plan is docked 5%, which is already in the score above.</p>
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,059,900</dd><dd class="msub">$815 per sq ft above grade</dd></div></div>
         </div>
         <dl class="live-row" data-live="centennial" data-ask="1059900"
             data-peryear="68727"
@@ -4465,7 +4484,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>45</b><i>/ 100</i></span>
@@ -4482,7 +4501,7 @@
                 <div class="sp" title="0 garage, 4 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:50%"></i></span><b>50<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$969,900</dd><dd class="msub">$882 per sq ft above grade</dd></div></div>
         </div>
         <dl class="live-row" data-live="cavendish" data-ask="969900"
             data-peryear="60261"
@@ -4575,7 +4594,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>44</b><i>/ 100</i></span>
@@ -4592,7 +4611,7 @@
                 <div class="sp" title="1 garage, 3 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:75%"></i></span><b>75<s> / 100</s></b></div>
             </div>
             <p class="sp-foot" style="border-top:none; padding-top:4px">A split-level plan is docked 5%, which is already in the score above.</p>
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,169,000</dd><dd class="msub">$969 per sq ft above grade &middot; 2 days on market &middot; delisted</dd></div></div>
         </div>
         <dl class="live-row" data-live="duncaster" data-ask="1169000"
             data-peryear="72525"
@@ -4685,7 +4704,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>46</b><i>/ 100</i></span>
@@ -4702,7 +4721,7 @@
                 <div class="sp" title="0 garage, 6 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:75%"></i></span><b>75<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,299,999</dd><dd class="msub">$1,285 per sq ft above grade &middot; 31 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="weir" data-ask="1299999"
             data-peryear="79280"
@@ -4795,7 +4814,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>42</b><i>/ 100</i></span>
@@ -4812,7 +4831,7 @@
                 <div class="sp" title="2 garage, 6 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$1,298,000</dd><dd class="msub">$1,151 per sq ft above grade &middot; 50 days on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="yarmouth" data-ask="1298000"
             data-peryear="79347"
@@ -4905,7 +4924,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>33</b><i>/ 100</i></span>
@@ -4922,7 +4941,7 @@
                 <div class="sp" title="1 garage, 6 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:100%"></i></span><b>100<s> / 100</s></b></div>
             </div>
             
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$825,000</dd><dd class="msub">$637 per sq ft above grade &middot; 1 day on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="enfield" data-ask="825000"
             data-peryear="54712"
@@ -5015,7 +5034,7 @@
             <dd class="msub">over 5 years, cash you will not get back. No appreciation assumed.</dd></div>
           </dl>
           </div>
-          <aside class="scorepanel">
+          <div class="lh-side"><aside class="scorepanel">
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."><b>—</b><i>/ 100</i></span>
@@ -5032,7 +5051,7 @@
                 <div class="sp" title="0 garage, 5 on the drive"><em>Parking<u class="spw">2%</u></em><span><i style="width:62%"></i></span><b>62<s> / 100</s></b></div>
             </div>
             <p class="sp-foot" style="border-top:none; padding-top:4px">A split-level plan is docked 5%, which is already in the score above.</p>
-          </aside>
+          </aside><div class="askbox"><dt>Asking</dt><dd>$999,900</dd><dd class="msub">$1,049 per sq ft above grade &middot; 1 day on market</dd></div></div>
         </div>
         <dl class="live-row" data-live="sidesplit" data-ask="999900"
             data-peryear="63586"
