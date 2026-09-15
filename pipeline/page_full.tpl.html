@@ -109,7 +109,10 @@
   .stamp.link:hover{background:var(--accent); color:var(--card)}
 
   .money{display:grid; grid-template-columns:repeat(auto-fit,minmax(232px,1fr));
-         gap:14px 22px; margin:0; padding:14px 0; border-block:1px solid var(--rule-soft)}
+         gap:14px 22px; margin:0; padding:16px 0 4px}
+  /* No border-block. The money block sits in the left column of a two-column head, so a
+     rule on it spans half the card and stops dead in the middle. The full-width rules on
+     the card are .v6sec's, which sit outside .lot-head and reach across properly. */
   .money div{display:flex; flex-direction:column; gap:2px; min-width:0}
   .money dt{font-family:var(--mono); font-size:9.5px; letter-spacing:.08em;
             text-transform:uppercase; color:var(--muted)}
