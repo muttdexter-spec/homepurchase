@@ -384,52 +384,69 @@
     border-top:1px solid var(--rule-soft); padding-top:9px}
   .scorecol{display:flex; align-items:center; gap:5px}
 
-  /* ---- V6.1 §4 + SCORING-EXPLANATION-FINAL: the why block. No new CSS variables. ---- */
-  .w6-whyblock{margin:10px 0 2px; padding:10px 0 0; border-top:1px solid var(--rule)}
-  .w6-contrib{margin:0 0 10px}
-  .w6-cbar{display:flex; height:9px; border-radius:5px; overflow:hidden; background:var(--track); margin-bottom:6px}
+  /* ---- V6.1 §4 + SCORING-EXPLANATION-FINAL: the why block. Namespaced w6- throughout, after
+     a .wl collision with the wish-list section broke the Renovations layout. No new variables. ---- */
+  .w6-whyblock{margin:12px 0 2px; padding:11px 0 0; border-top:1px solid var(--rule)}
+  .w6-contrib{margin:0 0 11px}
+  .w6-cbar{display:flex; height:9px; border-radius:5px; overflow:hidden; background:var(--rule-soft); margin-bottom:7px}
   .w6-cbar .w6-cseg{display:block; height:100%; background:var(--accent); border-right:1px solid var(--card)}
-  .w6-cbar .w6-cseg:nth-child(even){opacity:.72}
+  .w6-cbar .w6-cseg:nth-child(even){opacity:.7}
   .w6-whyline{margin:0 0 3px; font-size:12px; color:var(--ink); line-height:1.5}
   .w6-whyline b{font-variant-numeric:tabular-nums}
   .w6-whyline.left{color:var(--muted)}
-  .w6-whyline.cost{color:var(--muted); margin-top:4px}
-  .w6-wl{display:grid; grid-template-columns:76px 30px 118px 1fr auto; align-items:center;
-      gap:8px; padding:3px 0; font-size:12px; border-top:1px dotted var(--rule)}
-  .w6-wl em{font-style:normal; font-size:9.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted)}
-  .w6-wl b.v{font-variant-numeric:tabular-nums; text-align:right; font-size:12.5px}
-  .w6-wl .w6-wf{color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
-  .w6-wl .w6-adds{font-style:normal; font-size:9.5px; letter-spacing:.05em; color:var(--muted); white-space:nowrap}
-  .w6-rngbar{position:relative; display:inline-block; width:74px; height:7px; border-radius:4px;
-          background:var(--track); vertical-align:middle}
-  .w6-rngbar .w6-tick{position:absolute; top:-2px; width:1px; height:11px; background:var(--rule)}
-  .w6-rngbar .w6-dot{position:absolute; top:-1px; width:7px; height:9px; margin-left:-3px; border-radius:2px; background:var(--accent)}
-  .w6-rnglab{font-style:normal; font-size:9px; color:var(--muted); margin-left:5px; white-space:nowrap}
-  .w6-locparts{margin:2px 0 4px 84px; padding-left:10px; border-left:2px solid var(--rule)}
-  .w6-lp{display:grid; grid-template-columns:64px 58px 54px 1fr; align-items:center; gap:7px;
-      font-size:11px; padding:1.5px 0}
+  .w6-whyline.cost{color:var(--muted); margin-top:5px}
+
+  /* One row per component: label | score | bar and range | fact | contribution.
+     FIVE grid children, and rangebar() must return exactly one of them. */
+  .w6-wl{display:grid; grid-template-columns:82px 32px 150px minmax(0,1fr) auto;
+         align-items:baseline; gap:12px; padding:6px 0; font-size:12px;
+         border-top:1px dotted var(--rule)}
+  .w6-lab{font-style:normal; font-size:9.5px; letter-spacing:.07em; text-transform:uppercase;
+          color:var(--muted); white-space:nowrap}
+  .w6-val{font-variant-numeric:tabular-nums; text-align:right; font-size:13.5px; font-weight:600}
+  .w6-scale{display:flex; align-items:center; gap:8px; transform:translateY(-1px)}
+  .w6-rngbar{position:relative; flex:0 0 76px; height:5px; border-radius:3px; background:var(--rule-soft)}
+  .w6-tick{position:absolute; top:-2.5px; width:1px; height:10px; background:var(--rule)}
+  .w6-dot{position:absolute; top:-2.5px; width:6px; height:10px; margin-left:-3px;
+          border-radius:2px; background:var(--accent)}
+  .w6-rnglab{font-style:normal; text-decoration:none; font-size:9.5px; color:var(--muted);
+             white-space:nowrap; font-variant-numeric:tabular-nums; letter-spacing:.02em}
+  .w6-wf{color:var(--ink); min-width:0; line-height:1.45}
+  .w6-adds{font-style:normal; text-decoration:none; font-size:9.5px; letter-spacing:.04em;
+           color:var(--muted); white-space:nowrap; text-align:right}
+  .w6-adds b{font-weight:600; color:var(--ink); font-variant-numeric:tabular-nums}
+
+  /* The two blocks that open under a row. Indented to start at the bar column so the eye
+     reads them as belonging to the line above. */
+  .w6-sub{margin:2px 0 8px 126px; padding-left:13px; border-left:2px solid var(--rule)}
+  .w6-lp{display:grid; grid-template-columns:74px 72px 58px minmax(0,1fr); align-items:center;
+         gap:10px; font-size:11px; padding:2px 0}
   .w6-lp em{font-style:normal; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted)}
-  .w6-lp span{display:block; height:5px; border-radius:3px; background:var(--track); overflow:hidden}
-  .w6-lp span i{display:block; height:100%; background:var(--accent); opacity:.8}
-  .w6-lp b{font-variant-numeric:tabular-nums; font-size:11px}
+  .w6-lp span{display:block; height:5px; border-radius:3px; background:var(--rule-soft); overflow:hidden}
+  .w6-lp span i{display:block; height:100%; background:var(--accent); opacity:.75}
+  .w6-lp b{font-variant-numeric:tabular-nums; font-size:11px; white-space:nowrap}
   .w6-lp b s{text-decoration:none; color:var(--muted); font-size:9.5px}
-  .w6-lp u{text-decoration:none; color:var(--muted); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
-  .w6-condblock{margin:2px 0 4px 84px; padding-left:10px; border-left:2px solid var(--rule)}
-  .w6-cbk{display:grid; grid-template-columns:86px 62px 1fr; align-items:baseline; gap:7px; font-size:11px; padding:1.5px 0}
+  .w6-cbk{display:grid; grid-template-columns:82px 64px minmax(0,1fr); align-items:baseline;
+          gap:10px; font-size:11px; padding:2px 0}
   .w6-cbk em{font-style:normal; font-size:9.5px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted)}
-  .w6-cbk b{font-variant-numeric:tabular-nums; text-align:right}
-  .w6-cbk u{text-decoration:none; color:var(--muted)}
-  .w6-cswing{margin:4px 0 0; font-size:11px; color:var(--ink)}
-  .w6-ranknote{margin:2px 0 0; font-size:11px; color:var(--muted)}
+  .w6-cbk b{font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap}
+  .w6-d{font-style:normal; text-decoration:none; color:var(--muted); min-width:0; line-height:1.4}
+  .w6-cswing{margin:6px 0 0; font-size:11px; color:var(--ink); line-height:1.45}
+  .w6-ranknote{margin:3px 0 0; font-size:11px; color:var(--muted)}
   .w6-ranknote b{font-variant-numeric:tabular-nums; color:var(--ink)}
-  @media (max-width:560px){
-    .w6-wl{grid-template-columns:70px 28px 1fr; row-gap:1px}
-    .w6-wl .w6-rngbar,.w6-wl .w6-rnglab{display:none}
-    .w6-wl .w6-adds{grid-column:2/4; font-size:9px}
-    .w6-locparts,.w6-condblock{margin-left:0}
-    .w6-lp{grid-template-columns:58px 46px 48px}
-    .w6-lp u{display:none}
-    .w6-cbk{grid-template-columns:74px 56px 1fr}
+
+  @media (max-width:640px){
+    .w6-wl{grid-template-columns:minmax(0,1fr) auto; gap:3px 10px; padding:7px 0}
+    .w6-lab{grid-column:1; grid-row:1}
+    .w6-val{grid-column:2; grid-row:1}
+    .w6-scale{display:none}
+    .w6-wf{grid-column:1/-1; grid-row:2; font-size:11.5px}
+    .w6-adds{grid-column:1/-1; grid-row:3; text-align:left}
+    .w6-sub{margin-left:0; padding-left:11px}
+    .w6-lp{grid-template-columns:66px 56px 54px; row-gap:0}
+    .w6-lp .w6-d{grid-column:1/-1; font-size:10.5px; padding-bottom:3px}
+    .w6-cbk{grid-template-columns:74px minmax(0,1fr)}
+    .w6-cbk .w6-d{grid-column:1/-1}
   }
 
   .scorecol .l{font-family:var(--mono); font-size:11px; font-weight:500; width:16px}

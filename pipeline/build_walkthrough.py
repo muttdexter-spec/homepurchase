@@ -257,14 +257,17 @@ def _batch_ranges():
         if vals: BATCH_RANGE[k] = (min(vals), max(vals))
 
 def rangebar(k, v):
-    """The .scorecol mini-bar with the batch minimum and maximum as ticks and this house as the dot."""
+    """One element, not two. The mini-bar and its range label live inside a single grid child,
+    because .w6-wl is a five-column grid and a sixth child silently wraps every row onto a second
+    line. That is what broke the block the first time."""
     lo, hi = BATCH_RANGE.get(k, (0.0, 100.0))
     if hi <= lo: hi = lo + 1
     pos = max(0.0, min(100.0, 100.0 * (v - lo) / (hi - lo)))
-    return (f'<span class="w6-rngbar" title="the batch runs {lo:.0f} to {hi:.0f}">'
+    return (f'<span class="w6-scale" title="the batch runs {lo:.0f} to {hi:.0f}">'
+            f'<span class="w6-rngbar">'
             f'<s class="w6-tick" style="left:0"></s><s class="w6-tick" style="left:100%"></s>'
             f'<i class="w6-dot" style="left:{pos:.1f}%"></i></span>'
-            f'<u class="w6-rnglab">{lo:.0f} to {hi:.0f}</u>')
+            f'<i class="w6-rnglab">{lo:.0f}&ndash;{hi:.0f}</i></span>')
 
 def contrib_bar(row):
     """V6.1 §4.1: where the quality number comes from, and what is left on the table."""
@@ -302,7 +305,7 @@ def loc_parts_html(d):
         rows.append(f'<div class="w6-lp"><em>{k.capitalize()}</em>'
                     f'<span><i style="width:{w:.0f}%"></i></span>'
                     f'<b>{v["pts"]:.0f}<s> of {v["max"]}</s></b>'
-                    f'<u>{esc(v["detail"])}</u></div>')
+                    f'<i class="w6-d">{esc(v["detail"])}</i></div>')
     return '<div class="w6-locparts">' + "".join(rows) + "</div>"
 
 def condition_html(d):
@@ -311,10 +314,10 @@ def condition_html(d):
     if not cb: return ""
     rows = "".join(
         f'<div class="w6-cbk"><em>{esc(b["bucket"])}</em><b>{money10(b["total"])}</b>'
-        f'<u>{esc(b["top"])}</u></div>' for b in cb["buckets"])
+        f'<i class="w6-d">{esc(b["top"])}</i></div>' for b in cb["buckets"])
     unseen = ", ".join(x.replace("_", " ") for x in cb["unseen"])
-    urow = (f'<div class="w6-cbk"><em>unseen</em><b></b><u>{esc(unseen)} &middot; on your showing list</u></div>'
-            if unseen else '<div class="w6-cbk"><em>unseen</em><b></b><u>nothing the model prices</u></div>')
+    urow = (f'<div class="w6-cbk"><em>unseen</em><b></b><i class="w6-d">{esc(unseen)} &middot; on your showing list</i></div>'
+            if unseen else '<div class="w6-cbk"><em>unseen</em><b></b><i class="w6-d">nothing the model prices</i></div>')
     swing = ""
     if abs(cb["if_clean"] - cb["if_defect"]) >= 0.15:
         swing = (f'<p class="w6-cswing">A showing could move this to <b>{cb["if_clean"]:.0f}</b> if everything '
@@ -332,13 +335,17 @@ def why_block(o, d, row):
         w = W_QUAL[k] if REFRAMED else W_JOINT[k]
         pts = w * c[k] / 100.0
         fact = (ex.get(k) or {}).get("fact", "")
+        # location's fact IS the five parts, and they are drawn in full underneath. Repeating
+        # them on the row pushed the line off the right edge and said nothing new.
+        if k == "location": fact = "five parts, below"
         out.append(
-            f'<div class="w6-wl"><em>{COMP_LABEL[k]}</em><b class="v">{c[k]:.0f}</b>'
+            f'<div class="w6-wl"><em class="w6-lab">{COMP_LABEL[k]}</em>'
+            f'<b class="w6-val">{c[k]:.0f}</b>'
             f'{rangebar(k, c[k])}'
             f'<span class="w6-wf">{esc(fact)}</span>'
-            f'<u class="w6-adds">adds {pts:.0f} of {w:.0f}</u></div>')
-        if k == "location": out.append(loc_parts_html(d))
-        if k == "condition": out.append(condition_html(d))
+            f'<span class="w6-adds">adds <b>{pts:.0f}</b> of {w:.0f}</span></div>')
+        if k == "location": out.append('<div class="w6-sub">' + loc_parts_html(d) + "</div>")
+        if k == "condition": out.append('<div class="w6-sub">' + condition_html(d) + "</div>")
     return ('<div class="w6-whyblock">' + contrib_bar(row) + "".join(out) +
             '<p class="sp-foot">Every scale is defined once, in <a href="#gloss-scales">How the scales work</a>.</p>'
             '</div>')
