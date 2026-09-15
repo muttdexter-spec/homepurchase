@@ -527,8 +527,23 @@ def reno_html(o, d, row):
     return (f'<section class="reno"><h3>Renovations</h3>{head}<ul>{li}</ul>{mb}{inner}</section>')
 
 # ---------- status, days on market, what changed ----------
+LIVE_DATE = "12 September"
+
 def status_of(o):
-    return (o.get("status") or ("active" if o["listing_id"] in LIVE_IDS else "delisted"))
+    """A listing's status, and the important word is UNKNOWN.
+
+    This used to read: not in the live check, therefore delisted. That is inferring a fact from
+    the absence of evidence, and it was wrong on six listings, including 1333 Woodvale Place and
+    1177 Grand Boulevard at ONE day on market. The live check is a snapshot taken on
+    12 September covering 33 of the 39 listings; anything outside it has simply not been looked
+    at since, which is not the same as being off the market.
+
+    So: `active` when a record says so or the listing was in the live check, `sold` or `delisted`
+    only when a record says so explicitly, and `unknown` otherwise. Nothing greys a card or prints
+    a status stamp on the strength of `unknown`."""
+    st = o.get("status")
+    if st: return st
+    return "active" if o["listing_id"] in LIVE_IDS else "unknown"
 
 def dom_days(o):
     try: return int(o.get("dom") or 0)
@@ -603,6 +618,10 @@ def stamps_for(row, o, d, url):
     if status_of(o) == "back": st.append('<span class="stamp unseen">Back on market</span>')
     if status_of(o) in ("sold", "delisted"):
         st.append(f'<span class="stamp unseen">{status_of(o).title()}</span>')
+    elif status_of(o) == "unknown":
+        st.append(f'<span class="stamp unseen" title="the live check of {LIVE_DATE} did not cover this '
+                  f'listing, so whether it is still on the market has not been confirmed either way">'
+                  f'Not in the {LIVE_DATE} live check</span>')
     if is_gated(row):
         st.append(f'<span class="stamp unseen">Gated · {esc(row["notes"] if row["notes"] != "-" else "a rule")}</span>')
     for nn in (d.get("verdict_notes") or []):
@@ -1139,8 +1158,15 @@ V6JS = r"""
     ["#lots", ".tablewrap tbody", ".minitable"].forEach(function(sel){
       var host = document.querySelector(sel); if(!host) return;
       var kids = [].slice.call(host.children).filter(function(c){ return c.dataset && c.dataset.slug; });
+      var cur = kids.slice();
       kids.sort(function(a,b){ return key(a) - key(b); });
-      kids.forEach(function(c){ c.hidden = !visible(c); host.appendChild(c); });
+      kids.forEach(function(c){ c.hidden = !visible(c); });
+      /* Only touch the DOM when the ORDER actually changed. appendChild detaches and reinserts a
+         node, and detaching the card under the reader's cursor throws away the scroll anchor and
+         sends the page to the top. Setting a tier does not reorder anything, so before this guard
+         every Mid or Top click jumped you back to rank 1. */
+      var same = cur.length === kids.length && cur.every(function(c, i){ return c === kids[i]; });
+      if(!same) kids.forEach(function(c){ host.appendChild(c); });
     });
     var jb = document.getElementById("jump");
     if(jb){
@@ -1351,15 +1377,32 @@ V6JS = r"""
         var t = tiers(), slug = tb.dataset.tier, prev = t[slug] || "";
         if(prev === tb.dataset.v) delete t[slug];             /* clicking the current tier clears it */
         else t[slug] = tb.dataset.v;
+        /* Anchor the view on the card being triaged. If the click hides it, anchor on whatever
+           card takes its place, so the page never moves under you. */
+        var card = tb.closest("article.lot") || tb.closest("[data-slug]");
+        var anchor = card, before = card ? card.getBoundingClientRect().top : null;
         save(TKEY, t); paintTiers(); applyView();
+        if(card && card.hidden){
+          anchor = card.nextElementSibling;
+          while(anchor && anchor.hidden) anchor = anchor.nextElementSibling;
+        }
+        if(anchor && before !== null && !anchor.hidden){
+          window.scrollBy(0, anchor.getBoundingClientRect().top - before);
+        }
         /* Removing a house takes it out of the default view immediately, so an accidental click
            loses the card with nothing on screen to undo it. Offer the undo for a few seconds. */
         if(t[slug] === "remove") offerUndo(slug, prev);
         return;
       }
       if(s){ var plan = load(SKEY, []), i = plan.indexOf(s.dataset.sat);
+             /* Adding the first house opens the view-list box above the list, which pushes every
+                card down. Hold the card you clicked where it is, same as the tier buttons. */
+             var sc = s.closest("article.lot") || s.closest("[data-slug]");
+             var sbefore = sc ? sc.getBoundingClientRect().top : null;
              if(i >= 0) plan.splice(i,1); else plan.push(s.dataset.sat);
-             save(SKEY, plan); paintSat(); return; }
+             save(SKEY, plan); paintSat();
+             if(sc && sbefore !== null && !sc.hidden) window.scrollBy(0, sc.getBoundingClientRect().top - sbefore);
+             return; }
       var x = e.target.closest("[data-cmpx]");
       if(x){ var selx = load(CKEY, []), ix = selx.indexOf(x.dataset.cmpx);
              if(ix >= 0) selx.splice(ix,1);
@@ -1779,6 +1822,7 @@ FIELDS = {
       <span>{len(see_first)} marked See First</span>
       <span>{"Quality: seven components &middot; cost counts as " + f"{DIAL:.0f}" if REFRAMED else "One score, eight components"}</span>
       <span>{"Dial provisional" if (S.CFG.get("price") or {}).get("dial_provisional") else "Dial fitted from the choices"}</span>
+      <span>Live check {LIVE_DATE}, {len([r for r in ROWS if status_of(OBS[SLUG_OF[r["address"]]]) != "unknown"])} of {n} confirmed on market</span>
       <span>Weights {"provisional" if PROVISIONAL else "set from fifteen choices each"}</span>
       <span>{HOLD_DEF}-year hold</span>
       <span>Model v3.4 · rank v6</span>
