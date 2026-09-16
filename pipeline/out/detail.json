@@ -13475,5 +13475,379 @@
   "evidence": "medium",
   "evidence_notes": "",
   "cash_to_close": 291191
+ },
+ "bur-2161-devlin": {
+  "addr": "2161 Devlin Drive, Burlington, ON L7P 3C6",
+  "list": 1199000,
+  "items": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 72979,
+    "lo": 49437,
+    "hi": 105937,
+    "basis": "4/4 tells seen, defect=True"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 26367,
+    "lo": 16950,
+    "hi": 39550,
+    "basis": "3/3 tells seen"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 15161,
+    "lo": 14125,
+    "hi": 31075,
+    "basis": "unobserved"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "exp": 6674,
+    "lo": 4944,
+    "hi": 15537,
+    "basis": "1 half"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.7,
+    "exp": 18717,
+    "lo": 18411,
+    "hi": 36821,
+    "basis": "floor=not_shown"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 1.0,
+    "exp": 9205,
+    "lo": 6575,
+    "hi": 11835,
+    "basis": "ceiling=stipple_popcorn"
+   },
+   {
+    "name": "basement",
+    "bucket": "wishlist",
+    "p": 0.15,
+    "exp": 5471,
+    "lo": 25114,
+    "hi": 50228,
+    "basis": "508 sqft bg"
+   },
+   {
+    "name": "roof",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 14690,
+    "lo": 10170,
+    "hi": 19210,
+    "life": 22,
+    "per_yr": 668,
+    "basis": "life 22y, age unstated"
+   },
+   {
+    "name": "furnace",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 8098,
+    "lo": 5650,
+    "hi": 11300,
+    "life": 20,
+    "per_yr": 405,
+    "basis": "life 20y, age unstated"
+   },
+   {
+    "name": "A/C",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 6968,
+    "lo": 5085,
+    "hi": 9605,
+    "life": 15,
+    "per_yr": 465,
+    "basis": "life 15y, age unstated"
+   },
+   {
+    "name": "water heater",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3013,
+    "lo": 2034,
+    "hi": 4294,
+    "life": 13,
+    "per_yr": 232,
+    "basis": "life 13y, age unstated"
+   },
+   {
+    "name": "pool carry",
+    "bucket": "reserve",
+    "p": 1.0,
+    "exp": 3578,
+    "lo": 2260,
+    "hi": 5650,
+    "life": 1,
+    "per_yr": 3578,
+    "basis": "in-ground pool, annual carry"
+   },
+   {
+    "name": "waterproofing",
+    "bucket": "day1",
+    "p": 0.12,
+    "exp": 2429,
+    "lo": 11300,
+    "hi": 31075,
+    "basis": "below-grade base rate"
+   },
+   {
+    "name": "driveway",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "exp": 11535,
+    "lo": 7062,
+    "hi": 16950,
+    "basis": "cracked, confirmed"
+   }
+  ],
+  "reno": [
+   {
+    "name": "kitchen",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 73000,
+    "status": "confirmed"
+   },
+   {
+    "name": "main bath",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 26000,
+    "status": "confirmed"
+   },
+   {
+    "name": "driveway",
+    "bucket": "wishlist",
+    "p": 1.0,
+    "cost": 12000,
+    "status": "confirmed"
+   },
+   {
+    "name": "ceilings",
+    "bucket": "day1",
+    "p": 1.0,
+    "cost": 9000,
+    "status": "confirmed"
+   },
+   {
+    "name": "flooring",
+    "bucket": "day1",
+    "p": 0.7,
+    "cost": 27000,
+    "status": "likely"
+   },
+   {
+    "name": "bath 2",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 22000,
+    "status": "likely, unseen"
+   },
+   {
+    "name": "powder",
+    "bucket": "wishlist",
+    "p": 0.7,
+    "cost": 10000,
+    "status": "likely, unseen"
+   }
+  ],
+  "reno_text": "kitchen $73k; main bath $26k; driveway $12k; ceilings $9k; flooring $27k; bath 2 $22k (unseen); powder $10k (unseen)",
+  "reno_total": 179000,
+  "day1_p50": 46306,
+  "day1_p80": 52785,
+  "wish_p50": 148390,
+  "wish_p80": 166423,
+  "naive": 243940,
+  "reserve_monthly": 446,
+  "near_term_5yr": 32770,
+  "contingency_pct": 25,
+  "era_p": 0.7,
+  "yb": 1974,
+  "yb_src": "mls",
+  "bg_est": false,
+  "usable": 2116,
+  "norm": 1523520,
+  "headroom": 324520,
+  "arv_lo": 1315086,
+  "arv_mid": 1343765,
+  "arv_hi": 1372444,
+  "recovered_pct": 66,
+  "sunk": 74443,
+  "breakeven": 1418208,
+  "bath_op": null,
+  "explain": {
+   "space": {
+    "score": 70.9,
+    "fact": "1,862 sq ft above grade, part-finished basement",
+    "scale": "0 below 1,300 sq ft above grade, most of the points by 1,700, the rest to 2,600. A finished basement adds 3 of 25, a separate entrance 2."
+   },
+   "layout": {
+    "score": 80.0,
+    "fact": "4 bedrooms above grade, primary 182 sq ft, ensuite, 2 bedroom under 100 sq ft",
+    "scale": "Bedrooms carry 80 of 100, a primary over 150 sq ft adds 10, an ensuite adds 10, and any bedroom under 100 sq ft costs 20. The ensuite is read from the room table where there is one and inferred from the bath count where there is not; the card says which."
+   },
+   "baths": {
+    "score": 75.0,
+    "fact": "2 full and 1 powder",
+    "scale": "One full bath scores 25, two 65, three 90, four or more 100, and a powder room adds 10. Counts only; nothing here is about condition."
+   },
+   "parking": {
+    "score": 100.0,
+    "fact": "2 garage, 5 on the drive",
+    "scale": "Each garage space counts 3 and each driveway spot 1, capped at 8, so 8 or more scores 100."
+   },
+   "lot": {
+    "score": 77.4,
+    "fact": "49 x 125 ft, 6,096 sq ft",
+    "scale": "3,000 sq ft scores 0 and 7,000 scores 100, straight line between. Your numbers for small and plenty."
+   },
+   "location": {
+    "score": 60.7,
+    "fact": "Commute 16 of 30 \u00b7 Quiet 16 of 20 \u00b7 Walk 8 of 25 \u00b7 School 10 of 15 \u00b7 Green 10 of 10",
+    "scale": "Five parts out of 100. Commute 30: 0 at 6 km from the nearest GO station, 100 at 1.5 km. Quiet 20: 0 within 200 m of the QEW, 403, 407 or the rail corridor, 100 beyond 600 m, with a bonus for a court or crescent and a cap for a named arterial. Walk and transit 25: 0 at 45 between them, 100 at 120. School 15: 0 with none within 1.0 km, 100 within 0.5 km. Green and water 10: 0 beyond 2 km from the shore and every park over 5 ha, 100 within 500 m of either.",
+    "parts": {
+     "commute": {
+      "pts": 15.87,
+      "max": 30,
+      "detail": "3.6 km to Burlington GO"
+     },
+     "quiet": {
+      "pts": 16.35,
+      "max": 20,
+      "detail": "527m to the nearest of the QEW, 403, 407 or the rail"
+     },
+     "walk": {
+      "pts": 8.33,
+      "max": 25,
+      "detail": "walk 40 + transit 30 = 70"
+     },
+     "school": {
+      "pts": 10.5,
+      "max": 15,
+      "detail": "nearest school 0.55 km, rating not looked up"
+     },
+     "green": {
+      "pts": 9.67,
+      "max": 10,
+      "detail": "549m to Brant Hills Park (13.8ha)"
+     }
+    },
+    "estimated": []
+   },
+   "condition": {
+    "score": 31.6,
+    "fact": "$195k of $285k of possible work expected",
+    "scale": "The cost-weighted share of this house's possible work that is NOT expected, from the cost model's own probabilities. 100 means nothing is expected; 0 means every line lands. Mechanicals are aged, so a component at the end of its life counts more. Nobody has stood in any of these houses, so photographs alone cannot take a house much above 80."
+   },
+   "price": {
+    "score": 87.8,
+    "fact": "$6,122 /mo, made of $5,176 P&I, $499 tax and $446 upkeep",
+    "scale": "No penalty at or under $6,000 a month, your comfortable payment, rising in a straight line to the full penalty at $7,000, your maximum. Above the maximum it holds at the full penalty. At the dial the page is set to, the full penalty costs 18 quality points."
+   }
+  },
+  "condition_block": {
+   "score": 31.6,
+   "expected": 195276,
+   "full": 285401,
+   "buckets": [
+    {
+     "bucket": "must do",
+     "total": 30352,
+     "top": "flooring, ceilings"
+    },
+    {
+     "bucket": "optional",
+     "total": 138187,
+     "top": "kitchen, main bath"
+    },
+    {
+     "bucket": "mechanicals",
+     "total": 26737,
+     "top": "pool carry, roof"
+    }
+   ],
+   "unseen": [
+    "floor_condition",
+    "panel_type",
+    "basement_moisture"
+   ],
+   "if_clean": 34.2,
+   "if_defect": 28.8,
+   "denominator": "held at today's possible work; see _resolved_condition",
+   "photo_cap": true
+  },
+  "fact_score": 63.6,
+  "fact_parts": {
+   "space": 17.7,
+   "layout": 16.0,
+   "baths": 15,
+   "lot": 11.6,
+   "location": 7.3,
+   "parking": 8,
+   "condition": -12.0
+  },
+  "grade": "B",
+  "verdict": "SEE",
+  "verdict_notes": [
+   "POOL \u2014 in-ground, annual carry priced in the reserve"
+  ],
+  "tax_mo": 499,
+  "taxes": 5990,
+  "mech_stated": "NOTHING IS STATED. The remarks name no furnace, no A/C, no roof, no water heater, no panel and no window year, and the MLS fields carry no ages either. On a 1974 house that is the worst case for the cost model: every dated component falls back to its era prior. The pool is the largest unknown of all: its annual carry is priced, its capital items are not. ASK THE AGENT.",
+  "photos": 41,
+  "inv": {
+   "exterior": 5,
+   "living_dining": 5,
+   "kitchen": 3,
+   "sunroom": 3,
+   "stairs_hall": 3,
+   "bed": 4,
+   "bath": 3,
+   "lower": 2,
+   "yard_pool": 13
+  },
+  "tier1": null,
+  "concealed": [
+   "the finished basement is drywalled floor to ceiling, so no wall base, no block and no moisture line is readable anywhere: basement_moisture is not_shown, not dry",
+   "no furnace, panel, water heater, laundry or utility-room frame in 41 photographs",
+   "main-floor flooring is under area rugs in every living and dining frame",
+   "all three bath counters carry staged towels and decor over the vanity tops",
+   "no pool equipment, heater or liner seam appears in any of the nine pool frames"
+  ],
+  "red_flags": [
+   "THE KITCHEN IS ORIGINAL AND THE PHOTOGRAPHS SETTLE IT: topmount sink with a raised rim sitting on beige speckled laminate, a rolled post-form counter edge, and a boxed soffit still in place above the uppers. Painted doors over old boxes.",
+   "THE MAIN BATH TUB IS A COLOURED ORIGINAL: harvest-gold alcove tub in a small-format white tile surround, untouched since 1974. The second bath reads integrated cultured marble on a cream vanity with beige wall tile. Both baths are originals with new paint and new mirrors.",
+   "Main-floor ceilings are stipple (8, 12). Bedroom ceilings read flat (22, 26), the reverse of the Tania and Pinemeadow pattern, so the stipple line is carried on the main floor only and recorded as stipple_popcorn.",
+   "The concrete driveway is stained and cracked along its joints (0).",
+   "IN-GROUND POOL OF UNKNOWN AGE on a 1974 lot. The model prices the ANNUAL CARRY (pool_carry_annual, $2k/$3k/$5k, charged every year of the hold) and stamps HOLD: POOL. It does NOT price a single pool CAPITAL item, because there is no catalog line for one: liner, heater, pump, filter, coping and safety cover are all unpriced here. Nine of the 41 photographs are the pool and not one shows the equipment pad. On a pool that could be anywhere from 1974 to last year, that is the largest uncosted exposure on this house. ASK THE AGENT for liner, heater and pump years before this rank means anything.",
+   "NOTHING MECHANICAL APPEARS IN 41 FRAMES: no furnace, no panel, no water heater, no laundry, no utility room. On a 1974 house with no stated ages, every dated component sits on its era prior with no photographic check.",
+   "The green space the listing sells is a 0.5 ha ravine strip 122 m away, under the 5 ha bar the green part uses, so it scores nothing. The nearest qualifying park is Brant Hills at 549 m. The view is real; the points are not.",
+   "The 407 is 527 m north. That is the nearest noise source and it is what holds quiet below full marks.",
+   "Two of the four bedrooms are under 100 sq ft (70 and 89), which carries the layout dock."
+  ],
+  "claim_vs_evidence": null,
+  "defects": null,
+  "staging": "mixed",
+  "hdr": "moderate",
+  "evidence": "high",
+  "evidence_notes": "",
+  "cash_to_close": 312540
  }
 }

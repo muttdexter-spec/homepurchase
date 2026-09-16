@@ -1,218 +1,236 @@
 {
- "delaney": {
-  "rank": "1",
-  "score": "67.6",
-  "ask": "1249900",
-  "status": "active"
- },
  "barberry": {
-  "rank": "2",
-  "score": "66.6",
+  "rank": "1",
+  "score": "75.5",
   "ask": "1199000",
   "status": "active"
  },
- "pinemeadow": {
+ "delaney": {
+  "rank": "2",
+  "score": "75.2",
+  "ask": "1249900",
+  "status": "active"
+ },
+ "seton": {
   "rank": "3",
-  "score": "64.9",
-  "ask": "1299900",
+  "score": "71.0",
+  "ask": "1194900",
   "status": "active"
  },
  "clinton": {
   "rank": "4",
-  "score": "63.3",
+  "score": "71.0",
   "ask": "1174900",
   "status": "active"
  },
- "seton": {
+ "pinemeadow": {
   "rank": "5",
-  "score": "61.9",
-  "ask": "1194900",
-  "status": "active"
- },
- "cherrywood": {
-  "rank": "6",
-  "score": "60.7",
-  "ask": "1299999",
-  "status": "active"
- },
- "caplan": {
-  "rank": "7",
-  "score": "60.5",
-  "ask": "988800",
-  "status": "active"
- },
- "tania": {
-  "rank": "8",
-  "score": "60.2",
-  "ask": "1274999",
+  "score": "68.9",
+  "ask": "1299900",
   "status": "active"
  },
  "hazelwood": {
-  "rank": "9",
-  "score": "58.9",
+  "rank": "6",
+  "score": "67.0",
   "ask": "1235000",
   "status": "active"
  },
- "bonnie": {
-  "rank": "10",
-  "score": "58.4",
-  "ask": "999900",
+ "tania": {
+  "rank": "7",
+  "score": "65.8",
+  "ask": "1274999",
   "status": "active"
  },
- "middlesmoor": {
-  "rank": "11",
-  "score": "58.2",
-  "ask": "1049900",
+ "pondview": {
+  "rank": "8",
+  "score": "65.3",
+  "ask": "1299000",
+  "status": "active"
+ },
+ "columbus": {
+  "rank": "9",
+  "score": "64.5",
+  "ask": "1250000",
+  "status": "active"
+ },
+ "cherrywood": {
+  "rank": "10",
+  "score": "64.2",
+  "ask": "1299999",
   "status": "active"
  },
  "ravine": {
-  "rank": "12",
-  "score": "58.0",
+  "rank": "11",
+  "score": "62.1",
   "ask": "1098000",
   "status": "active"
  },
  "stillmeadow": {
-  "rank": "13",
-  "score": "57.9",
+  "rank": "12",
+  "score": "61.6",
   "ask": "1098000",
+  "status": "active"
+ },
+ "christina": {
+  "rank": "13",
+  "score": "61.6",
+  "ask": "1299900",
   "status": "active"
  },
  "bunton": {
   "rank": "14",
-  "score": "57.8",
+  "score": "60.3",
   "ask": "1050000",
   "status": "active"
  },
- "pondview": {
-  "rank": "15",
-  "score": "57.6",
-  "ask": "1299000",
-  "status": "active"
- },
- "christina": {
-  "rank": "16",
-  "score": "57.2",
-  "ask": "1299900",
-  "status": "active"
- },
- "columbus": {
-  "rank": "17",
-  "score": "55.2",
-  "ask": "1250000",
-  "status": "active"
- },
  "pallatine": {
-  "rank": "18",
-  "score": "54.5",
+  "rank": "15",
+  "score": "57.7",
   "ask": "1228000",
   "status": "active"
  },
- "rexway": {
-  "rank": "19",
-  "score": "54.4",
-  "ask": "1079000",
+ "bonnie": {
+  "rank": "16",
+  "score": "57.6",
+  "ask": "999900",
   "status": "active"
- },
- "aldridge": {
-  "rank": "20",
-  "score": "53.8",
-  "ask": "1018800",
-  "status": "delisted"
- },
- "wood": {
-  "rank": "21",
-  "score": "53.5",
-  "ask": "1099900",
-  "status": "active"
- },
- "lark": {
-  "rank": "22",
-  "score": "53.4",
-  "ask": "1249000",
-  "status": "delisted"
  },
  "maplewood": {
-  "rank": "23",
-  "score": "52.4",
+  "rank": "17",
+  "score": "57.2",
   "ask": "1199000",
   "status": "active"
  },
- "crosby": {
-  "rank": "24",
-  "score": "51.9",
-  "ask": "1149900",
-  "status": "delisted"
- },
- "cavendish": {
-  "rank": "25",
-  "score": "50.9",
-  "ask": "969900",
+ "rexway": {
+  "rank": "18",
+  "score": "55.0",
+  "ask": "1079000",
   "status": "active"
  },
- "centennial": {
-  "rank": "26",
-  "score": "50.5",
-  "ask": "1059900",
+ "lark": {
+  "rank": "19",
+  "score": "54.8",
+  "ask": "1249000",
+  "status": "unknown"
+ },
+ "middlesmoor": {
+  "rank": "20",
+  "score": "54.8",
+  "ask": "1049900",
   "status": "active"
  },
- "oxlow": {
-  "rank": "27",
-  "score": "50.5",
-  "ask": "1249999",
+ "devlin": {
+  "rank": "21",
+  "score": "54.7",
+  "ask": "1199000",
   "status": "active"
  },
- "samford": {
-  "rank": "28",
-  "score": "49.6",
-  "ask": "1099000",
-  "status": "active"
- },
- "enfield": {
-  "rank": "29",
-  "score": "49.4",
-  "ask": "825000",
-  "status": "active"
+ "woodvale": {
+  "rank": "22",
+  "score": "54.5",
+  "ask": "1269900",
+  "status": "unknown"
  },
  "kent": {
-  "rank": "30",
-  "score": "49.2",
+  "rank": "23",
+  "score": "52.4",
   "ask": "1179000",
   "status": "active"
  },
+ "caplan": {
+  "rank": "24",
+  "score": "51.5",
+  "ask": "988800",
+  "status": "active"
+ },
+ "samford": {
+  "rank": "25",
+  "score": "50.8",
+  "ask": "1099000",
+  "status": "active"
+ },
+ "aldridge": {
+  "rank": "26",
+  "score": "50.5",
+  "ask": "1018800",
+  "status": "unknown"
+ },
+ "oxlow": {
+  "rank": "27",
+  "score": "50.2",
+  "ask": "1249999",
+  "status": "active"
+ },
+ "wood": {
+  "rank": "28",
+  "score": "49.8",
+  "ask": "1099900",
+  "status": "active"
+ },
+ "crosby": {
+  "rank": "29",
+  "score": "49.6",
+  "ask": "1149900",
+  "status": "unknown"
+ },
  "osborne": {
-  "rank": "31",
-  "score": "49.0",
+  "rank": "30",
+  "score": "49.4",
   "ask": "1299000",
   "status": "active"
  },
+ "grand": {
+  "rank": "31",
+  "score": "47.7",
+  "ask": "1299900",
+  "status": "unknown"
+ },
  "mountain-grove": {
   "rank": "32",
-  "score": "48.9",
+  "score": "47.6",
   "ask": "1079000",
   "status": "active"
  },
  "wyandotte": {
   "rank": "33",
-  "score": "45.8",
+  "score": "45.7",
   "ask": "1299999",
   "status": "active"
  },
- "grand": {
+ "centennial": {
   "rank": "34",
-  "score": "44.7",
-  "ask": "1299900",
-  "status": "delisted"
+  "score": "45.4",
+  "ask": "1059900",
+  "status": "active"
+ },
+ "cavendish": {
+  "rank": "35",
+  "score": "44.6",
+  "ask": "969900",
+  "status": "active"
+ },
+ "duncaster": {
+  "rank": "36",
+  "score": "43.7",
+  "ask": "1169000",
+  "status": "unknown"
  },
  "weir": {
-  "rank": "35",
-  "score": "41.4",
+  "rank": "37",
+  "score": "43.3",
   "ask": "1299999",
   "status": "active"
  },
  "yarmouth": {
-  "rank": "36",
-  "score": "37.8",
+  "rank": "38",
+  "score": "38.2",
   "ask": "1298000",
+  "status": "active"
+ },
+ "enfield": {
+  "rank": "39",
+  "score": "33.4",
+  "ask": "825000",
   "status": "active"
  },
  "sidesplit": {

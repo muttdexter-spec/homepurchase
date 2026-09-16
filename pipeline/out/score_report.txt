@@ -2,53 +2,56 @@ RANK v6: gates G0-G4 -> one score 0-100 from eight components on elicited swing 
 WEIGHTS alex: spac 21 layo 11 bath 8 park 2 lot 3 loca 5 cond 34 pric 15; joint: spac 21 layo 11 bath 8 park 2 lot 3 loca 5 cond 34 pric 15
 NOTE: weights.partner is pending. joint = alex, the band is six rankings not nine, and no Disagree stamp can be set.
  # SCORE GR  HOUSE                  space layou baths parki   lot locat condi price    BAND        ASK  WORK exp
- 1  67.6 A-  470 Delaney Court         83   100    75   100    28    72    70    18     1-1 $1,249,900 $  72,779
- 2  66.6 B+  1273 Barberry Green       72    75   100   100     0    61    72    37     2-3 $1,199,000 $  65,042
- 3  64.9 A-  3212 Pinemeadow Drive     81   100    75   100    35    83    63    12     2-3 $1,299,900 $  81,938
- 4  63.3 B+  1493 Clinton Court        68    75    90   100    40    72    71    38     4-6 $1,174,900 $  65,179
- 5  61.9 B   2294 Seton Crescent       69    75    75    62     0    72    71    24     4-7 $1,194,900 $  60,502
- 6  60.7 B+  659 Cherrywood Drive      69    75    75   100    66    72    76     8     4-7 $1,299,999 $  60,787
- 7  60.5 C+  3469 Caplan Crescent      45    55    75    88     2    89    62    75     6-9 $  988,800 $  84,222
- 8  60.2 A   3205 Tania Crescent       92   100   100   100    20    56    42    13    5-14 $1,274,999 $ 151,938
- 9  58.9 A-  3217 Hazelwood Avenue     76   100   100   100    25    67    40    25    8-13 $1,235,000 $ 137,352
-10  58.4 C+  1319 Bonnie Court         62    75    75    62     0    67    48    64   10-15 $  999,900 $ 104,512
-11  58.2 C   2265 Middlesmoor Cresc    47    10    75    75     0    83    75    66    9-16 $1,049,900 $  56,037
-12  58.0 B-  5174 Ravine Crescent      77    75    75    62     0    67    54    28   11-17 $1,098,000 $ 103,294  [HOLD: POOL]
-13  57.9 B-  2148 Stillmeadow Road     61    75    75    75     0    61    59    41   10-16 $1,098,000 $  83,027
-14  57.8 B-  5180 Bunton Crescent      71    75    75    75     0    67    47    49   11-20 $1,050,000 $ 108,728
-15  57.6 B   506 PONDVIEW Place        74    55   100    75     0    50    69     2    7-15 $1,299,000 $  70,024
-16  57.2 B-  1379 Christina Court      59    75    75    88     0    67    75    18   11-17 $1,299,900 $  52,310
-17  55.2 B   4831 Columbus Drive       81    75    75   100     6    67    51     6   12-20 $1,250,000 $ 102,465
-18  54.5 B   1228 Pallatine Drive      36    45   100   100    70    78    70    31   17-19 $1,228,000 $  71,589
-19  54.4 C+  3490 Rexway Drive         53    45    75    88    20    94    61    46   18-22 $1,079,000 $  99,719  [HOLD: POOL]
-20  53.8 C   1280 ALDRIDGE Crescent    32    65    65   100    16    61    64    68   18-21 $1,018,800 $  77,073
-21  53.5 C+  5190 Wood Crescent        39    75    75    75     0    56    59    44   18-29 $1,099,900 $  80,437
-22  53.4 B-  395 LARK Avenue           28    45    65    88    74    78    76    21   17-22 $1,249,000 $  61,360
-23  52.4 B-  2105 Maplewood Drive      14    45    75   100    70    94    73    30   23-23 $1,199,000 $  64,906
-24  51.9 C-  493 CROSBY Avenue         16    55    35    62     8   100    76    46   24-29 $1,149,900 $  33,310
-25  50.9 C+  2120 Cavendish Drive      28    45    65    50    57    78    46    79   24-27 $  969,900 $ 115,768
-26  50.5 C   3202 Centennial Drive     44    45    65    75    10    83    58    51   26-29 $1,059,900 $ 102,878  [HOLD: POOL]
-27  50.5 B-  1218 Oxlow Drive          25   100    65    75    37    50    70    16   22-31 $1,249,999 $  61,880  [HOLD: POOL]
-28  49.6 C   462 Samford Place         22    65    65   100    36    67    53    53   25-31 $1,099,000 $ 102,651
-29  49.4 C+  522 Enfield Road          28    55    65   100   100    72    25    98   26-33 $  825,000 $ 210,670  [Project]  [HOLD: OIL]
-30  49.2 C   275 Kent Crescent         25    10    65   100    46    56    75    39   28-33 $1,179,000 $  58,336
-31  49.0 C+  28 Osborne Crescent       46    55    90   100     8    61    61    16   24-31 $1,299,000 $  92,830
-32  48.9 C+  1453 Mountain Grove Av    15    55    65    62    72    83    53    57   30-32 $1,079,000 $ 104,489
-33  45.8 C+  2221 Wyandotte Drive      40    65    65    62    26    72    63     1   26-33 $1,299,999 $  80,797
-34  44.7 C+  1177 GRAND Boulevard      57   100    35   100    48    78    26    15   34-34 $1,299,900 $ 144,813
-35  41.4 C+  568 Weir Avenue            9    65    65    75    71    72    51    16   35-35 $1,299,999 $ 114,440  [HOLD: TENANTED]
-36  37.8 C-  2501 Yarmouth Crescent    22    45    65   100    43    56    43    16   36-36 $1,298,000 $ 148,864
- -       C+  5322 Windermere Drive     20    45    65    62    67    78    60    68         $  999,900 $  79,989  GATED: STOP
+ 1  75.5 A-  1273 Barberry Green       77    85   100   100    23    66    72   100     1-2 $1,199,000 $  65,042
+ 2  75.2 A   470 Delaney Court         84    90    75   100    60    89    70    85     1-2 $1,249,900 $  72,779
+ 3  71.0 B   2294 Seton Crescent       76    85    75    62     0    63    71   100     3-4 $1,194,900 $  60,502
+ 4  71.0 A-  1493 Clinton Court        76    70    90   100    75    75    71   100     3-4 $1,174,900 $  65,179
+ 5  68.9 A-  3212 Pinemeadow Drive     82    90    75   100    69    72    63    72     5-6 $1,299,900 $  81,938
+ 6  67.0 A   3217 Hazelwood Avenue     78   100   100   100    56    70    40   100     5-6 $1,235,000 $ 137,352
+ 7  65.8 A   3205 Tania Crescent       92   100   100   100    50    49    42    79    7-11 $1,274,999 $ 151,938
+ 8  65.3 B+  506 PONDVIEW Place        77    65   100    75     9    55    69    72     7-8 $1,299,000 $  70,024
+ 9  64.5 B+  4831 Columbus Drive       82    85    75   100    33    58    51    91    8-10 $1,250,000 $ 102,465
+10  64.2 A-  659 Cherrywood Drive      71    75    75   100   100    64    76    60    8-10 $1,299,999 $  60,787
+11  62.1 B-  5174 Ravine Crescent      79    75    75    62     0    41    54   100   11-13 $1,098,000 $ 103,294  [HOLD: POOL]
+12  61.6 B-  2148 Stillmeadow Road     61    75    75    75     4    65    59   100   10-13 $1,098,000 $  83,027
+13  61.6 B-  1379 Christina Court      58    75    75    88    10    67    75    83   11-14 $1,299,900 $  52,310
+14  60.3 B-  5180 Bunton Crescent      77    75    75    75    23    44    47   100   13-14 $1,050,000 $ 108,728
+15  57.7 B   1228 Pallatine Drive      20    55   100   100   100    79    70   100   15-16 $1,228,000 $  71,589
+16  57.6 C+  1319 Bonnie Court         65    75    75    62     0    62    48   100   15-17 $  999,900 $ 104,512
+17  57.2 B   2105 Maplewood Drive      12    55    75   100   100    75    73   100   16-17 $1,199,000 $  64,906
+18  55.0 C+  3490 Rexway Drive         47    45    75    88    50    81    61   100   18-21 $1,079,000 $  99,719  [HOLD: POOL]
+19  54.8 B-  395 LARK Avenue           12    45    65    88   100    79    76    92   19-20 $1,249,000 $  61,360
+20  54.8 C   2265 Middlesmoor Cresc    34    20    75    75    19    68    75   100   18-22 $1,049,900 $  56,037
+21  54.7 B   2161 Devlin Drive         71    80    75   100    77    61    32    88   18-21 $1,199,000 $ 195,276  [Project]  [HOLD: POOL]
+22  54.5 B   1333 Woodvale Place       77    60    65    50    52    77    58    62   19-24 $1,269,900 $  96,264  [HOLD: POOL]
+23  52.4 C+  275 Kent Crescent         20    10    65   100    82    73    75   100   22-24 $1,179,000 $  58,336
+24  51.5 C   3469 Caplan Crescent      23    55    75    88    28    64    62   100   22-24 $  988,800 $  84,222
+25  50.8 C+  462 Samford Place         20    65    65   100    71    81    53   100   25-26 $1,099,000 $ 102,651
+26  50.5 C   1280 ALDRIDGE Crescent    20    65    65   100    46    69    64   100   26-27 $1,018,800 $  77,073
+27  50.2 B-  1218 Oxlow Drive          12    90    65    75    72    66    70    75   25-32 $1,249,999 $  61,880  [HOLD: POOL]
+28  49.8 C   5190 Wood Crescent        17    75    75    75    21    42    59   100   26-30 $1,099,900 $  80,437
+29  49.6 C-  493 CROSBY Avenue          0    55    35    62    35    96    76   100   27-30 $1,149,900 $  33,310
+30  49.4 C+  28 Osborne Crescent       24    65    90   100    35    77    61    80   28-30 $1,299,000 $  92,830
+31  47.7 B-  1177 GRAND Boulevard      64    90    35   100    85    73    26    78   31-34 $1,299,900 $ 144,813
+32  47.6 B-  1453 Mountain Grove Av    12    55    65    62   100    80    53   100   30-32 $1,079,000 $ 104,489
+33  45.7 C+  2221 Wyandotte Drive      20    65    65    62    57    79    63    72   32-34 $1,299,999 $  80,797
+34  45.4 C-  3202 Centennial Drive     20    45    65    75    38    72    58   100   33-37 $1,059,900 $ 102,878  [HOLD: POOL]
+35  44.6 C+  2120 Cavendish Drive      20    45    65    50    96    67    46   100   34-36 $  969,900 $ 115,768
+36  43.7 C+  2379 Duncaster Drive      12    55   100    75    60    65    46   100   34-37 $1,169,000 $ 140,114
+37  43.3 B-  568 Weir Avenue            8    65    65    75   100    64    51    82   36-37 $1,299,999 $ 114,440  [HOLD: TENANTED]
+38  38.2 C-  2501 Yarmouth Crescent    12    45    65   100    79    76    43    79   38-38 $1,298,000 $ 148,864
+39  33.4 C   522 Enfield Road           4    55    65   100   100    52    25   100   39-39 $  825,000 $ 210,670  [Project]  [HOLD: OIL]
+ -       C+  5322 Windermere Drive     20    45    65    62   100    78    60   100         $  999,900 $  79,989  GATED: STOP
 
 CONDITION, and the photo cap (v6 §3 bound 4)
   range 25 (Enfield) to 76 (LARK); 0 listing(s) above 80 with no showing evidence
 
 COST OF THE HOLD, COMPOSITION (mean over the ranked set, total over the hold)
-  capital    $  304,940   sd $  30,195
-  taxes      $   27,508   sd $   3,689
-  closing    $   19,333   sd $   2,402
-  day1_sunk  $   16,342   sd $   4,970
-  reserve    $   15,558   sd $   9,917
+  capital    $  305,890   sd $  29,325
+  taxes      $   27,525   sd $   3,603
+  closing    $   19,402   sd $   2,332
+  day1_sunk  $   16,263   sd $   4,834
+  reserve    $   16,029   sd $   9,993
 
 SECOND-BATH OPPORTUNITY (the only intervention that can exceed 100%)
   493 CROSBY Avenue        spend $16,950 -> value +$16,950 to $21,188

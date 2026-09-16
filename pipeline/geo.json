@@ -796,5 +796,26 @@
   "nearest_school_km": 0.3,
   "schools_1km": 3,
   "_note": "Same caveat as Woodvale. rail_m and lake_m ESTIMATED from Middlesmoor (43.36892/-79.84386, 200 m away: rail 3398, lake 6387). Both far outside their thresholds, so neither changes a point."
+ },
+ "bur-2161-devlin": {
+  "lat": 43.3656205,
+  "lon": -79.8387573,
+  "go": "Burlington",
+  "go_m": 3620,
+  "qew_m": 2929,
+  "h403_m": 2929,
+  "h407_m": 527,
+  "rail_m": 2849,
+  "park": "Brant Hills Park (13.8ha)",
+  "park_m": 549,
+  "lake_m": 5821,
+  "address": "2161 Devlin Drive, Burlington, ON L7P 3C6",
+  "street": "Devlin Drive",
+  "street_type": "Drive",
+  "walk": 40,
+  "transit": 30,
+  "nearest_school_km": 0.55,
+  "schools_1km": 3,
+  "_note": "Every figure here is a FRESH Overpass pull on 2026-09-16 against overpass-api.de, not carried from a neighbour. Nominatim returned the house itself (osm way 76996660), not the street centroid. qew_m and h403_m are both 2929 because the QEW and the 403 share one carriageway at the nearest point and OSM tags that way ref=QEW;403; the separate QEW-only and 403-only ways are both 2953. h407_m 527 is the real number and it is the binding one: the 407 is about half a kilometre north of this house, which is why quiet comes in at 0.82 and not at full marks. lake_m is to relation 1206310 (Lake Ontario including Burlington Bay), same source as the rest of the cache. park_m 549 is Brant Hills Park at 13.8 ha, measured by shoelace on the polygon, and it agrees with the Middlesmoor entry to the tenth of a hectare. CAUTION: the ravine strip this house actually backs onto is 122 m away and 0.5 ha, far under the 5 ha bar the green part uses, so the listing's headline feature earns this house nothing in the green part. That is the rule working as written, not a data error, but it is the one place where the score and the photographs disagree."
  }
 }

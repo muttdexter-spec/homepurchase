@@ -4772,5 +4772,186 @@
    "lower": 2,
    "yard_deck": 5
   }
+ },
+ {
+  "slug": "bur-2161-devlin",
+  "board": "TRREB",
+  "stage": 2,
+  "listing_id": "aotf~1190819759~TRREB",
+  "mls": "W13785688",
+  "address": "2161 Devlin Drive, Burlington, ON L7P 3C6",
+  "list_price": 1199000,
+  "est_monthly": 6118,
+  "dom": 1,
+  "year_built": 1974,
+  "year_built_details": "51-99",
+  "style": "Two Storey",
+  "storeys": 2,
+  "sqft_above": 1862,
+  "sqft_below": 508,
+  "size_range": "1500-2000",
+  "beds_ag": 4,
+  "beds_bg": 0,
+  "baths_total": 3,
+  "baths_full": 2,
+  "baths_half": 1,
+  "lot_frontage_ft": 48.77,
+  "lot_depth_ft": 125.0,
+  "annual_taxes": 5990,
+  "tax_year": 2026,
+  "neighbourhood": "Brant Hills",
+  "municipality": "Burlington",
+  "basement": "Full, Partially Finished",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "Concrete",
+  "construction": "Brick, Wood Siding",
+  "direction_faces": "North",
+  "parking_spots": 5,
+  "garage_spaces": 2,
+  "brokerage": "ROYAL LEPAGE BURLOAK REAL ESTATE SERVICES",
+  "pool": "In Ground",
+  "primary_bed_sqft": 182,
+  "min_secondary_bed_sqft": 70,
+  "beds_under_100sqft": 2,
+  "kitchen_sqft": 156,
+  "main_living_sqft": 133,
+  "n_4pc": 2,
+  "n_3pc": 0,
+  "n_2pc": 1,
+  "lower_kitchen": false,
+  "ensuite": true,
+  "walk": 40,
+  "bike": 50,
+  "transit": 30,
+  "nearest_school_km": 0.55,
+  "schools_1km": 3,
+  "mech_ages_stated": "NOTHING IS STATED. The remarks name no furnace, no A/C, no roof, no water heater, no panel and no window year, and the MLS fields carry no ages either. On a 1974 house that is the worst case for the cost model: every dated component falls back to its era prior. The pool is the largest unknown of all: its annual carry is priced, its capital items are not. ASK THE AGENT.",
+  "badge": "New Listing",
+  "remarks": "Rarely offered home backing onto green space in Brant Hills. Spacious 4-bedroom, 2.5 bathroom home on a private lot backing onto green space, with an inground pool and a 2 car garage. The main level has hardwood flooring, a family room, separate living room and a sunroom connecting the home to the backyard. The second level has 4 bedrooms, with the primary offering a 4-piece ensuite, walk-in closet and an additional closet.",
+  "rooms_raw": [
+   [
+    "Main",
+    "2pc bath"
+   ],
+   [
+    "Main",
+    "Dining",
+    105
+   ],
+   [
+    "Main",
+    "Family",
+    133
+   ],
+   [
+    "Main",
+    "Kitchen",
+    156
+   ],
+   [
+    "Main",
+    "Living",
+    500
+   ],
+   [
+    "Main",
+    "SunRoom",
+    180
+   ],
+   [
+    "2nd",
+    "4pc bath"
+   ],
+   [
+    "2nd",
+    "Bedroom",
+    89
+   ],
+   [
+    "2nd",
+    "Bedroom",
+    70
+   ],
+   [
+    "2nd",
+    "Bedroom",
+    106
+   ],
+   [
+    "2nd",
+    "Primary",
+    182
+   ],
+   [
+    "Bsmt",
+    "Other",
+    438
+   ],
+   [
+    "Bsmt",
+    "Recreation",
+    541
+   ]
+  ],
+  "room_dims_present": true,
+  "notes_stage1": "Two MLS inconsistencies, both recorded as found and neither silently corrected. (1) The Living Room is given as 40.67 x 12.3 ft, which is 500 sq ft and would be more than a quarter of the whole above-grade area in one room; it is almost certainly a typo for 20.67 or a living-plus-dining run entered as one length. main_living_sqft is therefore recorded from the Family Room at 133 sq ft, which is the room the photographs support, and the 500 is left in rooms_raw so the error stays visible. Neither field feeds a score. (2) The room table lists only two bathrooms, a 2pc on the main and one 4pc on the second level, against an MLS count of 3 and remarks that describe a 4-piece ensuite off the primary. Three separate bathrooms do appear in the photographs. ensuite is recorded True on the strength of the remarks and the photo count, which is worth 10 layout points, so CONFIRM AT THE SHOWING that the primary bath is in fact private.",
+  "red_flags": [
+   "THE KITCHEN IS ORIGINAL AND THE PHOTOGRAPHS SETTLE IT: topmount sink with a raised rim sitting on beige speckled laminate, a rolled post-form counter edge, and a boxed soffit still in place above the uppers. Painted doors over old boxes.",
+   "THE MAIN BATH TUB IS A COLOURED ORIGINAL: harvest-gold alcove tub in a small-format white tile surround, untouched since 1974. The second bath reads integrated cultured marble on a cream vanity with beige wall tile. Both baths are originals with new paint and new mirrors.",
+   "Main-floor ceilings are stipple (8, 12). Bedroom ceilings read flat (22, 26), the reverse of the Tania and Pinemeadow pattern, so the stipple line is carried on the main floor only and recorded as stipple_popcorn.",
+   "The concrete driveway is stained and cracked along its joints (0).",
+   "IN-GROUND POOL OF UNKNOWN AGE on a 1974 lot. The model prices the ANNUAL CARRY (pool_carry_annual, $2k/$3k/$5k, charged every year of the hold) and stamps HOLD: POOL. It does NOT price a single pool CAPITAL item, because there is no catalog line for one: liner, heater, pump, filter, coping and safety cover are all unpriced here. Nine of the 41 photographs are the pool and not one shows the equipment pad. On a pool that could be anywhere from 1974 to last year, that is the largest uncosted exposure on this house. ASK THE AGENT for liner, heater and pump years before this rank means anything.",
+   "NOTHING MECHANICAL APPEARS IN 41 FRAMES: no furnace, no panel, no water heater, no laundry, no utility room. On a 1974 house with no stated ages, every dated component sits on its era prior with no photographic check.",
+   "The green space the listing sells is a 0.5 ha ravine strip 122 m away, under the 5 ha bar the green part uses, so it scores nothing. The nearest qualifying park is Brant Hills at 549 m. The view is real; the points are not.",
+   "The 407 is 527 m north. That is the nearest noise source and it is what holds quiet below full marks.",
+   "Two of the four bedrooms are under 100 sq ft (70 and 89), which carries the layout dock."
+  ],
+  "photos_total": 41,
+  "notes": "A 1974 two-storey that has had paint, light fixtures, a front door, vinyl windows and a newly finished basement, and nothing else. Kitchen and both baths read original at full resolution, with the harvest-gold tub the clearest single tell in the batch. The basement is drywalled and floored in vinyl plank with no wall base readable and no moisture visible, which on a finished basement means not shown rather than dry. Windows are white vinyl replacements throughout, the one genuine capital item already spent. Driveway cracked. No mechanical frame anywhere.",
+  "stage1_date": "2026-09-16",
+  "source": "OneHome portal listing supplied by Alex 2026-09-16",
+  "kitchen_sink_mount": "topmount",
+  "kitchen_counter_edge": "rolled_bullnose",
+  "kitchen_soffit": "present",
+  "kitchen_door_profile": "soft_raised_panel",
+  "bath_tub_type": "alcove_tiled",
+  "bath_tile_scale": "small_4x4",
+  "bath_vanity_top": "integrated_cultured_marble",
+  "floor_condition": "not_shown",
+  "ceiling_main": "stipple_popcorn",
+  "window_frame": "vinyl",
+  "panel_type": "not_shown",
+  "basement_ceiling": "drywall",
+  "basement_walls": "drywall",
+  "basement_moisture": "not_shown",
+  "driveway": "cracked",
+  "kitchen_verdict": "defect_confirmed",
+  "bath_verdict": "defect_confirmed",
+  "asbestos_suspect": false,
+  "virtual_staging_lang": false,
+  "concealed_surfaces": [
+   "the finished basement is drywalled floor to ceiling, so no wall base, no block and no moisture line is readable anywhere: basement_moisture is not_shown, not dry",
+   "no furnace, panel, water heater, laundry or utility-room frame in 41 photographs",
+   "main-floor flooring is under area rugs in every living and dining frame",
+   "all three bath counters carry staged towels and decor over the vanity tops",
+   "no pool equipment, heater or liner seam appears in any of the nine pool frames"
+  ],
+  "stage2_date": "2026-09-16",
+  "staging": "mixed",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 5,
+   "living_dining": 5,
+   "kitchen": 3,
+   "sunroom": 3,
+   "stairs_hall": 3,
+   "bed": 4,
+   "bath": 3,
+   "lower": 2,
+   "yard_pool": 13
+  },
+  "status": "active"
  }
 ]

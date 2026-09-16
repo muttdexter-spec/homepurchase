@@ -1377,20 +1377,15 @@ V6JS = r"""
         var t = tiers(), slug = tb.dataset.tier, prev = t[slug] || "";
         if(prev === tb.dataset.v) delete t[slug];             /* clicking the current tier clears it */
         else t[slug] = tb.dataset.v;
-        /* Anchor the view on the card being triaged. If the click hides it, anchor on whatever
-           card takes its place, so the page never moves under you. */
-        var card = tb.closest("article.lot") || tb.closest("[data-slug]");
-        var anchor = card, before = card ? card.getBoundingClientRect().top : null;
-        save(TKEY, t); paintTiers(); applyView();
-        if(card && card.hidden){
-          anchor = card.nextElementSibling;
-          while(anchor && anchor.hidden) anchor = anchor.nextElementSibling;
-        }
-        if(anchor && before !== null && !anchor.hidden){
-          window.scrollBy(0, anchor.getBoundingClientRect().top - before);
-        }
-        /* Removing a house takes it out of the default view immediately, so an accidental click
-           loses the card with nothing on screen to undo it. Offer the undo for a few seconds. */
+        /* A tier click does NOT re-run applyView, and that is deliberate.
+           Triaging a house is a judgement about that house; it should not move the page. Earlier
+           versions re-filtered and re-sorted on every click, which reflowed the list under the
+           reader: first jumping to the top, then, once that was fixed, still shifting whenever a
+           Remove pulled a card out from under the cursor. Nothing reflows now. The decision shows
+           on the card immediately (paintTiers), and the SHORTLIST FILTER is what applies those
+           decisions to the list, on the next filter change, sort change or reload. That keeps the
+           two jobs separate: deciding, and choosing what to look at. */
+        save(TKEY, t); paintTiers();
         if(t[slug] === "remove") offerUndo(slug, prev);
         return;
       }
@@ -1600,9 +1595,12 @@ V6JS = r"""
 .tiers .tier.on{color:#fff; background:var(--accent)}
 .tiers .tier.t-remove.on{background:var(--flag)}
 .tiers .tier:focus-visible{outline:2px solid var(--accent); outline-offset:-2px}
-/* A removed house stays on the page when you ask to see it, but reads as set aside. */
-[data-tier-state="remove"]{opacity:.55}
+/* A removed house is not pulled out from under you: it stays exactly where it is and reads as
+   set aside, until the Shortlist filter is next applied. */
+[data-tier-state="remove"]{opacity:.5}
 [data-tier-state="remove"] .lot-head h2 a{text-decoration:line-through}
+[data-tier-state="remove"] .rail::after{content:"REMOVED"; display:block; margin-top:8px;
+  font-family:var(--mono); font-size:8.5px; letter-spacing:.1em; color:var(--flag); text-align:center}
 tr[data-tier-state="remove"] td:first-child,
 [data-tier-state="top"] .rank{position:relative}
 [data-tier-state="top"] .rail .rank::after{content:"TOP"; position:absolute; left:50%;
