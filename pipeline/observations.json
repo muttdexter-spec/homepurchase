@@ -949,7 +949,10 @@
    "one bedroom's parsed dimensions were corrupted (1012.58 x 9.75) and excluded"
   ],
   "claim_vs_evidence": "No outright contradiction. The claimed 2023 kitchen is consistent with what is visible, though photos cannot confirm quartz or the date. The 'updated' framing does not extend to the upper bathroom, which retains an integrated cultured-marble vanity and small-format tile.",
-  "notes": "Year Built absent from the ITSO listing, so the model prices it at the worst-case era. Cheapest listing in the batch by $270k."
+  "notes": "Year Built absent from the ITSO listing, so the model prices it at the worst-case era. Cheapest listing in the batch by $270k.",
+  "status": "conditional",
+  "badge": "Conditionally Sold",
+  "status_date": "2026-09-23"
  },
  {
   "slug": "bur-522-enfield",
@@ -1840,7 +1843,10 @@
    "yard": 8
   },
   "notes": "High-spec 2020s renovation of a 1963 Oakville sidesplit: slab kitchen with quartz waterfall island and undermount sink, marble-look tiled alcove baths with floating vanities, dark engineered hardwood, black vinyl windows, flat ceilings with crown. Tank water heater visible and recent; no furnace or panel frame.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "status": "back",
+  "badge": "Back on Market",
+  "status_date": "2026-09-23"
  },
  {
   "slug": "bur-470-delaney",
@@ -2712,7 +2718,7 @@
   "listing_id": "aotf~1178447615~TRREB",
   "address": "28 Osborne Crescent, Oakville, ON L6H 1G1",
   "mls": "W13611862",
-  "list_price": 1299000,
+  "list_price": 1279000,
   "dom": 46,
   "year_built": null,
   "year_built_details": null,
@@ -2855,7 +2861,8 @@
    "deck_yard": 8
   },
   "notes": "College Park backsplit: painted raised-panel kitchen with brown granite and glass-tile backsplash (2000s), 2018 primary addition with a glass-shower ensuite, hall bath in 2000s beige 12x12, 2018 basement bath, laminate basement with flat ceilings. Vinyl windows. Nothing mechanical shown; heat pump 2024 is remarks only.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "price_history": "$1,299,000 on file before 23 Sep 2026; $1,279,000 on the 23 Sep 2026 harvest (card badge: Price Decrease)"
  },
  {
   "slug": "bur-4831-columbus",
@@ -3025,7 +3032,7 @@
   "listing_id": "aotf~1179853508~TRREB",
   "address": "568 Weir Avenue, Oakville, ON L6L 4X4",
   "mls": "W13667672",
-  "list_price": 1299999,
+  "list_price": 1279999,
   "dom": 31,
   "year_built": 1957,
   "year_built_details": null,
@@ -3057,7 +3064,7 @@
   "construction": "Brick",
   "direction_faces": "East",
   "storeys": 1,
-  "badge": "New Listing",
+  "badge": "Price Decrease",
   "remarks": "Renovated 1957 bungalow in West Oakville among custom multi-million dollar rebuilds. CURRENTLY TENANTED at $57,000/yr. Walk-up basement with separate entrance. 'Over $150k in upgrades': fully renovated 2021, Thermador appliances, 8-car driveway 2023, gutters/leaf guards 2023. No garage. No room dimensions listed; only two 3pc baths in the room table.",
   "rooms_raw": [
    [
@@ -3121,7 +3128,8 @@
   },
   "notes": "Renovated main floor (cream shaker kitchen with quartz waterfall and undermount sink, new 4pc bath with floating vanity) over a basement suite with an IKEA kitchen, a 1957-original blue-tile bath and a tiled ceiling. Tenanted; sparse photo set; no mechanical frames. Vinyl windows, new asphalt drive. The value is the 70 x 108 lot.",
   "stage2_date": "2026-09-12",
-  "tenanted": true
+  "tenanted": true,
+  "price_history": "$1,299,999 on file before 23 Sep 2026; $1,279,999 on the 23 Sep 2026 harvest (card badge: Price Decrease)"
  },
  {
   "slug": "bur-5190-wood",
@@ -3286,7 +3294,7 @@
   "listing_id": "aotf~1187118192~TRREB",
   "address": "2294 Seton Crescent, Burlington, ON L7L 6Y4",
   "mls": "W13718864",
-  "list_price": 1194900,
+  "list_price": 1179900,
   "dom": 16,
   "year_built": 2002,
   "year_built_details": "16-30",
@@ -3410,7 +3418,9 @@
    "yard": 3
   },
   "notes": "Fully renovated in 2026: shaker kitchen with quartz and undermount sink, subway-tiled alcove tub, shaker vanities with stone tops, LVP on every level, flat ceilings with pot lights, black-frame vinyl windows. No original surface visible; photos cannot speak to anything behind the drywall. Driveway is the only unrenewed surface. Partly staged, partly vacant.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "price_history": "$1,194,900 on file before 23 Sep 2026; $1,179,900 on the 23 Sep 2026 harvest (card badge: Price Decrease)",
+  "badge": "Price Decrease"
  },
  {
   "slug": "bur-2265-middlesmoor",
@@ -4953,5 +4963,2951 @@
    "yard_pool": 13
   },
   "status": "active"
+ },
+ {
+  "slug": "bur-1041-shepherds",
+  "board": "ITSO",
+  "stage": 2,
+  "listing_id": "aotf~1190816305~ITSO",
+  "mls": "40863501",
+  "address": "1041 Shepherd's Drive, Burlington, ON L7T 3R4",
+  "list_price": 1049900,
+  "est_monthly": 5365,
+  "dom": 8,
+  "year_built": null,
+  "year_built_details": null,
+  "style": "Bungalow Raised",
+  "storeys": 1,
+  "sqft_above": 1254,
+  "sqft_below": null,
+  "size_range": null,
+  "beds_ag": 3,
+  "beds_bg": 1,
+  "baths_total": 2,
+  "baths_full": 2,
+  "baths_half": 0,
+  "lot_frontage_ft": 60.06,
+  "lot_depth_ft": 131.57,
+  "annual_taxes": 5388,
+  "tax_year": 2025,
+  "neighbourhood": "Aldershot South",
+  "municipality": "Burlington",
+  "basement": "Full, Finished, Separate Entrance",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "Block",
+  "construction": "Brick, Vinyl Siding",
+  "direction_faces": null,
+  "parking_spots": 9,
+  "garage_spaces": 1.0,
+  "brokerage": "RE/MAX Escarpment Realty Inc.",
+  "zoning": "R2.1",
+  "primary_bed_sqft": 125,
+  "min_secondary_bed_sqft": 89,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 173,
+  "main_living_sqft": 295,
+  "n_4pc": 1,
+  "n_3pc": 1,
+  "n_2pc": 0,
+  "lower_kitchen": false,
+  "ensuite": false,
+  "walk": 40,
+  "bike": 50,
+  "transit": 30,
+  "nearest_school_km": 0.5,
+  "schools_1km": 3,
+  "mech_ages_stated": "full renovation 'under closed construction and electrical permits'; no component years given (remarks only). Ask for the permit numbers and the ESA certificate.",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "Welcome to 1041 Shepherd’s Drive, nestled in Burlington’s highly sought-after Aldershot community. This fully renovated home is a true showstopper, thoughtfully updated from top to bottom with all work completed under closed construction and electrical permits—offering both style and peace of mind. The main level boasts three spacious bedrooms, a beautifully updated four-piece bathroom, and a bright and versatile side mudroom that also works perfectly as a home office—ideal for keeping the main entrance organized and clutter-free. The heart of the home is the stunning open-concept great room featuring soaring 12-foot vaulted ceilings, a striking floor-to-ceiling fireplace, and a custom kitchen designed for both entertaining and everyday comfort. Downstairs, the fully finished lower level offers incredible space and flexibility. It includes a large recreation room, a fourth bedroom, a modern three-piece bathroom, plenty of storage, and a convenient walk-up entrance—perfect for those considering the addition of a nanny or in-law suite. Ideally located just steps from Earl Court Park and several excellent schools, including French immersion options, this home is also just minutes from downtown Burlington, Mapleview Mall, and easy highway access. This exceptional family home has everything you’ve been looking for—come and see it for yourself!",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "4pc bath",
+    46
+   ],
+   [
+    "Main Level",
+    "Bedroom",
+    113
+   ],
+   [
+    "Main Level",
+    "Bedroom",
+    89
+   ],
+   [
+    "Main Level",
+    "Dining Room",
+    131
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    173
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    164
+   ],
+   [
+    "Main Level",
+    "Office",
+    124
+   ],
+   [
+    "Main Level",
+    "Primary Bedroom",
+    125
+   ],
+   [
+    "Basement",
+    "3pc bath",
+    52
+   ],
+   [
+    "Basement",
+    "Bedroom",
+    85
+   ],
+   [
+    "Basement",
+    "Bonus Room",
+    169
+   ],
+   [
+    "Basement",
+    "Laundry",
+    70
+   ],
+   [
+    "Basement",
+    "Mud Room",
+    53
+   ],
+   [
+    "Basement",
+    "Recreation",
+    627
+   ],
+   [
+    "Basement",
+    "Utility Room",
+    35
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "undermount",
+  "kitchen_counter_edge": "square_eased",
+  "kitchen_soffit": "removed",
+  "kitchen_door_profile": "crisp_shaker",
+  "kitchen_verdict": "unverified",
+  "bath_tub_type": "alcove_tiled",
+  "bath_tile_scale": "subway_modern",
+  "bath_vanity_top": "integrated_modern",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "flat_painted",
+  "window_frame": "vinyl",
+  "panel_type": "not_shown",
+  "basement_ceiling": "drywall",
+  "basement_walls": "drywall",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "year_built_est": 1955,
+  "year_built_est_src": "no Year Built on the ITSO listing; estimated from the street's 1950s raised-bungalow stock in Aldershot South with a block foundation. An estimate, not a fact: ask the agent.",
+  "photos_total": 42,
+  "staging": "professionally_staged",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 4,
+   "great_room_kitchen": 14,
+   "bed": 4,
+   "bath": 3,
+   "basement": 8,
+   "laundry": 1,
+   "yard_deck": 6,
+   "floor_plan": 2
+  },
+  "concealed_surfaces": [
+   "the basement is newly drywalled floor to ceiling with new vinyl plank, so no wall base or moisture line is readable",
+   "the electrical panel is behind a closed cover door in the basement (30), so type and amperage are not readable",
+   "the exterior brick and the walk-up stairwell block are freshly painted (0, 36), which hides efflorescence and repointing",
+   "no furnace or water heater frame in 42 photographs"
+  ],
+  "red_flags": [
+   "A FULL FLIP: new kitchen (undermount sink, white quartz, shaker), new baths, new basement drywall and vinyl plank, painted exterior brick. The remarks say closed construction and electrical permits. ASK FOR THE PERMIT NUMBERS AND THE ESA CERTIFICATE; on a flip that is the whole question.",
+   "NO YEAR BUILT anywhere on the listing. Carried at an estimated 1955, which keeps the pre-1970 panel and rewire lines on. If the ESA permit covers a full rewire, that is money back.",
+   "The walk-up stairwell and the exterior brick are freshly painted over block (36). Fresh paint low on a basement wall is the classic moisture mask. Moisture meter at the showing.",
+   "Garage is detached. The 12-foot vaulted ceiling means the roof structure was altered; ask whether that was engineered and permitted.",
+   "Floor plans are included (40, 41)."
+  ],
+  "notes": "A fully renovated raised bungalow in Aldershot South, sold as a permitted flip. Every finish reads new, which the photo rule cannot credit. No year built, a painted exterior, a drywalled basement and a panel behind a cover: the house is all surface and the permits are the evidence."
+ },
+ {
+  "slug": "bur-1236-thorpe",
+  "board": "ITSO",
+  "stage": 2,
+  "listing_id": "aotf~1191007784~ITSO",
+  "mls": "40861762",
+  "address": "1236 Thorpe Road, Burlington, ON L7S 2C9",
+  "list_price": 1225000,
+  "est_monthly": 6249,
+  "dom": 6,
+  "year_built": 1985,
+  "year_built_details": null,
+  "style": "Traditional",
+  "storeys": 2,
+  "sqft_above": 2104,
+  "sqft_below": null,
+  "size_range": null,
+  "beds_ag": 3,
+  "beds_bg": 0,
+  "baths_total": 3,
+  "baths_full": 2,
+  "baths_half": 1,
+  "lot_frontage_ft": 39.7,
+  "lot_depth_ft": 114.82,
+  "annual_taxes": 6163,
+  "tax_year": 2026,
+  "neighbourhood": "Maple",
+  "municipality": "Burlington",
+  "basement": "Full, Partially Finished",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": null,
+  "construction": "Brick",
+  "direction_faces": null,
+  "parking_spots": 3,
+  "garage_spaces": 1.0,
+  "brokerage": "RE/MAX Escarpment Realty Inc.",
+  "zoning": "R3.4",
+  "primary_bed_sqft": 178,
+  "min_secondary_bed_sqft": 127,
+  "beds_under_100sqft": 0,
+  "kitchen_sqft": 181,
+  "main_living_sqft": 594,
+  "n_4pc": 2,
+  "n_3pc": 0,
+  "n_2pc": 1,
+  "lower_kitchen": false,
+  "ensuite": true,
+  "walk": 60,
+  "bike": 60,
+  "transit": 40,
+  "nearest_school_km": 0.84,
+  "schools_1km": 5,
+  "mech_ages_stated": "hardwood 2013; kitchen 2021; skylights 2023; ensuite, main bath and powder 2024; soundproofed basement room 2025; laundry 2026; roof 2015; furnace 2013; A/C 2013 (remarks only, not verified)",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "Welcome to 1236 Thorpe Road, a beautifully updated 3-bedroom, 3-bathroom detached home offering approximately 2,104 sq. ft. above grade in Burlington's sought-after Brant community. Set on a mature lot with a private, tree-lined backyard, this spacious family home offers an exceptional combination of comfort, thoughtful upgrades, and an unbeatable location within walking distance of Mapleview Mall, Downtown Burlington, Spencer Smith Park, Lake Ontario, the GO Station, and everyday shopping. Step inside to hardwood flooring throughout the main and second levels (2013). The updated kitchen (2021) features granite countertops and stainless steel appliances, while the spacious family room offers a gas fireplace and ceiling fan, both with remotes. Sliding doors with internal blinds open to a large premium composite deck overlooking the mature, private backyard, complete with a natural gas BBQ line. The refreshed laundry room (2026) and updated powder room with marble countertop (2024) add further appeal, while direct interior access to the garage provides everyday convenience. Upstairs, two new skylights (2023) bring in additional natural light. The primary retreat features California shutters and a beautifully renovated ensuite (2024) with an oversized glass walk-in rain shower, bench, double granite vanity, Kohler mirrored medicine cabinets, and Toto toilet. The family bathroom was also renovated in 2024 with a glass-enclosed soaker tub, granite vanity, illuminated mirror, and Toto toilet with bidet seat. The partially finished basement features a large soundproofed room completed in 2025, ideal for a home theatre, media room, gym, or office, plus a fruit cellar and additional insulated space ready for future finishing. Additional highlights include central vacuum, energy-efficient windows, roof (2015), furnace (2013), and A/C (2013). A rare opportunity to enjoy a private setting with outstanding walkability in the heart of Burlington.",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "2pc bath"
+   ],
+   [
+    "Main Level",
+    "Dining Room",
+    156
+   ],
+   [
+    "Main Level",
+    "Family Room",
+    224
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    181
+   ],
+   [
+    "Main Level",
+    "Laundry"
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    214
+   ],
+   [
+    "Second Level",
+    "4pc bath"
+   ],
+   [
+    "Second Level",
+    "4pc bath"
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    134
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    127
+   ],
+   [
+    "Second Level",
+    "Primary Bedroom",
+    178
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "not_shown",
+  "kitchen_counter_edge": "square_eased",
+  "kitchen_soffit": "removed",
+  "kitchen_door_profile": "slab",
+  "kitchen_verdict": "unverified",
+  "bath_tub_type": "not_shown",
+  "bath_tile_scale": "large_format",
+  "bath_vanity_top": "undermount_stone",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "flat_painted",
+  "window_frame": "vinyl",
+  "panel_type": "not_shown",
+  "basement_ceiling": "not_shown",
+  "basement_walls": "not_shown",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "photos_total": 46,
+  "staging": "lived_in",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 3,
+   "living_dining_family": 13,
+   "kitchen": 3,
+   "laundry": 1,
+   "powder": 2,
+   "stairs_hall": 4,
+   "bed": 9,
+   "bath": 4,
+   "yard_deck": 6,
+   "aerial": 3,
+   "basement": 0
+  },
+  "concealed_surfaces": [
+   "the kitchen sink is not readable at 2.4x; the crop lands on a counter appliance",
+   "living-room floor is under a large area rug (5)",
+   "no basement frame on a partially finished basement, so the 2025 media room, the unfinished part, the walls and any moisture are all unseen",
+   "no furnace, panel or water heater frame in 46 photographs",
+   "the main-bath tub is not in any frame read"
+  ],
+  "red_flags": [
+   "NO BASEMENT PHOTOGRAPHS on a full, partially finished basement. The remarks describe a 2025 soundproofed room, a fruit cellar and insulated unfinished space; none of it is shown.",
+   "The seller's dates are specific (kitchen 2021, both baths and powder 2024, laundry 2026, skylights 2023, roof 2015, furnace and A/C 2013) and the photographs are consistent with a recent kitchen and three recent baths. Photos cannot promote, so every one of these is carried as a claim to verify, not a credit.",
+   "Furnace and A/C stated 2013: 13 years old at purchase, so both are inside the replacement window over a 3 to 7 year hold even if the dates are right.",
+   "The two new skylights (2023) are a leak point worth checking at the showing."
+  ],
+  "notes": "A 1985 two-storey near Mapleview with a recent-looking kitchen and three recent-looking baths, consistent with the seller's 2021 to 2024 dates. Photos cannot promote, so those finishes are unverified rather than credited. No basement or mechanical frames. Stated roof 2015 and furnace/A/C 2013 are remarks only."
+ },
+ {
+  "slug": "bur-1237-sycamore",
+  "board": "TRREB",
+  "stage": 2,
+  "listing_id": "aotf~1191215910~TRREB",
+  "mls": "W13811936",
+  "address": "1237 Sycamore Drive, Burlington, ON L7M 1G8",
+  "list_price": 1099000,
+  "est_monthly": 5534,
+  "dom": 2,
+  "year_built": null,
+  "year_built_details": null,
+  "style": "Two Storey",
+  "storeys": 2,
+  "sqft_above": 1500,
+  "sqft_below": null,
+  "size_range": "1100-1500 sqft",
+  "beds_ag": 3,
+  "beds_bg": 0,
+  "baths_total": 4,
+  "baths_full": 3,
+  "baths_half": 1,
+  "lot_frontage_ft": 36.28,
+  "lot_depth_ft": 122.26,
+  "annual_taxes": 4669,
+  "tax_year": 2025,
+  "neighbourhood": "Palmer",
+  "municipality": "Burlington",
+  "basement": "Full, Finished",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Fiberglass, Shingle",
+  "foundation": "Concrete",
+  "construction": "Brick, Vinyl Siding",
+  "direction_faces": "North",
+  "parking_spots": 4,
+  "garage_spaces": 1.0,
+  "brokerage": "SUTTON GROUP QUANTUM REALTY INC.",
+  "zoning": null,
+  "primary_bed_sqft": 147,
+  "min_secondary_bed_sqft": 75,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 127,
+  "main_living_sqft": 321,
+  "n_4pc": 1,
+  "n_3pc": 1,
+  "n_2pc": 1,
+  "lower_kitchen": false,
+  "ensuite": true,
+  "walk": 50,
+  "bike": 50,
+  "transit": 40,
+  "nearest_school_km": 0.43,
+  "schools_1km": 3,
+  "mech_ages_stated": "substantial renovation 'with only the final finishing touches remaining'; no years (remarks only)",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "Welcome to 1237 Sycamore Drive - a substantially renovated detached family home situated on a quiet, established cul-de-sac in Burlington's desirable Palmer neighbourhood.The original four-bedroom layout has been thoughtfully redesigned into three more comfortable bedrooms. The spacious primary bedroom now features a large, newly created ensuite bathroom with a window, as well as a walk-in closet - a significant improvement over the home's original layout, where all four bedrooms shared a single bathroom.The extensive renovation includes new flooring throughout, pot lights, fully renovated bathrooms and a finished basement. The bright, modernized interior offers a practical family layout with only the final finishing touches remaining.Outside, the property provides a large, private backyard with an inground pool. An attached single garage is complemented by a generous driveway accommodating approximately three to four additional vehicles, depending on their size.Conveniently located close to schools, parks, shopping, the QEW and Highway 407. Priced very competitively in relation to recent neighbourhood sales, this property offers buyers the opportunity to purchase a substantially renovated family home without facing the expense, delays and inconvenience of completing a major renovation themselves.The sellers are committed to achieving a timely sale, and a quick closing is preferred.",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "2pc bath"
+   ],
+   [
+    "Main Level",
+    "Breakfast Room/Nook",
+    78
+   ],
+   [
+    "Main Level",
+    "Dining Room",
+    93
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    127
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    228
+   ],
+   [
+    "Second Level",
+    "4pc bath"
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    103
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    75
+   ],
+   [
+    "Second Level",
+    "Primary Bedroom",
+    147
+   ],
+   [
+    "Basement",
+    "3pc bath"
+   ],
+   [
+    "Basement",
+    "Bedroom",
+    126
+   ],
+   [
+    "Basement",
+    "Office",
+    92
+   ],
+   [
+    "Basement",
+    "Recreation",
+    244
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "undermount",
+  "kitchen_counter_edge": "square_eased",
+  "kitchen_soffit": "removed",
+  "kitchen_door_profile": "crisp_shaker",
+  "kitchen_verdict": "unverified",
+  "bath_tub_type": "not_shown",
+  "bath_tile_scale": "large_format",
+  "bath_vanity_top": "integrated_modern",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "flat_painted",
+  "window_frame": "vinyl",
+  "panel_type": "not_shown",
+  "basement_ceiling": "drywall",
+  "basement_walls": "drywall",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "pool": "in-ground",
+  "virtual_staging_tells": "frames 31 to 38 are virtually staged renders of rooms shown empty in 9 to 23 (furniture, rugs and decor with rendered lighting, e.g. 31 against the vacant living room)",
+  "photos_total": 39,
+  "staging": "virtually_staged",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 4,
+   "pool_yard": 7,
+   "kitchen": 2,
+   "empty_rooms": 15,
+   "bath": 4,
+   "virtually_staged": 8
+  },
+  "concealed_surfaces": [
+   "EIGHT OF 39 FRAMES ARE VIRTUALLY STAGED (31 to 38); every surface under rendered furniture is not_shown",
+   "the basement is newly drywalled with laminate and broadloom, so no wall base or moisture line is readable",
+   "no furnace, panel or water heater frame in 39 photographs"
+  ],
+  "red_flags": [
+   "VIRTUALLY STAGED: frames 31 to 38 are rendered furniture over the empty rooms in 9 to 23. Treat those eight as marketing, not evidence.",
+   "THE RENOVATION IS NOT FINISHED: the remarks say 'only the final finishing touches remaining'. Get a written list of what is incomplete and whether permits are open.",
+   "IN-GROUND POOL (4, 5, 7, 26, 27, 30). Annual carry priced; no pool capital item is.",
+   "A four-bedroom layout was converted to three with a new ensuite carved out; the new exterior cladding and a rear addition-style facade (2, 3, 29) suggest structural work. Ask for permits.",
+   "The MLS 'Utilities' field reads 'Sewer Not Available' in Palmer. Almost certainly a data-entry error; confirm municipal sewer.",
+   "The remarks lean on 'the sellers are committed to a timely sale' and 'priced very competitively in relation to recent neighbourhood sales'. Ask for those sales.",
+   "Third bedroom is 9.5 x 7.9 ft (75 sq ft)."
+  ],
+  "notes": "A Palmer two-storey mid-renovation: new navy shaker kitchen on granite with an undermount sink, new baths, new flooring, a basement redone, and a pool. Eight frames are virtual staging. Unfinished work, possible open permits and no mechanicals seen.",
+  "year_built_est": 1970,
+  "year_built_est_src": "no Year Built on the TRREB listing and no age band; estimated from Palmer's late-1960s to mid-1970s two-storey stock. An estimate, not a fact: ask the agent."
+ },
+ {
+  "slug": "bur-1284-morgan",
+  "board": "ITSO",
+  "stage": 2,
+  "listing_id": "aotf~1190280466~ITSO",
+  "mls": "40861765",
+  "address": "1284 Morgan Court, Burlington, ON L7M 1X2",
+  "list_price": 989900,
+  "est_monthly": 5092,
+  "dom": 14,
+  "year_built": null,
+  "year_built_details": null,
+  "style": "Bungalow Raised",
+  "storeys": 1,
+  "sqft_above": 1268,
+  "sqft_below": null,
+  "size_range": null,
+  "beds_ag": 3,
+  "beds_bg": 1,
+  "baths_total": 2,
+  "baths_full": 2,
+  "baths_half": 0,
+  "lot_frontage_ft": 31.01,
+  "lot_depth_ft": 91.41,
+  "annual_taxes": 5489,
+  "tax_year": 2025,
+  "neighbourhood": "Palmer",
+  "municipality": "Burlington",
+  "basement": "Finished, Partial",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "Concrete",
+  "construction": "Aluminum Siding, Brick Veneer",
+  "direction_faces": null,
+  "parking_spots": 3,
+  "garage_spaces": 1.0,
+  "brokerage": "Royal LePage Real Estate Services Ltd.",
+  "zoning": "R3.2",
+  "primary_bed_sqft": 161,
+  "min_secondary_bed_sqft": 99,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 132,
+  "main_living_sqft": 336,
+  "n_4pc": 1,
+  "n_3pc": 1,
+  "n_2pc": 0,
+  "lower_kitchen": false,
+  "ensuite": false,
+  "walk": 50,
+  "bike": 50,
+  "transit": 40,
+  "nearest_school_km": 0.23,
+  "schools_1km": 4,
+  "mech_ages_stated": "main-floor flooring 2026; main-bath vanity, lights and mirror 2026 (remarks only)",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "Wow! Rare Offering, Huge Pie-Shaped Lot on a Quiet Family Friendly Court!!! This Updated Detached Raised Bungalow offers 3+1 Bed, 2 Bath w Spacious Principle Rooms. The main flr. offers Sep. Living & Dining Rms. recently updated wide plank flooring 26' & Kitchen w breakfast bar & room for an island or table. The stylish hallway arch leads to 3 good sized bedrooms & 4 pc. family bath (upgraded vanity, lights & mirror 26'). The Open Concept lower level has a Sep. entrance perfect for an in-law suite. Upgraded with wide plank flooring, wood burning fireplace w stone surround, bright look-out windows, 3 pc bath & 4th bedroom. Walk-out to the stunning private back garden from the laundry room. This mature backyard oasis offers the convenience of living in the city & feeling like you're at a cottage. The backyard patio is a great place to entertain. This is a great opportunity live in a sought after family neighbourhood close to schools, parks, major HWY's & amenities",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "4pc bath"
+   ],
+   [
+    "Main Level",
+    "Bedroom",
+    102
+   ],
+   [
+    "Main Level",
+    "Bedroom",
+    99
+   ],
+   [
+    "Main Level",
+    "Dining Room",
+    135
+   ],
+   [
+    "Main Level",
+    "Foyer",
+    27
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    132
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    201
+   ],
+   [
+    "Main Level",
+    "Primary Bedroom",
+    161
+   ],
+   [
+    "Basement",
+    "3pc bath"
+   ],
+   [
+    "Basement",
+    "Bedroom",
+    141
+   ],
+   [
+    "Basement",
+    "Recreation",
+    636
+   ],
+   [
+    "Basement",
+    "Utility Room",
+    186
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "topmount",
+  "kitchen_counter_edge": "rolled_bullnose",
+  "kitchen_soffit": "not_shown",
+  "kitchen_door_profile": "not_shown",
+  "kitchen_verdict": "defect_confirmed",
+  "bath_tub_type": "not_shown",
+  "bath_tile_scale": "not_shown",
+  "bath_vanity_top": "integrated_modern",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "stipple_popcorn",
+  "window_frame": "vinyl",
+  "panel_type": "not_shown",
+  "basement_ceiling": "drop_tile",
+  "basement_walls": "panelling",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "year_built_est": 1970,
+  "year_built_est_src": "no Year Built on the ITSO listing; estimated from Palmer's late-1960s to mid-1970s raised-bungalow stock. An estimate, not a fact: ask the agent.",
+  "photos_total": 41,
+  "staging": "professionally_staged",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 3,
+   "living_dining": 8,
+   "kitchen": 4,
+   "bed": 8,
+   "bath": 3,
+   "lower": 6,
+   "yard": 9
+  },
+  "concealed_surfaces": [
+   "both tubs are behind shower curtains (20, 29)",
+   "living and lower-level floors partly under area rugs",
+   "lower-level walls are wainscot panelling to chair-rail height, concealing the wall base",
+   "no furnace, panel or water heater frame in 41 photographs; the 16 x 11 ft utility room is not shown"
+  ],
+  "red_flags": [
+   "THE KITCHEN IS ORIGINAL BOXES PAINTED WHITE: granite-pattern laminate with a rolled post-form edge and a topmount double sink with a visible rim (13, 2.4x), black appliances, and a freestanding cart where an island would go.",
+   "Stipple ceilings on the main floor (5) AND in the bedrooms (16).",
+   "LOWER LEVEL CEILING IS DROP TILE throughout (24, 26), with wainscot panelling on the walls.",
+   "NO YEAR BUILT on the listing. Carried at an estimated 1970. Ask.",
+   "Main bath vanity, lights and mirror are stated 2026 and the flooring 2026; the tub surround behind the curtain is unseen.",
+   "A 31-foot frontage on a pie lot: the lot widens at the back but the frontage is the narrowest in this round.",
+   "Wood-burning fireplace in the lower level: WETT inspection before insurance."
+  ],
+  "notes": "A Palmer raised bungalow with new flooring and a new main-bath vanity over an original painted kitchen with laminate and a topmount sink. Stipple throughout, drop-tile lower-level ceilings, and no year built. Separate lower entrance and a 3-piece bath make a suite plausible."
+ },
+ {
+  "slug": "bur-1316-nevarc",
+  "board": "ITSO",
+  "stage": 2,
+  "listing_id": "aotf~1191234172~ITSO",
+  "mls": "40862866",
+  "address": "1316 Nevarc Drive, Burlington, ON L7P 0T4",
+  "list_price": 1225000,
+  "est_monthly": 6127,
+  "dom": 1,
+  "year_built": 1957,
+  "year_built_details": null,
+  "style": "Bungalow",
+  "storeys": 1,
+  "sqft_above": 1750,
+  "sqft_below": null,
+  "size_range": null,
+  "beds_ag": 3,
+  "beds_bg": 0,
+  "baths_total": 2,
+  "baths_full": 1,
+  "baths_half": 1,
+  "lot_frontage_ft": 110.83,
+  "lot_depth_ft": 208.12,
+  "annual_taxes": 4704,
+  "tax_year": 2025,
+  "neighbourhood": "Aldershot West",
+  "municipality": "Burlington",
+  "basement": "None",
+  "heating": "Forced Air",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": null,
+  "construction": "Stone",
+  "direction_faces": null,
+  "parking_spots": 7,
+  "garage_spaces": 1.0,
+  "brokerage": "RE/MAX Escarpment Realty Inc.",
+  "zoning": "O2-196, RNA1",
+  "primary_bed_sqft": 159,
+  "min_secondary_bed_sqft": 147,
+  "beds_under_100sqft": 0,
+  "kitchen_sqft": 91,
+  "main_living_sqft": 718,
+  "n_4pc": 1,
+  "n_3pc": 0,
+  "n_2pc": 1,
+  "lower_kitchen": false,
+  "ensuite": false,
+  "walk": 20,
+  "bike": 20,
+  "transit": 40,
+  "nearest_school_km": 0.56,
+  "schools_1km": 1,
+  "mech_ages_stated": "hot water tank owned (inclusions); nothing dated. Heating field reads 'Forced Air' with no fuel on a 1957 house. ASK THE AGENT.",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "A rare opportunity to own a truly private 3-bedroom bungalow set on approximately half an acre, surrounded by mature trees and distinguished executive homes. Offering approximately 1,750 sq. ft. of living space, this inviting home was designed for both everyday living and entertaining, with an open-concept layout and a kitchen overlooking the beautifully landscaped backyard. The outdoors is where this property truly shines. Professionally manicured lawns, a completely private setting, inground pool, covered rear porch and all-glass solarium create an incredible extension of the living space and an ideal backdrop for summer gatherings or quiet afternoons at home. A welcoming front sitting porch adds even more charm. Inside, reclaimed beams and a flagstone exterior bring character and warmth, while the attached one-car garage adds everyday convenience. Properties offering this combination of space, privacy, mature surroundings and an exceptional outdoor setting are rarely available. Only minutes away from the GoStation and highway access. A special home for those who love to entertain, enjoy the outdoors, and appreciate something a little different.",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "2pc bath"
+   ],
+   [
+    "Main Level",
+    "4pc bath"
+   ],
+   [
+    "Main Level",
+    "Bedroom",
+    153
+   ],
+   [
+    "Main Level",
+    "Bedroom",
+    147
+   ],
+   [
+    "Main Level",
+    "Dining Room",
+    268
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    91
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    450
+   ],
+   [
+    "Main Level",
+    "Primary Bedroom",
+    159
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "not_shown",
+  "kitchen_counter_edge": "square_eased",
+  "kitchen_soffit": "removed",
+  "kitchen_door_profile": "soft_raised_panel",
+  "kitchen_verdict": "defect_confirmed",
+  "bath_tub_type": "not_shown",
+  "bath_tile_scale": "not_shown",
+  "bath_vanity_top": "undermount_stone",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "not_shown",
+  "window_frame": "not_shown",
+  "panel_type": "not_shown",
+  "basement_ceiling": "none",
+  "basement_walls": "none",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "photos_total": 26,
+  "staging": "professionally_staged",
+  "hdr_blowout": "moderate",
+  "pool": "in-ground",
+  "photo_inventory": {
+   "exterior_aerial": 3,
+   "living_dining": 6,
+   "kitchen": 3,
+   "bed": 3,
+   "den": 1,
+   "bath": 2,
+   "pool_yard": 6,
+   "porch_solarium": 2
+  },
+  "concealed_surfaces": [
+   "the kitchen sink is under a cutting board (12), so the mount is not readable",
+   "the main bath's tub or shower is out of frame; only a glass edge shows (17)",
+   "no furnace, panel, water heater or laundry-room frame in 26 photographs",
+   "no window frame is readable at magnification; the front elevation is shot from the garage side"
+  ],
+  "red_flags": [
+   "THE KITCHEN BOXES ARE OLD: stained-wood raised-panel doors and glass uppers from an earlier era under a newer white solid-surface counter and stainless appliances (12, 13). A new counter on old boxes.",
+   "Ceilings are painted tongue-and-groove plank throughout the main rooms with visible chips and wear at 1.6x (11). Not stipple, not drywall; recorded not_shown so it earns nothing either way.",
+   "IN-GROUND POOL (19, 20), pool equipment included. The annual carry is priced; no pool capital item is, same gap as Devlin.",
+   "NO BASEMENT. The MLS says Basement: None on a 1957 house, so the furnace, water heater and any ductwork sit in a crawlspace or a utility room that is not photographed. Ask where the mechanicals are and what the crawlspace looks like.",
+   "HEATING READS 'Forced Air' WITH NO FUEL on a 1957 house. Confirm it is gas; an oil conversion question on this vintage is not unusual.",
+   "ZONING O2-196 / RNA1. O2 is an open-space designation on part of the lot. Ask what it restricts (pool, additions, the solarium).",
+   "Only one full bathroom for three bedrooms.",
+   "No schools appear on the listing page at all."
+  ],
+  "notes": "A 1957 stone bungalow on 0.55 acres with a pool and solarium. The main bath has been redone with a white shaker vanity and undermount top; the kitchen has a new counter on old wood boxes. Ceilings are painted plank. No basement, no mechanical frames, and a fuel-less 'Forced Air' heating field on a 1957 house."
+ },
+ {
+  "slug": "bur-1434-dewbourne",
+  "board": "ITSO",
+  "stage": 2,
+  "listing_id": "aotf~1190813983~ITSO",
+  "mls": "40862735",
+  "address": "1434 Dewbourne Crescent, Burlington, ON L7M 1E7",
+  "list_price": 949000,
+  "est_monthly": 4834,
+  "dom": 8,
+  "year_built": 1972,
+  "year_built_details": null,
+  "style": "Backsplit",
+  "storeys": null,
+  "sqft_above": 1219,
+  "sqft_below": 297,
+  "size_range": null,
+  "beds_ag": 3,
+  "beds_bg": 0,
+  "baths_total": 2,
+  "baths_full": 1,
+  "baths_half": 1,
+  "lot_frontage_ft": 46.11,
+  "lot_depth_ft": 99.0,
+  "annual_taxes": 4609,
+  "tax_year": 2026,
+  "neighbourhood": "Palmer",
+  "municipality": "Burlington",
+  "basement": "Full, Partially Finished",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Shingle",
+  "foundation": "Block",
+  "construction": "Brick Veneer, Stone, Vinyl Siding",
+  "direction_faces": null,
+  "parking_spots": 3,
+  "garage_spaces": 0,
+  "brokerage": "Royal LePage State Realty Inc.",
+  "zoning": "R3.2",
+  "primary_bed_sqft": 138,
+  "min_secondary_bed_sqft": 87,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 128,
+  "main_living_sqft": 335,
+  "n_4pc": 1,
+  "n_3pc": 0,
+  "n_2pc": 1,
+  "lower_kitchen": false,
+  "ensuite": false,
+  "walk": 50,
+  "bike": 50,
+  "transit": 30,
+  "nearest_school_km": 0.21,
+  "schools_1km": 4,
+  "mech_ages_stated": "furnace and A/C 2015 (remarks only)",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "Welcome to 1434 Dewbourne Crescent! This beautifully maintained 3-bedroom, 1.5 bathroom, 3-level backsplit offers the perfect blend of comfort, functionality, and an unbeatable location. Backing directly onto the peaceful greenspace of Sycamore Park and a local elementary school, this home provides a private, family-friendly backyard oasis with no rear neighbours. The main floor boasts a bright and inviting open-concept layout seamlessly connecting the spacious living room, dining area, and kitchen, ideal for entertaining and everyday living. The heart of the home features a beautiful kitchen with light coloured cabinets, island with seating for two, pot lights, black granite countertops, backsplash, barn sink and stainless steel appliances. Upstairs, you will find three generous bedrooms and a full family bathroom. The finished basement adds excellent additional living space, featuring a cozy recreation room, a convenient 2-piece bathroom, and a functional utility room. The furnace and A/C were replaced in 2015. A convenient carport provides shelter for your vehicle and additional storage. Situated in a highly desirable neighborhood, this home is just minutes away from parks, schools, shopping, public transit, and highway access. RSA.SQFTA.",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "Dining Room",
+    124
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    128
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    211
+   ],
+   [
+    "Second Level",
+    "4pc bath"
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    138
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    87
+   ],
+   [
+    "Second Level",
+    "Primary Bedroom",
+    138
+   ],
+   [
+    "Basement",
+    "2pc bath"
+   ],
+   [
+    "Basement",
+    "Recreation",
+    269
+   ],
+   [
+    "Basement",
+    "Utility Room"
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "undermount",
+  "kitchen_counter_edge": "not_shown",
+  "kitchen_soffit": "removed",
+  "kitchen_door_profile": "crisp_shaker",
+  "kitchen_verdict": "unverified",
+  "bath_tub_type": "not_shown",
+  "bath_tile_scale": "not_shown",
+  "bath_vanity_top": "integrated_modern",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "stipple_popcorn",
+  "window_frame": "not_shown",
+  "panel_type": "not_shown",
+  "basement_ceiling": "drop_tile",
+  "basement_walls": "drywall",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "roof_visual": "granule loss and streaking visible on the front slope at 2.4x (1); age unstated",
+  "photos_total": 50,
+  "staging": "lived_in",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 4,
+   "living_dining": 12,
+   "kitchen": 6,
+   "bed": 9,
+   "bath": 3,
+   "basement": 6,
+   "yard": 9,
+   "floor_plan": 3
+  },
+  "concealed_surfaces": [
+   "the main-bath tub is behind a patterned shower curtain (29)",
+   "basement floor under a large area rug (32)",
+   "no furnace, panel or water heater frame in 50 photographs; the utility room is not shown",
+   "no window frame readable at magnification; the front elevation is all door glazing"
+  ],
+  "red_flags": [
+   "BASEMENT CEILING IS DROP TILE (32, 1.6x). Only 297 sq ft of the basement is finished; the rest is utility and unfinished.",
+   "Main-floor ceiling carries a textured finish at 1.5x (6); recorded stipple.",
+   "The kitchen has been redone (apron-front sink, shaker doors, granite per the remarks) and the main bath has a modern trough vanity (29). Photos cannot promote, so both are unverified.",
+   "One full bathroom for three bedrooms; the second is a basement powder room.",
+   "CARPORT, not a garage. Parking is the driveway and carport only.",
+   "Roof shows granule loss and streaking on the front slope (1). Age not stated; only the furnace and A/C (2015) are.",
+   "Backs onto Sycamore Park and a school: the listing's headline. Whether that park clears the 5 ha green bar is settled by the geo pull, not the listing."
+  ],
+  "notes": "A 1972 Palmer backsplit, the cheapest house in this round at $949,000. Kitchen and main bath have been redone to a modern standard (unverified by rule). Drop-tile basement ceiling, textured main ceiling, carport, one full bath, and a roof that reads worn. Furnace and A/C stated 2015, remarks only."
+ },
+ {
+  "slug": "bur-1486-barker",
+  "board": "ITSO",
+  "stage": 2,
+  "listing_id": "aotf~1179118807~ITSO",
+  "mls": "40853528",
+  "address": "1486 Barker Avenue, Burlington, ON L7P 2R4",
+  "list_price": 1139900,
+  "est_monthly": 5768,
+  "dom": 49,
+  "year_built": 1964,
+  "year_built_details": null,
+  "style": "Sidesplit",
+  "storeys": null,
+  "sqft_above": 1500,
+  "sqft_below": 400,
+  "size_range": null,
+  "beds_ag": 3,
+  "beds_bg": 1,
+  "baths_total": 2,
+  "baths_full": 1,
+  "baths_half": 1,
+  "lot_frontage_ft": 61.0,
+  "lot_depth_ft": 123.0,
+  "annual_taxes": 5137,
+  "tax_year": 2026,
+  "neighbourhood": "Mountainside",
+  "municipality": "Burlington",
+  "basement": "Finished, Partial, Walk-Up Access",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "Block",
+  "construction": "Brick, Vinyl Siding",
+  "direction_faces": null,
+  "parking_spots": 2,
+  "garage_spaces": 0.0,
+  "brokerage": "HouseSigma Inc.",
+  "zoning": "R2.3",
+  "primary_bed_sqft": 134,
+  "min_secondary_bed_sqft": 83,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 152,
+  "main_living_sqft": 345,
+  "n_4pc": 1,
+  "n_3pc": 0,
+  "n_2pc": 1,
+  "lower_kitchen": false,
+  "ensuite": false,
+  "walk": 50,
+  "bike": 60,
+  "transit": 40,
+  "nearest_school_km": 0.46,
+  "schools_1km": 4,
+  "mech_ages_stated": "tankless water heater; structural steel beam installed; kitchen, flooring and both baths renovated; no years given (remarks only)",
+  "badge": "Price Decrease",
+  "status": "active",
+  "remarks": "The transformation of this spacious 4 Level Side-Split in Burlington's highly sought-after Mountainside neighbourhood, is top tier amazing. Perfectly situated on a quiet, tree-lined street, this exceptional property sits on a large, private 61 ft wide lot featuring a fully fenced backyard with a sparkling in-ground pool - an ideal setting for family living and summer entertaining. This professionally renovated, spacious home showcases outstanding craftsmanship and premium finishes throughout. The main level was redesigned into an open-concept living space with the installation of a structural steel beam, creating an expansive, light-filled layout centred around a spectacular 7-foot waterfall quartz island illuminated with pendant lighting and pot lights. The chef-inspired kitchen is the heart of the home, offering quartz countertops, custom cabinetry with under-cabinet lighting, an undermount sink, pantry/bar area, elegant glass tile backsplash, Samsung convection range, Bosch SilencePlus dishwasher & a refrigerator with ice & water dispenser. The family room features a contemporary gas fireplace, while new luxury flooring and fresh paint create a seamless, elegant feel throughout. Both bathrooms have been beautifully renovated with a soaker tub/shower, newer vanities and stylish fixtures. A separate entrance near the pool and lower 2-piece bath adds convenience, while a tankless water heater provides added efficiency. Located just minutes from Guelph Line and Upper Middle Road, this home offers excellent walkability to shopping, restaurants, parks, recreation facilities, and everyday amenities. Families will appreciate the proximity to Burlington's top-rated schools, while commuters will enjoy quick access to major highways, GO Transit & public transportation. A rare opportunity to own a professionally renovated home combining luxury finishes, modern functionality, and one of Burlington's most desirable family-friendly neighbourhoods.",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "Dining Room",
+    95
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    152
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    250
+   ],
+   [
+    "Second Level",
+    "4pc bath"
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    83
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    114
+   ],
+   [
+    "Second Level",
+    "Primary Bedroom",
+    134
+   ],
+   [
+    "Lower Level",
+    "2pc bath"
+   ],
+   [
+    "Lower Level",
+    "Bedroom",
+    103
+   ],
+   [
+    "Lower Level",
+    "Family Room",
+    182
+   ],
+   [
+    "Basement",
+    "Laundry",
+    112
+   ],
+   [
+    "Basement",
+    "Recreation",
+    189
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "price_history": "listed at $1,159,900 (on file 4 Sep 2026), reduced to $1,139,900",
+  "kitchen_sink_mount": "undermount",
+  "kitchen_counter_edge": "square_eased",
+  "kitchen_soffit": "removed",
+  "kitchen_door_profile": "crisp_shaker",
+  "kitchen_verdict": "unverified",
+  "bath_tub_type": "alcove_tiled",
+  "bath_tile_scale": "large_format",
+  "bath_vanity_top": "undermount_stone",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "flat_painted",
+  "window_frame": "vinyl",
+  "panel_type": "not_shown",
+  "basement_ceiling": "drop_tile",
+  "basement_walls": "panelling",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "pool": "in-ground",
+  "roof_visual": "dark architectural shingle, no curling at 1.8x from the aerial (39); age unstated",
+  "photos_total": 43,
+  "staging": "lived_in",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior_front": 0,
+   "living_family": 14,
+   "kitchen": 6,
+   "bed": 4,
+   "bath": 3,
+   "lower_basement": 6,
+   "pool_yard": 6,
+   "aerial": 4
+  },
+  "concealed_surfaces": [
+   "NO FRONT EXTERIOR PHOTOGRAPH in 43 frames; the street elevation, front windows, siding and driveway are seen only from a drone",
+   "basement walls are wainscot panelling with drywall above (31), which conceals the wall base",
+   "no furnace, panel or water heater frame; the tankless water heater in the remarks is not shown",
+   "lower-level floor partly under rugs"
+  ],
+  "red_flags": [
+   "BASEMENT CEILINGS ARE DROP TILE with fluorescent lay-in panels (31, 33 at 1.8x), and the bar room keeps a 1960s-70s carved-wood bar and wainscot panelling. The 'professionally renovated' description covers the upper levels, not the basement.",
+   "IN-GROUND POOL (36 to 41). Annual carry priced; no pool capital item is.",
+   "NO GARAGE. Two driveway spots only.",
+   "A STRUCTURAL STEEL BEAM was installed to open the main level. Ask for the permit and the engineer's drawing.",
+   "49 days on market with a price cut from $1,159,900 to $1,139,900. Also on the September 4 list at $1,159,900 with the same MLS, so this is the same listing, not a relist.",
+   "One full bath for 3+1 bedrooms. The lower bath is a 2-piece.",
+   "The primary bedroom is under 150 sq ft (11.9 x 11.3) and the third bedroom is 9.3 x 8.9 ft (83 sq ft)."
+  ],
+  "notes": "A 1964 four-level sidesplit in Mountainside with a recent-looking kitchen and main bath upstairs and an unrenovated basement below: drop-tile ceilings, panelling and an old bar. In-ground pool, no garage, one full bath. No front exterior photo at all. Graded once under the pre-v3 model (B-) and never under v6."
+ },
+ {
+  "slug": "bur-2037-mountain-grove",
+  "board": "TRREB",
+  "stage": 2,
+  "listing_id": "aotf~1191179352~TRREB",
+  "mls": "W13808184",
+  "address": "2037 Mountain Grove Avenue, Burlington, ON L7P 2H8",
+  "list_price": 1049999,
+  "est_monthly": 5384,
+  "dom": 2,
+  "year_built": null,
+  "year_built_details": null,
+  "style": "Sidesplit",
+  "storeys": null,
+  "sqft_above": 1180,
+  "sqft_below": 1133,
+  "size_range": "1100-1500 sqft",
+  "beds_ag": 3,
+  "beds_bg": 2,
+  "baths_total": 3,
+  "baths_full": 3,
+  "baths_half": 0,
+  "lot_frontage_ft": 58.16,
+  "lot_depth_ft": 114.95,
+  "annual_taxes": 5513,
+  "tax_year": 2026,
+  "neighbourhood": "Brant Hills",
+  "municipality": "Burlington",
+  "basement": "Full, Finished, Walk-Up Access",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "See Remarks",
+  "construction": "Brick, Vinyl Siding",
+  "direction_faces": "East",
+  "parking_spots": 3,
+  "garage_spaces": 1.0,
+  "brokerage": "ROYAL LEPAGE BURLOAK REAL ESTATE SERVICES",
+  "zoning": "R3.1",
+  "primary_bed_sqft": 146,
+  "min_secondary_bed_sqft": 91,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 110,
+  "main_living_sqft": 295,
+  "n_4pc": 1,
+  "n_3pc": 2,
+  "n_2pc": 0,
+  "lower_kitchen": false,
+  "ensuite": false,
+  "walk": 50,
+  "bike": 50,
+  "transit": 40,
+  "nearest_school_km": 0.43,
+  "schools_1km": 4,
+  "mech_ages_stated": "NOTHING DATED. Updated kitchen and flooring, new carpet; no mechanical years. ASK THE AGENT.",
+  "badge": null,
+  "status": "active",
+  "remarks": "Lovely multifaceted side split family home in Brant Hills neighbourhood! This 3+2 bedroom, 2.5 bathroom home has over 2,300 square feet of living space throughout the four levels and walks-up to the large backyard! The main floor follows a traditional floor plan, the foyer offers a great transitional space from outside to inside and opens up to the spacious living room with a west-facing bay window. The updated kitchen features stone countertops, white cupboards, stainless steel appliances and flows directly to the dining alcove with a walkout to the sunroom and backyard. The upper level features updated flooring throughout the 3 spacious bedrooms and a 3-piece bathroom with ensuite privilege to the primary bedroom. The lower levels cozy recreation room is newly carpeted with a gas-fireplace to enjoy in the cold winters. The lower level is complete with a 4th bedroom, 4-piece bathroom and walk-up adding a ton of potential to the property. The bonus basement space features a 5th bedroom, office space, laundry room and a convenient 2-piece bathroom. The tree lined backyard is ready for a Buyer to make their own and backs onto recreational green space for added privacy. With 1-car garage and 2-car laneway and conveniently located close to shops, restaurants, schools and the Escarpment and trails in North Burlington!",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "Dining Room",
+    91
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    110
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    204
+   ],
+   [
+    "Main Level",
+    "Sun Room",
+    145
+   ],
+   [
+    "Upper Level",
+    "3pc bath"
+   ],
+   [
+    "Upper Level",
+    "Bedroom",
+    91
+   ],
+   [
+    "Upper Level",
+    "Bedroom",
+    117
+   ],
+   [
+    "Upper Level",
+    "Primary Bedroom",
+    146
+   ],
+   [
+    "Lower Level",
+    "4pc bath"
+   ],
+   [
+    "Lower Level",
+    "Bedroom",
+    103
+   ],
+   [
+    "Lower Level",
+    "Recreation",
+    230
+   ],
+   [
+    "Basement",
+    "3pc bath"
+   ],
+   [
+    "Basement",
+    "Bedroom",
+    174
+   ],
+   [
+    "Basement",
+    "Laundry",
+    27
+   ],
+   [
+    "Basement",
+    "Office",
+    207
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "not_shown",
+  "kitchen_counter_edge": "square_eased",
+  "kitchen_soffit": "removed",
+  "kitchen_door_profile": "slab",
+  "kitchen_verdict": "unverified",
+  "bath_tub_type": "not_shown",
+  "bath_tile_scale": "large_format",
+  "bath_vanity_top": "integrated_modern",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "not_shown",
+  "window_frame": "not_shown",
+  "panel_type": "not_shown",
+  "basement_ceiling": "not_shown",
+  "basement_walls": "not_shown",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "year_built_est": 1968,
+  "year_built_est_src": "no Year Built on the TRREB listing and no range; estimated from Brant Hills' late-1960s sidesplit stock. An estimate, not a fact: ask the agent.",
+  "photos_total": 35,
+  "staging": "lived_in",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 5,
+   "living_dining": 5,
+   "kitchen": 4,
+   "bed": 5,
+   "bath": 4,
+   "lower": 6,
+   "laundry": 1,
+   "sunroom": 2,
+   "yard": 5
+  },
+  "concealed_surfaces": [
+   "lower-level floor under new carpet",
+   "no furnace, panel or water heater frame in 35 photographs; the 5 x 5 ft laundry is the only utility frame",
+   "no window frame readable at magnification",
+   "the basement level (5th bedroom, office) walls and ceiling not settled"
+  ],
+  "red_flags": [
+   "NO YEAR BUILT on the listing, not even a range. Carried at an estimated 1968, which keeps the pre-1970 panel and rewire lines on.",
+   "The kitchen has been redone (white slab doors, black stone, square edge) and the three full baths read 2010s: photos cannot promote, unverified.",
+   "Only 1,180 sq ft above grade; half the 2,300 sq ft the remarks quote is below grade.",
+   "SUNROOM WITH TWO SKYLIGHTS (28, 29): a classic leak and heat-loss point. Ask whether it is a permitted, heated, four-season room.",
+   "Bath count conflict: the MLS shows 3 full baths and no half, the remarks say 2.5 and describe a 2-piece in the basement.",
+   "Backs onto recreational green space; whether it scores is settled by the geo pull."
+  ],
+  "notes": "A Brant Hills four-level sidesplit with a redone kitchen, 2010s-looking baths, a walk-up lower level and a skylit sunroom. No year built. Mechanicals unseen."
+ },
+ {
+  "slug": "bur-2358-arnold",
+  "board": "TRREB",
+  "stage": 2,
+  "listing_id": "aotf~1191306362~TRREB",
+  "mls": "W13818862",
+  "address": "2358 Arnold Crescent, Burlington, ON L7P 4G3",
+  "list_price": 1195000,
+  "est_monthly": 6036,
+  "dom": 1,
+  "year_built": null,
+  "year_built_details": "31-50",
+  "style": "Backsplit",
+  "storeys": null,
+  "sqft_above": 1180,
+  "sqft_below": null,
+  "size_range": "1100-1500 sqft",
+  "beds_ag": 3,
+  "beds_bg": 4,
+  "baths_total": 4,
+  "baths_full": 3,
+  "baths_half": 1,
+  "lot_frontage_ft": 44.34,
+  "lot_depth_ft": 120.0,
+  "annual_taxes": 5219,
+  "tax_year": 2026,
+  "neighbourhood": "Brant Hills",
+  "municipality": "Burlington",
+  "basement": "Finished",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "Concrete",
+  "construction": "Brick",
+  "direction_faces": "South",
+  "parking_spots": 3,
+  "garage_spaces": 1.0,
+  "brokerage": "RIGHT AT HOME REALTY",
+  "zoning": "R3.2",
+  "primary_bed_sqft": null,
+  "min_secondary_bed_sqft": null,
+  "beds_under_100sqft": 0,
+  "kitchen_sqft": null,
+  "main_living_sqft": 264,
+  "n_4pc": 0,
+  "n_3pc": 3,
+  "n_2pc": 1,
+  "lower_kitchen": true,
+  "ensuite": null,
+  "walk": 40,
+  "bike": 50,
+  "transit": 30,
+  "nearest_school_km": 0.15,
+  "schools_1km": 2,
+  "mech_ages_stated": "extensive renovation with a new lower-level kitchen and rear entry; no component years given (remarks only)",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "Welcome to this beautifully transformed 4-level backsplit in the sought-after Brant Hills community of Burlington, set on an impressive 44 x 120 ft lot. Offering over 2,000 sq. ft. of finished living space, this home has been extensively renovated from top to bottom and thoughtfully reimagined with a sophisticated, contemporary aesthetic and exceptional functionality.The main level features a redesigned open-concept layout with a stunning renovated kitchen, new cabinetry, centre island and modern finishes, creating an inviting space ideal for both everyday living and entertaining. Engineered hardwood flooring flows throughout the main and second levels, complemented by striking feature wall panelling with elegant black accents.The extensive renovation continues throughout the home with beautifully updated bathrooms and the addition of a new bathroom. The lower level has been completely transformed, offering a brand-new kitchen, three additional bedrooms, an updated bathroom, new flooring and a new rear entry providing direct backyard access. This versatile space is ideal for extended family, guests or additional living accommodations. Enjoy the spacious backyard and the convenience of being minutes from schools, parks, shopping, dining and major commuter routes including the QEW, 407 and GO Transit.A truly turnkey home where modern design, thoughtful renovations and exceptional versatility come together.",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "2pc bath"
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    264
+   ],
+   [
+    "Second Level",
+    "3pc bath"
+   ],
+   [
+    "Lower Level",
+    "3pc bath"
+   ],
+   [
+    "Basement",
+    "3pc bath"
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "undermount",
+  "kitchen_counter_edge": "square_eased",
+  "kitchen_soffit": "removed",
+  "kitchen_door_profile": "slab",
+  "kitchen_verdict": "unverified",
+  "bath_tub_type": "not_shown",
+  "bath_tile_scale": "large_format",
+  "bath_vanity_top": "integrated_modern",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "flat_painted",
+  "window_frame": "vinyl",
+  "panel_type": "not_shown",
+  "basement_ceiling": "drywall",
+  "basement_walls": "drywall",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "photos_total": 49,
+  "staging": "mixed",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 3,
+   "living_family": 8,
+   "kitchen": 9,
+   "bath": 6,
+   "bed": 8,
+   "lower_suite": 10,
+   "utility_laundry": 1,
+   "yard": 4
+  },
+  "concealed_surfaces": [
+   "the lower level is newly drywalled with new vinyl plank, so no wall base or moisture line is readable",
+   "the one utility frame (43) shows laundry against unfinished fibreboard with flex duct; the furnace, water heater and panel are out of frame",
+   "the room table carries only bathrooms and the living room, so no bedroom or kitchen dimensions exist on the listing"
+  ],
+  "red_flags": [
+   "A FULL FLIP INTO A TWO-KITCHEN, SEVEN-BEDROOM HOUSE: 3 bedrooms above grade and 4 below, a second full kitchen (33), a new rear entry and two laundry sets. That is a rooming or second-unit configuration. ASK whether it is a registered second unit with City of Burlington and whether the work was permitted, and get the ESA certificate.",
+   "The room table is almost empty: only the living room has dimensions, so primary and secondary bedroom sizes are unknown.",
+   "Utility room shows unfinished fibreboard sheathing and flex dryer duct beside the laundry (43). The mechanicals themselves are not shown.",
+   "Every finish reads new (undermount sink, quartz-look slab, marble-look large-format tile, glass showers). Photos cannot promote: unverified.",
+   "Year built is only a range, 31 to 50 years (1976 to 1995)."
+  ],
+  "notes": "A Brant Hills backsplit turned into a two-kitchen, 3+4 bedroom house with four new-looking baths. The finishes cannot be credited by rule; the question that matters is whether the lower unit is legal and the work permitted. Only 1,180 sq ft above grade. Year built is a range."
+ },
+ {
+  "slug": "bur-3148-terraview",
+  "board": "TRREB",
+  "stage": 2,
+  "listing_id": "aotf~1191304481~TRREB",
+  "mls": "W13818408",
+  "address": "3148 Terraview Court, Burlington, ON L7M 1E9",
+  "list_price": 1249999,
+  "est_monthly": 6326,
+  "dom": 1,
+  "year_built": null,
+  "year_built_details": null,
+  "style": "Two Storey",
+  "storeys": 2,
+  "sqft_above": 1513,
+  "sqft_below": 806,
+  "size_range": "1500-2000 sqft",
+  "beds_ag": 3,
+  "beds_bg": 0,
+  "baths_total": 3,
+  "baths_full": 2,
+  "baths_half": 1,
+  "lot_frontage_ft": 32.08,
+  "lot_depth_ft": 100.0,
+  "annual_taxes": 5655,
+  "tax_year": 2026,
+  "neighbourhood": "Palmer",
+  "municipality": "Burlington",
+  "basement": "Full, Finished",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "See Remarks",
+  "construction": "Brick",
+  "direction_faces": "East",
+  "parking_spots": 3,
+  "garage_spaces": 1.0,
+  "brokerage": "ROYAL LEPAGE BURLOAK REAL ESTATE SERVICES",
+  "zoning": "R3.2",
+  "primary_bed_sqft": 188,
+  "min_secondary_bed_sqft": 69,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 116,
+  "main_living_sqft": 384,
+  "n_4pc": 1,
+  "n_3pc": 1,
+  "n_2pc": 1,
+  "lower_kitchen": false,
+  "ensuite": true,
+  "walk": 50,
+  "bike": 50,
+  "transit": 30,
+  "nearest_school_km": 0.35,
+  "schools_1km": 4,
+  "mech_ages_stated": "NOTHING DATED. 'Contemporary updates', quartz counters and painted cupboards; no mechanical years. ASK THE AGENT.",
+  "badge": null,
+  "status": "active",
+  "remarks": "2-storey home situated on a pie-shaped lot at the end of a court!! This 3 bedroom, 2.5 bathroom home over 1500 square foot and a fully finished basement! Contemporary updates throughout the home with a luxury vinyl in the spacious living room and dining room. The eat-in kitchen features quartz countertops, painted cupboards and an alcove to personalize with a coffee bar or entertaining space. The main floor is complete with a 2-piece bathroom, walkout to the backyard and inside access from the garage. The second level features traditional wood parquet flooring throughout the three bedrooms and an updated 3-piece bathroom with laundry access. The primary bedroom 4-piece ensuite is a spa-like calming space that is rare for the neighbourhood. The lower level adds an additional 800 square feet of living space and features a large recreation room with polished concrete floor throughout and a double-sided gas fireplace focal point. Gorgeous garden-lined extra wide backyard with an aggregate patio and an abundance of foliage for privacy. 1-car garage with polished concrete flooring and an aggregate driveway and walkway for easy maintenance. Situated on a quiet court with mature trees cascading over the road, very family friendly and close to schools parks, restaurants, shops and more!",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "2pc bath"
+   ],
+   [
+    "Main Level",
+    "Breakfast Room/Nook",
+    107
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    116
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    384
+   ],
+   [
+    "Second Level",
+    "3pc bath"
+   ],
+   [
+    "Second Level",
+    "4pc bath"
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    69
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    100
+   ],
+   [
+    "Second Level",
+    "Primary Bedroom",
+    188
+   ],
+   [
+    "Basement",
+    "Media Room",
+    233
+   ],
+   [
+    "Basement",
+    "Recreation",
+    254
+   ],
+   [
+    "Basement",
+    "Utility Room",
+    79
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "not_shown",
+  "kitchen_counter_edge": "not_shown",
+  "kitchen_soffit": "not_shown",
+  "kitchen_door_profile": "not_shown",
+  "kitchen_verdict": "unverified",
+  "bath_tub_type": "freestanding",
+  "bath_tile_scale": "large_format",
+  "bath_vanity_top": "undermount_stone",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "flat_painted",
+  "window_frame": "not_shown",
+  "panel_type": "not_shown",
+  "basement_ceiling": "drywall",
+  "basement_walls": "drywall",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "year_built_est": 1972,
+  "year_built_est_src": "no Year Built on the TRREB listing and no range; estimated from Palmer's early-1970s two-storey stock and the original parquet upstairs. An estimate, not a fact: ask the agent.",
+  "photos_total": 39,
+  "staging": "vacant",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 3,
+   "entry_stairs": 3,
+   "living_dining": 5,
+   "kitchen": 6,
+   "bed": 7,
+   "bath": 5,
+   "basement_garage": 8,
+   "yard": 5
+  },
+  "concealed_surfaces": [
+   "kitchen sink and counter edge not settled at 2.2x; the crop lands on backsplash and faucet bases",
+   "the lower level is newly drywalled over polished concrete, so no wall base or moisture line is readable",
+   "no furnace, panel or water heater frame in 39 photographs; the 9 x 8.5 ft utility room is not shown",
+   "Foundation Details reads 'See Remarks' and the remarks say nothing about the foundation"
+  ],
+  "red_flags": [
+   "NO YEAR BUILT on the listing, not even a range. Carried at an estimated 1972.",
+   "ORIGINAL PARQUET in all three bedrooms (16 to 22, 17 at 2.0x), with visible colour variation between blocks. The remarks call it 'traditional'.",
+   "The second bedroom is 9.7 x 7.1 ft (69 sq ft) and the third 11.6 x 8.7 ft (100 sq ft).",
+   "The kitchen is described as 'painted cupboards' under quartz: new counters on original boxes, same pattern as Nevarc. Not settled at magnification.",
+   "Vacant and fully painted, with a freestanding tub and a new ensuite: photos cannot promote, so unverified.",
+   "32-foot frontage on a pie lot at the end of a court."
+  ],
+  "notes": "A Palmer two-storey on a court, vacant and repainted, with a new-looking ensuite, a painted kitchen under quartz, original parquet upstairs, and a polished-concrete lower level. No year built and no foundation description. Mechanicals unseen."
+ },
+ {
+  "slug": "bur-3193-maderna",
+  "board": "ITSO",
+  "stage": 2,
+  "listing_id": "aotf~1191263130~ITSO",
+  "mls": "40865545",
+  "address": "3193 Maderna Road, Burlington, ON L7M 2W3",
+  "list_price": 1049900,
+  "est_monthly": 5444,
+  "dom": 1,
+  "year_built": 1986,
+  "year_built_details": null,
+  "style": "Traditional",
+  "storeys": 2,
+  "sqft_above": 2064,
+  "sqft_below": null,
+  "size_range": null,
+  "beds_ag": 4,
+  "beds_bg": 0,
+  "baths_total": 3,
+  "baths_full": 2,
+  "baths_half": 1,
+  "lot_frontage_ft": 41.86,
+  "lot_depth_ft": 98.46,
+  "annual_taxes": 6295,
+  "tax_year": 2026,
+  "neighbourhood": "Headon Forest",
+  "municipality": "Burlington",
+  "basement": "Full, Unfinished",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Rolled/Hot Mop",
+  "foundation": "Concrete",
+  "construction": "Brick Veneer, Other",
+  "direction_faces": "South",
+  "parking_spots": 4,
+  "garage_spaces": 2.0,
+  "brokerage": "RE/MAX Escarpment Realty Inc.",
+  "zoning": "R3.2",
+  "primary_bed_sqft": 214,
+  "min_secondary_bed_sqft": 99,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 209,
+  "main_living_sqft": 406,
+  "n_4pc": 2,
+  "n_3pc": 0,
+  "n_2pc": 1,
+  "lower_kitchen": false,
+  "ensuite": null,
+  "walk": 50,
+  "bike": 50,
+  "transit": 30,
+  "nearest_school_km": 0.17,
+  "schools_1km": 2,
+  "mech_ages_stated": "windows about 8 years old (c. 2018), roof about 10 years (c. 2016), furnace and A/C about 1 year (c. 2025) (remarks only, not verified)",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "Introducing this four-bedroom home offering approximately 2,064 square feet of living space in the desirable Headon Forest neighbourhood. Featuring a spacious layout with generous principal rooms and plenty of room for the whole family, this home offers the perfect blend of comfort and functionality. The windows are approximately 8 years old, roof approximately 10 years old, and the furnace and A/C are approximately 1 year old. Sliding doors provide a seamless connection to the backyard, creating an inviting space for outdoor living and entertaining. Conveniently located close to schools, parks, shopping, restaurants and major highways. You won’t want to miss this one. Don’t be TOO LATE*! *REG TM. RSA.",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "2pc bath"
+   ],
+   [
+    "Main Level",
+    "Family Room",
+    170
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    209
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    236
+   ],
+   [
+    "Second Level",
+    "5pc bath"
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    118
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    99
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    102
+   ],
+   [
+    "Second Level",
+    "4pc bath (primary)"
+   ],
+   [
+    "Second Level",
+    "Primary Bedroom",
+    214
+   ],
+   [
+    "Basement",
+    "Basement",
+    1054
+   ],
+   [
+    "Basement",
+    "Cold Room"
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "topmount",
+  "kitchen_counter_edge": "rolled_bullnose",
+  "kitchen_soffit": "present",
+  "kitchen_door_profile": "not_shown",
+  "kitchen_verdict": "defect_confirmed",
+  "bath_tub_type": "alcove_tiled",
+  "bath_tile_scale": "not_shown",
+  "bath_vanity_top": "integrated_cultured_marble",
+  "bath_verdict": "defect_confirmed",
+  "secondary_bath_original": true,
+  "floor_condition": "not_shown",
+  "ceiling_main": "stipple_popcorn",
+  "window_frame": "vinyl",
+  "panel_type": "not_shown",
+  "basement_ceiling": "not_shown",
+  "basement_walls": "not_shown",
+  "basement_moisture": "not_shown",
+  "driveway": "cracked",
+  "asbestos_suspect": false,
+  "photos_total": 35,
+  "staging": "professionally_staged",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 2,
+   "entry_stairs": 2,
+   "living_family": 6,
+   "kitchen_dining": 6,
+   "bath": 5,
+   "bed": 11,
+   "yard": 4,
+   "basement": 0
+  },
+  "concealed_surfaces": [
+   "both tub surrounds are behind drawn shower curtains, so tile scale and grout are not readable",
+   "living-room floor partly under an area rug",
+   "no basement frame at all on a full unfinished basement, so walls, slab and moisture are unseen",
+   "no furnace, panel, water heater or laundry frame in 35 photographs"
+  ],
+  "red_flags": [
+   "THE KITCHEN IS ORIGINAL: oak raised-panel boxes, white laminate with a rolled post-form edge, a topmount double sink with a visible rim (9, 2.4x), and a bulkhead soffit over the uppers (8). The dishwasher and range are newer; nothing else is.",
+   "ALL THREE BATHS READ ORIGINAL: integrated cultured-marble vanity tops in the main bath (29), the second bath (23) and the powder room (17), with pale-blue tile tub surrounds in both full baths.",
+   "Stipple ceilings on the main floor (4) AND in the bedrooms (20), so the ceiling line is carried on the whole house.",
+   "Asphalt driveway worn and cracked with weeds in the joints (1).",
+   "FULL UNFINISHED BASEMENT, NOT PHOTOGRAPHED: 1,055 sq ft of basement (31 x 34 ft in the room table) with zero frames. Walls, slab and moisture are unknown.",
+   "The MLS roof field reads 'Asphalt, Rolled/Hot Mop'. Rolled or hot-mop roofing on a pitched 1986 two-storey is unusual; it may cover only a low-slope section over the garage or bay. Ask."
+  ],
+  "notes": "A 1986 two-storey that has had paint, vinyl windows (stated about 8 years), a newer furnace and A/C (stated about 1 year) and a roof stated at about 10 years. Kitchen and all three baths are original at full resolution. Stipple throughout. The unfinished basement is unphotographed. Stated mechanical ages are remarks only and are not fed to the cost model; they become showing questions."
+ },
+ {
+  "slug": "bur-3222-wentworth",
+  "board": "TRREB",
+  "stage": 2,
+  "listing_id": "aotf~1191113821~TRREB",
+  "mls": "W13805192",
+  "address": "3222 Wentworth Street, Burlington, ON L7M 2N4",
+  "list_price": 1149900,
+  "est_monthly": 5905,
+  "dom": 7,
+  "year_built": 1986,
+  "year_built_details": "31-50",
+  "style": "Two Storey",
+  "storeys": 2,
+  "sqft_above": 2188,
+  "sqft_below": null,
+  "size_range": "2000-2500 sqft",
+  "beds_ag": 4,
+  "beds_bg": 0,
+  "baths_total": 3,
+  "baths_full": 2,
+  "baths_half": 1,
+  "lot_frontage_ft": 45.47,
+  "lot_depth_ft": 100.07,
+  "annual_taxes": 6163,
+  "tax_year": 2026,
+  "neighbourhood": "Headon",
+  "municipality": "Burlington",
+  "basement": "Full, Partially Finished",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "Poured",
+  "construction": "Brick",
+  "direction_faces": "South",
+  "parking_spots": 4,
+  "garage_spaces": 2.0,
+  "brokerage": "Halton Heritage Realty Inc.",
+  "zoning": null,
+  "primary_bed_sqft": 225,
+  "min_secondary_bed_sqft": 122,
+  "beds_under_100sqft": 0,
+  "kitchen_sqft": 220,
+  "main_living_sqft": 475,
+  "n_4pc": 2,
+  "n_3pc": 0,
+  "n_2pc": 1,
+  "lower_kitchen": false,
+  "ensuite": true,
+  "walk": 50,
+  "bike": 50,
+  "transit": 40,
+  "nearest_school_km": 0.41,
+  "schools_1km": 3,
+  "mech_ages_stated": "'new roof, furnace, and central air conditioning', no years (remarks only)",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "Welcome to Headon Forest, one of Burlington's most sought after family neighborhoods! this beautiful all brick home has space for everyone! main floor with eat in kitchen, living room, separate dining room and cozy family room with wood burning fireplace. upstairs provides 4 generous bedrooms, primary with ensuite bathroom, full main bathroom. Full basement with rec room and plenty of storage space. Numerous important mechanical updates including new roof, furnace, and central air conditioning.",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "2pc bath"
+   ],
+   [
+    "Main Level",
+    "Dining Room",
+    123
+   ],
+   [
+    "Main Level",
+    "Family Room",
+    192
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    220
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    160
+   ],
+   [
+    "Second Level",
+    "4pc bath"
+   ],
+   [
+    "Second Level",
+    "4pc bath"
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    122
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    167
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    124
+   ],
+   [
+    "Second Level",
+    "Primary Bedroom",
+    225
+   ],
+   [
+    "Basement",
+    "Recreation",
+    476
+   ],
+   [
+    "Basement",
+    "Utility Room",
+    896
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "topmount",
+  "kitchen_counter_edge": "not_shown",
+  "kitchen_soffit": "not_shown",
+  "kitchen_door_profile": "not_shown",
+  "kitchen_verdict": "defect_confirmed",
+  "bath_tub_type": "not_shown",
+  "bath_tile_scale": "not_shown",
+  "bath_vanity_top": "not_shown",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "not_shown",
+  "window_frame": "vinyl",
+  "panel_type": "not_shown",
+  "basement_ceiling": "not_shown",
+  "basement_walls": "not_shown",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "photos_total": 48,
+  "staging": "lived_in",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 3,
+   "entry_stairs": 2,
+   "living_family_dining": 12,
+   "kitchen": 5,
+   "bed": 13,
+   "bath": 5,
+   "basement": 2,
+   "yard_deck": 9,
+   "floor_plan": 3
+  },
+  "concealed_surfaces": [
+   "both full-bath tubs are behind shower curtains (22, 33)",
+   "no furnace, panel or water heater frame in 48 photographs; the 31 x 29 ft utility room is not shown",
+   "living and bedroom floors partly under rugs"
+  ],
+  "red_flags": [
+   "THE KITCHEN IS THE 1986 KITCHEN WITH A NEW BACKSPLASH: oak boxes, laminate counter and a topmount double sink with a visible rim (15). Mosaic backsplash added.",
+   "The listing's only update claim is 'new roof, furnace and central air', with no years. Remarks only.",
+   "Only two basement frames (34, 35) on a full, partially finished basement with a 31 x 29 ft utility area.",
+   "Wood-burning fireplace in the family room: WETT inspection before insurance.",
+   "Largest above-grade area in this round (2,188 sq ft) and four bedrooms, all over 120 sq ft; floor plans included (45 to 47)."
+  ],
+  "notes": "A 1986 all-brick Headon Forest two-storey, largely original inside: oak kitchen with a topmount sink and laminate, baths behind curtains. Big for the price. Roof, furnace and A/C stated new without dates, remarks only."
+ },
+ {
+  "slug": "bur-5155-idlewood",
+  "board": "TRREB",
+  "stage": 2,
+  "listing_id": "aotf~1191095710~TRREB",
+  "mls": "W13804362",
+  "address": "5155 Idlewood Crescent, Burlington, ON L7L 3Y5",
+  "list_price": 899900,
+  "est_monthly": 4636,
+  "dom": 5,
+  "year_built": 1967,
+  "year_built_details": "51-99",
+  "style": "Backsplit",
+  "storeys": null,
+  "sqft_above": 1150,
+  "sqft_below": 336,
+  "size_range": "1100-1500 sqft",
+  "beds_ag": 3,
+  "beds_bg": 0,
+  "baths_total": 2,
+  "baths_full": 2,
+  "baths_half": 0,
+  "lot_frontage_ft": 46.5,
+  "lot_depth_ft": 112.37,
+  "annual_taxes": 5056,
+  "tax_year": 2026,
+  "neighbourhood": "Appleby",
+  "municipality": "Burlington",
+  "basement": "Finished, Partial",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "Concrete",
+  "construction": "Aluminum Siding, Brick",
+  "direction_faces": "West",
+  "parking_spots": 3,
+  "garage_spaces": 1.0,
+  "brokerage": "RE/MAX ESCARPMENT REALTY INC.",
+  "zoning": "R3.2",
+  "primary_bed_sqft": 146,
+  "min_secondary_bed_sqft": 85,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 173,
+  "main_living_sqft": 287,
+  "n_4pc": 1,
+  "n_3pc": 1,
+  "n_2pc": 0,
+  "lower_kitchen": false,
+  "ensuite": false,
+  "walk": 40,
+  "bike": 70,
+  "transit": 40,
+  "nearest_school_km": 0.22,
+  "schools_1km": 2,
+  "mech_ages_stated": "NOTHING STATED. Microwave and fireplace included as-is. ASK THE AGENT.",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "Welcome to this solid three bedroom back-split tucked into one of Pinedale's quietest streets. This is a neighborhood built for family life, with schools and parks just a short walk away and everyday shopping only minutes down the road. Inside, the home offers a practical layout with two full bathrooms and a finished recreation room anchored by a gas fireplace stove, ideal for cozy evenings or weekend gatherings. The single car garage adds everyday convenience, while the generous backyard gives families and pets plenty of room to spread out. This is the kind of street people put down roots on, with great bones and a location close to everything that matters. A home ready for its next chapter. RSA.",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "Dining Room",
+    97
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    173
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    190
+   ],
+   [
+    "Second Level",
+    "4pc bath"
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    85
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    128
+   ],
+   [
+    "Second Level",
+    "Primary Bedroom",
+    146
+   ],
+   [
+    "Lower Level",
+    "Recreation",
+    273
+   ],
+   [
+    "Lower Level",
+    "Utility Room",
+    279
+   ],
+   [
+    "Basement",
+    "3pc bath"
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "topmount",
+  "kitchen_counter_edge": "rolled_bullnose",
+  "kitchen_soffit": "present",
+  "kitchen_door_profile": "soft_raised_panel",
+  "kitchen_verdict": "defect_confirmed",
+  "bath_tub_type": "alcove_tiled",
+  "bath_tile_scale": "12x12_wide_grout",
+  "bath_vanity_top": "laminate_dropin",
+  "bath_verdict": "defect_confirmed",
+  "secondary_bath_original": true,
+  "floor_condition": "not_shown",
+  "ceiling_main": "not_shown",
+  "window_frame": "vinyl",
+  "panel_type": "not_shown",
+  "basement_ceiling": "not_shown",
+  "basement_walls": "panelling",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "photos_total": 37,
+  "staging": "lived_in",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 4,
+   "living_dining": 8,
+   "kitchen": 3,
+   "bed": 9,
+   "bath": 4,
+   "lower": 5,
+   "yard": 6
+  },
+  "concealed_surfaces": [
+   "no furnace, panel or water heater frame; the 12.8 x 21.8 ft utility room is not shown",
+   "living-room floor partly under an area rug",
+   "lower-level wall base behind wood panelling (25)"
+  ],
+  "red_flags": [
+   "ORIGINAL THROUGHOUT: oak raised-panel kitchen with a laminate counter and a topmount double sink with a visible rim (14), a boxed soffit over the uppers (13, 14), and an upper bath with a drop-in basin in a tile-and-laminate top and large-grout beige tile (18, 20). The lower bath has a pedestal sink and a stand-up shower (29, 30).",
+   "LOWER LEVEL IS KNOTTY-PINE PANELLING (25) with a freestanding gas stove on a brick hearth (27). The stove and the microwave are included 'as-is'.",
+   "1967: pre-1970, so the panel and rewire lines apply until the service is seen. Aluminum siding and brick.",
+   "'Great bones' and 'ready for its next chapter' is listing language for original condition, and the photos agree.",
+   "Cheapest house in this round at $899,900."
+  ],
+  "notes": "A 1967 Appleby (Pinedale) backsplit that is original inside: oak kitchen with laminate and a topmount sink, original baths, knotty-pine lower level. Vinyl windows are the one visible update. The cheapest listing of the round and a full-project house."
+ },
+ {
+  "slug": "bur-652-meadow-lane",
+  "board": "TRREB",
+  "stage": 2,
+  "listing_id": "aotf~1190703906~TRREB",
+  "mls": "W13778122",
+  "address": "652 Meadow Lane, Burlington, ON L7L 4R8",
+  "list_price": 1169000,
+  "est_monthly": 5924,
+  "dom": 10,
+  "year_built": 1967,
+  "year_built_details": null,
+  "style": "Sidesplit",
+  "storeys": null,
+  "sqft_above": 1491,
+  "sqft_below": 324,
+  "size_range": "1100-1500 sqft",
+  "beds_ag": 3,
+  "beds_bg": 0,
+  "baths_total": 2,
+  "baths_full": 2,
+  "baths_half": 0,
+  "lot_frontage_ft": 50.58,
+  "lot_depth_ft": 100.37,
+  "annual_taxes": 5432,
+  "tax_year": 2026,
+  "neighbourhood": "Appleby",
+  "municipality": "Burlington",
+  "basement": "Crawl Space, Finished",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Shingle",
+  "foundation": "Poured",
+  "construction": "Brick",
+  "direction_faces": "East",
+  "parking_spots": 4,
+  "garage_spaces": 1.0,
+  "brokerage": "RE/MAX PROFESSIONALS INC.",
+  "zoning": null,
+  "primary_bed_sqft": 137,
+  "min_secondary_bed_sqft": 103,
+  "beds_under_100sqft": 0,
+  "kitchen_sqft": 128,
+  "main_living_sqft": 303,
+  "n_4pc": 1,
+  "n_3pc": 1,
+  "n_2pc": 0,
+  "lower_kitchen": false,
+  "ensuite": false,
+  "walk": 40,
+  "bike": 60,
+  "transit": 30,
+  "nearest_school_km": 0.68,
+  "schools_1km": 2,
+  "mech_ages_stated": "windows 2018; roof shingles 2022; pool liner 2023; pool heat pump 2025; flooring and paint August 2025; exterior lighting May 2026 (remarks only). Furnace, A/C and water heater not dated.",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "Welcome to 652 Meadow Lane, a beautifully maintained 4-level side-split tucked away on a quiet, picturesque tree-lined street in southeast Burlington in the family-friendly Pinedale neighbourhood. Walking distance to Appleby GO, Frontenac Public School, Sheldon Park and plaza with restaurants, shops and Fortino's. This charming family home features 3 spacious bedrooms, 2-full baths, a bright living room with a large bay window and cozy gas fireplace. The kitchen features stainless steel appliances, Cambria quartz countertops, tile backsplash, custom California shutters and lots of natural light. Recent upgrades include updated windows throughout (2018), new asphalt roof shingles (2022), pool liner (2023), pool heat pump (2025), new engineered hardwood flooring throughout with custom basement stairs, blackout bedroom blinds and fresh interior paint (August 2025), plus custom California shutters, roller shades, new drapery and curtain rods (September 2025). New exterior lighting was added in May 2026. The home also features a professionally maintained inground pool and beautifully landscaped perennial gardens in the front and backyard.",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "Family Room",
+    177
+   ],
+   [
+    "Main Level",
+    "Foyer",
+    81
+   ],
+   [
+    "Second Level",
+    "4pc bath"
+   ],
+   [
+    "Second Level",
+    "Dining Room",
+    81
+   ],
+   [
+    "Second Level",
+    "Kitchen",
+    128
+   ],
+   [
+    "Second Level",
+    "Living Room",
+    222
+   ],
+   [
+    "Third Level",
+    "Bedroom",
+    105
+   ],
+   [
+    "Third Level",
+    "Bedroom",
+    137
+   ],
+   [
+    "Third Level",
+    "Bedroom",
+    103
+   ],
+   [
+    "Basement",
+    "3pc bath"
+   ],
+   [
+    "Basement",
+    "Laundry",
+    130
+   ],
+   [
+    "Basement",
+    "Recreation",
+    228
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "not_shown",
+  "kitchen_counter_edge": "not_shown",
+  "kitchen_soffit": "not_shown",
+  "kitchen_door_profile": "crisp_shaker",
+  "kitchen_verdict": "unverified",
+  "bath_tub_type": "not_shown",
+  "bath_tile_scale": "not_shown",
+  "bath_vanity_top": "not_shown",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "not_shown",
+  "window_frame": "vinyl",
+  "panel_type": "not_shown",
+  "basement_ceiling": "exposed",
+  "basement_walls": "panelling",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "pool": "in-ground",
+  "furnace_seen": "forced-air cabinet with a 3M filter visible in the utility room (33), age unreadable",
+  "photos_total": 43,
+  "staging": "professionally_staged",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 4,
+   "living_family_dining": 12,
+   "kitchen": 4,
+   "bed": 10,
+   "bath": 3,
+   "lower_rec_bar": 3,
+   "utility_laundry": 2,
+   "pool_yard": 4,
+   "aerial": 3,
+   "feature_sheet": 1
+  },
+  "concealed_surfaces": [
+   "the recreation room walls are knotty-pine panelling (29 to 31), concealing the wall base",
+   "the utility room has open joists and painted walls (33, 34); no panel or water heater in frame",
+   "Basement field reads 'Crawl Space, Finished': part of the lowest level is crawlspace and is not shown"
+  ],
+  "red_flags": [
+   "THE FURNACE IS IN FRAME (33), one of the few in the whole batch, but its age is not readable. The seller dates windows (2018), roof shingles (2022), pool liner (2023) and pool heat pump (2025) but not the furnace, A/C or water heater.",
+   "LOWER LEVEL IS KNOTTY-PINE PANELLING WITH A BAR (29 to 31); the utility room has an open joist ceiling (33).",
+   "IN-GROUND POOL, heated (heat pump 2025, liner 2023). Annual carry priced; no capital item is.",
+   "CRAWL SPACE under part of the house (Basement: 'Crawl Space, Finished'). Ask for a look.",
+   "1967: pre-1970 panel and rewire lines apply until the service is seen.",
+   "Kitchen redone with Cambria quartz per the remarks; both baths read updated in the sheet. Photos cannot promote: unverified."
+  ],
+  "notes": "A 1967 Pinedale sidesplit with dated updates (windows 2018, roof 2022, pool liner 2023, heat pump 2025, flooring 2025), a quartz kitchen, a knotty-pine rec room and a heated in-ground pool. The furnace is visible but undated. Crawl space under part of it."
+ },
+ {
+  "slug": "bur-755-parker",
+  "board": "TRREB",
+  "stage": 2,
+  "listing_id": "aotf~1190918783~TRREB",
+  "mls": "W13791242",
+  "address": "755 Parker Crescent, Burlington, ON L7R 3A5",
+  "list_price": 1299000,
+  "est_monthly": 6681,
+  "dom": 7,
+  "year_built": null,
+  "year_built_details": "51-99",
+  "style": "Backsplit",
+  "storeys": null,
+  "sqft_above": 1859,
+  "sqft_below": 617,
+  "size_range": "1500-2000 sqft",
+  "beds_ag": 3,
+  "beds_bg": 1,
+  "baths_total": 3,
+  "baths_full": 3,
+  "baths_half": 0,
+  "lot_frontage_ft": 55.5,
+  "lot_depth_ft": 120.0,
+  "annual_taxes": 7138,
+  "tax_year": 2026,
+  "neighbourhood": "Brant",
+  "municipality": "Burlington",
+  "basement": "Finished, Separate Entrance, Walk-Up Access",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "See Remarks",
+  "construction": "Brick",
+  "direction_faces": "North",
+  "parking_spots": 5,
+  "garage_spaces": 1.0,
+  "brokerage": "RE/MAX ESCARPMENT REALTY INC.",
+  "zoning": "R2.3",
+  "primary_bed_sqft": 169,
+  "min_secondary_bed_sqft": 90,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 232,
+  "main_living_sqft": 353,
+  "n_4pc": 2,
+  "n_3pc": 1,
+  "n_2pc": 0,
+  "lower_kitchen": false,
+  "ensuite": true,
+  "walk": 60,
+  "bike": 50,
+  "transit": 50,
+  "nearest_school_km": 0.29,
+  "schools_1km": 2,
+  "mech_ages_stated": "NOTHING DATED. Renovated kitchen, baths and basement suite; no mechanical years. ASK THE AGENT.",
+  "badge": null,
+  "status": "active",
+  "remarks": "RENOVATED AND UPDATED 4-level backsplit offers thoughtfully designed living space in one of Burlington's most desirable central neighbourhoods, with 3+1 bedrooms and 3 full bathrooms, this is a home that effortlessly balances functionality with refined design. The open-concept main level is both stylish and inviting, highlighted by a custom tray ceiling that adds architectural interest and sophistication. The beautifully appointed kitchen was designed for both everyday living and effortless entertaining, featuring an oversized island with seating for six, stainless steel appliances, gas range, built-in wine fridge, deep pot drawers, extensive pantry-style cabinetry, and exceptional prep space. The adjoining living and dining areas are warm and welcoming, anchored by a gas fireplace and filled with natural light from a large bow window. Garden doors extend the living space outdoors to a private side patio ideal for Al Fresco dining or relaxed evenings with friends. Upstairs, three bedrooms feature updated wood flooring and share a stylishly renovated 4-piece bath. The first lower level offers a comfortable family room with a character-rich reclaimed brick fireplace, a full 3-piece bathroom, and a spacious utility room perfectly suited for storage, hobbies, or workshop space, complete with direct walk-up access to the backyard. The second lower level has been transformed into a remarkable private suite - ideal as a luxurious primary retreat, guest quarters, or nanny accommodation and comes complete with a spa-inspired ensuite featuring dual vanities, an oversized two-person shower, two closets including a walk-in, and exceptional storage. The fully fenced backyard features an inground pool with concrete surround and hot tub, offering an exciting opportunity to personalize and create your own private summer retreat. Just minutes to downtown, the lakefront, parks, schools, shopping, and everyday conveniences.",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "Dining Room",
+    119
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    232
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    234
+   ],
+   [
+    "Second Level",
+    "5pc bath"
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    90
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    134
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    169
+   ],
+   [
+    "Lower Level",
+    "3pc bath"
+   ],
+   [
+    "Lower Level",
+    "Family Room",
+    266
+   ],
+   [
+    "Lower Level",
+    "Laundry",
+    173
+   ],
+   [
+    "Basement",
+    "4pc bath"
+   ],
+   [
+    "Basement",
+    "Primary Bedroom",
+    314
+   ],
+   [
+    "Basement",
+    "Utility Room",
+    121
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "not_shown",
+  "kitchen_counter_edge": "not_shown",
+  "kitchen_soffit": "removed",
+  "kitchen_door_profile": "crisp_shaker",
+  "kitchen_verdict": "unverified",
+  "bath_tub_type": "not_shown",
+  "bath_tile_scale": "large_format",
+  "bath_vanity_top": "integrated_modern",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "flat_painted",
+  "window_frame": "not_shown",
+  "panel_type": "not_shown",
+  "basement_ceiling": "drywall",
+  "basement_walls": "drywall",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "pool": "in-ground",
+  "photos_total": 50,
+  "staging": "professionally_staged",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 3,
+   "entry": 1,
+   "kitchen_living_dining": 15,
+   "bed": 6,
+   "bath": 4,
+   "lower_family": 4,
+   "basement_suite": 4,
+   "laundry_utility": 2,
+   "pool_patio_hot_tub": 11
+  },
+  "concealed_surfaces": [
+   "no furnace, panel or water heater frame; the utility room is described as a workshop but not shown",
+   "the kitchen sink is behind the faucet at 1.2x (14)",
+   "finished lower levels drywalled, so no wall base or moisture line is readable"
+  ],
+  "red_flags": [
+   "THE PRIMARY BEDROOM IS IN THE BASEMENT: the second lower level is a 21 x 15 ft suite with the ensuite. Above grade are three bedrooms of 90, 134 and 169 sq ft sharing one bath.",
+   "IN-GROUND POOL AND A HOT TUB (39 to 46). Annual carry priced for the pool; neither the hot tub nor any pool capital item is.",
+   "Year built is a range only, 51 to 99 years (1927 to 1975). Foundation 'See Remarks' with nothing in the remarks.",
+   "Everything above grade and the basement suite read renovated; photos cannot promote: unverified.",
+   "Highest ask in this round ($1,299,000) and the highest taxes ($7,138).",
+   "The reclaimed-brick fireplace wall in the family room (31, 32) is decorative veneer; confirm the gas insert is vented and inspected."
+  ],
+  "notes": "A renovated four-level backsplit in Brant, close to downtown, with a new kitchen, renovated baths, a basement primary suite, an in-ground pool and a hot tub. The top of the price band. Year built only as a range; mechanicals unseen.",
+  "year_built_est": 1962,
+  "year_built_est_src": "MLS band 51-99 years only; estimated from Brant's late-1950s to mid-1960s backsplit stock, the same treatment as 2105 Maplewood. The band's older end would be 1927. An estimate, not a fact: ask the agent."
+ },
+ {
+  "slug": "oak-2250-munns",
+  "board": "TRREB",
+  "stage": 2,
+  "listing_id": "aotf~1191297453~TRREB",
+  "mls": "W13817440",
+  "address": "2250 Munn's Avenue, Oakville, ON L6H 3M8",
+  "list_price": 1099900,
+  "est_monthly": 5529,
+  "dom": 1,
+  "year_built": null,
+  "year_built_details": "31-50",
+  "style": "Two Storey",
+  "storeys": 2,
+  "sqft_above": 1365,
+  "sqft_below": null,
+  "size_range": "1100-1500 sqft",
+  "beds_ag": 3,
+  "beds_bg": 0,
+  "baths_total": 3,
+  "baths_full": 2,
+  "baths_half": 1,
+  "lot_frontage_ft": 32.86,
+  "lot_depth_ft": 101.87,
+  "annual_taxes": 4532,
+  "tax_year": 2026,
+  "neighbourhood": "RO River Oaks",
+  "municipality": "Oakville",
+  "basement": "Full, Finished, Separate Entrance",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "See Remarks",
+  "construction": "Brick, Plaster, Stucco",
+  "direction_faces": "North",
+  "parking_spots": 2,
+  "garage_spaces": 1.5,
+  "brokerage": "SUTTON GROUP REALTY SYSTEMS INC.",
+  "zoning": null,
+  "primary_bed_sqft": 152,
+  "min_secondary_bed_sqft": 96,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 182,
+  "main_living_sqft": 383,
+  "n_4pc": 1,
+  "n_3pc": 1,
+  "n_2pc": 1,
+  "lower_kitchen": false,
+  "ensuite": false,
+  "walk": 50,
+  "bike": 80,
+  "transit": 30,
+  "nearest_school_km": 0.49,
+  "schools_1km": 4,
+  "mech_ages_stated": "NOTHING DATED. 'Beautifully renovated'; no mechanical years. ASK THE AGENT.",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "This beautifully renovated classic Tudor-style 3-bed, 3-bath link home in River Oaks is ideal for young families and first-time buyers seeking a detached-style lifestyle surrounded by top schools, parks, trails, and everyday conveniences. Families will appreciate the walkability to Munn's Public School and White Oaks Secondary (IB), the extensive green space and playground network, and the year-round programs at River Oaks Community Centre, while first-time buyers benefit from freehold ownership, modern finishes, and long-term stability in one of Oakville's most established neighbourhoods. A rare separate side entrance to the finished, renovated basement creates outstanding potential for a future rental suite, with Sheridan College minutes away, offering supplemental income and added flexibility. This is a turnkey opportunity in a safe, community-oriented area with quick access to transit, highways, shops, and parks - perfect for buyers who want smart value, space, and versatility in a high-demand location.",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "2pc bath"
+   ],
+   [
+    "Main Level",
+    "Dining Room",
+    383
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    182
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    383
+   ],
+   [
+    "Second Level",
+    "4pc bath"
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    96
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    133
+   ],
+   [
+    "Second Level",
+    "Primary Bedroom",
+    152
+   ],
+   [
+    "Lower Level",
+    "3pc bath"
+   ],
+   [
+    "Basement",
+    "Recreation",
+    584
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "not_shown",
+  "kitchen_counter_edge": "not_shown",
+  "kitchen_soffit": "removed",
+  "kitchen_door_profile": "crisp_shaker",
+  "kitchen_verdict": "unverified",
+  "bath_tub_type": "not_shown",
+  "bath_tile_scale": "large_format",
+  "bath_vanity_top": "integrated_modern",
+  "bath_verdict": "unverified",
+  "floor_condition": "not_shown",
+  "ceiling_main": "flat_painted",
+  "window_frame": "not_shown",
+  "panel_type": "not_shown",
+  "basement_ceiling": "drywall",
+  "basement_walls": "drywall",
+  "basement_moisture": "not_shown",
+  "driveway": "cracked",
+  "asbestos_suspect": false,
+  "photos_total": 35,
+  "staging": "professionally_staged",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 5,
+   "entry_stairs": 4,
+   "kitchen_living_dining": 11,
+   "bed": 5,
+   "bath": 3,
+   "basement": 3,
+   "yard": 5,
+   "aerial": 3
+  },
+  "concealed_surfaces": [
+   "the newly finished basement is drywalled with new laminate, so no wall base or moisture line is readable",
+   "no furnace, panel or water heater frame in 35 photographs",
+   "window frames not readable at magnification on the front elevation"
+  ],
+  "red_flags": [
+   "A LINK HOME, not a detached: the remarks say so. Link homes share a below-grade foundation wall with the neighbour. Every other house in the model is fully detached; the model has no attached flag, so this is carried as a note, not a penalty. Decide whether a link is acceptable before a showing.",
+   "A full renovation (new kitchen, baths, flooring, basement with a separate side entrance). Photos cannot promote: unverified.",
+   "Concrete driveway is cracked across its width (21, 1.6x).",
+   "The Living Room and Dining Room are entered with identical dimensions (26.9 x 14.24 ft), i.e. one open room entered twice. main_living_sqft counts it once.",
+   "Year built is a range only, 31 to 50 years (1976 to 1995). Foundation 'See Remarks' with nothing in the remarks."
+  ],
+  "notes": "A fully renovated Tudor-style link home in River Oaks with a separate basement entrance. Everything reads new, which the photo rule does not credit. The house is linked, not detached, and the year built is a range."
+ },
+ {
+  "slug": "oak-2452-yarmouth",
+  "board": "TRREB",
+  "stage": 2,
+  "listing_id": "aotf~1191197096~TRREB",
+  "mls": "W13810432",
+  "address": "2452 Yarmouth Crescent, Oakville, ON L6L 2M8",
+  "list_price": 1125000,
+  "est_monthly": 5768,
+  "dom": 2,
+  "year_built": 1972,
+  "year_built_details": null,
+  "style": "Backsplit",
+  "storeys": null,
+  "sqft_above": 1155,
+  "sqft_below": null,
+  "size_range": "1100-1500 sqft",
+  "beds_ag": 3,
+  "beds_bg": 0,
+  "baths_total": 2,
+  "baths_full": 2,
+  "baths_half": 0,
+  "lot_frontage_ft": 67.0,
+  "lot_depth_ft": 97.0,
+  "annual_taxes": 5957,
+  "tax_year": 2026,
+  "neighbourhood": "WO West",
+  "municipality": "Oakville",
+  "basement": "Partially Finished",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Shingle",
+  "foundation": "Concrete",
+  "construction": "Brick, Metal Siding",
+  "direction_faces": "West",
+  "parking_spots": 5,
+  "garage_spaces": 1.0,
+  "brokerage": "Royal LePage Real Estate Associates",
+  "zoning": null,
+  "primary_bed_sqft": 148,
+  "min_secondary_bed_sqft": 103,
+  "beds_under_100sqft": 0,
+  "kitchen_sqft": 130,
+  "main_living_sqft": 292,
+  "n_4pc": 0,
+  "n_3pc": 2,
+  "n_2pc": 0,
+  "lower_kitchen": false,
+  "ensuite": false,
+  "walk": 30,
+  "bike": 60,
+  "transit": 30,
+  "nearest_school_km": 0.41,
+  "schools_1km": 2,
+  "mech_ages_stated": "furnace and A/C 2017; lower 3-piece bath 2026; 'pool updates attached' in a document not on the consumer page (remarks only)",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "Desirable Oakville location! This spacious 3-bedroom, 4-level sidesplit is set on a fantastic 67' wide lot just steps from Lake Ontario. Bright and inviting with plenty of updates throughout. Renovated kitchen with modern finishes. Updated bathrooms, and newer laminate flooring on the main and upper levels. Comfortable principal rooms with a versatile multi-level layout.The lower level features a spacious family room with above-grade windows and a convenient 3-piece bath 2026. Plenty of room for relaxing, entertaining or family time. Step outside to your private backyard oasis featuring a beautiful in-ground saltwater pool. West-facing exposure provides beautiful afternoon and evening sun. Perfect for summer entertaining! Fantastic location close to the lake, waterfront trails, parks, schools, Bronte GO, shopping, dining, Bronte Harbour, Bronte Provincial Park and everyday amenities. A wonderful opportunity to enjoy the Oakville lifestyle in a great family home! See pool updates attached. Furnace & CAC 2017.",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "3pc bath"
+   ],
+   [
+    "Main Level",
+    "Dining Room",
+    82
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    130
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    210
+   ],
+   [
+    "Upper Level",
+    "Bedroom",
+    115
+   ],
+   [
+    "Upper Level",
+    "Bedroom",
+    103
+   ],
+   [
+    "Upper Level",
+    "Primary Bedroom",
+    148
+   ],
+   [
+    "Second Level",
+    "3pc bath"
+   ],
+   [
+    "Lower Level",
+    "Family Room",
+    237
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "undermount",
+  "kitchen_counter_edge": "not_shown",
+  "kitchen_soffit": "not_shown",
+  "kitchen_door_profile": "not_shown",
+  "kitchen_verdict": "unverified",
+  "bath_tub_type": "corner_garden_platform",
+  "bath_tile_scale": "12x12_wide_grout",
+  "bath_vanity_top": "not_shown",
+  "bath_verdict": "defect_confirmed",
+  "floor_condition": "not_shown",
+  "ceiling_main": "not_shown",
+  "window_frame": "not_shown",
+  "panel_type": "not_shown",
+  "basement_ceiling": "not_shown",
+  "basement_walls": "not_shown",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "pool": "in-ground",
+  "photos_total": 47,
+  "staging": "professionally_staged",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior_front": 2,
+   "living_dining": 9,
+   "kitchen": 4,
+   "bed": 6,
+   "bath": 2,
+   "lower_family": 4,
+   "pool_yard": 8,
+   "aerial_neighbourhood": 11,
+   "floor_plan": 1
+  },
+  "concealed_surfaces": [
+   "a towel and bath mat sit on the tub deck and a folded towel over the vanity top in the upper bath (19)",
+   "the front elevation is behind a tree (1), so no window frame or siding is readable",
+   "no basement or utility frame on a partially finished basement; furnace, panel, water heater unseen",
+   "11 of 47 frames are aerials of the neighbourhood, parks and lake, not the house"
+  ],
+  "red_flags": [
+   "THE UPPER BATH IS A 1990s-2000s REFIT: a drop-in tub set in a tiled platform with beige 8 to 12 inch tile and a granite top on a maple vanity (19). 'Updated' in the remarks means that era, not recent.",
+   "BATH COUNT CONFLICT: the MLS lists two full baths, both 3-piece, but frame 19 shows a tub, which makes it a 4-piece. The remarks date only the lower 3-piece bath (2026).",
+   "IN-GROUND SALTWATER POOL (27 to 31). 'See pool updates attached' is an attachment not on the consumer page: ask for it. Annual carry priced; no capital item is.",
+   "Only 1,155 sq ft above grade; the MLS style says Backsplit, the remarks say a 4-level sidesplit.",
+   "Furnace and A/C stated 2017 (remarks and inclusions), so both are 9 years old at purchase.",
+   "Walk score 30, lowest in this round. 67-foot lot, the widest frontage in this round after Nevarc and Shepherd's."
+  ],
+  "notes": "A 1972 West Oakville sidesplit near the lake with a granite-era kitchen, an upper bath with a tiled-platform tub, a 2026 lower 3-piece, and an in-ground saltwater pool. Only 1,155 sq ft above grade. Mechanicals, basement and windows unseen."
+ },
+ {
+  "slug": "oak-2524-logan",
+  "board": "ITSO",
+  "stage": 2,
+  "listing_id": "aotf~1191240892~ITSO",
+  "mls": "40864942",
+  "address": "2524 Logan Avenue, Oakville, ON L6H 6S2",
+  "list_price": 1069000,
+  "est_monthly": 5436,
+  "dom": 1,
+  "year_built": 2000,
+  "year_built_details": null,
+  "style": "Traditional",
+  "storeys": 2,
+  "sqft_above": 1256,
+  "sqft_below": null,
+  "size_range": null,
+  "beds_ag": 3,
+  "beds_bg": 0,
+  "baths_total": 3,
+  "baths_full": 2,
+  "baths_half": 1,
+  "lot_frontage_ft": 37.0,
+  "lot_depth_ft": 112.0,
+  "annual_taxes": 5081,
+  "tax_year": 2026,
+  "neighbourhood": "RO River Oaks",
+  "municipality": "Oakville",
+  "basement": "Full, Finished",
+  "heating": "Forced Air, Gas",
+  "cooling": "Central Air",
+  "roof_material": "Asphalt, Shingle",
+  "foundation": "Poured",
+  "construction": "Brick",
+  "direction_faces": "South",
+  "parking_spots": 3,
+  "garage_spaces": 1.0,
+  "brokerage": "RE/MAX Real Estate Centre Inc., Brokerage",
+  "zoning": "RL9",
+  "primary_bed_sqft": 174,
+  "min_secondary_bed_sqft": 78,
+  "beds_under_100sqft": 1,
+  "kitchen_sqft": 97,
+  "main_living_sqft": 212,
+  "n_4pc": 2,
+  "n_3pc": 0,
+  "n_2pc": 1,
+  "lower_kitchen": false,
+  "ensuite": true,
+  "walk": 50,
+  "bike": 60,
+  "transit": 20,
+  "nearest_school_km": 0.5,
+  "schools_1km": 2,
+  "mech_ages_stated": "NOTHING IS STATED. No furnace, A/C, roof, water heater, panel or window year in the remarks or the MLS fields, on a 2000 build where every original mechanical is at or past end of life. ASK THE AGENT.",
+  "badge": "New Listing",
+  "status": "active",
+  "remarks": "Nestled on one of the finest streets in the neighbourhood! From the minute you arrive, your eyes will be immediately drawn to the stately tall trees, perennial beds, and the stamped concrete walkway that welcomes you in. Once inside, you will be impressed with this beautifully designed home that includes a spacious kitchen with a multitude of cabinetry, that flows seamlessly in to a living/dining room combination, enhanced with hardwood flooring, and access to an extended outdoor living space. The wood deck is ready for barbecuing under the gazebo, and a gorgeous fenced yard is a gardeners delight, filled with bursts of colourful raised beds, and even more mature trees in your private backyard oasis. The upper level is perfect for family life, with an abundance of space, offering 2 bedrooms, a 4 pc bath, and a sun-filled master bedroom with a private ensuite for relaxing in luxury. a finished basement adds additional space with a large recreation room, ideal for family gatherings, a dry bar, and a few steps up, a convenient powder room. Just minutes to schools, shopping, and walking trails, where you can bike, hike, or walk along the trail in a calm and natural setting, this home ticks all the boxes!",
+  "rooms_raw": [
+   [
+    "Main Level",
+    "2pc bath"
+   ],
+   [
+    "Main Level",
+    "Kitchen",
+    97
+   ],
+   [
+    "Main Level",
+    "Living Room",
+    212
+   ],
+   [
+    "Second Level",
+    "4pc bath"
+   ],
+   [
+    "Second Level",
+    "4pc bath"
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    109
+   ],
+   [
+    "Second Level",
+    "Bedroom",
+    78
+   ],
+   [
+    "Second Level",
+    "Primary Bedroom",
+    174
+   ],
+   [
+    "Basement",
+    "Laundry",
+    48
+   ],
+   [
+    "Basement",
+    "Recreation",
+    242
+   ]
+  ],
+  "room_dims_present": true,
+  "stage2_date": "2026-09-23",
+  "kitchen_sink_mount": "topmount",
+  "kitchen_counter_edge": "rolled_bullnose",
+  "kitchen_soffit": "removed",
+  "kitchen_door_profile": "not_shown",
+  "kitchen_verdict": "defect_confirmed",
+  "bath_tub_type": "not_shown",
+  "bath_tile_scale": "not_shown",
+  "bath_vanity_top": "laminate_dropin",
+  "bath_verdict": "defect_confirmed",
+  "floor_condition": "not_shown",
+  "ceiling_main": "flat_painted",
+  "window_frame": "vinyl",
+  "panel_type": "not_shown",
+  "basement_ceiling": "drywall",
+  "basement_walls": "drywall",
+  "basement_moisture": "not_shown",
+  "driveway": "not_shown",
+  "asbestos_suspect": false,
+  "photos_total": 38,
+  "staging": "lived_in",
+  "hdr_blowout": "moderate",
+  "photo_inventory": {
+   "exterior": 5,
+   "living_dining": 6,
+   "kitchen": 3,
+   "stairs_hall": 4,
+   "bath": 4,
+   "bed": 8,
+   "basement": 3,
+   "yard": 3
+  },
+  "concealed_surfaces": [
+   "main-bath tub is behind a drawn shower curtain (25) and the ensuite tub likewise (30), so tub type and tile are not readable",
+   "kitchen floor partly under a runner mat (13, 14)",
+   "finished basement is drywalled, so no wall base or moisture line is readable",
+   "no furnace, panel or water heater frame in 38 photographs"
+  ],
+  "red_flags": [
+   "THE KITCHEN IS THE 2000 BUILDER KITCHEN: maple-look boxes, dark laminate with a post-form edge, a topmount double sink with a visible rim (14, 2.4x) and white appliances. Uppers run to crown with no bulkhead.",
+   "The main bath is original: blue laminate counter with a drop-in oval sink (25). The ensuite (30) and powder room (19) have been redone, the powder room with a vessel sink on stone.",
+   "Only 1,256 sq ft above grade, and the third bedroom is 9 x 8.6 ft (78 sq ft).",
+   "The powder room is described in the remarks as 'a few steps up' from the basement recreation room, while the room table puts it on the main level. Confirm where it is.",
+   "The furnace, A/C and roof would be original to a 2000 build and at or past end of life if never replaced; nothing is stated."
+  ],
+  "notes": "A 2000 two-storey in River Oaks with an original builder kitchen and main bath, an updated ensuite and powder room, and a finished basement read as drywall only. Small above grade for three bedrooms. No mechanical ages stated and no mechanical frames."
  }
 ]

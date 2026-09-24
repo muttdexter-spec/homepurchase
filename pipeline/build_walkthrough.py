@@ -29,7 +29,20 @@ LIVE_IDS = {l[0] for l in LIVE["live"]}
 def esc(s): return html.escape(str(s if s is not None else ""))
 def money(n): return "${:,.0f}".format(n)
 def kmoney(n): return f"${round(n/1000):,}k"
-def short(slug): return slug.split("-", 2)[-1]          # bur-3205-tania -> tania
+def _short_keys(slugs):
+    """bur-3205-tania -> tania. The street part is the card key, the DOM id suffix and the key the
+    page stores tiers, view list and gut scores under, so it must be unique. When a later listing
+    shares a street with an earlier one (2037 and 1453 Mountain Grove, 2452 and 2501 Yarmouth), the
+    later one takes the house number as a suffix; the earlier one keeps its key so nothing already
+    stored on a phone moves."""
+    out, used = {}, set()
+    for sl in slugs:
+        base = sl.split("-", 2)[-1]
+        key = base if base not in used else base + "-" + sl.split("-")[1]
+        used.add(key); out[sl] = key
+    return out
+SHORT = _short_keys(list(OBS))
+def short(slug): return SHORT.get(slug) or slug.split("-", 2)[-1]
 def addr_short(a): return a.split(",")[0].replace(" Crescent", " Cres").replace(" Avenue", " Ave").replace(" Drive", " Dr").replace(" Court", " Ct").replace(" Road", " Rd").replace(" Boulevard", " Blvd").replace(" Place", " Pl")
 
 # ---------- rank v6 display constants (costs.yaml is the single source) ----------
@@ -616,6 +629,7 @@ def stamps_for(row, o, d, url):
     if d["yb_src"] != "mls": st.append('<span class="stamp unseen">Build year estimated</span>')
     if dom_days(o) >= 60: st.append(f'<span class="stamp unseen">{dom_days(o)}+ days</span>')
     if status_of(o) == "back": st.append('<span class="stamp unseen">Back on market</span>')
+    if status_of(o) == "conditional": st.append('<span class="stamp unseen">Conditionally sold</span>')
     if status_of(o) in ("sold", "delisted"):
         st.append(f'<span class="stamp unseen">{status_of(o).title()}</span>')
     elif status_of(o) == "unknown":

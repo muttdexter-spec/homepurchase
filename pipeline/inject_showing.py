@@ -21,7 +21,17 @@ DET = json.load(open(os.path.join(R, "out", "detail.json")))
 ROWS = list(csv.DictReader(open(os.path.join(R, "out", "decision.csv"))))
 BY_ADDR = {r["address"]: r for r in ROWS}
 
-def short(slug): return slug.split("-", 2)[-1]
+def _short_keys(slugs):
+    """Same rule as build_walkthrough.short(): street part, house number appended on a repeat street."""
+    out, used = {}, set()
+    for sl in slugs:
+        base = sl.split("-", 2)[-1]
+        key = base if base not in used else base + "-" + sl.split("-")[1]
+        used.add(key); out[sl] = key
+    return out
+SHORT = _short_keys(list(OBS))
+def short(slug): return SHORT.get(slug) or slug.split("-", 2)[-1]
+
 def addr_short(a):
     return (a.split(",")[0].replace(" Crescent", " Cres").replace(" Avenue", " Ave").replace(" Drive", " Dr")
             .replace(" Court", " Ct").replace(" Road", " Rd").replace(" Boulevard", " Blvd").replace(" Place", " Pl")
