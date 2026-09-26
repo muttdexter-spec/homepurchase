@@ -1,7 +1,23 @@
 # First House, hand-off. Read this first.
 
 **Owner:** Alex, Burlington Ontario. Buying a first house with his fiancée.
-**Current as of:** 23 September 2026 in the update blocks below; the body is from 13 September.
+**Current as of:** 25 September 2026 in the update blocks below; the body is from 13 September.
+
+> ## Update, 25 September 2026. Read `QA-PASS-2026-09-25.md` first.
+>
+> 1. **39 listings.** Five added from the TRREB search (Roslo, Roxton, Dowland, Malcolm,
+>    Fothergill); Cherrywood, Wentworth and Idlewood left the pool.
+> 2. **The ITSO saved search link is not on file.** Only the TRREB one can be recovered (its token is
+>    the one in every "Open listing" link on the page, and `/en-CA/properties/map` with that token and
+>    search id opens the search). Ask Alex for the ITSO link at the start of any search round; until
+>    then ITSO houses can only be checked one by one on their own pages, and new ITSO-only listings
+>    are invisible.
+> 3. **The second 23 September build was never pushed.** As of 25 September the live site is still
+>    commit `b2dfe94`. The 25 September build sits on top of the unpushed one in his clone, so
+>    "Since the last published build" was built against `b2dfe94`'s `batch_prev.json`.
+> 4. **The browser pane changes size between calls.** Read `innerWidth` before laying out photo
+>    tiles, and check each screenshot's scale: at some sizes the capture shows only the top-left
+>    quarter of the page at 2x or 4x. The helpers in this pass sized their grid from `innerWidth`.
 **Supersedes:** the 12 September version of this file. Everything below reflects rank v6, not v3 or v5.
 
 > ## Update, 23 September 2026, evening. Read `QA-PASS-2026-09-23b.md` before the rest of this file.

@@ -1,1 +1,2 @@
-address,municipality,usable_sqft,sold_price,status_date
+address,municipality,sqft_above,usable_sqft,ask,sold_price,status_date
+"5155 Idlewood Crescent, Burlington, ON L7L 3Y5",Burlington,1150,1318,899900,840000,2026-09-25

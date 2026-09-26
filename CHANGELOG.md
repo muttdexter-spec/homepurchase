@@ -1,5 +1,22 @@
 # Changelog
 
+## 25 September 2026: five new listings, 39 in all
+
+Record: `docs/QA-PASS-2026-09-25.md`. No model change.
+
+- **Added, each with a full photo read and geocoding:** 29 Roslo Court (rank 3, See first),
+  170 Roxton Road (16), 1060 Dowland Crescent (17), 2328 Malcolm Crescent (19) and 469 Fothergill
+  Boulevard (22, a link home). All five came from the TRREB saved search.
+- **Removed from the pool** under the 23 September rule: 659 Cherrywood (off the market),
+  3222 Wentworth (conditionally sold) and 5155 Idlewood (sold, $840,000 on its listing page).
+- **Price cuts:** 493 Crosby to $1,099,900 and 1434 Dewbourne to $924,000; neither score moves.
+- **The ITSO saved search could not be opened** (no link on file). Its 11 houses were checked one
+  by one on their own pages, and the masthead says a new ITSO-only listing would not show.
+- **Page:** dated 25 September; the removed list is grouped by the day each house left, with what
+  its listing page said.
+- **`out/sold.csv`** now lists every recorded sale, including houses that have left the pool, with
+  the ask beside the sale price.
+
 ## 23 September 2026, second build: model v3.5, rank v6.2, 37 listings
 
 Record: `docs/QA-PASS-2026-09-23b.md`. Why: `docs/REVIEW-2026-09-23.md`.

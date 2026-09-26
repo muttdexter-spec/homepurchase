@@ -80,8 +80,8 @@ COMP_LABEL = {"space": "Space", "layout": "Layout", "baths": "Baths", "parking":
 MORT_RATE = S.CFG["hold"]["mortgage_rate"] * 100
 DOWN_PCT = S.CFG["hold"]["down_payment"] * 100
 AMORT = S.CFG["hold"]["amortization"]
-BUILD_DATE = "23 September 2026"
-BUILD_DAY = date(2026, 9, 23)   # the same day, for counting days on market
+BUILD_DATE = "25 September 2026"
+BUILD_DAY = date(2026, 9, 25)   # the same day, for counting days on market
 # one plain sentence under "Since the last published build" when the scores moved for a reason the
 # lists of new, dropped and removed houses do not show; blank it on the next build
 BUILD_NOTE = ("Scores were also recalculated: a clean photo read can no longer lower a score, and "
@@ -556,7 +556,10 @@ def reno_html(o, d, row):
     return (f'<section class="reno"><h3>Renovations</h3>{head}<ul>{li}</ul>{mb}{inner}</section>')
 
 # ---------- status, days on market, what changed ----------
-LIVE_DATE = "23 September"   # the saved-search harvest that set the pool
+LIVE_DATE = "25 September"   # the saved-search harvest that set the pool
+# How the pool was checked on LIVE_DATE, in plain words, for the mast. On 25 Sep 2026 the ITSO saved
+# search could not be opened (no link on file), so its houses were checked one by one instead.
+SEARCH_CHECK = "TRREB search read, ITSO houses checked one by one on their own pages; new ITSO-only listings would not show"
 
 def status_of(o):
     """A listing's status, and the important word is UNKNOWN.
@@ -902,11 +905,27 @@ def changes_line():
     # v6.2: a house that left the pool has no card to filter to, so it is listed here instead.
     if gone:
         by_key = {short(sl): o for sl, o in OBS_ALL.items()}
-        names = [tt(by_key[k]["address"].split(",")[0]) if k in by_key else k for k in gone]
-        why = ("not in either saved search on " + LIVE_DATE + ", so out of the pool; the records are kept"
-               if all(k in by_key and not S.in_pool(by_key[k]) for k in gone) else "no longer in the model")
+        # grouped by the day each house left, with what its own listing page said when that was read
+        seen_word = {"Sold": "sold", "Conditionally Sold": "conditionally sold", "Off Market": "off the market"}
+        groups = {}
+        for k in gone:
+            o = by_key.get(k)
+            if not o:
+                groups.setdefault("no longer in the model", []).append(k); continue
+            nm = tt(o["address"].split(",")[0])
+            st = o.get("listing_status_seen")
+            if st:
+                nm += " (" + seen_word.get(st, st.lower()) + (f" at {money(o['sold_price'])}" if st == "Sold" and o.get("sold_price") else "") + ")"
+            d = o.get("status_date") or ""
+            try: dd = nice_day(d)
+            except Exception: dd = d
+            head = (f"Left the saved searches by {dd}" if any(by_key.get(x, {}).get("listing_status_seen") for x in gone
+                                                            if (by_key.get(x) or {}).get("status_date") == d)
+                    else f"Not in either saved search on {dd}")
+            groups.setdefault(head, []).append(nm)
+        txt = " ".join(f"{h}: {', '.join(v)}." for h, v in groups.items()) + " Out of the pool; the records are kept."
         inner += ((" · " if inner else "") + f'<details class="gone"><summary>{len(gone)} removed</summary>'
-                  f'<span class="gone-list">{esc(", ".join(names))}: {esc(why)}.</span></details>')
+                  f'<span class="gone-list">{esc(txt)}</span></details>')
     if not inner: inner = "no new listings and no price drops"
     note = f'<span class="chg-note">{esc(BUILD_NOTE)}</span>' if BUILD_NOTE else ""
     return f'<div class="changes" id="changes">Since the last published build: {inner}{note}</div>'
@@ -1890,13 +1909,17 @@ def write_offline(version):
 
 # ---------- sold comps ----------
 def write_sold():
+    """Every sale on record, in or out of the pool: a house that sold leaves the pool the same day, and
+    its price is the one number the model most needs (sold $ per sq ft). v6.2, 25 Sep 2026: this used
+    to read only the pool, so a sold house was never written."""
     import csv as _csv
     with open(os.path.join(R, "out", "sold.csv"), "w", newline="") as f:
-        w = _csv.writer(f); w.writerow(["address", "municipality", "usable_sqft", "sold_price", "status_date"])
-        for r in ROWS:
-            o = OBS[SLUG_OF[r["address"]]]
+        w = _csv.writer(f)
+        w.writerow(["address", "municipality", "sqft_above", "usable_sqft", "ask", "sold_price", "status_date"])
+        for o in OBS_ALL.values():
             if o.get("sold_price"):
-                w.writerow([r["address"], o.get("municipality"), r["usable_sqft"],
+                w.writerow([o["address"], o.get("municipality"), o.get("sqft_above") or "",
+                            round(S.usable(S.normalise(o))), o.get("list_price") or "",
                             o["sold_price"], o.get("status_date") or ""])
 
 FIELDS = {
@@ -1904,7 +1927,7 @@ FIELDS = {
             f"{MORT_RATE:.2f}%, {DOWN_PCT:.0f}% down, {HOLD_DEF} years · {n} listings"
             + (f", {N_RANKED} ranked, {n - N_RANKED} gated" if n != N_RANKED else ", all ranked"),
   "CHANGES": changes_line(),
-  "STANDFIRST": f"""Every house in either of the two saved searches on {LIVE_DATE}, {n} in all. Quality is seven things about the house, each out of 100, on {"provisional" if PROVISIONAL else "your"} weights; the payment is separate, and counts against quality through a dial. {"Sorted by quality less cost; cost counts for up to " + f"{DIAL:.0f}" + " points" if REFRAMED else "Sorted by score"}.
+  "STANDFIRST": f"""Every house still listed from the two saved searches, {n} in all, checked on {LIVE_DATE}. Quality is seven things about the house, each out of 100, on {"provisional" if PROVISIONAL else "your"} weights; the payment is separate, and counts against quality through a dial. {"Sorted by quality less cost; cost counts for up to " + f"{DIAL:.0f}" + " points" if REFRAMED else "Sorted by score"}.
       Every one has had its photos read at full resolution. Each card lists what the photos settled, what only a person standing in the room can
       settle, every room with its real dimensions, and every renovation line with what it costs and how likely it is to be needed.""",
   "MASTMETA": f"""
@@ -1912,7 +1935,8 @@ FIELDS = {
       <span>{len(see_first)} marked See First</span>
       <span>{"Quality: seven components &middot; cost counts as " + f"{DIAL:.0f}" if REFRAMED else "One score, eight components"}</span>
       <span>{"Dial provisional" if (S.CFG.get("price") or {}).get("dial_provisional") else "Dial fitted from the choices"}</span>
-      <span>All {n} seen in the {LIVE_DATE} searches; {len([o for o in OBS_ALL.values() if not S.in_pool(o)])} that were not are out of the pool</span>
+      <span>Checked {LIVE_DATE}: {SEARCH_CHECK}</span>
+      <span>{len([o for o in OBS_ALL.values() if not S.in_pool(o)])} that left the searches are out of the pool</span>
       <span>{"Weights provisional, not yet set by either of you" if PROVISIONAL else "Weights set from your choices"}</span>
       <span>{HOLD_DEF}-year hold</span>
       <span>Model v3.5 · rank v6.2</span>
