@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """Questions for the listing agent, per house, generated from the records. Two standing questions
 go to every listing; the rest come from what the photos could not settle."""
-import json, csv, os, sys
+import json, csv, os, sys, re, datetime
 R=os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0,R)
 import score as S
-O={o['address']:o for o in json.load(open(os.path.join(R,'observations.json')))}
+O={o['address']:o for o in S.load_pool(os.path.join(R,'observations.json'))}
 rows=list(csv.DictReader(open(os.path.join(R,'out','decision.csv'))))
-L=["# Questions for the listing agents, all 37 (12 September 2026)","",
+def tt(s):   # title case that leaves "Shepherd's" alone
+    return re.sub(r"[A-Za-z]+('[A-Za-z]+)?", lambda m: m.group(0)[0].upper()+m.group(0)[1:].lower(), s)
+L=[f"# Questions for the listing agents, all {len(rows)} ({datetime.date.today().strftime('%-d %B %Y')})","",
    "Two questions go to every listing: (1) How old are the roof, furnace and A/C, and can you send invoices? (2) Are any photos virtually staged or digitally enhanced, and when were they taken? Below are the house-specific ones, in rank order.",""]
 for r in rows:
     o=O[r['address']]; q=[]
@@ -28,7 +30,7 @@ for r in rows:
     if o.get('secondary_bath_original'): q.append("Any plan or permit history on the original second bath?")
     for f in (o.get('red_flags') or [])[:2]:
         if 'ask' in f.lower(): q.append(f[0].upper()+f[1:])
-    L.append(f"## {r['rank']}. {r['address'].split(',')[0].title()} ({r['grade']}, {r['verdict']})")
+    L.append(f"## {r['rank']}. {tt(r['address'].split(',')[0])} ({r['grade']}, {r['verdict']})")
     L += [f"- {x}" for x in dict.fromkeys(q)] or ["- Only the two standing questions."]
     L.append("")
 open(os.path.join(R,'out','agent_questions.md'),'w').write("\n".join(L)); print(len(L),'lines')

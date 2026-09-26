@@ -12,13 +12,18 @@ previously deployed pages with every model-produced region replaced by a
 so a regenerated page differs from the last one only where the model changed.
 """
 import json, csv, os, re, html, sys
+from datetime import date, timedelta
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import score as S
 import showing2 as SH
 
 R = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(R, "..")
-OBS = {o["slug"]: o for o in json.load(open(os.path.join(R, "observations.json")))}
+# v6.2 (23 Sep 2026): the pool. A record marked `status: removed` stays in observations.json and
+# keeps its short key (so a key stored on a phone for a removed house can never be reused by a new
+# one), but it is out of the page.
+OBS_ALL = {o["slug"]: o for o in json.load(open(os.path.join(R, "observations.json")))}
+OBS = {sl: o for sl, o in OBS_ALL.items() if S.in_pool(o)}
 DET = json.load(open(os.path.join(R, "out", "detail.json")))
 ROWS = list(csv.DictReader(open(os.path.join(R, "out", "decision.csv"))))
 LEGROOMS = json.load(open(os.path.join(R, "rooms_legacy.json")))
@@ -41,8 +46,13 @@ def _short_keys(slugs):
         key = base if base not in used else base + "-" + sl.split("-")[1]
         used.add(key); out[sl] = key
     return out
-SHORT = _short_keys(list(OBS))
+SHORT = _short_keys(list(OBS_ALL))
 def short(slug): return SHORT.get(slug) or slug.split("-", 2)[-1]
+def tt(s):
+    """str.title() capitalises after an apostrophe ("Shepherd'S"). Word-by-word instead."""
+    import re as _re
+    out = _re.sub(r"[A-Za-z]+('[A-Za-z]+)?", lambda m: m.group(0)[:1].upper() + m.group(0)[1:].lower(), str(s))
+    return out.replace("Mls", "MLS")
 def addr_short(a): return a.split(",")[0].replace(" Crescent", " Cres").replace(" Avenue", " Ave").replace(" Drive", " Dr").replace(" Court", " Ct").replace(" Road", " Rd").replace(" Boulevard", " Blvd").replace(" Place", " Pl")
 
 # ---------- rank v6 display constants (costs.yaml is the single source) ----------
@@ -70,7 +80,12 @@ COMP_LABEL = {"space": "Space", "layout": "Layout", "baths": "Baths", "parking":
 MORT_RATE = S.CFG["hold"]["mortgage_rate"] * 100
 DOWN_PCT = S.CFG["hold"]["down_payment"] * 100
 AMORT = S.CFG["hold"]["amortization"]
-BUILD_DATE = "14 September 2026"
+BUILD_DATE = "23 September 2026"
+BUILD_DAY = date(2026, 9, 23)   # the same day, for counting days on market
+# one plain sentence under "Since the last published build" when the scores moved for a reason the
+# lists of new, dropped and removed houses do not show; blank it on the next build
+BUILD_NOTE = ("Scores were also recalculated: a clean photo read can no longer lower a score, and "
+              "eleven of the houses added on 23 September had their photos read again.")
 PAIRS = json.load(open(os.path.join(R, "out", "pairs.json"))) if os.path.exists(os.path.join(R, "out", "pairs.json")) else None
 
 def r10(x): return int(round(float(x) / 10.0)) * 10
@@ -164,7 +179,8 @@ def where_line(o, d):
     return f"{esc(o.get('neighbourhood') or '')}, {esc(o.get('municipality') or '')} · {esc(o.get('style') or '')}, {yr} · {beds} bed, {baths} · {sq}{lot} · {gar}"
 
 # ---------- the score panel: eight .sp rows in weight order (USABILITY-SPEC section 6) ----------
-SCORE_TIP = "Score: the eight components above, each out of 100, combined with your weights. It is what this list is sorted on and it moves when the weights change."
+SCORE_TIP = ("Score: quality (the seven components above, each out of 100, on the current weights) less "
+             "what the monthly payment takes off. It is what this list is sorted on and it moves when the weights change.")
 
 def sp_row(label, value, weight, why=""):
     """One .sp row. The bar is the component out of 100; the right-hand figure is the component
@@ -391,7 +407,7 @@ def scorepanel(o, d, row):
             <div class="sp-top">
               <div class="sp-num">
                 <span class="big" title="{esc(SCORE_TIP)}"><b>{"—" if sc is None else (f'{num(row,"quality"):.0f}' if REFRAMED else f"{sc:.0f}")}</b><i>/ 100</i></span>
-                <em>{"Quality &middot; the seven things that are not price, your weights, heaviest first" if REFRAMED else "Score &middot; your weights, heaviest first"}</em>
+                <em>{("Quality &middot; the seven things that are not price, " + ("provisional weights" if PROVISIONAL else "your weights") + ", heaviest first") if REFRAMED else "Score &middot; weights heaviest first"}</em>
               </div>
             </div>
             <div class="sp-parts">
@@ -540,7 +556,7 @@ def reno_html(o, d, row):
     return (f'<section class="reno"><h3>Renovations</h3>{head}<ul>{li}</ul>{mb}{inner}</section>')
 
 # ---------- status, days on market, what changed ----------
-LIVE_DATE = "12 September"
+LIVE_DATE = "23 September"   # the saved-search harvest that set the pool
 
 def status_of(o):
     """A listing's status, and the important word is UNKNOWN.
@@ -556,11 +572,32 @@ def status_of(o):
     a status stamp on the strength of `unknown`."""
     st = o.get("status")
     if st: return st
+    if o.get("last_seen"): return "active"          # v6.2: seen in a saved search on that date
     return "active" if o["listing_id"] in LIVE_IDS else "unknown"
 
+def listed_on(o):
+    """The day the listing went up, read back from OneHome's day count on the day it was checked
+    (`dom_date`). It never goes stale, so the page counts forward from it instead of printing a
+    number that is only true on build day. Blank when the record has no count or no check date."""
+    try:
+        return (date.fromisoformat(o["dom_date"]) - timedelta(days=int(o["dom"]))).isoformat()
+    except (KeyError, TypeError, ValueError):
+        return ""
+
+def nice_day(iso):
+    """2026-08-13 -> 13 August"""
+    try: d = date.fromisoformat(iso)
+    except (TypeError, ValueError): return ""
+    return f"{d.day} {d.strftime('%B')}"
+
 def dom_days(o):
-    try: return int(o.get("dom") or 0)
+    """Days on market as of the build. The page script moves it forward to the viewer's today."""
+    try: n = int(o.get("dom") or 0)
     except (TypeError, ValueError): return 0
+    if o.get("dom_date"):
+        try: n += (BUILD_DAY - date.fromisoformat(o["dom_date"])).days
+        except ValueError: pass
+    return n
 
 # ---------- the card ----------
 HOLD_WORD = {"POOL": "pool", "OIL": "oil tank", "TENANTED": "tenanted"}
@@ -593,6 +630,7 @@ def card_data(o, row, d):
     return (f' data-ask="{o["list_price"]}" data-day1="{d["day1_p80"]}"'
             f' data-tax="{(o.get("annual_taxes") or 0)/12:.4f}" data-upkeep="{d["reserve_monthly"]}"'
             f' data-muni="{esc(o.get("municipality") or "")}" data-dom="{dom_days(o)}"'
+            + (f' data-listed="{listed_on(o)}"' if listed_on(o) else "") +
             f' data-status="{esc(status_of(o))}" data-cond="{num(row, "c_condition"):.0f}"'
             f' data-score="{"" if is_gated(row) else row["score"]}"'
             f' data-wish="{d["wish_p80"]}"'
@@ -611,10 +649,9 @@ def stamps_for(row, o, d, url):
     if v == "STOP": st.append('<span class="stamp unseen">STOP</span>')
     elif v == "SEE FIRST" and not row.get("hold_flags", "-") not in ("-", ""): st.append('<span class="stamp seen">See first</span>')
     elif v == "SEE FIRST": st.append('<span class="stamp seen">See first</span>')
-    if PROVISIONAL:
-        st.append('<span class="stamp unseen" title="fifteen pairwise choices not yet answered">Weights provisional</span>')
-    if not PARTNER_IN:
-        st.append('<span class="stamp unseen">Partner weights pending</span>')
+    # v6.2: "Weights provisional" and "Partner weights pending" are facts about the page, not about a
+    # house, so they are said once in the mast (V6.1 §7.5; COWORK-PROMPT-v6.1 step 6: "one Weights
+    # provisional in the mast and none on cards").
     if row.get("project") == "yes":
         share = S.CFG["gates"].get("project_share_of_ask", 0.15)
         st.append(f'<span class="stamp unseen" title="expected work is more than {share:.0%} of the ask">Project</span>')
@@ -627,15 +664,19 @@ def stamps_for(row, o, d, url):
         st.append('<span class="stamp unseen" title="the layout component cannot lose a bedroom to the tiny-room rule on this listing">No room table</span>')
     if d.get("bg_est"): st.append('<span class="stamp unseen">Basement area estimated</span>')
     if d["yb_src"] != "mls": st.append('<span class="stamp unseen">Build year estimated</span>')
-    if dom_days(o) >= 60: st.append(f'<span class="stamp unseen">{dom_days(o)}+ days</span>')
+    if listed_on(o) or dom_days(o) >= 60:
+        # on every card with a listing date; the page script shows it once the count reaches 60
+        hid = "" if dom_days(o) >= 60 else " hidden"
+        tip = f' title="listed {nice_day(listed_on(o))}"' if listed_on(o) else ""
+        st.append(f'<span class="stamp unseen domstamp"{hid}{tip}>On market 60+ days</span>')
     if status_of(o) == "back": st.append('<span class="stamp unseen">Back on market</span>')
     if status_of(o) == "conditional": st.append('<span class="stamp unseen">Conditionally sold</span>')
     if status_of(o) in ("sold", "delisted"):
         st.append(f'<span class="stamp unseen">{status_of(o).title()}</span>')
     elif status_of(o) == "unknown":
-        st.append(f'<span class="stamp unseen" title="the live check of {LIVE_DATE} did not cover this '
-                  f'listing, so whether it is still on the market has not been confirmed either way">'
-                  f'Not in the {LIVE_DATE} live check</span>')
+        st.append(f'<span class="stamp unseen" title="not seen in a saved search since it was added, so '
+                  f'whether it is still on the market has not been confirmed either way">'
+                  f'Not seen since it was added</span>')
     if is_gated(row):
         st.append(f'<span class="stamp unseen">Gated · {esc(row["notes"] if row["notes"] != "-" else "a rule")}</span>')
     for nn in (d.get("verdict_notes") or []):
@@ -666,7 +707,7 @@ def before_you_offer(row, o, d):
     lines = []
     b = BYSLUG.get(row.get("dominated_by", "-")) if not is_gated(row) else None
     if b is not None and overpay(row):
-        lines.append(f'Cheapest house scoring within {TOL} points: <b>{esc(b["address"].split(",")[0].title())}</b>, '
+        lines.append(f'Cheapest house scoring within {TOL} points: <b>{esc(tt(b["address"].split(",")[0]))}</b>, '
                      f'{money(int(b["ask"]))}, monthly payment <span class="paydiff" data-a="{esc(short(o["slug"]))}" '
                      f'data-b="{esc(SLUG_SHORT[b["address"]])}">—</span> less.')
     else:
@@ -696,12 +737,15 @@ def ask_box(o, row, d):
     ag = o.get("sqft_above") or 0
     bits = []
     if ag: bits.append(f"{money(ask/ag)} per sq ft above grade")
+    bits = [esc(x) for x in bits]
     dm = dom_days(o)
-    if dm: bits.append(f"{dm} day{'s' if dm != 1 else ''} on market")
+    if dm:
+        tip = f' title="listed {nice_day(listed_on(o))}"' if listed_on(o) else ""
+        bits.append(f'<span class="domv domw"{tip}>{dm} day{"s" if dm != 1 else ""}</span> on market')
     st = status_of(o)
-    if st in ("sold", "delisted"): bits.append(st)
+    if st in ("sold", "delisted"): bits.append(esc(st))
     return (f'<div class="askbox"><dt>Asking</dt><dd>{money(ask)}</dd>'
-            + (f'<dd class="msub">{" &middot; ".join(esc(x) for x in bits)}</dd>' if bits else "")
+            + (f'<dd class="msub">{" &middot; ".join(bits)}</dd>' if bits else "")
             + "</div>")
 
 def card(rank, row, o, d, n_ranked):
@@ -715,7 +759,20 @@ def card(rank, row, o, d, n_ranked):
     checks = check_lines(o)
     check_html = "".join(f'<li>{esc(t)}</li>' for t in checks)
     take = esc(o.get("notes") or "")
-    d1_txt = " Re-read on 12 September; the earlier pass had most tells unresolved." if o.get("stage2_pass") == "re-read" else ""
+    if o.get("stage2_reread_date") == "2026-09-23":
+        _plain = {"kitchen_sink_mount": "the kitchen sink", "kitchen_counter_edge": "the counter edge",
+                  "kitchen_soffit": "the bulkhead", "kitchen_door_profile": "the cabinet doors",
+                  "bath_tub_type": "the tub", "bath_tile_scale": "the bath tile", "bath_vanity_top": "the vanity tops",
+                  "floor_condition": "the floors", "ceiling_main": "the ceilings", "window_frame": "the windows",
+                  "basement_ceiling": "the basement ceiling", "basement_walls": "the basement walls",
+                  "driveway": "the driveway"}
+        _got = [_plain[k] for k in (o.get("reread_2026_09_23") or {}) if k in _plain]
+        _txt = (", ".join(_got[:-1]) + " and " + _got[-1]) if len(_got) > 1 else (_got[0] if _got else "")
+        d1_txt = f" Photos re-read on 23 September to settle what the first pass left open: {_txt}." if _txt else ""
+    elif o.get("stage2_pass") == "re-read":
+        d1_txt = " Re-read on 12 September; the earlier pass had most tells unresolved."
+    else:
+        d1_txt = ""
     grey = ' data-grey="1"' if status_of(o) in ("sold", "delisted") else ""
     CHECK_TITLE = "Check when you" + chr(39) + "re there"
     # Always on the card: renovations (with the line-by-line detail folded inside it), then what
@@ -749,7 +806,7 @@ def card(rank, row, o, d, n_ranked):
           <span>{esc(S.short_street(o["address"]))}</span></div>
         <div class="lot-head">
           <div class="lh-text">
-          <h2><a href="{esc(url)}" target="_blank" rel="noopener">{esc(o['address'].split(',')[0].title().replace("Mls","MLS"))}</a></h2>
+          <h2><a href="{esc(url)}" target="_blank" rel="noopener">{esc(tt(o['address'].split(',')[0]))}</a></h2>
           <p class="where">{where_line(o, d)}</p>
           {gated_line(row)}
           {rank_line(row, n_ranked)}
@@ -801,16 +858,16 @@ for r in ROWS:
     houses_js.append({"k": short(slug), "n": addr_short(o["address"]), "p": o["list_price"],
                       "d": d["day1_p80"], "t": round(o.get("annual_taxes") or 0)})
     reserve_js[short(slug)] = d["reserve_monthly"]
-    show_js[short(slug)] = {"slug": slug, "name": addr_short(o["address"].title()),
+    show_js[short(slug)] = {"slug": slug, "name": addr_short(tt(o["address"])),
                             "psf": 0 if is_gated(r) else round(num(r, "score")),
                             "rank": 99 if is_gated(r) else int(r["rank"]),
                             "verdict": r["verdict"]}
     compare_js[short(slug)] = {
-        "name": o["address"].split(",")[0].title(), "ask": o["list_price"],
+        "name": tt(o["address"].split(",")[0]), "ask": o["list_price"],
         "score": "—" if is_gated(r) else round(num(r, "score"), 1),
         "comp": {k2: round(num(r, "c_" + k2)) for k2 in S.COMP_KEYS},
         "day1": d["day1_p80"], "wish": d["wish_p80"], "hold": round(num(r, "cost_hold")),
-        "band": band_txt(r), "dom": dom_days(o), "status": status_of(o),
+        "band": band_txt(r), "dom": dom_days(o), "listed": listed_on(o), "status": status_of(o),
         "flags": [x for x in [("HOLD · " + ", ".join(HOLD_WORD.get(h.split(" ")[0], h.split(" ")[0]) for h in (r["hold_flags"].split("; ") if r["hold_flags"] != "-" else []))) if r["hold_flags"] != "-" else None,
                               "Project" if r.get("project") == "yes" else None] if x],
         "qs": ask_line(OBS[slug])[:110] + ("..." if len(ask_line(OBS[slug])) > 110 else ""),
@@ -822,9 +879,11 @@ def changes_line():
     prev = os.path.join(R, "out", "batch_prev.json")
     now = {short(SLUG_OF[r["address"]]): {"rank": r["rank"], "score": r["score"], "ask": r["ask"],
                                           "status": status_of(OBS[SLUG_OF[r["address"]]])} for r in ROWS}
-    stamp = os.path.join(R, "out", f"batch_{BUILD_DATE.replace(' ', '-')}.json")
+    # a dated copy of this build's state, named for the build day (until 23 Sep 2026 every build
+    # overwrote a file hard-named batch_2026-09-14.json; that file is left as the 16 Sep state)
+    stamp = os.path.join(R, "out", f"batch_{BUILD_DAY.isoformat()}.json")
     old = json.load(open(prev)) if os.path.exists(prev) else None
-    json.dump(now, open(os.path.join(R, "out", "batch_2026-09-14.json"), "w"), indent=1)
+    json.dump(now, open(stamp, "w"), indent=1)
     json.dump(now, open(prev, "w"), indent=1)
     if not old:
         return ('<p class="changes" id="changes">First build under v6 · nothing to compare against yet · '
@@ -832,13 +891,25 @@ def changes_line():
     new = [k for k in now if k not in old]
     gone = [k for k in old if k not in now]
     drop = [k for k in now if k in old and float(now[k]["ask"]) < float(old[k]["ask"])]
-    back = [k for k in now if now[k]["status"] == "back"]
+    # v6.2: "back" is a change like the others, so a house already back on the market at the last
+    # build is not listed again; the status stamp on its card still says so
+    back = [k for k in now if now[k]["status"] == "back" and (k not in old or old[k].get("status") != "back")]
     CHANGED.update({"new": new, "gone": gone, "drop": drop, "back": back})
-    parts = [(len(new), "new", "new"), (len(gone), "gone", "gone"),
-             (len(drop), "price drop", "drop"), (len(back), "back on market", "back")]
+    parts = [(len(new), "new", "new"), (len(drop), "price drop" + ("s" if len(drop) != 1 else ""), "drop"),
+             (len(back), "back on market", "back")]
     inner = " · ".join(f'<button type="button" class="chg" data-chg="{c}">{v} {lab}</button>'
-                       for v, lab, c in parts)
-    return f'<p class="changes" id="changes">Since the last build: {inner}</p>'
+                       for v, lab, c in parts if v)
+    # v6.2: a house that left the pool has no card to filter to, so it is listed here instead.
+    if gone:
+        by_key = {short(sl): o for sl, o in OBS_ALL.items()}
+        names = [tt(by_key[k]["address"].split(",")[0]) if k in by_key else k for k in gone]
+        why = ("not in either saved search on " + LIVE_DATE + ", so out of the pool; the records are kept"
+               if all(k in by_key and not S.in_pool(by_key[k]) for k in gone) else "no longer in the model")
+        inner += ((" · " if inner else "") + f'<details class="gone"><summary>{len(gone)} removed</summary>'
+                  f'<span class="gone-list">{esc(", ".join(names))}: {esc(why)}.</span></details>')
+    if not inner: inner = "no new listings and no price drops"
+    note = f'<span class="chg-note">{esc(BUILD_NOTE)}</span>' if BUILD_NOTE else ""
+    return f'<div class="changes" id="changes">Since the last published build: {inner}{note}</div>'
 
 # ---------- table ----------
 tip_s = esc(SCORE_TIP)
@@ -871,13 +942,13 @@ def table_rows():
         cell = "—" if is_gated(r) else r["rank"]
         btip = "" if is_gated(r) else f' title="rank {r["rank_3"]} at a 3-year hold, {r["rank_10"]} at 10"'
         out.append(f"<tr{cls}{card_data(o, r, d)} data-slug='{short(slug)}'><td class='n'>{cell}</td>"
-                   f"<td><a class='tl' href='#sr-lot-{short(slug)}'>{esc(r['address'].split(',')[0].title())}</a></td>"
+                   f"<td><a class='tl' href='#sr-lot-{short(slug)}'>{esc(tt(r['address'].split(',')[0]))}</a></td>"
                    f"<td>{scorecol(r)}</td>"
                    f"<td class='n'>{pay_cell(o)}</td>"
                    f"<td class='n'>{money(int(r['day1_p80']))}</td>"
                    f"<td class='n'>{num(r,'c_condition'):.0f}</td>"
                    f"<td class='n'{btip}>{band_txt(r)}</td>"
-                   f"<td class='n'>{dom_days(o)}</td>"
+                   f"<td class='n'><span class='domv'>{dom_days(o)}</span></td>"
                    f"<td class='vd'>{esc(status_of(o))}</td>"
                    f"<td class='vd'>{esc(r['verdict'])}</td><td>{flags_cell(r)}</td></tr>")
     return "".join(out)
@@ -893,7 +964,7 @@ def minitable():
         fig = (f'Not ranked · {esc(r["notes"] if r["notes"] != "-" else "a rule")}' if is_gated(r)
                else f'Band {band_txt(r)} · Condition {num(r,"c_condition"):.0f} · Day one {money(int(r["day1_p80"]))}')
         out.append(f'<li{stop}><a href="#sr-lot-{short(slug)}"><span class="mr-rank">{cell}</span>'
-                   f'<span class="mr-name">{esc(r["address"].split(",")[0].title())}</span>'
+                   f'<span class="mr-name">{esc(tt(r["address"].split(",")[0]))}</span>'
                    f'<span class="mr-score"><b>{"—" if sc is None else f"{sc:.0f}"}</b>'
                    f'<span class="bar"><i style="width:{(sc or 0):.0f}%; background:var({bar})"></i></span>'
                    f'<em>{esc(r["verdict"])}</em></span>'
@@ -906,7 +977,7 @@ def jumpopts(variant):
     o = ['<option value="">Jump to a house…</option>']
     for r in ROWS:
         slug = SLUG_OF[r["address"]]
-        o.append(f'<option value="sr-lot-{short(slug)}">{r["rank"]}. {esc(r["address"].split(",")[0].title())}</option>')
+        o.append(f'<option value="sr-lot-{short(slug)}">{r["rank"]}. {esc(tt(r["address"].split(",")[0]))}</option>')
     return "".join(o)
 
 # ---------- control bar: global settings, filters, sort ----------
@@ -923,7 +994,7 @@ FILTERS = f"""
     <label class="sr-jump"><span>Picks</span><select id="g-picks"><option value="">All</option>
       <option value="mine">My picks</option><option value="partner">Partner's picks</option>
       <option value="both">Both</option><option value="either">Either</option></select></label>
-    <label class="sr-jump"><span>Shortlist</span><select id="g-tier">
+    <label class="sr-jump sr-wide"><span>Shortlist</span><select id="g-tier">
       <option value="live">In consideration</option>
       <option value="top">Top only</option>
       <option value="topmid">Top and mid</option>
@@ -1023,11 +1094,11 @@ def scales_box():
 GLOSSARY = f"""
 {scales_box()}
     <div class="term"><dt>Quality</dt>
-      <dd>The seven things that are not price, each 0 to 100 on an absolute scale, combined with <b>your weights</b>. Higher is better. It says how good the house is, and says nothing about what it costs.</dd></div>
+      <dd>The seven things that are not price, each 0 to 100 on an absolute scale, combined with <b>the current weights</b>. Higher is better. It says how good the house is, and says nothing about what it costs.</dd></div>
     <div class="term"><dt>Cost, and the dial</dt>
-      <dd>Price is not one of the seven. It is a penalty in quality points: nothing at or under your comfortable payment, rising to the full penalty at your maximum. The <b>dial</b> is how many quality points that full penalty is worth, and the list is sorted on quality minus the dial's share of it. At a dial of 0 the list is quality only. The dial is fitted from the fifteen pairwise choices, because a choice between a better dearer house and a lesser cheaper one is exactly this trade.</dd></div>
+      <dd>Price is not one of the seven. It is a penalty in quality points: nothing at or under your comfortable payment, rising to the full penalty at your maximum. The <b>dial</b> is how many quality points that full penalty is worth, and the list is sorted on quality minus the dial's share of it. At a dial of 0 the list is quality only. The dial is provisional, like the weights: it is set so that price counts exactly as much as its provisional weight says.</dd></div>
     <div class="term"><dt>Condition</dt>
-      <dd>The share of this house's work that is <b>not</b> expected, cost-weighted, 0 to 100. The dollars behind it are under Renovations. Photographs alone cannot push it past about 77; the rest needs somebody standing in the house.</dd></div>
+      <dd>The share of this house's work that is <b>not</b> expected, cost-weighted, 0 to 100. The dollars behind it are under Renovations. A clean read lowers a job's odds to a floor of 15%, never to zero, so photographs alone cannot push it past 80; the rest needs somebody standing in the house.</dd></div>
     <div class="term"><dt>Monthly payment</dt>
       <dd>Mortgage principal and interest at the settings in the control bar, plus property tax, plus upkeep. <b>The only number on this page with "/mo" after it</b>, and every place it appears it is the same figure.</dd></div>
     <div class="term"><dt>Day-one work</dt>
@@ -1045,7 +1116,7 @@ GLOSSARY = f"""
     <div class="term"><dt>HOLD</dt>
       <dd>An oil tank, an in-ground pool or a sitting tenant. <b>Ranked and flagged, never silently dropped</b>, and never marked "See first".</dd></div>
     <div class="term"><dt>Weights</dt>
-      <dd>What each of the eight components is worth to you, out of 100. They come from <b>fifteen forced choices between real houses</b>, one set per person. Until both sets exist the page says provisional and the joint column is whoever has answered.</dd></div>
+      <dd>What each component is worth, out of 100. The weights on this page are <b>provisional</b>: a starting order proposed on 13 September (condition, space, price, layout, baths, location, lot, parking), not one either of you set. The order at the top of the list holds up well if they change; the middle of the list is where they matter.</dd></div>
   """
 
 # ---------- the page script ----------
@@ -1062,6 +1133,28 @@ V6JS = r"""
   function save(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
   var S = load(KEY, {dp: CFG.dp, rate: CFG.rate, amort: CFG.amort, hold: CFG.hold});
   var money = function(n){ return "$" + Math.round(n).toLocaleString("en-CA"); };
+
+  /* Days on market count forward from the day each listing went up, so a card opened a week after
+     the build shows that week's number, not the build's. */
+  var TODAY = new Date(); TODAY.setHours(0,0,0,0);
+  function daysSince(iso){
+    var d = new Date(iso + "T00:00:00");
+    return isNaN(d) ? null : Math.max(0, Math.round((TODAY - d)/864e5));
+  }
+  function paintDom(){
+    document.querySelectorAll("[data-listed]").forEach(function(el){
+      var n = daysSince(el.getAttribute("data-listed")); if(n === null) return;
+      el.setAttribute("data-dom", n);
+      el.querySelectorAll(".domv").forEach(function(s){
+        s.textContent = s.classList.contains("domw") ? n + (n === 1 ? " day" : " days") : n;
+      });
+      el.querySelectorAll(".domstamp").forEach(function(s){ s.hidden = n < 60; });
+    });
+    Object.keys(CFG.compare).forEach(function(k){
+      var c = CFG.compare[k], n = c.listed ? daysSince(c.listed) : null;
+      if(n !== null) c.dom = n;
+    });
+  }
 
   /* the one payment function: Canadian semi-annual compounding, same as the calculator's */
   function pAndI(principal, annualPct, years){
@@ -1310,37 +1403,9 @@ V6JS = r"""
     document.getElementById("cmptab").innerHTML = html;
   }
 
-  /* ---------- the fifteen pairs ---------- */
-  function paintPairs(){
-    var box = document.getElementById("pairbox"); if(!box) return;
-    var who = (document.getElementById("pp-who")||{}).value || "alex";
-    var all = load(QKEY, {}), mine = all[who] || {};
-    var rows = [].slice.call(document.querySelectorAll(".pairrow"));
-    var next = rows.filter(function(r){ return !mine[r.dataset.pair]; })[0];
-    rows.forEach(function(r){ r.hidden = r !== next; });
-    var done = Object.keys(mine).length;
-    rows.forEach(function(r){
-      var n = r.querySelector(".pp-n"); if(n) n.textContent = (done + 1) + " of " + CFG.npairs + " · ";
-    });
-    document.querySelectorAll(".pairpick").forEach(function(b){
-      b.classList.toggle("on", mine[b.dataset.pair] === b.dataset.pick);
-    });
-    var dn = document.getElementById("pp-done");
-    if(dn) dn.hidden = done < CFG.npairs;
-  }
-  function exportPairs(){
-    var all = load(QKEY, {}), out = {preferences_patch: {choices: {}}};
-    ["alex","partner"].forEach(function(w){
-      var m = all[w] || {};
-      if(Object.keys(m).length >= CFG.npairs)
-        out.preferences_patch.choices[w] = CFG.pairids.map(function(id){ return {pair: id, pick: m[id]}; });
-    });
-    var t = document.getElementById("pp-text");
-    t.hidden = false; t.value = JSON.stringify(out, null, 1); t.select();
-  }
-
   /* ---------- wiring ---------- */
   function boot(){
+    paintDom();
     index();
     ["g-dp","g-rate","g-amort"].forEach(function(id){
       var el = document.getElementById(id); if(!el) return;
@@ -1420,10 +1485,6 @@ V6JS = r"""
       if(c){ var sel = load(CKEY, []), j = sel.indexOf(c.dataset.cmp);
              if(j >= 0) sel.splice(j,1); else if(sel.length < 4) sel.push(c.dataset.cmp);
              save(CKEY, sel); paintCmp(); return; }
-      var pk = e.target.closest(".pairpick");
-      if(pk){ var who = (document.getElementById("pp-who")||{}).value || "alex";
-              var all = load(QKEY, {}); all[who] = all[who] || {};
-              all[who][pk.dataset.pair] = pk.dataset.pick; save(QKEY, all); paintPairs(); return; }
       var ch = e.target.closest(".chg");
       if(ch){
         var want = ch.dataset.chg, set = (CFG.changed || {})[want] || [];
@@ -1434,14 +1495,6 @@ V6JS = r"""
         document.querySelectorAll(".chg").forEach(function(x){ x.classList.toggle("on", x === ch); });
         return;
       }
-    });
-    var who = document.getElementById("pp-who");
-    if(who) who.addEventListener("change", paintPairs);
-    var px = document.getElementById("pp-export"); if(px) px.addEventListener("click", exportPairs);
-    var pr = document.getElementById("pp-reset");
-    if(pr) pr.addEventListener("click", function(){
-      var all = load(QKEY, {}); all[(document.getElementById("pp-who")||{}).value || "alex"] = {};
-      save(QKEY, all); paintPairs();
     });
     var sm = document.getElementById("sat-map");
     if(sm) sm.addEventListener("click", function(){
@@ -1486,7 +1539,7 @@ V6JS = r"""
       showMode(b.dataset.v !== "all");
     });
 
-    paintPayments(); paintTiers(); applyView(); paintSat(); paintCmp(); paintPairs(); calibration();
+    paintPayments(); paintTiers(); applyView(); paintSat(); paintCmp(); calibration();
     if("serviceWorker" in navigator){
       try{
         navigator.serviceWorker.register("sw.js", {updateViaCache: "none"}).then(function(reg){
@@ -1549,7 +1602,7 @@ V6JS = r"""
       line+dots+'<text x="'+(W-12)+'" y="'+(H-4)+'" text-anchor="end" font-size="9.5" fill="var(--muted)">GUT SCORE →</text>'+
       '<text x="'+(L-8)+'" y="12" text-anchor="end" font-size="9.5" fill="var(--muted)">↑ SCORE</text></svg>'+
       '<ul class="callist">'+sent+'</ul><div class="sp-parts">'+bars+'</div>'+
-      '<p class="maybe"><i>i</i>To act on this, answer the fifteen choices above, or edit <code>weights.alex</code> in <code>costs.yaml</code> and rebuild.</p>';
+      '<p class="maybe"><i>i</i>To act on this, change the weights (<code>weights.alex</code> in <code>costs.yaml</code>) and rebuild.</p>';
   }
 
   if(document.readyState !== "loading") boot();
@@ -1590,6 +1643,33 @@ V6JS = r"""
 .satlist{margin:6px 0; padding-left:20px}
 .changes{margin:6px 0 0; font-size:12.5px; color:var(--muted)}
 .changes .chg{background:none; border:none; padding:0 2px; font:inherit; color:var(--accent); cursor:pointer; text-decoration:underline}
+/* v6.2: what left the pool is listed in place, because it has no card to filter to */
+.changes .chg-note{display:block; margin-top:3px}
+.changes details.gone{display:inline}
+.changes details.gone>summary{display:inline; cursor:pointer; color:var(--accent); text-decoration:underline; padding:0 2px; list-style:none}
+.changes details.gone>summary::-webkit-details-marker{display:none}
+.changes details.gone[open]>.gone-list{display:block; margin:5px 0 2px; line-height:1.5}
+/* v6.2: the filter fields get the desktop build's field style on both builds, and on a phone they
+   sit in a two-column grid instead of wrapping at random widths */
+.sr-ctl .sr-jump{display:flex; align-items:center; gap:7px}
+.sr-ctl .sr-jump>span{font-family:var(--mono); font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+.sr-ctl .sr-jump input{font-family:inherit; font-size:12px; padding:6px 8px; border:1px solid var(--rule);
+  border-radius:4px; background:var(--card); color:var(--ink)}
+.sr-ctl .sr-jump select{font-family:inherit; font-size:12px; padding:6px 26px 6px 10px; border:1px solid var(--rule);
+  border-radius:4px; background-color:var(--card); color:var(--ink); cursor:pointer; -webkit-appearance:none; appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+  background-size:5px 5px,5px 5px; background-position:calc(100% - 15px) 13px,calc(100% - 10px) 13px; background-repeat:no-repeat}
+@media (max-width:560px){
+  .sr-ctl{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:8px 10px; align-items:center}
+  .sr-ctl>.sr-modes, .sr-ctl>.sr-exp, .sr-ctl>#holdmodes, .sr-ctl>.sr-pill{grid-column:1 / -1}
+  .sr-ctl>.sr-exp{justify-self:start; margin-left:0}
+  .sr-ctl>#holdmodes{margin-left:0 !important}
+  .sr-ctl .sr-jump{min-width:0; justify-content:space-between}
+  .sr-ctl .sr-jump input, .sr-ctl .sr-jump select{flex:1 1 auto; min-width:0; width:100% !important; max-width:none}
+  .sr-ctl .sr-jump .tiercount{flex:0 0 auto}
+  .sr-ctl .sr-jump>span{white-space:nowrap}
+  .sr-ctl .sr-jump.sr-wide{grid-column:1 / -1}
+}
 .byo{margin-top:10px; border-top:1px solid var(--rule-soft); padding-top:8px}
 .byo h4{margin:0 0 4px; font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
 .byo ul{margin:0; padding-left:18px}
@@ -1752,9 +1832,7 @@ def v6js():
            "order": COMP_ORDER, "label": COMP_LABEL, "weights": W_JOINT,
            "compare": compare_js,
            "addr": {SLUG_SHORT[r["address"]]: r["address"] for r in ROWS},
-           "changed": CHANGED,
-           "npairs": (PAIRS or {}).get("n", 15),
-           "pairids": [p["id"] for p in (PAIRS or {}).get("pairs", [])]}
+           "changed": CHANGED}
     return V6JS.replace("__CFG__", json.dumps(cfg))
 
 # ---------- offline: manifest and a service worker at the repo root ----------
@@ -1823,59 +1901,58 @@ def write_sold():
 
 FIELDS = {
   "KICKER": f"Halton search · walk-through companion · rebuilt {BUILD_DATE} · ranked at "
-            f"{MORT_RATE:.2f}%, {DOWN_PCT:.0f}% down, {HOLD_DEF} years · {n} listings, "
-            f"{N_RANKED} ranked, {n - N_RANKED} gated",
+            f"{MORT_RATE:.2f}%, {DOWN_PCT:.0f}% down, {HOLD_DEF} years · {n} listings"
+            + (f", {N_RANKED} ranked, {n - N_RANKED} gated" if n != N_RANKED else ", all ranked"),
   "CHANGES": changes_line(),
-  "STANDFIRST": f"""Every house on both saved searches, {n} in all. Quality is seven things about the house out of 100 on the weights the two of you set; the payment is separate, and counts against quality through a dial you can see and move. {"Sorted by quality; cost counts as " + f"{DIAL:.0f}" if REFRAMED else "Sorted by score"}.
+  "STANDFIRST": f"""Every house in either of the two saved searches on {LIVE_DATE}, {n} in all. Quality is seven things about the house, each out of 100, on {"provisional" if PROVISIONAL else "your"} weights; the payment is separate, and counts against quality through a dial. {"Sorted by quality less cost; cost counts for up to " + f"{DIAL:.0f}" + " points" if REFRAMED else "Sorted by score"}.
       Every one has had its photos read at full resolution. Each card lists what the photos settled, what only a person standing in the room can
       settle, every room with its real dimensions, and every renovation line with what it costs and how likely it is to be needed.""",
   "MASTMETA": f"""
-      <span>{n} of {n} photo-graded</span>
+      <span>{n} of {n} photo-graded, {len([r for r in ROWS if r["evidence"] == "high"])} at high evidence</span>
       <span>{len(see_first)} marked See First</span>
       <span>{"Quality: seven components &middot; cost counts as " + f"{DIAL:.0f}" if REFRAMED else "One score, eight components"}</span>
       <span>{"Dial provisional" if (S.CFG.get("price") or {}).get("dial_provisional") else "Dial fitted from the choices"}</span>
-      <span>Live check {LIVE_DATE}, {len([r for r in ROWS if status_of(OBS[SLUG_OF[r["address"]]]) != "unknown"])} of {n} confirmed on market</span>
-      <span>Weights {"provisional" if PROVISIONAL else "set from fifteen choices each"}</span>
+      <span>All {n} seen in the {LIVE_DATE} searches; {len([o for o in OBS_ALL.values() if not S.in_pool(o)])} that were not are out of the pool</span>
+      <span>{"Weights provisional, not yet set by either of you" if PROVISIONAL else "Weights set from your choices"}</span>
       <span>{HOLD_DEF}-year hold</span>
-      <span>Model v3.4 · rank v6</span>
+      <span>Model v3.5 · rank v6.2</span>
     """,
   "HOWTO": f"""<b>How the order works.</b> Four steps, and no step knows about the next one.<br>
     <b>1. Rules first, before any scoring.</b> A house that fails one is not ranked: confirmed basement
     moisture, fewer bedrooms above grade than you set, over a budget or cash ceiling if you set one, or a
     project if you had said no projects. {n - N_RANKED} of {n} fail one. They sit at the end with the reason on the card.<br>
-    <b>2. Eight things about the house, each out of 100.</b> Space, layout, baths, parking, lot, location,
-    condition and price. Every one is an absolute scale, so a house scored today is comparable to one
-    scored in March, and none of them moves when the batch changes.<br>
-    <b>3. Your weights.</b> Fifteen forced choices between two real houses from this batch, one set each.
-    The weights are fitted from what you pick, not from numbers you are asked to invent.
-    {"They are provisional until both of you have answered." if PROVISIONAL else ""}<br>
-    <b>4. One score, sorted descending.</b> Weighted mean of the eight, docked
-    {round(100*(1-S.CFG["split_dock"]))}% for a split-level plan. That is the whole rule. The band beside
-    it is where the house lands across every weight set, every hold and the two ends of its own day-one
-    uncertainty.<br>
+    <b>2. Seven things about the house, each out of 100.</b> Space, layout, baths, parking, lot, location
+    and condition. Every one is an absolute scale, so a house scored today is comparable to one scored in
+    March, and none of them moves when the batch changes. Together, weighted, they are <b>quality</b>.<br>
+    <b>3. The weights.</b> {"Provisional: a starting order, not one either of you set. The top of the list holds up if they change; the middle is where they matter." if PROVISIONAL else "Set from your choices."}<br>
+    <b>4. One score, sorted descending.</b> Quality, docked {round(100*(1-S.CFG["split_dock"]))}% for a
+    split-level plan, less what the monthly payment takes off above your comfortable
+    ${S.CFG["price"]["comfortable_mo"]:,} a month. That is the whole rule. The band beside it is where the
+    house lands across every hold and the two ends of its own day-one uncertainty.<br>
     <b>One rule underneath all of it:</b> photographs can only ever count against a house, except through
     condition, where a clean full-resolution read can lower a finish line toward a floor of 15%, never to
-    zero. No photograph moves a panel, roof, furnace or window, and none can raise the grade. Photographs
-    alone cannot push condition past about 77 of 100; the rest needs somebody standing in the house.""",
+    zero, and a clean read never deletes a job either. No photograph moves a roof or a furnace. Photographs
+    alone cannot push condition past 80 of 100; the rest needs somebody standing in the house.""",
   "GLOSSARY": GLOSSARY,
-  "TABLEINTRO": f"""All {n}, in score order. Score is the composite out of 100 and it is what the list is sorted on; Grade is the facts letter and it is not.{{{{RENOSENT}}}} Band is where the house lands across every weight set on file, holds of 3, 5 and 10 years, and the low and high end of its own day-one uncertainty. A wide band means the rank is resting on assumptions rather than evidence.""",
-  "CARDSINTRO": """In score order, with the score broken into its eight components on every card, heaviest weight first. Everything below the money block is closed until you open it. Open "Renovation cost, line by line" on any card for the full cost build-up.""",
+  "TABLEINTRO": f"""All {n}, in score order. Score is quality less what the payment takes off, out of 100, and it is what the list is sorted on.{{{{RENOSENT}}}} Band is where the house lands across holds of 3, 5 and 10 years and the low and high end of its own day-one uncertainty. A wide band means the rank is resting on assumptions rather than evidence; neighbours within a point of each other are effectively tied.""",
+  "CARDSINTRO": """In score order, with quality broken into its seven components on every card, heaviest weight first. Everything below the money block is closed until you open it. Open "Renovation cost, line by line" on any card for the full cost build-up.""",
   "FRONTIERCHART": "",
   "FILTERS": FILTERS,
   "SATURDAY": SATURDAY,
-  "PAIRS": pairs_section(),
+  "PAIRS": "",   # v6.2: the fifteen-choice preference picker is off the page (Alex, 23 Sep 2026). out/pairs.json is kept.
   "COMPARE": COMPARE,
   "CALIBRATION": CALIBRATION,
   "V6JS": v6js(),
   "HOLDTOGGLE": HOLD_BTNS,
-  "COLOPHON": f"""One score out of 100: eight components on absolute scales, weighted by
-    {"provisional weights pending fifteen pairwise choices from each buyer" if PROVISIONAL else "weights fitted from fifteen pairwise choices per buyer"} ·
+  "NALL": f"All {n}",
+  "COLOPHON": f"""One score out of 100: quality from seven components on absolute scales, weighted by
+    {"provisional weights" if PROVISIONAL else "your weights"}, less a cost penalty on the monthly payment
+    between ${S.CFG["price"]["comfortable_mo"]:,} and ${S.CFG["price"]["max_mo"]:,} ·
     condition is the cost-weighted share of this house's work that is not expected, two-sided at full
-    resolution, capped for photographs · price is the {HOLD_DEF}-year cost of the hold against a fixed
-    $270,000 to $420,000 search band · cost of capital {S.COST_OF_CAPITAL:.1%}, derived from
+    resolution, capped for photographs; a clean read lowers a job to a floor, never deletes it · cost of capital {S.COST_OF_CAPITAL:.1%}, derived from
     {MORT_RATE:.2f}% on {100-DOWN_PCT:.0f}% and {S.CFG["hold"]["opportunity_rate"]:.1%} on the down payment ·
     exit commission {S.CFG["hold"]["exit_commission"]:.1%} · no appreciation assumed ·
-    Model v3.4, rank v6, {BUILD_DATE} · {n} listings, all photo-graded · Nothing here is an offer price""",
+    Model v3.5, rank v6.2, {BUILD_DATE} · {n} listings, all photo-graded · Nothing here is an offer price""",
   "LOTS": "\n" + "".join(cards),
   "MINITABLE": minitable(),
   "THEAD": THEAD,

@@ -1,8 +1,36 @@
 # First House, hand-off. Read this first.
 
 **Owner:** Alex, Burlington Ontario. Buying a first house with his fiancée.
-**Current as of:** 13 September 2026, end of the v6 page-formatting session.
+**Current as of:** 23 September 2026 in the update blocks below; the body is from 13 September.
 **Supersedes:** the 12 September version of this file. Everything below reflects rank v6, not v3 or v5.
+
+> ## Update, 23 September 2026, evening. Read `QA-PASS-2026-09-23b.md` before the rest of this file.
+>
+> 1. **The pool is 37 listings.** The first 23 September build had 58. The 21 that were not in
+>    either saved search that day are marked `status: "removed"` on Alex's instruction and are out
+>    of the ranking, the page and every output. Their records are kept, with the date and his words.
+>    `score.in_pool()` and `score.load_pool()` are the one place the rule lives.
+> 2. **Model v3.5.** A clean photo read lowers a line to `observed_floor`; it never deletes it.
+>    Eleven of the 18 houses added on 23 September were re-read. Tests 6.23 to 6.27 are new.
+> 3. **The preference picker is off the page**, at his request. Zero choices are on file, so the
+>    weights stay provisional and nothing on the page can now change that. `refresh.sh` no longer
+>    runs `build_pairs.py` or `fit_choices.py`, and `out/pairs.json` is unchanged. Do not put the
+>    picker back unless he asks.
+> 4. **"Weights provisional" is not a stamp on every card any more.** It is in the mast line and in
+>    the label over every card's score panel, as V6.1 section 7.5 specified. Section 0 item 1 below
+>    is updated to match.
+> 5. **Days on market count forward** on the page from `dom` and `dom_date`. When a house is added,
+>    record both (the "Days on OneHome" figure and the date it was read); test 6.27 fails otherwise.
+> 6. **"Since the last published build"** compares against `pipeline/out/batch_prev.json` and then
+>    overwrites it. Before a build, that file must be the one from the last pushed commit. If you
+>    build twice before a push, restore it from git first.
+> 7. **Publishing.** Vercel builds production from `main` on every push (project `homepurchase`,
+>    team "Alex's projects"). The route is unchanged: commit to his clone with
+>    `device_commit_files`, stage back and hash, and he pushes in GitHub Desktop.
+> 8. **Browsing.** On 23 September his reply "Do what you think is necessary", given to an explicit
+>    request to open the listing pages, was taken as the yes. The standing rule is unchanged: ask.
+> 9. Section 4 item 3 is out of date: the repo's `docs/` folder has carried the v6 set since 16
+>    September. The last QA pass is `QA-PASS-2026-09-23b.md`, not the one in section 1's table.
 
 > ## Update, 15 September 2026. Read `QA-PASS-2026-09-15.md` before the rest of this file.
 >
@@ -39,8 +67,9 @@
 
 1. **Do not compute, print or describe a v6 ranking as if the weights were the buyers'.**
    They are not. The weights on file are provisional and were derived by the assistant, not
-   elicited from anyone. Section 3 explains. Every card on the page says `Weights provisional`
-   for this reason, and that stamp does not come off until section 3 is done.
+   elicited from anyone. Section 3 explains. The page says `Weights provisional` in the mast,
+   and every card says "provisional weights" over its score panel, and neither comes off until
+   section 3 is done. (Until 23 September it was a stamp on every card.)
 2. **Do not browse any listing or real-estate site** without asking first and getting a yes.
    Two stage-1 page loads are recommended in `RANK-V6-DECISION.md` section 9 and neither has
    been done. "Do what you think is best" is not the yes.

@@ -1,5 +1,54 @@
 # Changelog
 
+## 23 September 2026, second build: model v3.5, rank v6.2, 37 listings
+
+Record: `docs/QA-PASS-2026-09-23b.md`. Why: `docs/REVIEW-2026-09-23.md`.
+
+**The pool is 37.** The 21 houses on file that were not in either saved search on 23 September are
+out of the pool on Alex's instruction ("If the houses are missing, assume they are removed from the
+pool"). Each keeps its record with `status: "removed"`, `status_date` and `removed_reason`; nothing is
+deleted and none is confirmed sold. `score.in_pool()` and `score.load_pool()` hold the rule and every
+builder reads through them. Short keys are still computed over all 58 records, so no stored key moved.
+
+**Model v3.5: a clean read lowers a line to the observed floor, it never deletes it.** Vinyl window
+frames keep the window line at 0.15; a breaker panel on a pre-1970 or unknown-year house keeps the
+panel and partial rewire lines at 0.15. Deleting a line could lower condition on a clean read. No
+catalog cost, recovery band, era prior or contingency changed; `costs.yaml` changed only in
+`meta.version`. The card's "a showing could move this to" line now uses the real denominator, so it
+says what the model would score. Tests 6.23 to 6.25 added: nothing zeroed on a clean read, no single
+read moves condition the wrong way, and the pool is in `decision.csv` exactly once.
+
+**Eleven of the eighteen houses added on 23 September re-read** to the stage-2 brief: 51 field
+changes, each logged with the frame it came from. Median surfaces settled 8 to 13 of 15. Terraview
+falls (bulkhead and raised-panel doors, so a full kitchen); Thorpe, Sycamore, Parker, Nevarc, Munn's
+and Arnold rise.
+
+**Smaller corrections.** Wood Crescent's primary bedroom is the labelled 149 sq ft room, as on every
+other card (it said 192). The layout line says when a bigger bedroom exists. `score_3` and
+`score_10` are on the rank's scale (test 6.26). Days on market re-read for the 19 older houses, every
+house carries `dom_date` (test 6.27), and the page counts forward from the listing date. The dated
+build snapshot is now named for the build day. The agent questions and the cost detail count and
+date themselves, and the cost detail reads the model version from `costs.yaml`.
+
+**Page.** The fifteen-choice preference picker is off the page (Alex, 23 September);
+`out/pairs.json` is kept and `refresh.sh` no longer re-runs `build_pairs.py` or `fit_choices.py`.
+"Weights provisional" is said once in the mast, as V6.1 section 7.5 specified, and in the label over
+every card's score, instead of as a stamp on every card. "Since the last published build" lists only
+real changes, with the removed houses named behind a tap, and one sentence on why scores moved.
+Names in title case ("Shepherd's"). The phone's filter fields sit in a two-column grid. No CSS
+variable, font size or card section order changed.
+
+## 23 September 2026, first build: 18 listings added, 58 in all
+
+Eighteen listings from the two saved searches, each with a stage-2 photo pass; five price and
+status changes on houses already on file. No model change. See `docs/QA-PASS-2026-09-23.md`, and
+its errata at the end.
+
+## 16 September 2026: one listing added
+
+2161 Devlin Drive, with a full stage-2 photo pass; 40 listings. No model change. See
+`docs/QA-PASS-2026-09-16.md`.
+
 ## 15 September 2026: v6.1, the buyer anchors, location rebuilt, two new listings
 
 **Four anchors that were the assistant's are now the buyer's**, recorded verbatim in `costs.yaml`

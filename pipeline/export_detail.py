@@ -5,7 +5,7 @@ R = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, R)
 import score as S
 
-obs = [S.normalise(o) for o in json.load(open(os.path.join(R, "observations.json")))]
+obs = [S.normalise(o) for o in S.load_pool(os.path.join(R, "observations.json"))]   # v3.5: the pool only
 out = {}
 for o in obs:
     c = S.cost(o); fs, parts = S.facts(o); v, notes = S.verdict(o, c, fs); rs = S.resale(o, c)

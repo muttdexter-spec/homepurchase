@@ -6,7 +6,7 @@ First-house search for Burlington / Oakville: listing harvest, photo-based condi
 
 Ranked since 14 September 2026 on **one score out of 100 per house**: eight components, each on an absolute scale, weighted by the two buyers. `docs/ranking-system-v6.md` is the specification, `docs/RANK-V6-DECISION.md` is the argument for it, and `CHANGELOG.md` has the short version.
 
-The weights are **provisional** until both buyers have answered the fifteen pairwise choices on the page. Every card says so.
+The weights are **provisional**: a starting order the assistant proposed on 13 September, not one either buyer set. The page says so in the masthead and in the label over every card's score. The fifteen-choice picker that was meant to set them was taken off the page on 23 September at Alex's request; `docs/ELICITATION.md` and `pipeline/out/pairs.json` are kept.
 
 ## What is here
 
@@ -30,13 +30,15 @@ cd pipeline
 sh refresh.sh
 ```
 
-That runs `build_pairs.py`, `fit_choices.py`, `score.py`, `export_detail.py`, `build_agent_questions.py`, `test_model.py`, `build_walkthrough.py` and `build_cost_detail.py` in order. It needs Python 3 with `pyyaml`, `numpy` and `scipy`.
+That runs `score.py`, `export_detail.py`, `build_agent_questions.py`, `test_model.py`, `build_walkthrough.py` and `build_cost_detail.py` in order. It needs Python 3 with `pyyaml`. `build_pairs.py` and `fit_choices.py` (which need `numpy` and `scipy`) are commented out since 23 September: the picker is off the page, and re-running `build_pairs.py` would re-select the pairs.
+
+`build_walkthrough.py` prints "Since the last published build" by comparing against `pipeline/out/batch_prev.json` and then overwrites that file with the current build. So that line is right only if `batch_prev.json` is the one from the last pushed commit when the build runs.
 
 `build_walkthrough.py` writes `full.html` and `mobile.html` **straight to the repo root**, so after `refresh.sh` you commit and push and the site is current. Nothing has to be copied. The site is those two files plus `index.html`.
 
-`score.py` holds the cost model (v3.4) and rank v6: the gate ladder, eight components on absolute scales, and one weighted score. Every tunable is in `costs.yaml`, under `catalog`, `recovery`, `p_not_done` and `contingency` for the cost model and under `hold`, `gates`, `weights`, `choices` and `pairs` for the ranking.
+`score.py` holds the cost model (v3.5) and rank v6: the gate ladder, eight components on absolute scales, and one weighted score. Every tunable is in `costs.yaml`, under `catalog`, `recovery`, `p_not_done` and `contingency` for the cost model and under `hold`, `gates`, `weights`, `choices` and `pairs` for the ranking.
 
-The weights are the one thing in here that must not come from the model. They are fitted from fifteen forced choices between real houses, one set per buyer: `build_pairs.py` designs the pairs, the page collects the answers, `fit_choices.py` fits them. Until a person has answered all fifteen, their weights are whatever is in `costs.yaml: weights` and the page stamps every card **Weights provisional**.
+The weights are the one thing in here that must not come from the model. They are fitted from fifteen forced choices between real houses, one set per buyer: `build_pairs.py` designs the pairs, the page collects the answers, `fit_choices.py` fits them. Until a person has answered all fifteen, their weights are whatever is in `costs.yaml: weights` and the page says **Weights provisional**. Since 23 September the page no longer collects the answers.
 
 The page chrome is not in the builder. It lives in `pipeline/page_full.tpl.html` and `pipeline/page_mobile.tpl.html`, which are the previously built pages with every model-produced region replaced by a `{{PLACEHOLDER}}`. `build_walkthrough.py` fills them, so a regenerated page differs from the last one only where the model changed. After a deliberate change to the chrome, run `pipeline/make_page_templates.py` by hand to re-freeze the templates and read the diff. It is not part of `refresh.sh`.
 

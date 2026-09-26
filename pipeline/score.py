@@ -20,6 +20,17 @@ except Exception as _e:
     print(f"WARNING geo.json unreadable ({_e}); location falls back to v6", file=sys.stderr)
     GEO = {}
 
+# ---------------------------------------------------------------- v3.5: the pool
+# 23 September 2026. Alex: "If the houses are missing, assume they are removed from the pool."
+# A listing marked `status: removed` stays in observations.json with the date and the reason, so
+# the record says what happened and it can be restored by deleting two fields. It is out of the
+# scoring, the page and the tests.
+def in_pool(o):
+    return str(o.get("status") or "").strip().lower() != "removed"
+
+def load_pool(path):
+    return [o for o in json.load(open(path)) if in_pool(o)]
+
 def pert(lo, ml, hi):
     """Beta-PERT draw. Standard construction-estimating distribution."""
     if hi <= lo: return ml
@@ -236,7 +247,17 @@ def cost(o):
         res_meta["windows"] = (age, CAT["windows_full"]["life"], True)
         items.append(("windows","reserve",1.0,*[CAT["windows_full"][k] for k in("low","likely","high")],
                       f"{wf} CONFIRMED — near term"))
-    elif wf != "vinyl":
+    elif wf == "vinyl":
+        # v3.5 (23 Sep 2026). A clean read lowers the line to the observed floor; it never deletes
+        # it. Deleting it took the line out of `work_full` as well as `work_expected`, and because
+        # condition is 1 - expected/full, a confirmed vinyl read LOWERED condition on every house
+        # whose overall ratio was above the line's own (Terraview 65.9 -> 63.6 on a vinyl read).
+        # photo-reno-grading-handoff.md already said it: "Nothing gets zeroed on photographic
+        # evidence, ever. Vinyl window frames ... drop the window provision ... to about $5k."
+        res_meta["windows"] = (age, CAT["windows_full"]["life"], False)
+        items.append(("windows","reserve",CFG["observed_floor"],
+                      *[CAT["windows_full"][k] for k in("low","likely","high")],"vinyl frames seen: observed floor, not zero"))
+    else:
         res_meta["windows"] = (age, CAT["windows_full"]["life"], False)
         items.append(("windows","reserve",CFG["p_not_done"][era(yb)],
                       *[CAT["windows_full"][k] for k in("low","likely","high")],"frame not shown"))
@@ -251,23 +272,32 @@ def cost(o):
     # ---- day1 hazards -------------------------------------------------------
     # v6 §7 item 3: panel_seen from the showing record overrides the era block entirely.
     # 'new' or 'replaced_<year>' means somebody looked at the service and it is not a fuse box.
+    # v3.5 (23 Sep 2026): a modern service, read in a photo or at a showing, lowers the two lines
+    # to the observed floor instead of deleting them, for the same reason as the windows above.
     _panel_seen = parse_seen(o.get("panel_seen"))
+    _old_service = (not yb or yb < 1970)
+    _fl = CFG["observed_floor"]
     if _panel_seen and _panel_seen[0] in ("new", "replaced"):
-        pass
-    elif _panel_seen and _panel_seen[0] == "original" and (not yb or yb < 1970):
+        if _old_service:
+            add("panel","panel_upgrade",_fl,"modern service seen at the showing: observed floor, not zero")
+            add("partial rewire","rewire_knob_tube",_fl,"modern service seen at the showing: observed floor", mult=0.4)
+    elif _panel_seen and _panel_seen[0] == "original" and _old_service:
         add("panel","panel_upgrade",1.0,"original service confirmed at the showing")
         add("rewire","rewire_knob_tube",1.0,"original pre-1970 service implies K&T")
-    elif not yb or yb < 1970:   # v3.4: unknown year is worst case here as everywhere else
+    elif _old_service:   # v3.4: unknown year is worst case here as everywhere else
         pt = o.get("panel_type")
         if pt == "fuse":
             add("panel","panel_upgrade",1.0,"fuse panel confirmed")
             add("rewire","rewire_knob_tube",1.0,"fuse panel implies K&T")
-        elif pt in (None,"","not_shown"):
-            add("panel","panel_upgrade",0.5,"pre-1970, panel not shown")
+        elif pt in ("breaker_100", "breaker_200"):
+            add("panel","panel_upgrade",_fl,f"{pt} seen: observed floor, not zero")
+            add("partial rewire","rewire_knob_tube",_fl,f"{pt} seen: observed floor", mult=0.4)
+        else:   # not shown, blank, or a 60 A breaker panel, which is not a modern service
+            add("panel","panel_upgrade",0.5,"pre-1970, panel not shown" if pt in (None,"","not_shown") else f"pre-1970, {pt}")
             add("partial rewire","rewire_knob_tube",0.25,"pre-1970 risk", mult=0.4)
     if "oil" in str(o.get("heating","")).lower():
         add("oil→gas","oil_to_gas",1.0,"oil heat in MLS")
-        add("tank removal","oil_tank_removal",1.0,"LIABILITY IF BURIED — uncapped")
+        add("tank removal","oil_tank_removal",1.0,"LIABILITY IF BURIED: uncapped")
     if o.get("asbestos_suspect") and (yb or 9999) < 1990:
         add("asbestos","asbestos_abatement",0.6,"suspect material, only if disturbed")
     bm, mc = o.get("basement_moisture"), o.get("moisture_confidence","medium")
@@ -981,6 +1011,13 @@ def explain_layout(o, cfg=None):
     bits = [f"{b} bedrooms above grade"]
     pb = o.get("primary_bed_sqft") or 0
     if pb: bits.append(f"primary {_fmt(pb)} sq ft")
+    # 23 Sep 2026: the score uses the room the listing calls the primary; when an above-grade
+    # bedroom is bigger, the fact line says so, because that is the room you might sleep in
+    _rr = o.get("rooms_raw") or []
+    _big = [r[2] for r in _rr if len(r) > 2 and r[2] and ("edroom" in str(r[1]) or "rimary" in str(r[1]))
+            and not str(r[0]).lower().startswith(("bsmt", "basement"))]
+    if pb and _big and max(_big) > pb:
+        bits.append(f"another bedroom {_fmt(max(_big))}")
     bits.append("ensuite" if ens else ("no ensuite" if ens is False else "ensuite unknown"))
     if (o.get("beds_under_100sqft") or 0) > 0:
         bits.append(f"{o['beds_under_100sqft']} bedroom under 100 sq ft")
@@ -1085,25 +1122,24 @@ DEFECT_READ = {"kitchen_sink_mount":"topmount", "kitchen_counter_edge":"rolled_b
 def _resolved_condition(o, table, H, full_today=None):
     """Condition with every unseen tell resolved the same way. Two runs of cost(), no new model.
 
-    The denominator is HELD AT TODAY'S `full`, and that choice is load-bearing. Resolving a tell
-    can remove a line from the cost model altogether (a pre-1970 house with an unseen panel
-    carries panel at p=0.5 and a partial rewire at p=0.25; read the panel as a modern breaker and
-    both lines vanish). A vanished line leaves the numerator AND the denominator, and because
-    condition is 1 - exp/full, dropping a line whose probability was below the house's overall
-    ratio makes the ratio worse and the score fall. Four houses did exactly that before this fix:
-    Centennial, Weir, Cherrywood and Samford all scored LOWER after a perfectly clean read.
+    History. Until 23 September 2026 the denominator here was HELD at today's `full`, because
+    resolving a tell could delete a line from the cost model (read a pre-1970 panel as a modern
+    breaker and both electrical lines vanished; read the windows as vinyl and the window line
+    vanished). A vanished line left the numerator and the denominator, so a perfectly clean read
+    could LOWER condition (Centennial, Weir, Cherrywood and Samford did). Holding the denominator
+    fixed made this preview monotone, but the score itself kept the artefact, so the card promised
+    "79 if everything reads clean" on Cherrywood while the model would have scored that visit 75.
 
-    That is an artefact of the denominator, not a fact about the house, and it makes the line
-    unreadable ("a showing could move this to 58 if everything reads clean" when it is 60 today).
-    Holding `full` fixed answers the question the reader is actually asking: of the work this
-    house might need today, how much would the visit rule in or out. It also makes the two ends
-    monotone by construction, which test_model.py asserts."""
+    v3.5 fixes the cause instead: a clean read lowers a line to the observed floor and never
+    deletes it (cost(), windows and panel). The preview now uses the real denominator, so it is
+    exactly what the model would score after the visit. `full_today` is accepted and ignored so old
+    callers keep working. Monotone in both directions on every house; test_model.py 6.22 asserts it."""
     o2 = dict(o)
     for f in TELLS:
         if o2.get(f) in (None, "", "not_shown"): o2[f] = table.get(f, o2.get(f))
     c2 = cost(o2)
     exp, full, _d = work_expected(o2, c2, H)
-    return round(condition_from(exp, full_today if full_today else full), 1)
+    return round(condition_from(exp, full), 1)
 
 def condition_block(o, c=None, H=None):
     """The four-line condition block: three buckets with their two largest expected lines, the
@@ -1135,7 +1171,7 @@ def condition_block(o, c=None, H=None):
             "buckets": out, "unseen": unseen,
             "if_clean": _resolved_condition(o, CLEAN_READ, H, full),
             "if_defect": _resolved_condition(o, DEFECT_READ, H, full),
-            "denominator": "held at today's possible work; see _resolved_condition",
+            "denominator": "the house's own possible work after the read; see _resolved_condition",
             "photo_cap": not has_showing_evidence(o)}
 
 EXPLAINERS = {"space": explain_space, "layout": explain_layout, "baths": explain_baths,
@@ -1201,7 +1237,7 @@ def short_street(addr):
 def prepare(obs_path):
     """Cost, components at all three holds, fit, verdict, resale and gates for every listing,
     once. No ranking yet. G4 needs the expected work, so gates are evaluated after it."""
-    obs = [normalise(o) for o in json.load(open(obs_path))]; rows = []
+    obs = [normalise(o) for o in load_pool(obs_path)]; rows = []
     for w in dedupe_warnings(obs): print("WARNING", w, file=sys.stderr)
     HD = CFG["hold"]["years_default"]
     for o in obs:
@@ -1285,7 +1321,10 @@ def run(obs_path, out):
             r[f"rank_{who}"] = orders[(who, HD, "point")][r["slug"]]
         for H in HOLDS:
             r[f"rank_{H}"] = orders[("joint", H, "point")][r["slug"]]
-            r[f"score_{H}"] = round(v6_score(r["comps"][H], WS["joint"], r["split"]), 1)
+            # 23 Sep 2026: on the same scale as rank_{H} (it was the pre-reframe v6_score, so a
+            # CSV reader saw 3- and 10-year scores that disagreed with the ranks beside them)
+            r[f"score_{H}"] = (round(value_of(comp_at(r, H, "point"), WS["joint"], r["split"], r["cost_pen"]), 1)
+                               if reframed() else round(v6_score(comp_at(r, H, "point"), WS["joint"], r["split"]), 1))
         pos = [orders[k][r["slug"]] for k in orders]
         r["band_lo"], r["band_hi"] = min(pos), max(pos)
         r["disagree"] = (len(people) == 2 and

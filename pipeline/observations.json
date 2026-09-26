@@ -132,7 +132,10 @@
    "hall tub fully concealed by curtain"
   ],
   "claim_vs_evidence": "Kitchen and primary ensuite consistent with genuine updates. Hall 4pc bath shows original cultured-marble vanity and dated doors, so the blanket 'beautifully updated' claim does not hold uniformly. 'Carpet free' is supported.",
-  "notes": "Piecemeal renovation. Panel and roof unverifiable. Three concealed surfaces."
+  "notes": "Piecemeal renovation. Panel and roof unverifiable. Three concealed surfaces.",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "bur-3469-caplan",
@@ -264,7 +267,10 @@
    "smallest secondary bedroom 89 sqft"
   ],
   "claim_vs_evidence": "Carpet-free and stone kitchen counters consistent with photos. Stated 2022 furnace, 2022 softener and 2021 windows cannot be verified: no mechanical, panel or nameplate photo exists.",
-  "notes": "Year Built absent from the crawl. Narrow 32.67 ft frontage. Basement finish conceals the foundation."
+  "notes": "Year Built absent from the crawl. Narrow 32.67 ft frontage. Basement finish conceals the foundation.",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "bur-appleby-sidesplit",
@@ -406,7 +412,10 @@
    "953 sqft above grade, smallest in the batch"
   ],
   "claim_vs_evidence": "'Carpet free' supported. 'Porcelain countertops' plausible but not visually separable from quartz. 'Main floor fully refreshed 2024' is scoped to the main floor only, and the basement contradicts the MLS 'Finished' descriptor.",
-  "notes": "1963 sidesplit. Efflorescence at walk-out is the finding that matters. Split level takes the 5% livability dock."
+  "notes": "1963 sidesplit. Efflorescence at walk-out is the finding that matters. Split level takes the 5% livability dock.",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "oak-2501-yarmouth",
@@ -562,7 +571,10 @@
   ],
   "claim_vs_evidence": "Caesarstone counters: the topmount sink with a visible rim argues against stone and the claim cannot be confirmed. 'Recently renovated bathrooms' plural: the main tub is curtained off and the two baths are finished in different eras, so the claim reads as partial work rather than one coordinated renovation. New bedroom carpet is consistent with what is visible. Main-floor hardwood is largely concealed by a rug.",
   "notes": "Photo pass completed on the second attempt. Kitchen is defect_confirmed on two independent tells. Moisture reading is a single low-confidence streak on an unfinished wall and is treated as a showing item, not a confirmed defect.",
-  "moisture_confidence": "low"
+  "moisture_confidence": "low",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "oak-2221-wyandotte",
@@ -572,7 +584,7 @@
   "address": "2221 Wyandotte Drive, Oakville, ON L6L 2T4",
   "list_price": 1299999,
   "est_monthly": 6545,
-  "dom": 3,
+  "dom": 18,
   "year_built": 1972,
   "style": "Backsplit",
   "storeys": 3,
@@ -689,7 +701,10 @@
   ],
   "claim_vs_evidence": "'Large waterfall granite island' reads as quartz or marble-look rather than granite. 'Engineered hardwood on upper, main and lower levels' cannot be verified because every photo showing those floors has them majority-concealed by rugs and runners. The stated basement separate entrance has no photo evidence either way.",
   "notes": "Original aluminum window frames confirmed at full resolution, which is the single most expensive finding in this batch. No room dimensions at all.",
-  "pool": null
+  "pool": null,
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 3,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "oak-1177-grand",
@@ -699,7 +714,7 @@
   "address": "1177 GRAND Boulevard, Oakville, ON L6H 2V2",
   "list_price": 1299900,
   "est_monthly": 6556,
-  "dom": 1,
+  "dom": 16,
   "year_built": 1976,
   "style": "Traditional",
   "storeys": 2,
@@ -825,7 +840,10 @@
    "roof claimed 2017, not confirmable at close range"
   ],
   "claim_vs_evidence": "'Updated eat-in kitchen with granite' is contradicted on two tells: a retained soffit and a rolled bullnose edge, plus mismatched appliance finishes. Hardwood and upper-level broadloom claims are supported. Roof 2017 is unverifiable.",
-  "notes": "Unfinished basement with zero basement photos. The house's only full bath was never shown. Kitchen defect confirmed on two independent tells."
+  "notes": "Unfinished basement with zero basement photos. The house's only full bath was never shown. Kitchen defect confirmed on two independent tells.",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 1,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-1280-aldridge",
@@ -835,7 +853,7 @@
   "address": "1280 ALDRIDGE Crescent, Burlington, ON L7M 1H9",
   "list_price": 1018800,
   "est_monthly": 5198,
-  "dom": 8,
+  "dom": 23,
   "year_built": null,
   "style": "Sidesplit",
   "storeys": 2,
@@ -952,7 +970,10 @@
   "notes": "Year Built absent from the ITSO listing, so the model prices it at the worst-case era. Cheapest listing in the batch by $270k.",
   "status": "conditional",
   "badge": "Conditionally Sold",
-  "status_date": "2026-09-23"
+  "status_date": "2026-09-23",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 8,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-522-enfield",
@@ -962,7 +983,7 @@
   "address": "522 Enfield Road, Burlington, ON L7T 2X8",
   "list_price": 825000,
   "est_monthly": 4319,
-  "dom": 1,
+  "dom": 16,
   "year_built": 1954,
   "style": "Bungalow",
   "storeys": 1,
@@ -1111,7 +1132,10 @@
    "no floor plan"
   ],
   "claim_vs_evidence": "The remarks market this openly as a renovation or investor opportunity and make no finish claims at all. Nothing in the photos contradicts the marketing, which is the opposite of the usual failure mode and is itself worth noting: this is the only listing in the set where the agent is not overstating anything.",
-  "notes": "1954 bungalow, vacant, 9,154 sqft lot. Kitchen and both baths confirmed not done. Oil in the heating string is the finding that matters most and is not a finish issue."
+  "notes": "1954 bungalow, vacant, 9,154 sqft lot. Kitchen and both baths confirmed not done. Oil in the heating string is the finding that matters most and is not a finish issue.",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 1,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-493-crosby",
@@ -1120,7 +1144,7 @@
   "mls": "40862025",
   "address": "493 CROSBY Avenue, Burlington, ON L7R 2R6",
   "list_price": 1149900,
-  "dom": null,
+  "dom": 14,
   "year_built": null,
   "style": "Traditional",
   "sqft_above": 1205,
@@ -1192,7 +1216,10 @@
    "rear_yard": 5
   },
   "notes": "Complete flip of a 1950 brick 1.5-storey: shaker kitchen with quartz island and undermount sink, marble-look tiled alcove bath with glass slider, LVP throughout, black vinyl windows, new concrete drive. Zero basement frames and zero mechanical frames. Staged.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": null,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-395-lark",
@@ -1276,7 +1303,10 @@
    "floorplan": 2
   },
   "notes": "Designer renovation of a 1958 Aldershot bungalow: slab kitchen with marble-look quartz and undermount sink, subway-tiled alcove bath with walnut floating vanity, curbless-shower basement bath, LVP and flat ceilings throughout. Window frames unresolved. Nothing mechanical shown. Natural, unblown photography.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "bur-1453-mountain-grove",
@@ -1289,7 +1319,7 @@
   "address": "1453 Mountain Grove Avenue, Burlington, ON L7P 2H4",
   "mls": "W13767884",
   "list_price": 1079000,
-  "dom": 2,
+  "dom": 14,
   "year_built": 1958,
   "year_built_details": "51-99",
   "style": "Bungalow",
@@ -1428,7 +1458,10 @@
    "yard": 8
   },
   "notes": "1958 Mountainside bungalow with a current shaker kitchen (white and navy, quartz, gold hardware), a hex-tile double-vanity main bath with the tub behind a curtain, LVP throughout, and a basement under a drop-tile grid. Vinyl windows, new asphalt drive, carport. Nothing mechanical shown. Staged.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 2,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-1493-clinton",
@@ -1511,7 +1544,10 @@
    "basement_bath_laundry": 1
   },
   "stage2_date": "2026-09-12",
-  "stage2_pass": "re-read"
+  "stage2_pass": "re-read",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "bur-1319-bonnie",
@@ -1597,7 +1633,10 @@
    "aerial": 4
   },
   "stage2_date": "2026-09-12",
-  "stage2_pass": "re-read"
+  "stage2_pass": "re-read",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "bur-3490-rexway",
@@ -1606,7 +1645,7 @@
   "mls": "W13764714",
   "address": "3490 Rexway Drive, Burlington, ON L7N 2L6",
   "list_price": 1079000,
-  "dom": null,
+  "dom": 14,
   "year_built": null,
   "style": "Sidesplit",
   "sqft_above": 1516,
@@ -1682,7 +1721,10 @@
   },
   "notes": "Espresso shaker kitchen with granite and an undermount sink over a tile floor with inlay, 2010s spec. One bath re-done in grey large-format with a sliding glass tub door, the other in 2000s beige 12x12 with a mosaic border. Flat ceilings, vinyl windows, hardwood on the lower level, drop-tile only in the laundry. Vacant. Pool. Nothing mechanical shown.",
   "stage2_date": "2026-09-12",
-  "pool": "in-ground"
+  "pool": "in-ground",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": null,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-3202-centennial",
@@ -1691,7 +1733,7 @@
   "mls": "W13765008",
   "address": "3202 Centennial Drive E, Burlington, ON L7M 1C2",
   "list_price": 1059900,
-  "dom": null,
+  "dom": 14,
   "year_built": null,
   "style": "Backsplit",
   "sqft_above": 1300,
@@ -1766,7 +1808,10 @@
   },
   "notes": "Bungalow with a white shaker kitchen (quartz, undermount, subway tile) and dark laminate main; main bath a dated black-tile corner-jetted-tub reno; basement drywalled with LVP and wainscoting, one-piece shower insert. Vinyl windows, crazed asphalt drive, pool. Low-res photos. Nothing mechanical shown.",
   "stage2_date": "2026-09-12",
-  "pool": "in-ground"
+  "pool": "in-ground",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": null,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "oak-1228-pallatine",
@@ -1775,7 +1820,7 @@
   "mls": "W13532376",
   "address": "1228 Pallatine Drive, Oakville, ON L6H 1Z2",
   "list_price": 1228000,
-  "dom": 65,
+  "dom": 79,
   "year_built": 1963,
   "style": "Sidesplit",
   "sqft_above": 1403,
@@ -1846,7 +1891,10 @@
   "stage2_date": "2026-09-12",
   "status": "back",
   "badge": "Back on Market",
-  "status_date": "2026-09-23"
+  "status_date": "2026-09-23",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 65,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-470-delaney",
@@ -1932,7 +1980,10 @@
    "aerial": 4
   },
   "stage2_date": "2026-09-12",
-  "stage2_pass": "re-read"
+  "stage2_pass": "re-read",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "bur-5174-ravine",
@@ -1941,7 +1992,7 @@
   "mls": "W13769400",
   "address": "5174 Ravine Crescent, Burlington, ON L7L 6N2",
   "list_price": 1098000,
-  "dom": 1,
+  "dom": 14,
   "year_built": null,
   "style": "Two Storey",
   "sqft_above": 1861,
@@ -2014,7 +2065,10 @@
   },
   "notes": "Kitchen reads as one full renovation: shaker doors, quartz with square edge, uppers to a flat ceiling with crown, linear tile backsplash. Ensuite re-tiled around an original corner tub platform. Main bath tub unread. Basement drywalled and carpeted with pot lights, no staining at the visible wall base. Pool adds a liability and carrying cost the model does not price. No panel, furnace, or water heater seen.",
   "stage2_date": "2026-09-12",
-  "pool": "in-ground"
+  "pool": "in-ground",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 1,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-2120-cavendish",
@@ -2096,7 +2150,10 @@
    "floorplan": 2
   },
   "notes": "Kitchen is a full same-footprint refresh: crisp shaker doors, dark stone with squared edge, ledgestone backsplash, crown to a flat ceiling. Main bath re-tiled in grey subway around an alcove tub; vanity top unread. Basement rec room finished with drywall walls under a drop-tile grid, carpeted. Windows white vinyl. No mechanical frames. Staged.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "bur-5180-bunton",
@@ -2176,7 +2233,10 @@
    "yard": 2
   },
   "notes": "Every finish surface reads as 1997 builder-original and clean: maple slab kitchen with laminate and topmount sink, corner-tub ensuite in 4x4 tile, laminate vanities. Kitchen and both full baths are confirmed wishlist jobs. Basement is drywalled with flat ceilings and pot lights, carpeted. Nothing mechanical shown.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "oak-506-pondview",
@@ -2257,7 +2317,10 @@
   },
   "notes": "Refreshed 1999 Oakville two-storey: white shaker kitchen with quartz and undermount sink, large-format tiled alcove tub, quartz vanities with undermount sinks, LVP basement with a new glass-shower bath, flat ceilings, vinyl windows. Nothing mechanical shown. Staged.",
   "stage2_date": "2026-09-12",
-  "pool": null
+  "pool": null,
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "oak-2148-stillmeadow",
@@ -2340,7 +2403,10 @@
    "deck_yard": 4
   },
   "notes": "Well-kept 1996 Oakville two-storey with a granite/undermount kitchen and a custom ensuite. Main bath partly refreshed (cultured-marble top). Hardwood on the main, flat ceilings with a decorative beam, vinyl windows, interlock drive. Basement drywalled with LVP. Nothing mechanical shown.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "bur-3205-tania",
@@ -2432,7 +2498,10 @@
    "yard": 3
   },
   "stage2_date": "2026-09-12",
-  "stage2_pass": "re-read"
+  "stage2_pass": "re-read",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "bur-3212-pinemeadow",
@@ -2518,7 +2587,10 @@
    "aerial": 5
   },
   "stage2_date": "2026-09-12",
-  "stage2_pass": "re-read"
+  "stage2_pass": "re-read",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "bur-2105-maplewood",
@@ -2709,7 +2781,10 @@
   },
   "notes": "Brant bungalow with a 2024 gloss-slab kitchen under a retained bulkhead, quartz and undermount sink, new 3pc main bath, fully rebuilt basement with second kitchen and separate entrance. Flat ceilings, vinyl windows, aggregate walk. Nothing mechanical shown; furnace, A/C and 200A panel are remarks only.",
   "stage2_date": "2026-09-12",
-  "pool": "swim-spa"
+  "pool": "swim-spa",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "oak-28-osborne",
@@ -2719,7 +2794,7 @@
   "address": "28 Osborne Crescent, Oakville, ON L6H 1G1",
   "mls": "W13611862",
   "list_price": 1279000,
-  "dom": 46,
+  "dom": 58,
   "year_built": null,
   "year_built_details": null,
   "style": "Backsplit",
@@ -2862,7 +2937,10 @@
   },
   "notes": "College Park backsplit: painted raised-panel kitchen with brown granite and glass-tile backsplash (2000s), 2018 primary addition with a glass-shower ensuite, hall bath in 2000s beige 12x12, 2018 basement bath, laminate basement with flat ceilings. Vinyl windows. Nothing mechanical shown; heat pump 2024 is remarks only.",
   "stage2_date": "2026-09-12",
-  "price_history": "$1,299,000 on file before 23 Sep 2026; $1,279,000 on the 23 Sep 2026 harvest (card badge: Price Decrease)"
+  "price_history": "$1,299,000 on file before 23 Sep 2026; $1,279,000 on the 23 Sep 2026 harvest (card badge: Price Decrease)",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 46,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-4831-columbus",
@@ -3023,7 +3101,10 @@
    "deck_yard": 4
   },
   "notes": "2008 Alton two-storey in original builder spec, well kept: cherry shaker kitchen with granite and a topmount sink, jetted drop-in ensuite tub on a 4x4 deck, integrated vanity top, main bath with undermount sink on stone. Flat ceilings, crown, vinyl windows, sound asphalt drive. Basement drywalled and laminate. Mechanical unseen; furnace 2026 and roof 2023 are remarks only.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "oak-568-weir",
@@ -3033,7 +3114,7 @@
   "address": "568 Weir Avenue, Oakville, ON L6L 4X4",
   "mls": "W13667672",
   "list_price": 1279999,
-  "dom": 31,
+  "dom": 43,
   "year_built": 1957,
   "year_built_details": null,
   "style": "Bungalow",
@@ -3129,7 +3210,10 @@
   "notes": "Renovated main floor (cream shaker kitchen with quartz waterfall and undermount sink, new 4pc bath with floating vanity) over a basement suite with an IKEA kitchen, a 1957-original blue-tile bath and a tiled ceiling. Tenanted; sparse photo set; no mechanical frames. Vinyl windows, new asphalt drive. The value is the 70 x 108 lot.",
   "stage2_date": "2026-09-12",
   "tenanted": true,
-  "price_history": "$1,299,999 on file before 23 Sep 2026; $1,279,999 on the 23 Sep 2026 harvest (card badge: Price Decrease)"
+  "price_history": "$1,299,999 on file before 23 Sep 2026; $1,279,999 on the 23 Sep 2026 harvest (card badge: Price Decrease)",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 31,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-5190-wood",
@@ -3139,7 +3223,7 @@
   "address": "5190 Wood Crescent, Burlington, ON L7L 6N3",
   "mls": "W13722834",
   "list_price": 1099900,
-  "dom": 15,
+  "dom": 27,
   "year_built": null,
   "year_built_details": null,
   "style": "Two Storey",
@@ -3161,7 +3245,7 @@
   "foundation": "Poured",
   "garage_spaces": 1,
   "parking_spots": 3,
-  "primary_bed_sqft": 192,
+  "primary_bed_sqft": 149,
   "beds_under_100sqft": 0,
   "walk": 50,
   "transit": 20,
@@ -3285,7 +3369,11 @@
   },
   "notes": "Renovated main floor (shaker kitchen, quartz, undermount sink, LVP, pot lights) over an original upstairs bath with laminate top and drop-in sink. Basement drywalled with a new glass-shower bath. Heat pump outdoor unit visible; no interior mechanical frames. Above-ground pool. Concrete drive sound. Staged.",
   "stage2_date": "2026-09-12",
-  "pool": "above-ground"
+  "pool": "above-ground",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 15,
+  "dom_date": "2026-09-23",
+  "primary_note": "The MLS room table labels the 149 sq ft second-floor room Primary; a 192 sq ft room on the same floor is labelled Bedroom. Every other card uses the labelled primary, so 149 here (192 was recorded until 23 Sep 2026). If you would use the 192 sq ft room as the primary, the layout gets its +10 back."
  },
  {
   "slug": "bur-2294-seton",
@@ -3295,7 +3383,7 @@
   "address": "2294 Seton Crescent, Burlington, ON L7L 6Y4",
   "mls": "W13718864",
   "list_price": 1179900,
-  "dom": 16,
+  "dom": 28,
   "year_built": 2002,
   "year_built_details": "16-30",
   "style": "Two Storey",
@@ -3420,7 +3508,10 @@
   "notes": "Fully renovated in 2026: shaker kitchen with quartz and undermount sink, subway-tiled alcove tub, shaker vanities with stone tops, LVP on every level, flat ceilings with pot lights, black-frame vinyl windows. No original surface visible; photos cannot speak to anything behind the drywall. Driveway is the only unrenewed surface. Partly staged, partly vacant.",
   "stage2_date": "2026-09-12",
   "price_history": "$1,194,900 on file before 23 Sep 2026; $1,179,900 on the 23 Sep 2026 harvest (card badge: Price Decrease)",
-  "badge": "Price Decrease"
+  "badge": "Price Decrease",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 16,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-2265-middlesmoor",
@@ -3578,7 +3669,10 @@
    "floorplan": 3
   },
   "notes": "Cosmetic flip on a 1979 Brant Hills two-storey: shaker kitchen with quartz, gold hardware and undermount sink; baths in white subway with modern integrated vanity tops; LVP and flat ceilings throughout; black vinyl casements; new asphalt drive; metal roof. Heavy HDR limits bath reads. Nothing mechanical shown.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "bur-1379-christina",
@@ -3588,7 +3682,7 @@
   "address": "1379 Christina Court, Burlington, ON L7P 2V8",
   "mls": "W13677482",
   "list_price": 1299900,
-  "dom": 30,
+  "dom": 42,
   "year_built": 1972,
   "year_built_details": "51-99",
   "style": "Sidesplit",
@@ -3732,7 +3826,10 @@
    "yard": 3
   },
   "notes": "Complete designer flip: shaker kitchen with quartz and undermount sink over marble-look porcelain, large-format tiled bath with undermount sinks, new black vinyl windows, interlock drive, LVP basement, flat ceilings throughout. Nothing original visible; nothing mechanical shown. Staged.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 30,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "oak-1218-oxlow",
@@ -3742,7 +3839,7 @@
   "address": "1218 Oxlow Drive, Oakville, ON L6H 1S2",
   "mls": "W13674510",
   "list_price": 1249999,
-  "dom": 29,
+  "dom": 41,
   "year_built": 1972,
   "year_built_details": null,
   "style": "Sidesplit",
@@ -3877,7 +3974,10 @@
   },
   "notes": "Renovated main and upper (white shaker kitchen with quartz and undermount sink, two-sink upper bath with tiled alcove tub and glass door), lower level drywalled with LVP and a wet bar, dated lower bath under drop tile. Side foundation parging spalling. Pool is above-ground despite the remarks. Vinyl windows, weathered asphalt drive. Nothing mechanical shown. Staged.",
   "stage2_date": "2026-09-12",
-  "pool": "above-ground"
+  "pool": "above-ground",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 29,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-659-cherrywood",
@@ -3887,7 +3987,7 @@
   "address": "659 Cherrywood Drive, Burlington, ON L7T 3W9",
   "mls": "W13668110",
   "list_price": 1299999,
-  "dom": 31,
+  "dom": 43,
   "year_built": null,
   "year_built_details": null,
   "style": "Sidesplit",
@@ -4028,7 +4128,10 @@
    "yard": 13
   },
   "notes": "Finishes are current: white shaker kitchen with granite and an undermount double sink, 5pc bath with freestanding tub and vessel sinks on stone, glass-shower lower bath, LVP basement, flat ceilings with pot lights. Front window frames unresolved and possibly original. Nothing mechanical shown. Big lot backing onto the trail.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 31,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-275-kent",
@@ -4163,7 +4266,10 @@
    "yard": 9
   },
   "notes": "Cherry shaker kitchen to the ceiling with quartz and an undermount sink over porcelain tile; new 3pc lower bath; rec room drywalled with pot lights and a gas fireplace over laminate. Utility room open: painted block, exposed joists, PEX supply. Main 4pc bath unread. Painted-brick bungalow with vinyl windows and a sound asphalt drive.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "oak-1273-barberry",
@@ -4325,7 +4431,10 @@
    "utility": 1
   },
   "notes": "Flip-grade refresh: gloss slab kitchen under a retained bulkhead with quartz and undermount sink; marble-look tile bath with black quartz vanity; LVP throughout; basement with second kitchen. The only mechanical frame in the whole 37-listing set: tankless water heater, CSST gas, open joists. No furnace or panel. Staged.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "oak-462-samford",
@@ -4429,7 +4538,10 @@
    "yard_hot_tub": 3
   },
   "notes": "1950s West Oakville bungalow run as a short-term rental: repainted raised-panel kitchen with topmount sink, 2000s beige-tile bath, basement suite under a coffered LED ceiling with LVP, unfinished utility corner with furnace and open joists. Vinyl windows, concrete drive, carport. Staged for STR. Lot-value street.",
-  "stage2_date": "2026-09-12"
+  "stage2_date": "2026-09-12",
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "bur-1333-woodvale",
@@ -4440,7 +4552,7 @@
   "address": "1333 Woodvale Place, Burlington, ON L7M 1R2",
   "list_price": 1269900,
   "est_monthly": 6363,
-  "dom": 1,
+  "dom": 12,
   "year_built": 1973,
   "year_built_details": "31-50",
   "style": "Sidesplit",
@@ -4602,7 +4714,10 @@
    "yard_pool": 12,
    "aerial": 3,
    "floor_plan": 2
-  }
+  },
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 1,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-2379-duncaster",
@@ -4781,7 +4896,10 @@
    "bath": 5,
    "lower": 2,
    "yard_deck": 5
-  }
+  },
+  "status": "removed",
+  "status_date": "2026-09-23",
+  "removed_reason": "Not in either saved search (ITSO, TRREB) on 23 Sep 2026. Removed from the pool on Alex's instruction of 23 Sep 2026: \"If the houses are missing, assume they are removed from the pool.\" Not confirmed sold; the record is kept so it can be restored."
  },
  {
   "slug": "bur-2161-devlin",
@@ -4792,7 +4910,7 @@
   "address": "2161 Devlin Drive, Burlington, ON L7P 3C6",
   "list_price": 1199000,
   "est_monthly": 6118,
-  "dom": 1,
+  "dom": 9,
   "year_built": 1974,
   "year_built_details": "51-99",
   "style": "Two Storey",
@@ -4962,7 +5080,10 @@
    "lower": 2,
    "yard_pool": 13
   },
-  "status": "active"
+  "status": "active",
+  "last_seen": "2026-09-23",
+  "dom_before_refresh": 1,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-1041-shepherds",
@@ -5110,14 +5231,14 @@
   "bath_tile_scale": "subway_modern",
   "bath_vanity_top": "integrated_modern",
   "bath_verdict": "unverified",
-  "floor_condition": "not_shown",
+  "floor_condition": "no_defect_seen",
   "ceiling_main": "flat_painted",
   "window_frame": "vinyl",
   "panel_type": "not_shown",
   "basement_ceiling": "drywall",
   "basement_walls": "drywall",
   "basement_moisture": "not_shown",
-  "driveway": "not_shown",
+  "driveway": "sound",
   "asbestos_suspect": false,
   "year_built_est": 1955,
   "year_built_est_src": "no Year Built on the ITSO listing; estimated from the street's 1950s raised-bungalow stock in Aldershot South with a block foundation. An estimate, not a fact: ask the agent.",
@@ -5147,7 +5268,23 @@
    "Garage is detached. The 12-foot vaulted ceiling means the roof structure was altered; ask whether that was engineered and permitted.",
    "Floor plans are included (40, 41)."
   ],
-  "notes": "A fully renovated raised bungalow in Aldershot South, sold as a permitted flip. Every finish reads new, which the photo rule cannot credit. No year built, a painted exterior, a drywalled basement and a panel behind a cover: the house is all surface and the permits are the evidence."
+  "notes": "A fully renovated raised bungalow in Aldershot South, sold as a permitted flip. Every finish reads new, which the photo rule cannot credit. No year built, a painted exterior, a drywalled basement and a panel behind a cover: the house is all surface and the permits are the evidence.",
+  "last_seen": "2026-09-23",
+  "reread_2026_09_23": {
+   "floor_condition": {
+    "was": "not_shown",
+    "now": "no_defect_seen",
+    "evidence": "frames 5 and 25 at 0.8x: new plank on the main and lower floors, partly under a rug"
+   },
+   "driveway": {
+    "was": "not_shown",
+    "now": "sound",
+    "evidence": "frames 0, 1 and 34 at 0.6x: asphalt, no cracks in frame"
+   }
+  },
+  "stage2_pass": "re-read",
+  "stage2_reread_date": "2026-09-23",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-1236-thorpe",
@@ -5262,23 +5399,23 @@
   ],
   "room_dims_present": true,
   "stage2_date": "2026-09-23",
-  "kitchen_sink_mount": "not_shown",
+  "kitchen_sink_mount": "undermount",
   "kitchen_counter_edge": "square_eased",
   "kitchen_soffit": "removed",
   "kitchen_door_profile": "slab",
   "kitchen_verdict": "unverified",
-  "bath_tub_type": "not_shown",
+  "bath_tub_type": "alcove_tiled",
   "bath_tile_scale": "large_format",
   "bath_vanity_top": "undermount_stone",
   "bath_verdict": "unverified",
-  "floor_condition": "not_shown",
+  "floor_condition": "no_defect_seen",
   "ceiling_main": "flat_painted",
   "window_frame": "vinyl",
   "panel_type": "not_shown",
   "basement_ceiling": "not_shown",
   "basement_walls": "not_shown",
   "basement_moisture": "not_shown",
-  "driveway": "not_shown",
+  "driveway": "sound",
   "asbestos_suspect": false,
   "photos_total": 46,
   "staging": "lived_in",
@@ -5297,11 +5434,9 @@
    "basement": 0
   },
   "concealed_surfaces": [
-   "the kitchen sink is not readable at 2.4x; the crop lands on a counter appliance",
    "living-room floor is under a large area rug (5)",
    "no basement frame on a partially finished basement, so the 2025 media room, the unfinished part, the walls and any moisture are all unseen",
-   "no furnace, panel or water heater frame in 46 photographs",
-   "the main-bath tub is not in any frame read"
+   "no furnace, panel or water heater frame in 46 photographs"
   ],
   "red_flags": [
    "NO BASEMENT PHOTOGRAPHS on a full, partially finished basement. The remarks describe a 2025 soundproofed room, a fruit cellar and insulated unfinished space; none of it is shown.",
@@ -5309,7 +5444,33 @@
    "Furnace and A/C stated 2013: 13 years old at purchase, so both are inside the replacement window over a 3 to 7 year hold even if the dates are right.",
    "The two new skylights (2023) are a leak point worth checking at the showing."
   ],
-  "notes": "A 1985 two-storey near Mapleview with a recent-looking kitchen and three recent-looking baths, consistent with the seller's 2021 to 2024 dates. Photos cannot promote, so those finishes are unverified rather than credited. No basement or mechanical frames. Stated roof 2015 and furnace/A/C 2013 are remarks only."
+  "notes": "A 1985 two-storey near Mapleview with a recent-looking kitchen and three recent-looking baths, consistent with the seller's 2021 to 2024 dates. Photos cannot promote, so those finishes are unverified rather than credited. No basement or mechanical frames. Stated roof 2015 and furnace/A/C 2013 are remarks only.",
+  "last_seen": "2026-09-23",
+  "reread_2026_09_23": {
+   "kitchen_sink_mount": {
+    "was": "not_shown",
+    "now": "undermount",
+    "evidence": "frame 17 at 1.6x and 1.0x: granite edge cut clean over a white basin, no rim"
+   },
+   "bath_tub_type": {
+    "was": "not_shown",
+    "now": "alcove_tiled",
+    "evidence": "frame 34: alcove tub behind sliding glass, large-format marble-look surround"
+   },
+   "floor_condition": {
+    "was": "not_shown",
+    "now": "no_defect_seen",
+    "evidence": "frames 9, 13, 14, 24: oak strip, even tone, no patches; living room under a rug"
+   },
+   "driveway": {
+    "was": "not_shown",
+    "now": "sound",
+    "evidence": "frames 0 and 2 at 0.55x: freshly sealed asphalt, no cracks"
+   }
+  },
+  "stage2_pass": "re-read",
+  "stage2_reread_date": "2026-09-23",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-1237-sycamore",
@@ -5440,18 +5601,18 @@
   "kitchen_soffit": "removed",
   "kitchen_door_profile": "crisp_shaker",
   "kitchen_verdict": "unverified",
-  "bath_tub_type": "not_shown",
+  "bath_tub_type": "alcove_tiled",
   "bath_tile_scale": "large_format",
   "bath_vanity_top": "integrated_modern",
   "bath_verdict": "unverified",
-  "floor_condition": "not_shown",
+  "floor_condition": "no_defect_seen",
   "ceiling_main": "flat_painted",
   "window_frame": "vinyl",
   "panel_type": "not_shown",
   "basement_ceiling": "drywall",
   "basement_walls": "drywall",
   "basement_moisture": "not_shown",
-  "driveway": "not_shown",
+  "driveway": "sound",
   "asbestos_suspect": false,
   "pool": "in-ground",
   "virtual_staging_tells": "frames 31 to 38 are virtually staged renders of rooms shown empty in 9 to 23 (furniture, rugs and decor with rendered lighting, e.g. 31 against the vacant living room)",
@@ -5482,7 +5643,29 @@
   ],
   "notes": "A Palmer two-storey mid-renovation: new navy shaker kitchen on granite with an undermount sink, new baths, new flooring, a basement redone, and a pool. Eight frames are virtual staging. Unfinished work, possible open permits and no mechanicals seen.",
   "year_built_est": 1970,
-  "year_built_est_src": "no Year Built on the TRREB listing and no age band; estimated from Palmer's late-1960s to mid-1970s two-storey stock. An estimate, not a fact: ask the agent."
+  "year_built_est_src": "no Year Built on the TRREB listing and no age band; estimated from Palmer's late-1960s to mid-1970s two-storey stock. An estimate, not a fact: ask the agent.",
+  "last_seen": "2026-09-23",
+  "reread_2026_09_23": {
+   "bath_tub_type": {
+    "was": "not_shown",
+    "now": "alcove_tiled",
+    "evidence": "frame 24 at 1.0x: acrylic alcove tub against dark large-format tile"
+   },
+   "floor_condition": {
+    "was": "not_shown",
+    "now": "no_defect_seen",
+    "evidence": "frames 10 and 15 at 0.8x: new wide vinyl plank, uniform"
+   },
+   "driveway": {
+    "was": "not_shown",
+    "now": "sound",
+    "evidence": "frame 0 at 0.6x: new interlock driveway"
+   }
+  },
+  "stage2_pass": "re-read",
+  "stage2_reread_date": "2026-09-23",
+  "bath_count_note": "MLS: 3 full + 1 half; the room table lists two full. Frames 18, 20 and 24 show three distinct full baths (glass shower with window, glass shower without, tub), consistent with the MLS count; the new ensuite is missing from the room table.",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-1284-morgan",
@@ -5651,7 +5834,9 @@
    "A 31-foot frontage on a pie lot: the lot widens at the back but the frontage is the narrowest in this round.",
    "Wood-burning fireplace in the lower level: WETT inspection before insurance."
   ],
-  "notes": "A Palmer raised bungalow with new flooring and a new main-bath vanity over an original painted kitchen with laminate and a topmount sink. Stipple throughout, drop-tile lower-level ceilings, and no year built. Separate lower entrance and a 3-piece bath make a suite plausible."
+  "notes": "A Palmer raised bungalow with new flooring and a new main-bath vanity over an original painted kitchen with laminate and a topmount sink. Stipple throughout, drop-tile lower-level ceilings, and no year built. Separate lower entrance and a 3-piece bath make a suite plausible.",
+  "last_seen": "2026-09-23",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-1316-nevarc",
@@ -5759,17 +5944,17 @@
   "kitchen_door_profile": "soft_raised_panel",
   "kitchen_verdict": "defect_confirmed",
   "bath_tub_type": "not_shown",
-  "bath_tile_scale": "not_shown",
+  "bath_tile_scale": "large_format",
   "bath_vanity_top": "undermount_stone",
   "bath_verdict": "unverified",
-  "floor_condition": "not_shown",
-  "ceiling_main": "not_shown",
-  "window_frame": "not_shown",
+  "floor_condition": "no_defect_seen",
+  "ceiling_main": "flat_painted",
+  "window_frame": "vinyl",
   "panel_type": "not_shown",
   "basement_ceiling": "none",
   "basement_walls": "none",
   "basement_moisture": "not_shown",
-  "driveway": "not_shown",
+  "driveway": "sound",
   "asbestos_suspect": false,
   "photos_total": 26,
   "staging": "professionally_staged",
@@ -5789,11 +5974,11 @@
    "the kitchen sink is under a cutting board (12), so the mount is not readable",
    "the main bath's tub or shower is out of frame; only a glass edge shows (17)",
    "no furnace, panel, water heater or laundry-room frame in 26 photographs",
-   "no window frame is readable at magnification; the front elevation is shot from the garage side"
+   "window frames read white vinyl at the kitchen window (12); the front elevation is shot from the garage side"
   ],
   "red_flags": [
    "THE KITCHEN BOXES ARE OLD: stained-wood raised-panel doors and glass uppers from an earlier era under a newer white solid-surface counter and stainless appliances (12, 13). A new counter on old boxes.",
-   "Ceilings are painted tongue-and-groove plank throughout the main rooms with visible chips and wear at 1.6x (11). Not stipple, not drywall; recorded not_shown so it earns nothing either way.",
+   "Ceilings are painted tongue-and-groove plank throughout the main rooms, with visible chips and wear at 1.6x (11). Not stipple: recorded as a flat ceiling, because the ceiling line only prices stipple removal.",
    "IN-GROUND POOL (19, 20), pool equipment included. The annual carry is priced; no pool capital item is, same gap as Devlin.",
    "NO BASEMENT. The MLS says Basement: None on a 1957 house, so the furnace, water heater and any ductwork sit in a crawlspace or a utility room that is not photographed. Ask where the mechanicals are and what the crawlspace looks like.",
    "HEATING READS 'Forced Air' WITH NO FUEL on a 1957 house. Confirm it is gas; an oil conversion question on this vintage is not unusual.",
@@ -5801,7 +5986,39 @@
    "Only one full bathroom for three bedrooms.",
    "No schools appear on the listing page at all."
   ],
-  "notes": "A 1957 stone bungalow on 0.55 acres with a pool and solarium. The main bath has been redone with a white shaker vanity and undermount top; the kitchen has a new counter on old wood boxes. Ceilings are painted plank. No basement, no mechanical frames, and a fuel-less 'Forced Air' heating field on a 1957 house."
+  "notes": "A 1957 stone bungalow on 0.55 acres with a pool and solarium. The main bath has been redone with a white shaker vanity and undermount top; the kitchen has a new counter on old wood boxes. Ceilings are painted plank. No basement, no mechanical frames, and a fuel-less 'Forced Air' heating field on a 1957 house.",
+  "last_seen": "2026-09-23",
+  "reread_2026_09_23": {
+   "bath_tile_scale": {
+    "was": "not_shown",
+    "now": "large_format",
+    "evidence": "frame 17 at 1.3x: large glossy white rectangles, thin grout"
+   },
+   "floor_condition": {
+    "was": "not_shown",
+    "now": "no_defect_seen",
+    "evidence": "frame 4 at 0.8x: oak strip, even"
+   },
+   "ceiling_main": {
+    "was": "not_shown",
+    "now": "flat_painted",
+    "evidence": "frames 11 to 13: painted tongue-and-groove plank, not stipple; recorded as flat because the ceiling line prices stipple removal"
+   },
+   "window_frame": {
+    "was": "not_shown",
+    "now": "vinyl",
+    "evidence": "frame 12 at 1.4x: white vinyl frames on the kitchen window"
+   },
+   "driveway": {
+    "was": "not_shown",
+    "now": "sound",
+    "evidence": "frame 0 at 0.6x: asphalt, no cracks in frame"
+   }
+  },
+  "stage2_pass": "re-read",
+  "stage2_reread_date": "2026-09-23",
+  "ceiling_note": "Painted tongue-and-groove plank ceilings in the living room and kitchen (frames 3 to 13). Not stipple.",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-1434-dewbourne",
@@ -5959,7 +6176,9 @@
    "Roof shows granule loss and streaking on the front slope (1). Age not stated; only the furnace and A/C (2015) are.",
    "Backs onto Sycamore Park and a school: the listing's headline. Whether that park clears the 5 ha green bar is settled by the geo pull, not the listing."
   ],
-  "notes": "A 1972 Palmer backsplit, the cheapest house in this round at $949,000. Kitchen and main bath have been redone to a modern standard (unverified by rule). Drop-tile basement ceiling, textured main ceiling, carport, one full bath, and a roof that reads worn. Furnace and A/C stated 2015, remarks only."
+  "notes": "A 1972 Palmer backsplit, the cheapest house in this round at $949,000. Kitchen and main bath have been redone to a modern standard (unverified by rule). Drop-tile basement ceiling, textured main ceiling, carport, one full bath, and a roof that reads worn. Furnace and A/C stated 2015, remarks only.",
+  "last_seen": "2026-09-23",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-1486-barker",
@@ -6091,7 +6310,7 @@
   "bath_tile_scale": "large_format",
   "bath_vanity_top": "undermount_stone",
   "bath_verdict": "unverified",
-  "floor_condition": "not_shown",
+  "floor_condition": "no_defect_seen",
   "ceiling_main": "flat_painted",
   "window_frame": "vinyl",
   "panel_type": "not_shown",
@@ -6116,7 +6335,7 @@
    "aerial": 4
   },
   "concealed_surfaces": [
-   "NO FRONT EXTERIOR PHOTOGRAPH in 43 frames; the street elevation, front windows, siding and driveway are seen only from a drone",
+   "Front elevation only in frame 42 (siding, black-frame windows, entry); the driveway is seen only from the drone (39, 40)",
    "basement walls are wainscot panelling with drywall above (31), which conceals the wall base",
    "no furnace, panel or water heater frame; the tankless water heater in the remarks is not shown",
    "lower-level floor partly under rugs"
@@ -6130,7 +6349,18 @@
    "One full bath for 3+1 bedrooms. The lower bath is a 2-piece.",
    "The primary bedroom is under 150 sq ft (11.9 x 11.3) and the third bedroom is 9.3 x 8.9 ft (83 sq ft)."
   ],
-  "notes": "A 1964 four-level sidesplit in Mountainside with a recent-looking kitchen and main bath upstairs and an unrenovated basement below: drop-tile ceilings, panelling and an old bar. In-ground pool, no garage, one full bath. No front exterior photo at all. Graded once under the pre-v3 model (B-) and never under v6."
+  "notes": "A 1964 four-level sidesplit in Mountainside with a recent-looking kitchen and main bath upstairs and an unrenovated basement below: drop-tile ceilings, panelling and an old bar. In-ground pool, no garage, one full bath. No front exterior photo at all. Graded once under the pre-v3 model (B-) and never under v6.",
+  "last_seen": "2026-09-23",
+  "reread_2026_09_23": {
+   "floor_condition": {
+    "was": "not_shown",
+    "now": "no_defect_seen",
+    "evidence": "frames 0 and 5 at 0.8x: new light plank on the main floor"
+   }
+  },
+  "stage2_pass": "re-read",
+  "stage2_reread_date": "2026-09-23",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-2037-mountain-grove",
@@ -6314,7 +6544,9 @@
    "Bath count conflict: the MLS shows 3 full baths and no half, the remarks say 2.5 and describe a 2-piece in the basement.",
    "Backs onto recreational green space; whether it scores is settled by the geo pull."
   ],
-  "notes": "A Brant Hills four-level sidesplit with a redone kitchen, 2010s-looking baths, a walk-up lower level and a skylit sunroom. No year built. Mechanicals unseen."
+  "notes": "A Brant Hills four-level sidesplit with a redone kitchen, 2010s-looking baths, a walk-up lower level and a skylit sunroom. No year built. Mechanicals unseen.",
+  "last_seen": "2026-09-23",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-2358-arnold",
@@ -6404,18 +6636,18 @@
   "kitchen_soffit": "removed",
   "kitchen_door_profile": "slab",
   "kitchen_verdict": "unverified",
-  "bath_tub_type": "not_shown",
+  "bath_tub_type": "alcove_tiled",
   "bath_tile_scale": "large_format",
   "bath_vanity_top": "integrated_modern",
   "bath_verdict": "unverified",
-  "floor_condition": "not_shown",
+  "floor_condition": "no_defect_seen",
   "ceiling_main": "flat_painted",
   "window_frame": "vinyl",
   "panel_type": "not_shown",
   "basement_ceiling": "drywall",
   "basement_walls": "drywall",
   "basement_moisture": "not_shown",
-  "driveway": "not_shown",
+  "driveway": "sound",
   "asbestos_suspect": false,
   "photos_total": 49,
   "staging": "mixed",
@@ -6442,7 +6674,28 @@
    "Every finish reads new (undermount sink, quartz-look slab, marble-look large-format tile, glass showers). Photos cannot promote: unverified.",
    "Year built is only a range, 31 to 50 years (1976 to 1995)."
   ],
-  "notes": "A Brant Hills backsplit turned into a two-kitchen, 3+4 bedroom house with four new-looking baths. The finishes cannot be credited by rule; the question that matters is whether the lower unit is legal and the work permitted. Only 1,180 sq ft above grade. Year built is a range."
+  "notes": "A Brant Hills backsplit turned into a two-kitchen, 3+4 bedroom house with four new-looking baths. The finishes cannot be credited by rule; the question that matters is whether the lower unit is legal and the work permitted. Only 1,180 sq ft above grade. Year built is a range.",
+  "last_seen": "2026-09-23",
+  "reread_2026_09_23": {
+   "bath_tub_type": {
+    "was": "not_shown",
+    "now": "alcove_tiled",
+    "evidence": "frames 26, 27, 37, 40: every full bath has a walk-in tiled shower; no tub in any frame. Recorded as the tiled-surround value because the wet area reads new"
+   },
+   "floor_condition": {
+    "was": "not_shown",
+    "now": "no_defect_seen",
+    "evidence": "frames 24 and 29 at 0.7x: new light engineered plank; frame 31: new tile"
+   },
+   "driveway": {
+    "was": "not_shown",
+    "now": "sound",
+    "evidence": "frame 0 at 0.6x: new asphalt"
+   }
+  },
+  "stage2_pass": "re-read",
+  "stage2_reread_date": "2026-09-23",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-3148-terraview",
@@ -6563,23 +6816,23 @@
   ],
   "room_dims_present": true,
   "stage2_date": "2026-09-23",
-  "kitchen_sink_mount": "not_shown",
-  "kitchen_counter_edge": "not_shown",
-  "kitchen_soffit": "not_shown",
-  "kitchen_door_profile": "not_shown",
+  "kitchen_sink_mount": "undermount",
+  "kitchen_counter_edge": "square_eased",
+  "kitchen_soffit": "present",
+  "kitchen_door_profile": "raised_panel_square",
   "kitchen_verdict": "unverified",
   "bath_tub_type": "freestanding",
   "bath_tile_scale": "large_format",
   "bath_vanity_top": "undermount_stone",
   "bath_verdict": "unverified",
-  "floor_condition": "not_shown",
+  "floor_condition": "no_defect_seen",
   "ceiling_main": "flat_painted",
-  "window_frame": "not_shown",
+  "window_frame": "vinyl",
   "panel_type": "not_shown",
   "basement_ceiling": "drywall",
   "basement_walls": "drywall",
   "basement_moisture": "not_shown",
-  "driveway": "not_shown",
+  "driveway": "sound",
   "asbestos_suspect": false,
   "year_built_est": 1972,
   "year_built_est_src": "no Year Built on the TRREB listing and no range; estimated from Palmer's early-1970s two-storey stock and the original parquet upstairs. An estimate, not a fact: ask the agent.",
@@ -6597,7 +6850,6 @@
    "yard": 5
   },
   "concealed_surfaces": [
-   "kitchen sink and counter edge not settled at 2.2x; the crop lands on backsplash and faucet bases",
    "the lower level is newly drywalled over polished concrete, so no wall base or moisture line is readable",
    "no furnace, panel or water heater frame in 39 photographs; the 9 x 8.5 ft utility room is not shown",
    "Foundation Details reads 'See Remarks' and the remarks say nothing about the foundation"
@@ -6606,11 +6858,52 @@
    "NO YEAR BUILT on the listing, not even a range. Carried at an estimated 1972.",
    "ORIGINAL PARQUET in all three bedrooms (16 to 22, 17 at 2.0x), with visible colour variation between blocks. The remarks call it 'traditional'.",
    "The second bedroom is 9.7 x 7.1 ft (69 sq ft) and the third 11.6 x 8.7 ft (100 sq ft).",
-   "The kitchen is described as 'painted cupboards' under quartz: new counters on original boxes, same pattern as Nevarc. Not settled at magnification.",
+   "The kitchen is 'painted cupboards' under new stone: the re-read settled an undermount sink and a squared granite edge (10, 12), but the doors are painted raised panels under a dark wood-clad bulkhead (8, 9), so the boxes are original. Priced as a full kitchen.",
    "Vacant and fully painted, with a freestanding tub and a new ensuite: photos cannot promote, so unverified.",
    "32-foot frontage on a pie lot at the end of a court."
   ],
-  "notes": "A Palmer two-storey on a court, vacant and repainted, with a new-looking ensuite, a painted kitchen under quartz, original parquet upstairs, and a polished-concrete lower level. No year built and no foundation description. Mechanicals unseen."
+  "notes": "A Palmer two-storey on a court, vacant and repainted, with a new-looking ensuite, a painted kitchen under quartz, original parquet upstairs, and a polished-concrete lower level. No year built and no foundation description. Mechanicals unseen.",
+  "last_seen": "2026-09-23",
+  "reread_2026_09_23": {
+   "kitchen_sink_mount": {
+    "was": "not_shown",
+    "now": "undermount",
+    "evidence": "frame 10 at 1.5x: stainless bowl under the granite edge, no rim"
+   },
+   "kitchen_counter_edge": {
+    "was": "not_shown",
+    "now": "square_eased",
+    "evidence": "frames 10 and 12 at 1.5x: granite, squared polished edge"
+   },
+   "kitchen_soffit": {
+    "was": "not_shown",
+    "now": "present",
+    "evidence": "frame 8 at 1.1x: dark wood-clad bulkhead with pot lights above the uppers"
+   },
+   "kitchen_door_profile": {
+    "was": "not_shown",
+    "now": "raised_panel_square",
+    "evidence": "frames 8 and 9 at 1.5x: painted doors with a bevelled raised panel; the remarks say 'painted cupboards'"
+   },
+   "floor_condition": {
+    "was": "not_shown",
+    "now": "no_defect_seen",
+    "evidence": "frame 16 at 0.8x: original oak parquet upstairs, even; frame 4: newer plank on the main floor"
+   },
+   "window_frame": {
+    "was": "not_shown",
+    "now": "vinyl",
+    "evidence": "frame 0 at 1.3x: white vinyl sliders on the upper elevation"
+   },
+   "driveway": {
+    "was": "not_shown",
+    "now": "sound",
+    "evidence": "frame 0 at 0.7x: asphalt, no cracks in frame"
+   }
+  },
+  "stage2_pass": "re-read",
+  "stage2_reread_date": "2026-09-23",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-3193-maderna",
@@ -6736,11 +7029,11 @@
   "kitchen_door_profile": "not_shown",
   "kitchen_verdict": "defect_confirmed",
   "bath_tub_type": "alcove_tiled",
-  "bath_tile_scale": "not_shown",
+  "bath_tile_scale": "small_4x4",
   "bath_vanity_top": "integrated_cultured_marble",
   "bath_verdict": "defect_confirmed",
   "secondary_bath_original": true,
-  "floor_condition": "not_shown",
+  "floor_condition": "no_defect_seen",
   "ceiling_main": "stipple_popcorn",
   "window_frame": "vinyl",
   "panel_type": "not_shown",
@@ -6763,7 +7056,7 @@
    "basement": 0
   },
   "concealed_surfaces": [
-   "both tub surrounds are behind drawn shower curtains, so tile scale and grout are not readable",
+   "both tubs are behind drawn curtains; the tile beside the tub reads pale-blue small square (23)",
    "living-room floor partly under an area rug",
    "no basement frame at all on a full unfinished basement, so walls, slab and moisture are unseen",
    "no furnace, panel, water heater or laundry frame in 35 photographs"
@@ -6776,7 +7069,23 @@
    "FULL UNFINISHED BASEMENT, NOT PHOTOGRAPHED: 1,055 sq ft of basement (31 x 34 ft in the room table) with zero frames. Walls, slab and moisture are unknown.",
    "The MLS roof field reads 'Asphalt, Rolled/Hot Mop'. Rolled or hot-mop roofing on a pitched 1986 two-storey is unusual; it may cover only a low-slope section over the garage or bay. Ask."
   ],
-  "notes": "A 1986 two-storey that has had paint, vinyl windows (stated about 8 years), a newer furnace and A/C (stated about 1 year) and a roof stated at about 10 years. Kitchen and all three baths are original at full resolution. Stipple throughout. The unfinished basement is unphotographed. Stated mechanical ages are remarks only and are not fed to the cost model; they become showing questions."
+  "notes": "A 1986 two-storey that has had paint, vinyl windows (stated about 8 years), a newer furnace and A/C (stated about 1 year) and a roof stated at about 10 years. Kitchen and all three baths are original at full resolution. Stipple throughout. The unfinished basement is unphotographed. Stated mechanical ages are remarks only and are not fed to the cost model; they become showing questions.",
+  "last_seen": "2026-09-23",
+  "reread_2026_09_23": {
+   "floor_condition": {
+    "was": "not_shown",
+    "now": "no_defect_seen",
+    "evidence": "frame 3 at 0.8x: oak strip in the hall, even; living room under a rug"
+   },
+   "bath_tile_scale": {
+    "was": "not_shown",
+    "now": "small_4x4",
+    "evidence": "frame 23: pale blue small square tile beside the tub, original"
+   }
+  },
+  "stage2_pass": "re-read",
+  "stage2_reread_date": "2026-09-23",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-3222-wentworth",
@@ -6903,22 +7212,22 @@
   "room_dims_present": true,
   "stage2_date": "2026-09-23",
   "kitchen_sink_mount": "topmount",
-  "kitchen_counter_edge": "not_shown",
-  "kitchen_soffit": "not_shown",
-  "kitchen_door_profile": "not_shown",
+  "kitchen_counter_edge": "rolled_bullnose",
+  "kitchen_soffit": "present",
+  "kitchen_door_profile": "raised_panel_square",
   "kitchen_verdict": "defect_confirmed",
-  "bath_tub_type": "not_shown",
-  "bath_tile_scale": "not_shown",
-  "bath_vanity_top": "not_shown",
-  "bath_verdict": "unverified",
-  "floor_condition": "not_shown",
-  "ceiling_main": "not_shown",
+  "bath_tub_type": "alcove_tiled",
+  "bath_tile_scale": "small_4x4",
+  "bath_vanity_top": "laminate_dropin",
+  "bath_verdict": "defect_confirmed",
+  "floor_condition": "no_defect_seen",
+  "ceiling_main": "stipple_popcorn",
   "window_frame": "vinyl",
   "panel_type": "not_shown",
-  "basement_ceiling": "not_shown",
-  "basement_walls": "not_shown",
+  "basement_ceiling": "drywall",
+  "basement_walls": "drywall",
   "basement_moisture": "not_shown",
-  "driveway": "not_shown",
+  "driveway": "sound",
   "asbestos_suspect": false,
   "photos_total": 48,
   "staging": "lived_in",
@@ -6935,7 +7244,7 @@
    "floor_plan": 3
   },
   "concealed_surfaces": [
-   "both full-bath tubs are behind shower curtains (22, 33)",
+   "the second full bath's tub is behind a curtain (33); the main bath's curtain is partly open (22), enough to read the small decal tile",
    "no furnace, panel or water heater frame in 48 photographs; the 31 x 29 ft utility room is not shown",
    "living and bedroom floors partly under rugs"
   ],
@@ -6946,7 +7255,79 @@
    "Wood-burning fireplace in the family room: WETT inspection before insurance.",
    "Largest above-grade area in this round (2,188 sq ft) and four bedrooms, all over 120 sq ft; floor plans included (45 to 47)."
   ],
-  "notes": "A 1986 all-brick Headon Forest two-storey, largely original inside: oak kitchen with a topmount sink and laminate, baths behind curtains. Big for the price. Roof, furnace and A/C stated new without dates, remarks only."
+  "notes": "A 1986 all-brick Headon Forest two-storey, largely original inside: oak kitchen with a topmount sink and laminate, baths behind curtains. Big for the price. Roof, furnace and A/C stated new without dates, remarks only.",
+  "last_seen": "2026-09-23",
+  "reread_2026_09_23": {
+   "kitchen_counter_edge": {
+    "was": "not_shown",
+    "now": "rolled_bullnose",
+    "evidence": "frame 15 at 1.6x: white laminate with a rounded post-form front edge beside the topmount double sink"
+   },
+   "kitchen_soffit": {
+    "was": "not_shown",
+    "now": "present",
+    "evidence": "frame 13 at 1.2x: painted bulkhead from the top of the uppers to the ceiling"
+   },
+   "kitchen_door_profile": {
+    "was": "not_shown",
+    "now": "raised_panel_square",
+    "evidence": "frame 14 at 1.2x: maple door with a square raised centre panel, original"
+   },
+   "bath_tub_type": {
+    "was": "not_shown",
+    "now": "alcove_tiled",
+    "evidence": "frame 22: alcove tub behind the curtain, small square wall tile with decal inserts"
+   },
+   "bath_tile_scale": {
+    "was": "not_shown",
+    "now": "small_4x4",
+    "evidence": "frame 22 at 0.9x: small square wall tile with decals, original"
+   },
+   "bath_vanity_top": {
+    "was": "not_shown",
+    "now": "laminate_dropin",
+    "evidence": "frames 22 and 23: grey laminate tops with drop-in oval basins"
+   },
+   "floor_condition": {
+    "was": "not_shown",
+    "now": "no_defect_seen",
+    "evidence": "frames 8 and 20: oak strip on the main floor, laminate in the bedroom; carpet on the stairs and upper hall (24)"
+   },
+   "ceiling_main": {
+    "was": "not_shown",
+    "now": "stipple_popcorn",
+    "evidence": "frame 18 at 0.7x: stipple in the bedroom; main floor reads smooth (4)"
+   },
+   "basement_ceiling": {
+    "was": "not_shown",
+    "now": "drywall",
+    "evidence": "frames 34, 35: drywall with pot lights and bulkheads"
+   },
+   "basement_walls": {
+    "was": "not_shown",
+    "now": "drywall",
+    "evidence": "frames 34, 35: drywall, carpet"
+   },
+   "driveway": {
+    "was": "not_shown",
+    "now": "sound",
+    "evidence": "frame 0 at 0.5x: aged asphalt, no cracks in frame"
+   },
+   "secondary_bath_original": {
+    "was": null,
+    "now": true,
+    "evidence": "frame 23: second full bath has the same grey laminate top and drop-in basin"
+   },
+   "bath_verdict": {
+    "was": "unverified",
+    "now": "defect_confirmed",
+    "evidence": "small square decal tile and laminate drop-in tops (22, 23)"
+   }
+  },
+  "stage2_pass": "re-read",
+  "stage2_reread_date": "2026-09-23",
+  "secondary_bath_original": true,
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-5155-idlewood",
@@ -7101,7 +7482,9 @@
    "'Great bones' and 'ready for its next chapter' is listing language for original condition, and the photos agree.",
    "Cheapest house in this round at $899,900."
   ],
-  "notes": "A 1967 Appleby (Pinedale) backsplit that is original inside: oak kitchen with laminate and a topmount sink, original baths, knotty-pine lower level. Vinyl windows are the one visible update. The cheapest listing of the round and a full-project house."
+  "notes": "A 1967 Appleby (Pinedale) backsplit that is original inside: oak kitchen with laminate and a topmount sink, original baths, knotty-pine lower level. Vinyl windows are the one visible update. The cheapest listing of the round and a full-project house.",
+  "last_seen": "2026-09-23",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-652-meadow-lane",
@@ -7271,7 +7654,9 @@
    "1967: pre-1970 panel and rewire lines apply until the service is seen.",
    "Kitchen redone with Cambria quartz per the remarks; both baths read updated in the sheet. Photos cannot promote: unverified."
   ],
-  "notes": "A 1967 Pinedale sidesplit with dated updates (windows 2018, roof 2022, pool liner 2023, heat pump 2025, flooring 2025), a quartz kitchen, a knotty-pine rec room and a heated in-ground pool. The furnace is visible but undated. Crawl space under part of it."
+  "notes": "A 1967 Pinedale sidesplit with dated updates (windows 2018, roof 2022, pool liner 2023, heat pump 2025, flooring 2025), a quartz kitchen, a knotty-pine rec room and a heated in-ground pool. The furnace is visible but undated. Crawl space under part of it.",
+  "last_seen": "2026-09-23",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "bur-755-parker",
@@ -7312,7 +7697,7 @@
   "garage_spaces": 1.0,
   "brokerage": "RE/MAX ESCARPMENT REALTY INC.",
   "zoning": "R2.3",
-  "primary_bed_sqft": 169,
+  "primary_bed_sqft": 314,
   "min_secondary_bed_sqft": 90,
   "beds_under_100sqft": 1,
   "kitchen_sqft": 232,
@@ -7397,23 +7782,23 @@
   ],
   "room_dims_present": true,
   "stage2_date": "2026-09-23",
-  "kitchen_sink_mount": "not_shown",
-  "kitchen_counter_edge": "not_shown",
+  "kitchen_sink_mount": "undermount",
+  "kitchen_counter_edge": "square_eased",
   "kitchen_soffit": "removed",
   "kitchen_door_profile": "crisp_shaker",
   "kitchen_verdict": "unverified",
-  "bath_tub_type": "not_shown",
+  "bath_tub_type": "alcove_tiled",
   "bath_tile_scale": "large_format",
   "bath_vanity_top": "integrated_modern",
   "bath_verdict": "unverified",
-  "floor_condition": "not_shown",
+  "floor_condition": "no_defect_seen",
   "ceiling_main": "flat_painted",
-  "window_frame": "not_shown",
+  "window_frame": "vinyl",
   "panel_type": "not_shown",
   "basement_ceiling": "drywall",
   "basement_walls": "drywall",
   "basement_moisture": "not_shown",
-  "driveway": "not_shown",
+  "driveway": "sound",
   "asbestos_suspect": false,
   "pool": "in-ground",
   "photos_total": 50,
@@ -7432,7 +7817,6 @@
   },
   "concealed_surfaces": [
    "no furnace, panel or water heater frame; the utility room is described as a workshop but not shown",
-   "the kitchen sink is behind the faucet at 1.2x (14)",
    "finished lower levels drywalled, so no wall base or moisture line is readable"
   ],
   "red_flags": [
@@ -7445,7 +7829,44 @@
   ],
   "notes": "A renovated four-level backsplit in Brant, close to downtown, with a new kitchen, renovated baths, a basement primary suite, an in-ground pool and a hot tub. The top of the price band. Year built only as a range; mechanicals unseen.",
   "year_built_est": 1962,
-  "year_built_est_src": "MLS band 51-99 years only; estimated from Brant's late-1950s to mid-1960s backsplit stock, the same treatment as 2105 Maplewood. The band's older end would be 1927. An estimate, not a fact: ask the agent."
+  "year_built_est_src": "MLS band 51-99 years only; estimated from Brant's late-1950s to mid-1960s backsplit stock, the same treatment as 2105 Maplewood. The band's older end would be 1927. An estimate, not a fact: ask the agent.",
+  "last_seen": "2026-09-23",
+  "reread_2026_09_23": {
+   "kitchen_sink_mount": {
+    "was": "not_shown",
+    "now": "undermount",
+    "evidence": "frame 14: single stainless bowl under white quartz, no rim"
+   },
+   "kitchen_counter_edge": {
+    "was": "not_shown",
+    "now": "square_eased",
+    "evidence": "frames 13, 14: white quartz, squared edge"
+   },
+   "bath_tub_type": {
+    "was": "not_shown",
+    "now": "alcove_tiled",
+    "evidence": "frame 28 at 0.9x: alcove tub with a glass door and a large-tile surround"
+   },
+   "floor_condition": {
+    "was": "not_shown",
+    "now": "no_defect_seen",
+    "evidence": "frames 5 and 21 at 0.8x: dark plank on the main floor, oak hardwood in the bedrooms"
+   },
+   "window_frame": {
+    "was": "not_shown",
+    "now": "vinyl",
+    "evidence": "frame 1 at 1.5x: white vinyl bay window"
+   },
+   "driveway": {
+    "was": "not_shown",
+    "now": "sound",
+    "evidence": "frame 2 at 0.6x: asphalt with stains, no cracks in frame"
+   }
+  },
+  "stage2_pass": "re-read",
+  "stage2_reread_date": "2026-09-23",
+  "primary_note": "The MLS room table puts the Primary Bedroom on the basement level (314 sq ft) with its own 4pc bath; the three upstairs bedrooms (90, 134, 169 sq ft) share the 5pc bath. primary_bed_sqft and ensuite both describe that basement suite (23 Sep re-read); the 23 Sep first pass had taken the size from the largest upstairs bedroom.",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "oak-2250-munns",
@@ -7556,18 +7977,18 @@
   ],
   "room_dims_present": true,
   "stage2_date": "2026-09-23",
-  "kitchen_sink_mount": "not_shown",
-  "kitchen_counter_edge": "not_shown",
+  "kitchen_sink_mount": "undermount",
+  "kitchen_counter_edge": "square_eased",
   "kitchen_soffit": "removed",
   "kitchen_door_profile": "crisp_shaker",
   "kitchen_verdict": "unverified",
-  "bath_tub_type": "not_shown",
+  "bath_tub_type": "alcove_tiled",
   "bath_tile_scale": "large_format",
   "bath_vanity_top": "integrated_modern",
   "bath_verdict": "unverified",
-  "floor_condition": "not_shown",
+  "floor_condition": "no_defect_seen",
   "ceiling_main": "flat_painted",
-  "window_frame": "not_shown",
+  "window_frame": "vinyl",
   "panel_type": "not_shown",
   "basement_ceiling": "drywall",
   "basement_walls": "drywall",
@@ -7590,7 +8011,7 @@
   "concealed_surfaces": [
    "the newly finished basement is drywalled with new laminate, so no wall base or moisture line is readable",
    "no furnace, panel or water heater frame in 35 photographs",
-   "window frames not readable at magnification on the front elevation"
+   "window frames read white vinyl at the bathroom casement (19); the front elevation is not magnified"
   ],
   "red_flags": [
    "A LINK HOME, not a detached: the remarks say so. Link homes share a below-grade foundation wall with the neighbour. Every other house in the model is fully detached; the model has no attached flag, so this is carried as a note, not a penalty. Decide whether a link is acceptable before a showing.",
@@ -7599,7 +8020,38 @@
    "The Living Room and Dining Room are entered with identical dimensions (26.9 x 14.24 ft), i.e. one open room entered twice. main_living_sqft counts it once.",
    "Year built is a range only, 31 to 50 years (1976 to 1995). Foundation 'See Remarks' with nothing in the remarks."
   ],
-  "notes": "A fully renovated Tudor-style link home in River Oaks with a separate basement entrance. Everything reads new, which the photo rule does not credit. The house is linked, not detached, and the year built is a range."
+  "notes": "A fully renovated Tudor-style link home in River Oaks with a separate basement entrance. Everything reads new, which the photo rule does not credit. The house is linked, not detached, and the year built is a range.",
+  "last_seen": "2026-09-23",
+  "reread_2026_09_23": {
+   "kitchen_sink_mount": {
+    "was": "not_shown",
+    "now": "undermount",
+    "evidence": "frame 9: dark bowl recessed below the quartz, no rim; frame 0 confirms at distance"
+   },
+   "kitchen_counter_edge": {
+    "was": "not_shown",
+    "now": "square_eased",
+    "evidence": "frames 0 and 12: white quartz, squared edge"
+   },
+   "bath_tub_type": {
+    "was": "not_shown",
+    "now": "alcove_tiled",
+    "evidence": "frame 26: walk-in shower in large-format tile; no tub in any frame. Recorded as the tiled-surround value because the wet area reads new"
+   },
+   "floor_condition": {
+    "was": "not_shown",
+    "now": "no_defect_seen",
+    "evidence": "frames 0 and 4: new light engineered plank"
+   },
+   "window_frame": {
+    "was": "not_shown",
+    "now": "vinyl",
+    "evidence": "frame 19 at 1.4x: white vinyl casement with a crank"
+   }
+  },
+  "stage2_pass": "re-read",
+  "stage2_reread_date": "2026-09-23",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "oak-2452-yarmouth",
@@ -7753,7 +8205,9 @@
    "Furnace and A/C stated 2017 (remarks and inclusions), so both are 9 years old at purchase.",
    "Walk score 30, lowest in this round. 67-foot lot, the widest frontage in this round after Nevarc and Shepherd's."
   ],
-  "notes": "A 1972 West Oakville sidesplit near the lake with a granite-era kitchen, an upper bath with a tiled-platform tub, a 2026 lower 3-piece, and an in-ground saltwater pool. Only 1,155 sq ft above grade. Mechanicals, basement and windows unseen."
+  "notes": "A 1972 West Oakville sidesplit near the lake with a granite-era kitchen, an upper bath with a tiled-platform tub, a 2026 lower 3-piece, and an in-ground saltwater pool. Only 1,155 sq ft above grade. Mechanicals, basement and windows unseen.",
+  "last_seen": "2026-09-23",
+  "dom_date": "2026-09-23"
  },
  {
   "slug": "oak-2524-logan",
@@ -7908,6 +8362,8 @@
    "The powder room is described in the remarks as 'a few steps up' from the basement recreation room, while the room table puts it on the main level. Confirm where it is.",
    "The furnace, A/C and roof would be original to a 2000 build and at or past end of life if never replaced; nothing is stated."
   ],
-  "notes": "A 2000 two-storey in River Oaks with an original builder kitchen and main bath, an updated ensuite and powder room, and a finished basement read as drywall only. Small above grade for three bedrooms. No mechanical ages stated and no mechanical frames."
+  "notes": "A 2000 two-storey in River Oaks with an original builder kitchen and main bath, an updated ensuite and powder room, and a finished basement read as drywall only. Small above grade for three bedrooms. No mechanical ages stated and no mechanical frames.",
+  "last_seen": "2026-09-23",
+  "dom_date": "2026-09-23"
  }
 ]

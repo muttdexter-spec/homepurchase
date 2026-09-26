@@ -8,7 +8,7 @@
 #   5. Catalog is MID-RANGE GTA market, pre-HST. Not "top of range".
 
 meta:
-  version: "3.4"
+  version: "3.5"   # 23 Sep 2026: a clean read lowers a line to observed_floor, never deletes it (score.py cost())
   basis: "pre-HST, GTA/Halton 2026, mid-range finish, same-layout (no structural moves)"
   hst: 0.13
 

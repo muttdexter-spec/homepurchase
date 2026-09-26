@@ -5,7 +5,7 @@ each one written so that it would have failed before the bug it guards was fixed
 import json, csv, os, sys
 R=os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0,R)
 import score as S
-obs=[S.normalise(o) for o in json.load(open(os.path.join(R,'observations.json')))]
+obs=[S.normalise(o) for o in S.load_pool(os.path.join(R,'observations.json'))]   # v3.5: the pool only
 rows=list(csv.DictReader(open(os.path.join(R,'out','decision.csv'))))
 fails=[]
 def chk(c,msg):
@@ -320,6 +320,8 @@ chk("4,000" not in _ex0["lot"]["scale"] or _L.get("floor_sqft") == 4000,
 # 6.22 the condition block. The clean scenario cannot be worse than today and the defect scenario
 # cannot be better, because resolving an unseen tell clean can only lower a probability and
 # resolving it as a defect can only raise one. A house with no unseen tells has no swing.
+# v3.5: both ends now use the REAL denominator (no line is ever deleted by a clean read), so this
+# is a test of the score itself, not of a preview that held the denominator still.
 for _o in _obs:
     _cb = S.condition_block(_o)
     chk(_cb["if_clean"] >= _cb["score"] - 0.15,
@@ -334,5 +336,56 @@ for _o in _obs:
     # the defect scenario must never manufacture a hard stop
     chk("efflorescence" not in S.DEFECT_READ.values(),
         "the defect scenario uses efflorescence, which is a hard STOP")
+
+# 6.23 v3.5: nothing is zeroed on photographic evidence. A vinyl read keeps the window line at
+# the observed floor, and a modern panel read on a pre-1970 or unknown-year house keeps both
+# electrical lines at the floor. Deleting a line lowered condition on a clean read.
+_fl = S.CFG["observed_floor"]
+for _o in obs:
+    _c = S.cost(_o); _ps = {nm: p for nm, b, p, *_x in _c["items"]}
+    if _o.get("window_frame") == "vinyl":
+        chk(abs(_ps.get("windows", -1) - _fl) < 1e-9, f"{_o['slug']}: vinyl windows zeroed instead of floored")
+    _yb = S.eff_year(_o)
+    if (not _yb or _yb < 1970):
+        _o2 = dict(_o); _o2["panel_type"] = "breaker_200"
+        _ps2 = {nm: p for nm, b, p, *_x in S.cost(_o2)["items"]}
+        chk(abs(_ps2.get("panel", -1) - _fl) < 1e-9 and abs(_ps2.get("partial rewire", -1) - _fl) < 1e-9,
+            f"{_o['slug']}: a modern panel read deleted the electrical lines instead of flooring them")
+# 6.24 v3.5: a clean read of any single unseen tell never lowers condition, and a defect read of
+# it never raises it, with the real denominator. Tell by tell, not only all at once.
+for _o in obs:
+    _c = S.cost(_o); _e, _f, _d = S.work_expected(_o, _c, HD); _c0 = S.condition_from(_e, _f)
+    for _t in S.TELLS:
+        if _o.get(_t) not in (None, "", "not_shown"): continue
+        for _tab, _sign in ((S.CLEAN_READ, 1), (S.DEFECT_READ, -1)):
+            _o2 = dict(_o); _o2[_t] = _tab[_t]
+            _e2, _f2, _d2 = S.work_expected(_o2, S.cost(_o2), HD)
+            _c2 = S.condition_from(_e2, _f2)
+            chk(_sign * (_c2 - _c0) >= -0.05,
+                f"{_o['slug']}: reading {_t} as {_tab[_t]} moved condition the wrong way ({_c0:.1f} -> {_c2:.1f})")
+# 6.25 v3.5: the pool. Every listing marked removed is out of decision.csv, and every listing in
+# the pool is in it exactly once.
+_all = json.load(open(os.path.join(R, 'observations.json')))
+_addr = [r["address"] for r in rows]
+for _o in _all:
+    if S.in_pool(_o):
+        chk(_addr.count(_o["address"]) == 1, f"{_o['slug']}: in the pool but not in decision.csv exactly once")
+    else:
+        chk(_o["address"] not in _addr, f"{_o['slug']}: marked removed but still in decision.csv")
+        chk(bool(_o.get("status_date")) and bool(_o.get("removed_reason")),
+            f"{_o['slug']}: removed without a date and a reason on the record")
+# 6.26 the 3- and 10-year scores sit on the same scale as the ranks beside them: reading down
+# rank_3 (or rank_10), score_3 (score_10) never rises by more than rounding.
+for _H in S.HOLDS:
+    _live = sorted([r for r in rows if r.get(f"rank_{_H}") not in ("-", "", None)], key=lambda r: int(r[f"rank_{_H}"]))
+    for _a, _b in zip(_live, _live[1:]):
+        chk(float(_b[f"score_{_H}"]) <= float(_a[f"score_{_H}"]) + 0.1,
+            f"score_{_H} rises from rank {_a[f'rank_{_H}']} to {_b[f'rank_{_H}']} ({_a[f'score_{_H}']} -> {_b[f'score_{_H}']})")
+# 6.27 every listing in the pool carries a day count and the date it was read, so the page can
+# count days on market forward from the listing date instead of printing a number that goes stale.
+for _o in _all:
+    if not S.in_pool(_o): continue
+    chk(isinstance(_o.get("dom"), int) and bool(_o.get("dom_date")),
+        f"{_o['slug']}: no dom with a dom_date (read 'Days on OneHome' and record the date)")
 
 print("PASS" if not fails else "FAIL"); [print(" -",f) for f in fails]; sys.exit(1 if fails else 0)
